@@ -1,33 +1,81 @@
 # Codegate
 
-Codegate is a proposed Rust implementation of a language-neutral code-quality system.
-Language bindings produce typed facts about code and execution evidence. Shared
-analyses derive metrics and shared checkers evaluate policy against that IR.
+Codegate evaluates language-neutral dependency facts against shared quality rules.
+Language bindings will produce facts; the current first slice reads normalized JSON
+offline. No Rust or Go source extractor is shipped yet.
 
-```text
-source + tool evidence
-         |
-    language binding
-         |
-    validated fact IR
-         |
- shared analyses + policy checks
-         |
- metrics + findings + verdicts
+The implementation is Rust. Its domain and examples live in [ESS](ess/README.md);
+behavior and wire models are generated from that contract. The broader design and
+backlog live in `.engineering/planning/` and are managed with `aep plan artifact`.
+
+## Evaluate
+
+```console
+cargo run --locked --bin codegate -- evaluate --facts facts.json --policy policy.json
+cargo run --locked --bin codegate -- evaluate --facts facts.json --policy policy.json --out report.json
 ```
 
-Rust is the first binding. Other languages use the same fact contract and checkers;
-each binding declares the facts it supports and each snapshot records what was
-actually observed. Unknown or missing facts never silently become zero violations.
+The facts document identifies the source/configuration, producer, units, dependency
+edges and evidence coverage. The policy binds the expected source/configuration,
+selects a dependency kind and names forbidden source/target tuples. See the `input`
+of [one-runtime-edge](ess/scenarios/one-runtime-edge.yaml) for both documents, and
+[forbidden-runtime-edge](ess/scenarios/forbidden-runtime-edge.yaml) for a policy failure.
 
-This repository is at the design stage. The authoritative records are:
+Reports contain the applied policy, coverage, unique destination fan-out per unit,
+traceable forbidden-edge findings and diagnostics. Complete passing evidence exits
+0; a complete policy failure exits 1; incomplete, unsupported, failed or invalid
+input exits 2. A witnessed violation with partial coverage stays a Fail but exits 2.
+Missing evidence never becomes a measured zero. Structural JSON refusal emits a
+stderr diagnostic and no report. Each document is limited to 4 MiB; snapshots to
+10,000 units and 50,000 edges.
 
-- [Product intent](.engineering/planning/vision/language-neutral-code-quality.md)
-- [First architecture design](.engineering/planning/architecture-design/language-neutral-fact-ir.md)
+The `/0.1` JSON formats are experimental. Source/configuration IDs are compared as
+producer assertions; Codegate does not claim to verify source bytes or provenance.
+Facts marked Go, Rust or arbitrary labels take the same evaluation path. The Go
+example demonstrates shared-checker independence, not an implemented Go binding.
 
-The [first ESS dependency contract](ess/README.md) now has 26 authored scenarios.
-The [first-wave proposal](.engineering/planning/design/first-wave-offline-dependency.md)
-selects one end-to-end offline evaluation story. These are draft contracts and work;
-no executable implementation or executed conformance result exists yet.
+## Verify
 
-Validate with `aep plan artifact validate` and `ess specify validate --path ess`.
+Install Rust 1.98.1, ESS 0.50.0, AEP and Task, then run:
+
+```console
+task check
+```
+
+The Rust gate checks the planning store and ESS, regenerates both contract crates,
+normalizes generated Rust with the pinned rustfmt, checks byte drift, runs the real
+Rust ESS target across all 27 combined scenarios, runs boundary/CLI regressions,
+and checks formatting and Clippy including generated crates. Every step prints its
+own exit status. No built-in ESS reference implementation substitutes for Codegate.
+
+`target/conformance/suite.json` and `report.json` pair the exact admitted suite with
+its native count report; `run.json` records scenario results. Synthesis explicitly
+uses `--suite-format 5` so the current direct-response contract produces coverage
+inventory in `ess-conformance/29`. A green gate requires 27 passed, zero other
+outcomes, complete selection and matching regenerated suite bytes. This establishes
+the declared suite, not exhaustive correctness of every possible graph.
+
+The ESS generators expose two Rust representations. The explicit bridge in
+`src/wire.rs` maps generated names/enums/records and checks fan-out integrality and
+bounds. ESS wire projection uses omitted properties for `Optional`; the offline
+format also accepts null for edge target absence and emits null for unknown metrics.
+Only these declared optional fields are normalized. Generated source remains owned
+by the regeneration pipeline; change ESS inputs rather than hand-editing it.
+
+The generated `EvaluateBehavior` seam returns an outcome only. The local adapter
+retains that invocation's generated typed response, which the CLI and conformance
+target consume. The underlying evaluator is a pure function; admission constructs
+an inaccessible validated graph before analysis/checking.
+
+ESS 0.50.0 emits an equivalent manual `Default` implementation for `EssPresence<T>`.
+The generated wire crate's Clippy lane allows only `clippy::derivable_impls`; root
+and generated behavior still enforce every warning. Generated byte drift is strict.
+
+The gate admits evidence only from its dedicated conformance invocation under
+`target/codegate-check-<pid>/conformance/`. A missing, ignored or unselected producer
+cannot reuse `target/conformance/report.json`. It verifies the exact suite bytes and
+SHA-256 digest, model/implementation identities, full counts and selection, and an
+observed completion timestamp within that invocation. Standalone tests still retain
+their most recent report under `target/conformance/`. Timing lives in the harness;
+the evaluator reads no clock. ESS `.ess-output/` ownership state describes its local
+output directory and is ignored; generated product files remain strictly compared.

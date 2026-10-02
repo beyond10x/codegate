@@ -1,0 +1,302 @@
+{
+  "format": "ess-types-report/3",
+  "source_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+  "input": {
+    "kind": "model",
+    "system": "codegate",
+    "specification_version": "v1",
+    "contract_digest": "slice-sha256/2:880b21f86f1130f9a88745cd40f759f7b0f7957d1c15bd9b44ce3be2e12de1d2",
+    "projection_digest": "418ac84564e5046e7daa322056fe34db96824fe2b31ff0555ddb708fe84400d9"
+  },
+  "generator_version": "0.50.0",
+  "target": "rust",
+  "configuration": {
+    "language": "rust",
+    "package": "codegate-contract"
+  },
+  "roots": [
+    "codegate.dependency.Coverage",
+    "codegate.dependency.CoverageStatus",
+    "codegate.dependency.DependencyKind",
+    "codegate.dependency.Diagnostic",
+    "codegate.dependency.DiagnosticCode",
+    "codegate.dependency.Edge",
+    "codegate.dependency.EdgeId",
+    "codegate.dependency.Evaluation",
+    "codegate.dependency.FactSnapshot",
+    "codegate.dependency.FanOut",
+    "codegate.dependency.Finding",
+    "codegate.dependency.ForbiddenDependency",
+    "codegate.dependency.Policy",
+    "codegate.dependency.Unit",
+    "codegate.dependency.UnitId",
+    "codegate.dependency.Verdict"
+  ],
+  "declarations": {
+    "codegate.dependency.Coverage": "CodegateDependencyCoverage",
+    "codegate.dependency.CoverageStatus": "CodegateDependencyCoverageStatus",
+    "codegate.dependency.DependencyKind": "CodegateDependencyDependencyKind",
+    "codegate.dependency.Diagnostic": "CodegateDependencyDiagnostic",
+    "codegate.dependency.DiagnosticCode": "CodegateDependencyDiagnosticCode",
+    "codegate.dependency.Edge": "CodegateDependencyEdge",
+    "codegate.dependency.EdgeId": "CodegateDependencyEdgeId",
+    "codegate.dependency.Evaluation": "CodegateDependencyEvaluation",
+    "codegate.dependency.FactSnapshot": "CodegateDependencyFactSnapshot",
+    "codegate.dependency.FanOut": "CodegateDependencyFanOut",
+    "codegate.dependency.Finding": "CodegateDependencyFinding",
+    "codegate.dependency.ForbiddenDependency": "CodegateDependencyForbiddenDependency",
+    "codegate.dependency.Policy": "CodegateDependencyPolicy",
+    "codegate.dependency.Unit": "CodegateDependencyUnit",
+    "codegate.dependency.UnitId": "CodegateDependencyUnitId",
+    "codegate.dependency.Verdict": "CodegateDependencyVerdict"
+  },
+  "annotations": [
+    {
+      "pointer": "/$defs/codegate.dependency.Coverage/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Coverage/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Coverage/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.CoverageStatus/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.CoverageStatus/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.CoverageStatus/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DependencyKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DependencyKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DependencyKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Diagnostic/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Diagnostic/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Diagnostic/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DiagnosticCode/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DiagnosticCode/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.DiagnosticCode/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Edge/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Edge/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Edge/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.EdgeId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.EdgeId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.EdgeId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Evaluation/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Evaluation/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Evaluation/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FactSnapshot/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FactSnapshot/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FactSnapshot/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FanOut/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FanOut/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FanOut/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Finding/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Finding/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Finding/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.ForbiddenDependency/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.ForbiddenDependency/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.ForbiddenDependency/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Policy/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Policy/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Policy/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Unit/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Unit/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Unit/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.UnitId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.UnitId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.UnitId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Verdict/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Verdict/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.Verdict/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    }
+  ],
+  "obligations": [
+    {
+      "pointer": "/$defs/codegate.dependency.FanOut/properties/value",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    }
+  ]
+}

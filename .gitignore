@@ -1,2 +1,5 @@
 /.scratch/
 /target/
+/generated/**/target/
+/generated/**/Cargo.lock
+/generated/*/.ess-output/

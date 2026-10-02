@@ -1,0 +1,14 @@
+# generated from codegate v1
+# model digest e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93
+# contract digest df71e33e5abc7d133716034004ba68a3a08d1c620351660f3940aa973a3c93b8
+# do not edit: regenerate with `ess synthesize --layout crate`
+
+[package]
+name = "codegate"
+description = "The `codegate` specification, v1, synthesised as one crate."
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+
+[workspace]

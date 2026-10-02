@@ -1,0 +1,385 @@
+{
+  "$defs": {
+    "codegate.dependency.Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "gaps": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/codegate.dependency.CoverageStatus"
+        }
+      },
+      "required": [
+        "status",
+        "gaps"
+      ],
+      "title": "Coverage",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Coverage"
+    },
+    "codegate.dependency.CoverageStatus": {
+      "enum": [
+        "Complete",
+        "Partial",
+        "Unsupported",
+        "Failed"
+      ],
+      "title": "CoverageStatus",
+      "type": "string",
+      "x-ess-kind": "enum",
+      "x-ess-name": "codegate.dependency.CoverageStatus"
+    },
+    "codegate.dependency.DependencyKind": {
+      "enum": [
+        "Runtime",
+        "Build",
+        "Test"
+      ],
+      "title": "DependencyKind",
+      "type": "string",
+      "x-ess-kind": "enum",
+      "x-ess-name": "codegate.dependency.DependencyKind"
+    },
+    "codegate.dependency.Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/codegate.dependency.DiagnosticCode"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "subject"
+      ],
+      "title": "Diagnostic",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Diagnostic"
+    },
+    "codegate.dependency.DiagnosticCode": {
+      "enum": [
+        "InvalidFormat",
+        "EmptyIdentity",
+        "DuplicateUnit",
+        "DuplicateEdge",
+        "DanglingSource",
+        "DanglingTarget",
+        "InvalidTarget",
+        "InvalidCoverage",
+        "InvalidPolicy",
+        "SourceMismatch",
+        "ConfigurationMismatch",
+        "PartialCoverage",
+        "UnsupportedCoverage",
+        "FailedCoverage"
+      ],
+      "title": "DiagnosticCode",
+      "type": "string",
+      "x-ess-kind": "enum",
+      "x-ess-name": "codegate.dependency.DiagnosticCode"
+    },
+    "codegate.dependency.Edge": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/codegate.dependency.EdgeId"
+        },
+        "kind": {
+          "$ref": "#/$defs/codegate.dependency.DependencyKind"
+        },
+        "source": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "target": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "unresolved_target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "kind"
+      ],
+      "title": "Edge",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Edge"
+    },
+    "codegate.dependency.EdgeId": {
+      "title": "EdgeId",
+      "type": "string",
+      "x-ess-kind": "newtype",
+      "x-ess-name": "codegate.dependency.EdgeId"
+    },
+    "codegate.dependency.Evaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "checker_id": {
+          "type": "string"
+        },
+        "configuration_id": {
+          "type": "string"
+        },
+        "coverage": {
+          "$ref": "#/$defs/codegate.dependency.CoverageStatus"
+        },
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.Diagnostic"
+          },
+          "type": "array"
+        },
+        "fan_out": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.FanOut"
+          },
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.Finding"
+          },
+          "type": "array"
+        },
+        "format": {
+          "type": "string"
+        },
+        "metric_id": {
+          "type": "string"
+        },
+        "policy": {
+          "$ref": "#/$defs/codegate.dependency.Policy"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "verdict": {
+          "$ref": "#/$defs/codegate.dependency.Verdict"
+        }
+      },
+      "required": [
+        "format",
+        "source_id",
+        "configuration_id",
+        "policy",
+        "metric_id",
+        "checker_id",
+        "coverage",
+        "verdict",
+        "fan_out",
+        "findings",
+        "diagnostics"
+      ],
+      "title": "Evaluation",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Evaluation"
+    },
+    "codegate.dependency.FactSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "type": "string"
+        },
+        "coverage": {
+          "$ref": "#/$defs/codegate.dependency.Coverage"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.Edge"
+          },
+          "type": "array"
+        },
+        "format": {
+          "type": "string"
+        },
+        "producer": {
+          "type": "string"
+        },
+        "producer_version": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "units": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.Unit"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "format",
+        "source_id",
+        "configuration_id",
+        "producer",
+        "producer_version",
+        "units",
+        "edges",
+        "coverage"
+      ],
+      "title": "FactSnapshot",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.FactSnapshot"
+    },
+    "codegate.dependency.FanOut": {
+      "additionalProperties": false,
+      "properties": {
+        "unit_id": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "unit_id"
+      ],
+      "title": "FanOut",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.FanOut"
+    },
+    "codegate.dependency.Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "edge_id": {
+          "$ref": "#/$defs/codegate.dependency.EdgeId"
+        },
+        "kind": {
+          "$ref": "#/$defs/codegate.dependency.DependencyKind"
+        },
+        "source": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "target": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        }
+      },
+      "required": [
+        "edge_id",
+        "source",
+        "target",
+        "kind"
+      ],
+      "title": "Finding",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Finding"
+    },
+    "codegate.dependency.ForbiddenDependency": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/codegate.dependency.DependencyKind"
+        },
+        "source": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "target": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "kind"
+      ],
+      "title": "ForbiddenDependency",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.ForbiddenDependency"
+    },
+    "codegate.dependency.Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "dependency_kind": {
+          "$ref": "#/$defs/codegate.dependency.DependencyKind"
+        },
+        "expected_configuration_id": {
+          "type": "string"
+        },
+        "expected_source_id": {
+          "type": "string"
+        },
+        "forbidden": {
+          "items": {
+            "$ref": "#/$defs/codegate.dependency.ForbiddenDependency"
+          },
+          "type": "array"
+        },
+        "format": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "format",
+        "expected_source_id",
+        "expected_configuration_id",
+        "dependency_kind",
+        "forbidden"
+      ],
+      "title": "Policy",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Policy"
+    },
+    "codegate.dependency.Unit": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/codegate.dependency.UnitId"
+        },
+        "language": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "language"
+      ],
+      "title": "Unit",
+      "type": "object",
+      "x-ess-kind": "struct",
+      "x-ess-name": "codegate.dependency.Unit"
+    },
+    "codegate.dependency.UnitId": {
+      "title": "UnitId",
+      "type": "string",
+      "x-ess-kind": "newtype",
+      "x-ess-name": "codegate.dependency.UnitId"
+    },
+    "codegate.dependency.Verdict": {
+      "enum": [
+        "Pass",
+        "Fail",
+        "Incomplete",
+        "Unsupported",
+        "Error"
+      ],
+      "title": "Verdict",
+      "type": "string",
+      "x-ess-kind": "enum",
+      "x-ess-name": "codegate.dependency.Verdict"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-ess-provenance": {
+    "contract_digest": "slice-sha256/2:880b21f86f1130f9a88745cd40f759f7b0f7957d1c15bd9b44ce3be2e12de1d2",
+    "source_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+    "specification_version": "v1",
+    "system": "codegate"
+  }
+}

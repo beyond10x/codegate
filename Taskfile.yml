@@ -1,0 +1,8 @@
+version: '3'
+tasks:
+  check:
+    desc: Validate specifications, projections, actual conformance and Rust quality
+    cmds:
+      - cargo run --locked --bin codegate-check
+    env:
+      CARGO_BUILD_JOBS: '2'

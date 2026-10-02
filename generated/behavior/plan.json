@@ -1,0 +1,145 @@
+{
+  "provenance": {
+    "system": "codegate",
+    "specification_version": "v1",
+    "source_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+    "contract_digest": "df71e33e5abc7d133716034004ba68a3a08d1c620351660f3940aa973a3c93b8"
+  },
+  "scope": {
+    "profile": "component-skeletons",
+    "layout": "crate"
+  },
+  "capabilities": [
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Coverage",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.CoverageStatus",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.DependencyKind",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Diagnostic",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.DiagnosticCode",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Edge",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.EdgeId",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Evaluation",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.FactSnapshot",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.FanOut",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Finding",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.ForbiddenDependency",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Policy",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Unit",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.UnitId",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "domain_type",
+      "source": "codegate.dependency.Verdict",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "command_contract",
+      "source": "codegate.dependency.Evaluate",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "command_behavior",
+      "source": "codegate.dependency.Evaluate",
+      "disposition": {
+        "disposition": "obligation",
+        "reason": {
+          "class": "undetermined",
+          "construct": "a typed response (`response:`)"
+        },
+        "contract": "given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise"
+      }
+    }
+  ]
+}
