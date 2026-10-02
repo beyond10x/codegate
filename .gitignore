@@ -3,3 +3,5 @@
 /generated/**/target/
 /generated/**/Cargo.lock
 /generated/*/.ess-output/
+/website/build/
+/dist/

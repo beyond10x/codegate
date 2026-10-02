@@ -1,5 +1,8 @@
 # Codegate
 
+[Documentation](https://beyond10x.github.io/codegate/) ·
+[Releases](https://github.com/beyond10x/codegate/releases)
+
 Codegate evaluates language-neutral dependency facts against shared quality rules.
 Language bindings will produce facts; the current first slice reads normalized JSON
 offline. No Rust or Go source extractor is shipped yet.

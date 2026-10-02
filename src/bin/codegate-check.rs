@@ -359,6 +359,12 @@ fn check() -> Result<(), String> {
         }
         step("Clippy generated", "cargo", &lint_args, &root)?;
     }
+    step(
+        "public documentation",
+        "cargo",
+        &["run", "--locked", "--bin", "codegate-docs", "--", "check"],
+        &root,
+    )?;
     Ok(())
 }
 fn main() -> ExitCode {

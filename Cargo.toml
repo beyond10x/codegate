@@ -2,6 +2,10 @@
 name = "codegate-cli"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.98"
+description = "Language-neutral dependency facts, shared analysis and quality checks"
+repository = "https://github.com/beyond10x/codegate"
+homepage = "https://beyond10x.github.io/codegate/"
 publish = false
 
 [lib]

@@ -1,5 +1,12 @@
 version: '3'
 tasks:
+  site-build:
+    desc: Build public documentation with exact source provenance
+    vars:
+      SITE_COMMIT:
+        sh: git rev-parse HEAD
+    cmds:
+      - cargo run --locked --bin codegate-docs -- build --out website/build --commit {{.SITE_COMMIT}}
   check:
     desc: Validate specifications, projections, actual conformance and Rust quality
     cmds:

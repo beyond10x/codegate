@@ -45,6 +45,30 @@ Known upstream style exception: the generated wire crate's Clippy invocation add
 manual `EssPresence<T>` Default implementation. No root/behavior exception applies;
 never hand-edit generated source to satisfy that style lint.
 
+## Public delivery
+
+Codegate is enrolled in common Gates. Use coordinated hooks, `b10x-gates bot`,
+signed `check` receipts and `publish`; private policy and signing keys remain outside
+this repository. Inspect all new history, not only the final tree. Published history
+redacts personal filesystem paths in historical diagnostic logs; original local
+evidence is retained in recovery archives. Product behavior and evidence counts are
+unchanged by that publication redaction.
+
+`website/` is the public documentation source. `codegate-docs` is its Rust builder;
+`task site-build` emits a static site plus exact source provenance. `pages.yml` builds
+without credentials and `b10x-docs-site.yml` calls the pinned shared project-site
+publisher for `/codegate/`. Never add App credentials to this repository. Verify
+both live provenance documents before reporting documentation published.
+
+Versions use bare annotated tags matching Cargo metadata, starting at `0.1.0`.
+Run `task check`, publish signed common Gates evidence for the exact commit/tag,
+and verify the required GitHub checks. `release-build.yml` builds the Linux x86_64
+archive and SHA256SUMS without publication credentials. The operator's authorized
+release uses the bot-authenticated Gates delivery route to create the GitHub Release
+and upload those verified artifacts. Verify release author, exact tag and downloaded
+checksums before reporting released. Do not publish a release merely because a tag
+was pushed.
+
 Do not commit ESS `.ess-output/` directory ownership state. It is local generator
 management metadata, excluded only at each generated crate root. All generated
 product/plan/schema/obligation bytes remain checked. The integration gate must run

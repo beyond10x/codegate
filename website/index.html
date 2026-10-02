@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Codegate evaluates language-neutral dependency facts against shared quality rules. Explore the fact contract, run an offline check, and understand its evidence.">
+  <meta name="theme-color" content="#132523">
+  <link rel="canonical" href="https://beyond10x.github.io/codegate/">
+  <link rel="stylesheet" href="/codegate/styles.css">
+  <title>Codegate — shared quality rules, across languages</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="wordmark" href="#main"><span class="mark" aria-hidden="true">C</span>Codegate<span class="byline">/ beyond10x</span></a>
+  <nav aria-label="Primary"><a href="#architecture">Architecture</a><a href="#quickstart">Get started</a><a href="#results">Results</a><a href="#contract">Contract</a><a href="https://github.com/beyond10x/codegate">GitHub ↗</a></nav>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero" aria-labelledby="title">
+  <div><p class="eyebrow"><span class="dot"></span> Version 0.1.0 · offline dependency evaluation</p><h1>Different languages.<br><em>Shared quality rules.</em></h1><p class="lede">Describe dependencies as typed facts. Codegate validates the graph, measures fan-out, and checks forbidden dependencies through one language-neutral core.</p><div class="actions"><a class="button" href="#quickstart">Run your first check <span aria-hidden="true">→</span></a><a class="text-button" href="#architecture">Explore the model ↓</a></div><p class="quiet">Built in Rust · Specified in ESS · Deterministic JSON reports</p></div>
+  <div class="terminal"><div class="terminal-bar"><span aria-hidden="true">● ● ●</span><span>facts + policy → report</span></div><pre tabindex="0" aria-label="Example evaluation command and selected report fields"><code><span class="comment"># Evaluate normalized facts.</span>
+<span class="prompt">$</span> codegate evaluate \
+    --facts facts.json \
+    --policy policy.json
+
+<span class="comment"># Selected report fields:</span>
+"coverage": "Complete",
+"verdict": "Pass",
+"fan_out": [
+  { "unit_id": "core", "value": 1 },
+  { "unit_id": "io",   "value": 0 }
+]</code></pre><div class="terminal-foot"><span class="dot"></span> The same facts produce the same result.</div></div>
+</section>
+<section id="architecture" class="section">
+  <div class="section-heading"><p class="eyebrow">01 / Architecture</p><h2>A small core with a clear boundary.</h2><p>Language bindings supply observations. Shared analyses and checkers operate on an admitted intermediate representation (IR), independent of language syntax.</p></div>
+  <figure class="pipeline" aria-describedby="pipeline-caption"><ol><li><span class="flow-label">01 / Input</span><h3>Typed facts</h3><p>Units, edges, source identity and coverage, supplied as JSON.</p></li><li><span class="flow-label">02 / Admission</span><h3>Validated graph</h3><p>Check identities, references, policy and evidence consistency.</p></li><li><span class="flow-label">03 / Evaluation</span><h3>Shared rules</h3><p>Measure unique fan-out and find forbidden dependency edges.</p></li><li><span class="flow-label">04 / Output</span><h3>One report</h3><p>Exact policy, coverage, verdict, metrics and traceable findings.</p></li></ol><figcaption id="pipeline-caption">The core reads no source files, invokes no compiler and chooses no algorithm from a language label.</figcaption></figure>
+  <div class="notice"><strong>What ships today</strong><p>Version 0.1.0 consumes normalized JSON offline. Rust and Go source collectors are future work. A producer may label units with any language; those labels take the same evaluation path. Supporting a new language means supplying facts that satisfy this contract, including honest coverage.</p></div>
+  <div class="cards"><article><span class="card-number">01</span><h3>Measure destinations</h3><p>Fan-out counts distinct resolved destinations for the selected dependency kind. Repeated imports count once. Self-edges count too.</p></article><article><span class="card-number">02</span><h3>Keep the evidence</h3><p>A forbidden dependency produces a finding for each observed edge, with its ID and endpoints. Separate occurrences remain traceable.</p></article><article><span class="card-number">03</span><h3>Preserve uncertainty</h3><p>Incomplete facts never become a passing check or a measured zero. Reports distinguish partial, unsupported and failed collection.</p></article></div>
+</section>
+<section id="quickstart" class="section">
+  <div class="section-heading"><p class="eyebrow">02 / Get started</p><h2>Run an offline check.</h2><p>The example below has two units and one runtime dependency from <code>core</code> to <code>io</code>.</p></div>
+  <ol class="steps">
+    <li><div><h3>Install Codegate 0.1.0</h3><p>Download the x86-64 Linux archive and checksum list from the <a href="https://github.com/beyond10x/codegate/releases/tag/v0.1.0">0.1.0 release</a>. The prebuilt binary targets GNU/Linux.</p><pre tabindex="0" aria-label="Download and verify the Linux release"><code>curl -fLO https://github.com/beyond10x/codegate/releases/download/v0.1.0/codegate-0.1.0-x86_64-unknown-linux-gnu.tar.gz
+curl -fLO https://github.com/beyond10x/codegate/releases/download/v0.1.0/SHA256SUMS
+sha256sum --check --ignore-missing SHA256SUMS
+tar -xzf codegate-0.1.0-x86_64-unknown-linux-gnu.tar.gz
+./codegate --version</code></pre><p>Put the extracted <code>codegate</code> binary on your <code>PATH</code>, or use <code>./codegate</code> in the commands below.</p><details><summary>Build from source instead</summary><p>Install the pinned Rust 1.98.1 toolchain. Evaluating facts needs no ESS or AEP installation.</p><pre tabindex="0" aria-label="Build Codegate from source"><code>git clone --branch v0.1.0 https://github.com/beyond10x/codegate.git
+cd codegate
+cargo build --locked --release --bin codegate
+./target/release/codegate --version</code></pre><p>Use <code>./target/release/codegate</code> in place of <code>codegate</code> below.</p></details></div></li>
+    <li><div><h3>Save the facts</h3><p>Copy this complete document to <code>facts.json</code>. Unit IDs are local to this snapshot; every resolved edge points to a listed unit.</p><figure class="code-example"><figcaption>facts.json</figcaption><pre tabindex="0" aria-label="Complete facts JSON example"><code>{
+  "format": "codegate-dependency-facts/0.1",
+  "source_id": "example-source",
+  "configuration_id": "default",
+  "producer": "example",
+  "producer_version": "1",
+  "units": [
+    { "id": "core", "language": "rust" },
+    { "id": "io", "language": "rust" }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "core",
+      "target": "io",
+      "unresolved_target": null,
+      "kind": "Runtime"
+    }
+  ],
+  "coverage": { "status": "Complete", "gaps": [] }
+}</code></pre></figure></div></li>
+    <li><div><h3>Choose a policy</h3><p>Save this as <code>policy.json</code>. It selects runtime edges and allows every dependency. Source and configuration IDs must match the facts.</p><figure class="code-example"><figcaption>policy.json</figcaption><pre tabindex="0" aria-label="Complete policy JSON example"><code>{
+  "format": "codegate-dependency-policy/0.1",
+  "expected_source_id": "example-source",
+  "expected_configuration_id": "default",
+  "dependency_kind": "Runtime",
+  "forbidden": []
+}</code></pre></figure></div></li>
+    <li><div><h3>Evaluate, then try a violation</h3><pre tabindex="0" aria-label="Evaluate the example"><code>codegate evaluate --facts facts.json --policy policy.json
+codegate evaluate --facts facts.json --policy policy.json --out report.json</code></pre><p>The report says <code>Pass</code>, the process exits <code>0</code>, and fan-out is <code>1</code> for <code>core</code> and <code>0</code> for <code>io</code>. The optional <code>--out</code> writes the report to a file instead of stdout.</p><p>Replace the policy’s empty <code>forbidden</code> array with this rule and run again:</p><pre tabindex="0" aria-label="Forbidden dependency rule"><code>"forbidden": [
+  { "source": "core", "target": "io", "kind": "Runtime" }
+]</code></pre><p>Now the verdict is <code>Fail</code>, the process exits <code>1</code>, and the finding identifies edge <code>e1</code>. Its fan-out remains <code>1</code>.</p></div></li>
+  </ol>
+</section>
+<section id="results" class="section">
+  <div class="section-heading"><p class="eyebrow">03 / Results and CI</p><h2>A verdict carries its coverage.</h2><p>Check both the result and the available evidence. The CLI exit status lets a CI job distinguish a complete policy failure from an evaluation that could not complete.</p></div>
+  <div class="table-wrap" tabindex="0" aria-label="Scrollable result semantics table"><table><caption>Results for an admitted snapshot</caption><thead><tr><th scope="col">Coverage</th><th scope="col">Observed violation</th><th scope="col">Verdict</th><th scope="col">Fan-out</th><th scope="col">Exit</th></tr></thead><tbody><tr><td>Complete</td><td>No</td><td><code>Pass</code></td><td>Exact integers</td><td><code>0</code></td></tr><tr><td>Complete</td><td>Yes</td><td><code>Fail</code></td><td>Exact integers</td><td><code>1</code></td></tr><tr><td>Partial</td><td>No</td><td><code>Incomplete</code></td><td><code>null</code> per unit</td><td><code>2</code></td></tr><tr><td>Partial</td><td>Yes</td><td><code>Fail</code></td><td><code>null</code> per unit</td><td><code>2</code></td></tr><tr><td>Unsupported</td><td>None collected</td><td><code>Unsupported</code></td><td><code>null</code> per unit</td><td><code>2</code></td></tr><tr><td>Failed</td><td>None collected</td><td><code>Error</code></td><td>No metrics</td><td><code>2</code></td></tr></tbody></table></div>
+  <p class="aside">A witnessed violation with partial coverage remains a <code>Fail</code>, while exit <code>2</code> preserves the incomplete evidence. Partial, unsupported and failed results include a coverage diagnostic.</p>
+  <div class="cards two"><article><h3>Invalid graph or policy</h3><p>Semantic admission failures return an <code>Error</code> report, diagnostics and empty metrics/findings, with exit <code>2</code>. Examples include duplicate unit IDs, dangling references and mismatched source IDs.</p></article><article><h3>Invalid JSON document</h3><p>Malformed JSON, duplicate object keys, unknown fields or types, and exceeded input limits produce a stderr diagnostic and exit <code>2</code>, without an evaluation report.</p></article></div>
+</section>
+<section id="contract" class="section">
+  <div class="section-heading"><p class="eyebrow">04 / Fact contract</p><h2>Explicit values. Shared meaning.</h2><p>The dependency formats are experimental. Version 0.1.0 implements this dependency slice; it does not promise a stable universal IR yet.</p></div>
+  <div class="table-wrap" tabindex="0" aria-label="Scrollable format identifier table"><table><caption>Versioned identifiers</caption><thead><tr><th scope="col">Purpose</th><th scope="col">Identifier</th></tr></thead><tbody><tr><td>Facts</td><td><code>codegate-dependency-facts/0.1</code></td></tr><tr><td>Policy</td><td><code>codegate-dependency-policy/0.1</code></td></tr><tr><td>Report</td><td><code>codegate-dependency-report/0.1</code></td></tr><tr><td>Metric</td><td><code>dependency.unique-fan-out/1</code></td></tr><tr><td>Checker</td><td><code>dependency.forbidden-edge/1</code></td></tr></tbody></table></div>
+  <div class="boundary-grid"><article><h3>Graph identities</h3><p>Unit and edge IDs are nonempty and unique within their respective lists. Every edge source must exist. Each edge has exactly one nonempty resolved <code>target</code> or <code>unresolved_target</code>; a resolved target must exist.</p></article><article><h3>Dependency kinds</h3><p>Edges use <code>Runtime</code>, <code>Build</code> or <code>Test</code>. The policy selects one kind. All forbidden rules must use that kind and refer to existing units; duplicate rules are refused.</p></article><article><h3>Coverage obligations</h3><p>All statuses require the complete selected unit inventory. <code>Complete</code> has no gaps or unresolved targets. <code>Partial</code> names at least one gap. <code>Unsupported</code> and <code>Failed</code> name a gap and contain no edges.</p></article><article><h3>Identity and bounds</h3><p>Source and configuration IDs are producer assertions compared for equality; they do not verify source bytes or authenticity. Each document is limited to 4 MiB, with at most 10,000 units and 50,000 edges per snapshot.</p></article></div>
+  <p>Reports copy the applied policy, echo source/configuration IDs, and include the metric and checker IDs. Unit metrics sort by unit ID; findings sort by edge ID. The evaluator keeps behavior independent of input ordering and language labels.</p>
+  <p>Read the <a href="https://github.com/beyond10x/codegate/blob/main/ess/README.md">full dependency semantics</a> and <a href="https://github.com/beyond10x/codegate/tree/main/ess/scenarios">executable examples</a> for admission ordering and complete responses.</p>
+</section>
+<section id="verification" class="section contract">
+  <div><p class="eyebrow">05 / Executable specification</p><h2>Inspect the contract.<br>Exercise the implementation.</h2><p><a href="https://beyond10x.github.io/ess/">ESS</a> defines the values and evaluation command. Codegate generates its Rust behavior and wire contracts from that source, then runs the actual evaluator against authored examples.</p><a class="text-button" href="https://github.com/beyond10x/codegate/tree/main/ess">Explore the specification ↗</a></div>
+  <div class="contract-panel"><div class="metric"><strong>27</strong><span>combined conformance scenarios<br>required to execute and pass</span></div><pre tabindex="0" aria-label="Run contributor verification"><code>task check</code></pre><p>Contributor checks require Rust 1.98.1, ESS 0.50.0, AEP and Task. The gate validates contracts, checks generated drift, exercises conformance, and runs Rust tests, formatting and Clippy. The suite establishes its declared cases; it is not an exhaustive proof for every graph.</p></div>
+</section>
+<section id="next" class="section"><div class="section-heading"><p class="eyebrow">06 / Current scope</p><h2>Start with dependencies.</h2><p>Source extraction, cross-language resolution, cycle checks, baselines, waivers and external tool diagnostics remain future work. Today, you can produce normalized dependency facts and use one shared policy engine to evaluate them.</p></div><a class="button" href="https://github.com/beyond10x/codegate/issues">Discuss a binding or rule <span aria-hidden="true">↗</span></a></section>
+</main>
+<footer><a class="wordmark" href="#main">Codegate</a><p>A beyond10x project. Built in Rust. Specified in ESS.</p><div><a href="https://github.com/beyond10x/codegate">Source</a><a href="https://github.com/beyond10x/codegate/releases">Releases</a><a href="https://beyond10x.github.io/ess/">ESS</a></div></footer>
+</body>
+</html>
