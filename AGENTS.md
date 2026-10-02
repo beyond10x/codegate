@@ -3,7 +3,8 @@
 Codegate is a language-neutral fact IR and quality-analysis system. Language bindings
 produce facts; shared analyses and checkers consume validated IR. Rust is the first
 binding, not a dependency of the semantic core. This repository currently contains a
-first design only; no implementation or conformance result is claimed.
+design and a draft ESS dependency contract; no implementation or executed conformance
+result is claimed.
 
 ## Engineering rules
 
@@ -23,6 +24,14 @@ first design only; no implementation or conformance result is claimed.
 
 ## Validation at this stage
 
-Run `aep plan artifact validate`. ESS validation, generated-contract drift checking,
-conformance, formatting, linting and Rust tests join `task check` when those surfaces
-are introduced. Do not create placeholder green checks for absent implementation.
+Run `aep plan artifact validate` and `ess specify validate --path ess`. Compile the
+authored and combined suites with `ess verify conform author` and `synthesize`, using
+`--path ess --scenarios ess --out <scratch-file>`. This is contract validation, not
+executed conformance. Generated-contract drift checking, actual conformance,
+formatting, linting and Rust tests join `task check` in the first implementation.
+Do not create placeholder green checks for absent implementation.
+
+The first wave uses ESS 0.50.0 and Rust 1.98.1, isolated build directories, two Cargo
+jobs per build and the installed compiler cache. Recheck at least 20 GiB free disk
+before implementation. Unit workers read `ess/` as the contract and return semantic
+disagreements to the coordinator instead of changing expected scenario responses.

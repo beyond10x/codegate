@@ -25,7 +25,9 @@ This repository is at the design stage. The authoritative records are:
 - [Product intent](.engineering/planning/vision/language-neutral-code-quality.md)
 - [First architecture design](.engineering/planning/architecture-design/language-neutral-fact-ir.md)
 
-The next design step is a validated ESS domain and named conformance scenarios,
-followed by AEP implementation stories. No executable implementation exists yet.
+The [first ESS dependency contract](ess/README.md) now has 26 authored scenarios.
+The [first-wave proposal](.engineering/planning/design/first-wave-offline-dependency.md)
+selects one end-to-end offline evaluation story. These are draft contracts and work;
+no executable implementation or executed conformance result exists yet.
 
-Validate the planning store with `aep plan artifact validate`.
+Validate with `aep plan artifact validate` and `ess specify validate --path ess`.

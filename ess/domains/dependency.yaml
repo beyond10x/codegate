@@ -1,0 +1,110 @@
+domain: codegate.dependency
+summary: Immutable dependency fact values and an offline, language-independent evaluation.
+
+# These are value records, not persisted entities. Containment is typed composition.
+# Unit/edge identifier references are admitted by the Rust evaluator, with named
+# authored scenarios; an ID field does not imply an ESS entity relation.
+types:
+  - name: codegate.dependency.UnitId
+    kind: newtype
+    of: String
+  - name: codegate.dependency.EdgeId
+    kind: newtype
+    of: String
+  - name: codegate.dependency.DependencyKind
+    kind: enum
+    variants: [Runtime, Build, Test]
+  - name: codegate.dependency.CoverageStatus
+    kind: enum
+    variants: [Complete, Partial, Unsupported, Failed]
+  - name: codegate.dependency.Verdict
+    kind: enum
+    variants: [Pass, Fail, Incomplete, Unsupported, Error]
+  - name: codegate.dependency.DiagnosticCode
+    kind: enum
+    variants: [InvalidFormat, EmptyIdentity, DuplicateUnit, DuplicateEdge, DanglingSource, DanglingTarget, InvalidTarget, InvalidCoverage, InvalidPolicy, SourceMismatch, ConfigurationMismatch, PartialCoverage, UnsupportedCoverage, FailedCoverage]
+  - name: codegate.dependency.Unit
+    kind: struct
+    fields:
+      - {name: id, type: codegate.dependency.UnitId}
+      - {name: language, type: String}
+  - name: codegate.dependency.Edge
+    kind: struct
+    fields:
+      - {name: id, type: codegate.dependency.EdgeId}
+      - {name: source, type: codegate.dependency.UnitId}
+      - {name: target, type: 'Optional<codegate.dependency.UnitId>'}
+      - {name: unresolved_target, type: 'Optional<String>'}
+      - {name: kind, type: codegate.dependency.DependencyKind}
+  - name: codegate.dependency.Coverage
+    kind: struct
+    fields:
+      - {name: status, type: codegate.dependency.CoverageStatus}
+      - {name: gaps, type: 'List<String>'}
+  - name: codegate.dependency.FactSnapshot
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: source_id, type: String}
+      - {name: configuration_id, type: String}
+      - {name: producer, type: String}
+      - {name: producer_version, type: String}
+      - {name: units, type: 'List<codegate.dependency.Unit>'}
+      - {name: edges, type: 'List<codegate.dependency.Edge>'}
+      - {name: coverage, type: codegate.dependency.Coverage}
+  - name: codegate.dependency.ForbiddenDependency
+    kind: struct
+    fields:
+      - {name: source, type: codegate.dependency.UnitId}
+      - {name: target, type: codegate.dependency.UnitId}
+      - {name: kind, type: codegate.dependency.DependencyKind}
+  - name: codegate.dependency.Policy
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: expected_source_id, type: String}
+      - {name: expected_configuration_id, type: String}
+      - {name: dependency_kind, type: codegate.dependency.DependencyKind}
+      - {name: forbidden, type: 'List<codegate.dependency.ForbiddenDependency>'}
+  - name: codegate.dependency.FanOut
+    kind: struct
+    fields:
+      - {name: unit_id, type: codegate.dependency.UnitId}
+      - {name: value, type: 'Optional<Integer>'}
+  - name: codegate.dependency.Finding
+    kind: struct
+    fields:
+      - {name: edge_id, type: codegate.dependency.EdgeId}
+      - {name: source, type: codegate.dependency.UnitId}
+      - {name: target, type: codegate.dependency.UnitId}
+      - {name: kind, type: codegate.dependency.DependencyKind}
+  - name: codegate.dependency.Diagnostic
+    kind: struct
+    fields:
+      - {name: code, type: codegate.dependency.DiagnosticCode}
+      - {name: subject, type: String}
+  - name: codegate.dependency.Evaluation
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: source_id, type: String}
+      - {name: configuration_id, type: String}
+      - {name: policy, type: codegate.dependency.Policy}
+      - {name: metric_id, type: String}
+      - {name: checker_id, type: String}
+      - {name: coverage, type: codegate.dependency.CoverageStatus}
+      - {name: verdict, type: codegate.dependency.Verdict}
+      - {name: fan_out, type: 'List<codegate.dependency.FanOut>'}
+      - {name: findings, type: 'List<codegate.dependency.Finding>'}
+      - {name: diagnostics, type: 'List<codegate.dependency.Diagnostic>'}
+
+commands:
+  - name: codegate.dependency.Evaluate
+    input:
+      - {name: snapshot, type: codegate.dependency.FactSnapshot}
+      - {name: policy, type: codegate.dependency.Policy}
+    response:
+      - {name: report, type: codegate.dependency.Evaluation}
+    outcomes:
+      - name: evaluated
+        returns: true

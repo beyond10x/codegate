@@ -1,0 +1,5 @@
+format: ess/17
+system: codegate
+version: v1
+domains:
+  - codegate.dependency

@@ -1,0 +1,81 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate.dependency",
+  "scenario": "partial-is-not-empty",
+  "summary": "No observed edges under partial coverage is not measured zero.",
+  "timeline": [
+    {
+      "at": "2026-10-02T00:00:00Z",
+      "command": "codegate.dependency.Evaluate",
+      "input": {
+        "snapshot": {
+          "format": "codegate-dependency-facts/0.1",
+          "source_id": "fixture-source",
+          "configuration_id": "default",
+          "producer": "fixture",
+          "producer_version": "1",
+          "units": [
+            {
+              "id": "core",
+              "language": "rust"
+            },
+            {
+              "id": "io",
+              "language": "rust"
+            }
+          ],
+          "edges": [],
+          "coverage": {
+            "status": "Partial",
+            "gaps": [
+              "external resolution missing"
+            ]
+          }
+        },
+        "policy": {
+          "format": "codegate-dependency-policy/0.1",
+          "expected_source_id": "fixture-source",
+          "expected_configuration_id": "default",
+          "dependency_kind": "Runtime",
+          "forbidden": []
+        }
+      },
+      "outcome": "evaluated",
+      "response": {
+        "report": {
+          "format": "codegate-dependency-report/0.1",
+          "source_id": "fixture-source",
+          "configuration_id": "default",
+          "policy": {
+            "format": "codegate-dependency-policy/0.1",
+            "expected_source_id": "fixture-source",
+            "expected_configuration_id": "default",
+            "dependency_kind": "Runtime",
+            "forbidden": []
+          },
+          "metric_id": "dependency.unique-fan-out/1",
+          "checker_id": "dependency.forbidden-edge/1",
+          "coverage": "Partial",
+          "verdict": "Incomplete",
+          "fan_out": [
+            {
+              "unit_id": "core",
+              "value": null
+            },
+            {
+              "unit_id": "io",
+              "value": null
+            }
+          ],
+          "findings": [],
+          "diagnostics": [
+            {
+              "code": "PartialCoverage",
+              "subject": "coverage"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

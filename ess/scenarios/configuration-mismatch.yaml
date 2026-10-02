@@ -1,0 +1,70 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate.dependency",
+  "scenario": "configuration-mismatch",
+  "summary": "Evidence for a different selected configuration is refused.",
+  "timeline": [
+    {
+      "at": "2026-10-02T00:00:00Z",
+      "command": "codegate.dependency.Evaluate",
+      "input": {
+        "snapshot": {
+          "format": "codegate-dependency-facts/0.1",
+          "source_id": "fixture-source",
+          "configuration_id": "default",
+          "producer": "fixture",
+          "producer_version": "1",
+          "units": [
+            {
+              "id": "core",
+              "language": "rust"
+            },
+            {
+              "id": "io",
+              "language": "rust"
+            }
+          ],
+          "edges": [],
+          "coverage": {
+            "status": "Complete",
+            "gaps": []
+          }
+        },
+        "policy": {
+          "format": "codegate-dependency-policy/0.1",
+          "expected_source_id": "fixture-source",
+          "expected_configuration_id": "different-features",
+          "dependency_kind": "Runtime",
+          "forbidden": []
+        }
+      },
+      "outcome": "evaluated",
+      "response": {
+        "report": {
+          "format": "codegate-dependency-report/0.1",
+          "source_id": "fixture-source",
+          "configuration_id": "default",
+          "policy": {
+            "format": "codegate-dependency-policy/0.1",
+            "expected_source_id": "fixture-source",
+            "expected_configuration_id": "different-features",
+            "dependency_kind": "Runtime",
+            "forbidden": []
+          },
+          "metric_id": "dependency.unique-fan-out/1",
+          "checker_id": "dependency.forbidden-edge/1",
+          "coverage": "Complete",
+          "verdict": "Error",
+          "fan_out": [],
+          "findings": [],
+          "diagnostics": [
+            {
+              "code": "ConfigurationMismatch",
+              "subject": "snapshot.configuration_id"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

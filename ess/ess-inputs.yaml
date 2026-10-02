@@ -1,0 +1,32 @@
+format: ess-inputs/2
+requires: ess 0.50.0
+specification:
+  - system.yaml
+  - domains/dependency.yaml
+scenarios:
+  - scenarios/canonical-order.yaml
+  - scenarios/complete-empty-graph.yaml
+  - scenarios/complete-isolated-units.yaml
+  - scenarios/configuration-mismatch.yaml
+  - scenarios/dangling-source.yaml
+  - scenarios/dangling-target.yaml
+  - scenarios/dependency-kind-selection.yaml
+  - scenarios/duplicate-edge.yaml
+  - scenarios/duplicate-unit.yaml
+  - scenarios/empty-identity.yaml
+  - scenarios/explicit-unresolved-target.yaml
+  - scenarios/failed-collection.yaml
+  - scenarios/forbidden-runtime-edge.yaml
+  - scenarios/go-facts-same-checker.yaml
+  - scenarios/invalid-policy-reference.yaml
+  - scenarios/invalid-target.yaml
+  - scenarios/one-runtime-edge.yaml
+  - scenarios/parallel-imports-count-once.yaml
+  - scenarios/partial-is-not-empty.yaml
+  - scenarios/polyglot-no-inferred-edge.yaml
+  - scenarios/source-mismatch.yaml
+  - scenarios/unknown-ir-version.yaml
+  - scenarios/unresolved-cannot-claim-complete.yaml
+  - scenarios/unsupported-is-not-empty.yaml
+  - scenarios/unsupported-with-observations.yaml
+  - scenarios/witnessed-violation-with-gaps.yaml

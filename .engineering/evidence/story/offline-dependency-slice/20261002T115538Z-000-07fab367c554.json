@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T11:55:38Z",
+  "actor": "human:timo",
+  "artifact": "story:offline-dependency-slice",
+  "kind": "story",
+  "revision": 12,
+  "change": {
+    "change": "evidence",
+    "kind": "approval",
+    "source": "Operator: I approve all upcoming waves (2026-10-02)",
+    "reference": "approval-record:standing-wave-approval"
+  }
+}
