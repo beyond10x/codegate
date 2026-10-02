@@ -2,17 +2,18 @@
 format: aep.planning-md/3
 id: epic:offline-dependency-evaluation
 kind: epic
-status: active
+status: implemented
 title: First offline language-neutral dependency evaluation
 summary: A real evaluator admits experimental fact snapshots and executes shared dependency checks without a language binding.
 relations:
 - serves: vision:language-neutral-code-quality
 - informed_by: architecture-design:language-neutral-fact-ir
 - informed_by: executable-system-specification:dependency-evaluation
-revision: 3
+revision: 4
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-02T11:55:38Z", actor: "human:timo", revision: 2}
 - {from: "proposed", to: "active", at: "2026-10-02T11:55:38Z", actor: "human:timo", revision: 3}
+- {from: "active", to: "implemented", at: "2026-10-02T12:55:18Z", actor: "human:timo", revision: 4, decided_on: {"recorded":{"test_result":1}}, executor: "agent:codegate-wave001", correlation: "codegate-wave001"}
 ---
 ## Outcome
 

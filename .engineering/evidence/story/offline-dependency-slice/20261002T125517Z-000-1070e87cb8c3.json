@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T12:55:17Z",
+  "actor": "human:timo",
+  "artifact": "story:offline-dependency-slice",
+  "kind": "story",
+  "revision": 17,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "task check at4bf8fa591888698fdf23194d93daebb81bbb4e18: exit0;22Rust tests and27ESS scenarios passed",
+    "reference": "verification-report:codegate-wave1"
+  }
+}

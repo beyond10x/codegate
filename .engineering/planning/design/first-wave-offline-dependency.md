@@ -4,11 +4,11 @@ id: design:first-wave-offline-dependency
 kind: design
 status: draft
 title: 'Wave 1: offline dependency facts and shared checks'
-summary: Stage-1 proposal for one scoped implementation unit, awaiting operator approval.
+summary: 'Authorized first wave: offline dependency evaluator, adversary findings and integration evidence.'
 relations:
 - designs: story:offline-dependency-slice
 - serves: vision:language-neutral-code-quality
-revision: 4
+revision: 14
 ---
 ## Stage and authority
 
@@ -271,3 +271,57 @@ The recovery archive is assigned to
 `$HOME/.local/state/worktree/archives/codegate/codegate-wave1-plan-20261002` and is
 written after the final planning mutation. Next owner: the coordinator resuming the
 operator's approval. No worker worktree or build directory has been created.
+
+## Execution ledger
+
+Opening commit: `8e4ead994e1ecadedabb05b60098706078cc2504`, verified bot author and committer.
+Cheap opening checks exited 0: AEP seven artifacts valid; ESS 26 authored scenarios valid; combined suite 27 scenarios, zero refusals. No executable baseline existed.
+
+| Role | Managed id | Branch | Base/head at dispatch | Stage |
+| --- | --- | --- | --- | --- |
+| Coordinator | codegate-wave1-plan-20261002 | wave/001-offline-dependency | 8e4ead994e1ecadedabb05b60098706078cc2504 | integration open |
+| Implementor | codegate-w1-offline-dependency-20261002 | wave/001/offline-dependency | 8e4ead994e1ecadedabb05b60098706078cc2504 | dispatched |
+
+Manager-returned unit path: `$HOME/.local/state/worktree/trees/b10x/codegate/codegate-w1-offline-dependency-20261002`.
+Build: `<unit>/target`; assigned scratch: `<unit>/.scratch/wave-001/offline-dependency`.
+File brief: `<scratch>/brief.md`. Worker: `/root/codegate_implementor`, supplied implementor role charter explicitly. Lease session: `codex-codegate-w1-implementor-20261002`.
+Coordinator path/build/scratch and session remain as recorded above.
+Dispatch free disk: `35,811,885,056` bytes from `df -B1 .`, above 20 GiB floor.
+All runnable code Rust with clap derive; generated inputs and planning store read-only to worker.
+
+Standing approval is `approval-record:standing-wave-approval`. Historical stage-1 statements about awaiting approval/no unit created are superseded by this execution ledger. Upcoming wave approval is also standing; publication and release are separate. This execution implements the first batch only.
+
+## Measured resource adjustment
+
+The original 20 GiB launch floor was satisfied: dispatch observed 35,811,885,056 bytes free. Shared disk activity subsequently reduced available bytes to 13,885,304,832 while this unit's measured target remained about 700–753 MiB. No other task's files were removed. A fresh concurrent integration build was held.
+
+Coordinator adjustment before remaining generated-package checks: proceed sequentially with a 10 GiB free-space reserve and at most 2 GiB additional disposable build output; root build measured below 1 GiB and the earlier independent wire build measured 58 MiB. Reuse only each tree's own incremental target; no CARGO_TARGET_DIR sharing. Before integration, preserve unit evidence and remove its exact disposable targets after workers/processes stop, then measure free capacity again. If below 10 GiB, hold new builds and report. This replaces the conservative unmeasured 20 GiB returning-unit planning floor; it does not waive correctness checks or authorize unrelated cleanup.
+
+## Generated wire lint exception
+
+ESS 0.50.0's generated `generated/wire/types.rs:13` manually implements Default for EssPresence. Independent generated wire Clippy under `-D warnings` reports `clippy::derivable_impls`; behavior generated tests/format/lints and wire tests/format pass. Source: implementor's retained `generated-wire-clippy.log`.
+
+Coordinator resolution: keep generator-owned source untouched and allow exactly `clippy::derivable_impls` only in the generated wire package Clippy command, after `-D warnings`. Root and behavior packages keep unrestricted `-D warnings`; all behavioral tests and drift checks remain unchanged. This is an explicit upstream generator style-lint exception, not an assertion relaxation or hidden skipped gate. Gate and README must name it.
+
+## Claim verification
+
+Verdict: **VERIFIED** for new offline CLI behavior. Candidate is `9900a86b982a9a13d339bb6867e468f087e68f81`; base is `8e4ead994e1ecadedabb05b60098706078cc2504`.
+
+Condition: the exact `one-runtime-edge` authored snapshot/policy produces the full literal expected JSON report and exit 0. Both trees ran:
+`cargo run --locked --bin codegate -- evaluate --facts .scratch/wave-001/claim/facts.json --policy .scratch/wave-001/claim/policy.json`.
+
+Baseline exited 101: `error: could not find Cargo.toml` (the command printed Cargo.toml in backticks) in the integration tree or parents. There was no executable implementation at baseline. Treatment exited 0. Canonical JSON comparison using `jq -S` and `diff -u` exited 0 against `.timeline[0].response.report` from the committed ESS fixture. Report fan-out was core=1/io=0, coverage Complete, verdict Pass, findings/diagnostics empty and the complete expected policy echoed.
+
+Raw baseline/treatment stderr/stdout/exit and canonical outputs are retained in the corresponding managed recovery archives under `.scratch/wave-001/claim/`. This verifies new functionality, not a performance claim or a real language binding.
+
+## Current execution stage
+
+First batch implemented and reviewed at unit/integration candidate `4bf8fa591888698fdf23194d93daebb81bbb4e18`. One implementor plus one adversary used sequentially; implementor returned once for correction, adversary ran two passes. Operator cap of three implementation workers respected. Per-agent tokens/tool-use counts/wall-duration totals are unavailable from this host; no inferred usage is reported.
+
+Whole integration `task check` exited0; all19 printed step-result lines were successful (including two formatting normalization steps, dedicated native report validation and both generated packages). Root suite22 Rust tests passed; native complete inventory27 scenarios passed,0failed/error/unsupported/skipped. Three compiled behavioral mutants failed before restoration. First adversary findings resolved3/carried0/new0; second pass findings empty. Full immutable review reports and `verification-report:codegate-wave1` preserve commands/output. Only generated-wire derivable_impls has a documented upstream style-lint allowance.
+
+AEP story and epic are implemented; ESS specification conforming from actual imported coverage report and model digest. No real source binding, broader stable IR, GitHub publication or release is claimed. Standing approval remains recorded for upcoming proposals, but this requested first batch closes here.
+
+Unit tree `codegate-w1-offline-dependency-20261002` was archived after all workers stopped, finished, reviewed eligible by exact-id dry-run and removed by exact-id GC. Its archive retains local commits, source/probe logs and native outputs at `$HOME/.local/state/worktree/archives/codegate/codegate-w1-offline-dependency-20261002`. Root/generated build targets were removed only after retained evidence was read/copied.
+
+Coordinator tree `codegate-wave1-plan-20261002` remains on `wave/001-offline-dependency` for the closing store commit. Next authorized steps are that bot commit, fast-forward into clean local main, removal of exact owned disposable targets, replacement recovery archive, own lease release, finish and exact-id GC. The read-only exact Atlas helper `codegate-wave1-bot-20261002` is also retired after its last bot commit. No remote is configured for Codegate; archive recovery is deliberate instead of publication. Final cleanup result is reported in the session after these steps execute.

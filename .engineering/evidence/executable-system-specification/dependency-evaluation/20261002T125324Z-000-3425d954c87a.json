@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T12:53:24Z",
+  "actor": "human:timo",
+  "artifact": "executable-system-specification:dependency-evaluation",
+  "kind": "executable-system-specification",
+  "revision": 3,
+  "change": {
+    "change": "evidence",
+    "kind": "static_analysis",
+    "source": "ess specify validate --path ess: 2 files,26 authored scenarios,valid; integration step exit0",
+    "reference": "design:first-wave-offline-dependency"
+  }
+}

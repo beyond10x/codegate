@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T12:55:17Z",
+  "actor": "human:timo",
+  "artifact": "epic:offline-dependency-evaluation",
+  "kind": "epic",
+  "revision": 3,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "Single child story implemented after integration task check exit0",
+    "reference": "verification-report:codegate-wave1"
+  }
+}

@@ -2,7 +2,7 @@
 format: aep.planning-md/3
 id: story:offline-dependency-slice
 kind: story
-status: active
+status: implemented
 title: Evaluate language-neutral dependency facts offline
 summary: Implement the generated Evaluate contract, shared dependency analysis, local CLI and real ESS conformance.
 relations:
@@ -30,10 +30,11 @@ scope:
   path: src/
 - confidence: cited
   path: tests/
-revision: 14
+revision: 18
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-02T11:55:38Z", actor: "human:timo", revision: 13, decided_on: {"recorded":{"approval":1}}}
 - {from: "proposed", to: "active", at: "2026-10-02T11:55:38Z", actor: "human:timo", revision: 14, decided_on: {"recorded":{"approval":1}}}
+- {from: "active", to: "implemented", at: "2026-10-02T12:55:17Z", actor: "human:timo", revision: 18, decided_on: {"recorded":{"test_result":1,"approval":1,"review_outcome":2,"verification":1}}, executor: "agent:codegate-wave001", correlation: "codegate-wave001"}
 ---
 ## Context
 
@@ -139,15 +140,26 @@ is authorized by this story or its proposed wave.
 
 ## Scope
 
-Derived 2026-10-02 by `aep:story-scoper`. Every entry distinguishes observed ownership from inference.
+Confirmed by implementation report and candidate `9900a86b982a9a13d339bb6867e468f087e68f81`, then refined during the first adversary correction.
 
-- **Primary surface:** new root Rust package, offline evaluator, CLI and real conformance integration — **cited**, `story:offline-dependency-slice`, Implementation contract and Work surfaces.
-- **Proposed paths:** `Cargo.toml`, `Cargo.lock`, `rust-toolchain.toml`, `Taskfile.yml`, `src/`, `tests/`, `generated/` — **cited**, story lines 95–96 explicitly assign these paths to this implementation. These are proposed ownership surfaces, not existing implementation.
-- **Existing paths to update:** `.gitignore`, `README.md`, `AGENTS.md` — **cited**, story line 97 and inspected working tree. The ignore file currently exists as an untracked planning-worktree file; the README and repository guidance already exist.
-- **Symbols:** `EvaluateBehavior`, ESS `Runner` and `ConformanceTarget` — **cited**, story lines 50 and 64–70. The generated behavior and target adapter are future implementation, not currently implemented symbols.
-- **Documents:** update the existing README and repository guidance to describe actual commands and validation — **cited**, story line 97.
-- **Integration dependencies:** generated behavior and standalone wire types must interoperate through explicit tested conversions; native ESS dependencies must use published commit `8700d0808e8f3b19711629d8a17afc5281680f58`; the Rust gate must validate the complete combined suite and generated packages — **cited**, story lines 48–75.
-- **Input-only boundary:** the existing ESS contract and its authored scenarios are read-only inputs for this implementor; semantic disagreements return to the coordinator, who alone writes the planning store and wave evidence — **cited**, story lines 98–100.
-- **Confidence:** high for package ownership — **cited**, the story explicitly assigns every proposed and existing write surface, and repository inspection confirms there is no root implementation yet.
-- **Would collide with:** any work creating or changing the root Cargo package, toolchain pin, task gate, source modules, tests, generated contracts, ignore rules, README or repository guidance — **inferred**, these surfaces require shared package/module wiring and coordinated generated-contract versions.
-- **Safety fact:** shared analysis/checking must receive only the private admitted wrapper and must not access source trees, bindings, clocks, environment or network — **cited**, story lines 55–63; evidence level 2, unproven. The declaration is present, but no implementation exists to verify enforcement.
+- **Owned implementation surfaces — cited:** `.gitignore`, `AGENTS.md`, `Cargo.lock`, `Cargo.toml`, `README.md`, `Taskfile.yml`, `generated/`, `rust-toolchain.toml`, `src/`, `tests/`. All are present in candidate diff; corrections remain inside these surfaces.
+- **Generated seams — cited:** `generated/behavior/src/dependency.rs` owns domain values and EvaluateBehavior; `generated/wire/types.rs` owns serde wire models. `src/wire.rs` explicitly converts them and bridges optional absence/null representation. The implementation fulfills the outcome-only trait through a response-holding adapter around the pure evaluator.
+- **Dependency boundary — cited:** `src/admit.rs` constructs the private admitted wrapper; `src/analysis.rs` and `src/check.rs` accept it. No binding exists in this wave. Rust/Go-labelled normalized fixtures exercise the same evaluator.
+- **Evidence/gate surfaces — cited:** `tests/conformance.rs` runs native ESS; `src/bin/codegate-check.rs` implements the repository gate; `tests/gate_adversary.rs` and `tests/provenance_adversary.rs` were added by the adversary. The first gate implementation had three measured defects, recorded in `review-result:codegate-wave1-adversary-pass1`; do not infer first-candidate gate success from evaluator success.
+- **Read-only input — cited:** `ess/` remained unchanged by implementor/reviewer. Coordinator alone owns `.engineering/` mutations.
+- **Correction to initial scope text:** `.gitignore` was untracked at the scoper's earlier observation but was committed in opening input `8e4ead994e1ecadedabb05b60098706078cc2504`; it was an existing tracked file at implementation dispatch. This replaces the stale untracked-file description.
+- **Overlap inference confirmed:** root package wiring, CLI, generated contracts, tests and gate had shared surfaces; one implementation unit avoided conflicting ownership. No inferred fix mechanism was assumed without measurement.
+
+## Generated projection normalization
+
+Coordinator probe on the exact opening contract: `cargo fmt --manifest-path .scratch/synth-probe/Cargo.toml --check` exited 1 on generated trait signatures and struct literals. The retained output is `.scratch/wave-001/generated-format-probe.log` in the coordinator recovery archive. This is generator formatting, not behavioral failure.
+
+Clarification: the deterministic projection pipeline is ESS generation followed by the pinned Rust formatter on generated Rust. Drift checks repeat both steps and compare bytes. This permits automated format normalization, never hand-edited generated models. Generated subpackages still undergo actual formatting and lint checks.
+
+Generated wire Optional values use absence, while the authored contract examples use JSON null. A narrow explicit wire/behavior representation bridge handles the declared optional fields; malformed/unknown fields remain refusals. The generated EvaluateBehavior trait returns an outcome only; a per-invocation adapter exposes the generated typed response from the pure evaluator. Tests must show successive invocations do not leak prior responses. These are implementation seams, not changes to ESS expected behavior.
+
+## Coverage-bearing suite generation
+
+The first real native Runner report executed all 27 cases successfully but reported `coverage.knowledge=unknown`, `execution_status=passed`, `conformance_status=inconclusive` for ordinary synthesis. That result is retained as historical evidence, not promoted to complete coverage.
+
+Both coordinator and implementor verified the supported `ess verify conform synthesize --path ess --scenarios ess --suite-format 5 --out <file>` option. Its actual inventory lists the same 26 authored IDs and one generated ID, zero outside and zero refused, and `knowledge=complete_inventory`. Use this official coverage-bearing synthesis option in the gate and conformance adapter; do not invent or patch inventory metadata. Preserve lineage and the native admitted suite/report. Complete declared inventory is not a claim that finite examples exhaust all possible inputs.

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T12:24:29Z",
+  "actor": "human:timo",
+  "artifact": "story:offline-dependency-slice",
+  "kind": "story",
+  "revision": 16,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "CLI baseline101 versus candidate0 and exact authored JSON comparison0: VERIFIED",
+    "reference": "design:first-wave-offline-dependency#claim-verification"
+  }
+}
