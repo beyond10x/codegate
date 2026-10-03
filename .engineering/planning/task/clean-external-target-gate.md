@@ -2,15 +2,16 @@
 format: aep.planning-md/3
 id: task:clean-external-target-gate
 kind: task
-status: active
+status: implemented
 title: Make the gate work from a clean checkout with external Cargo output
 relations:
 - decomposes: story:parity-foundations
 - serves: vision:language-neutral-code-quality
-revision: 3
+revision: 4
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T07:19:23Z", actor: "human:timo", revision: 2, executor: "agent:codegate-collection"}
 - {from: "proposed", to: "active", at: "2026-10-03T07:19:23Z", actor: "human:timo", revision: 3, executor: "agent:codegate-collection"}
+- {from: "active", to: "implemented", at: "2026-10-03T07:34:53Z", actor: "human:timo", revision: 4, decided_on: {"recorded":{"test_result":1,"review_outcome":1}}, executor: "agent:codegate-collection"}
 ---
 ## Context
 
