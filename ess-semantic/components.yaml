@@ -6,3 +6,8 @@ components:
       commands:
         - codegate_semantic.semantic.CollectSource
         - codegate_semantic.semantic.ValidateSnapshot
+  - component: collection
+    summary: Composes exact captured sources and registered language observations.
+    accepts:
+      commands:
+        - codegate_semantic.semantic.Collect

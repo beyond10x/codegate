@@ -1,6 +1,6 @@
 // generated from codegate_semantic v1
-// model digest 6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd
-// contract digest 53b2681048db3937988b0fb64c9955287e4a7585230662d8b6db2d63142af9a9
+// model digest c64e8e2f5e1a2e791ed83c172875fb04a67c095ec27f188220b1d5644654c126
+// contract digest bc8bafef42abf16c63fe7d2bf7a90b4f4e1e3d2b25bff37f64532fd9ad9d5f1d
 // do not edit: regenerate with `ess synthesize --layout crate`
 
 //! The `codegate_semantic` system, v1: its components assembled, its bindings wired, and its one transport.
@@ -27,6 +27,12 @@ impl SystemEvent {
     }
 }
 
+impl From<crate::ports::collection::PublishedEvent> for SystemEvent {
+    fn from(event: crate::ports::collection::PublishedEvent) -> Self {
+        match event {}
+    }
+}
+
 impl From<crate::ports::source_foundation::PublishedEvent> for SystemEvent {
     fn from(event: crate::ports::source_foundation::PublishedEvent) -> Self {
         match event {}
@@ -38,7 +44,9 @@ impl From<crate::ports::source_foundation::PublishedEvent> for SystemEvent {
 /// The component fields are public because commands enter the system through a component's own
 /// port; the log and its delivery cursor are not, because publishing happens by pumping, not by
 /// writing history directly.
-pub struct System<SourceFoundationBehaviors> {
+pub struct System<CollectionBehaviors, SourceFoundationBehaviors> {
+    /// The `collection` component.
+    pub collection: crate::ports::collection::Collection<CollectionBehaviors>,
     /// The `source-foundation` component.
     pub source_foundation:
         crate::ports::source_foundation::SourceFoundation<SourceFoundationBehaviors>,
@@ -46,14 +54,18 @@ pub struct System<SourceFoundationBehaviors> {
     cursor: usize,
 }
 
-impl<SourceFoundationBehaviors> System<SourceFoundationBehaviors> {
+impl<CollectionBehaviors, SourceFoundationBehaviors>
+    System<CollectionBehaviors, SourceFoundationBehaviors>
+{
     /// Assembles the system from its components.
     pub fn new(
+        collection: crate::ports::collection::Collection<CollectionBehaviors>,
         source_foundation: crate::ports::source_foundation::SourceFoundation<
             SourceFoundationBehaviors,
         >,
     ) -> Self {
         Self {
+            collection,
             source_foundation,
             published: Vec::new(),
             cursor: 0,
@@ -79,8 +91,10 @@ impl<SourceFoundationBehaviors> System<SourceFoundationBehaviors> {
     }
 }
 
-impl<SourceFoundationBehaviors> System<SourceFoundationBehaviors>
+impl<CollectionBehaviors, SourceFoundationBehaviors>
+    System<CollectionBehaviors, SourceFoundationBehaviors>
 where
+    CollectionBehaviors: crate::semantic::obligations::CollectBehavior,
     SourceFoundationBehaviors: crate::semantic::obligations::CollectSourceBehavior
         + crate::semantic::obligations::ValidateSnapshotBehavior,
 {
@@ -98,6 +112,9 @@ where
 
     /// Moves every component's outbox onto the log, in component order.
     fn collect(&mut self) {
+        for event in self.collection.drain_outbox() {
+            self.published.push(SystemEvent::from(event));
+        }
         for event in self.source_foundation.drain_outbox() {
             self.published.push(SystemEvent::from(event));
         }
