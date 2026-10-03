@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T10:10:35Z",
+  "actor": "human:timo",
+  "artifact": "task:release-codegate-0-2-0",
+  "kind": "task",
+  "revision": 5,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "Artifact scan refused39 personal-paths matches; draft402449475 unpublished; tagchecks passed",
+    "reference": "https://github.com/beyond10x/codegate/actions/runs/37115244553"
+  }
+}

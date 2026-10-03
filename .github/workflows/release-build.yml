@@ -18,6 +18,7 @@ jobs:
           toolchain: '1.98.1'
       - name: Build and smoke-test the tagged CLI
         run: |
+          export RUSTFLAGS="--remap-path-prefix=$HOME=/build-home --remap-path-prefix=$GITHUB_WORKSPACE=/codegate"
           cargo build --locked --release --bin codegate
           test "$(target/release/codegate --version)" = "codegate $GITHUB_REF_NAME"
           target/release/codegate evaluate --help

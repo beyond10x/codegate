@@ -140,7 +140,7 @@ version = "1.0.0"
 
 [[package]]
 name = "codegate-cli"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "clap",
  "codegate",
