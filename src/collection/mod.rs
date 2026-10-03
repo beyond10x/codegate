@@ -5,6 +5,7 @@ use std::{
     collections::{BTreeMap, BTreeSet},
     path::{Path, PathBuf},
 };
+pub mod compose;
 mod manifests;
 mod secure_fs;
 

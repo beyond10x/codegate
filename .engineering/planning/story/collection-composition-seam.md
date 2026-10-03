@@ -45,7 +45,9 @@ scope:
   path: tests/collection_composition.rs
 - confidence: cited
   path: tests/collection_conformance.rs
-revision: 15
+- confidence: cited
+  path: tests/semantic_boundary.rs
+revision: 17
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}}
 - {from: "proposed", to: "active", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"review_outcome":2}}}
@@ -91,3 +93,7 @@ Cited .github/workflows/ci.yml uploads evaluator and foundation native JSON only
 ## Structural input witness
 
 ESS 0.50.0 synthesized Collect with placeholder strings for configuration identity/classpath and root (observed by conformance worker in red-suite.json). Those are invalid production inputs, so the runtime correctly refuses them. Add the existing command's fixture_inputs metadata and a Rust fixture provider supplying a valid collection request; retain production validation. No new value, command, outcome or fixture-name dispatch in production is introduced. The structural case remains a shape witness; authored cases provide the actual semantic assertions.
+
+## Public wiring boundary
+
+Runtime package tests observed two false boundary rejections for root public reexports collection::compose::{Collector, collect}. The new implementation lives outside the pure core; the root only exposes the operation. Authorize tests/semantic_boundary.rs to recognize those exact public wiring exports while retaining alias resolution and adding a regression proving an algorithm call through the same alias is still refused. This is a testable distinction, not blanket admission of collection calls. The worker owns this scoped correction and reports the original red package output.
