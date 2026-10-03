@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0
+
+- Expose the public Rust `Collect` handler, composing source capture, binding
+  registration and rich-fact admission.
+- Isolate language binding slots and report missing bindings and semantic tools
+  as explicit capability gaps.
+- Add four native collection conformance cases and adversarial boundary checks;
+  retain all 27 evaluator and eight source-foundation cases.
+
+The CLI still evaluates supplied dependency JSON. Language declaration extraction,
+semantic navigation, collection CLI commands and repository HTML reports remain
+planned work. The default collector currently has no registered language bindings.
+
 ## 0.1.0
 
 First public Codegate release.
