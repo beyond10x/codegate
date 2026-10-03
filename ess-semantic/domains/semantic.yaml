@@ -1,0 +1,467 @@
+domain: codegate_semantic.semantic
+summary: Immutable observations and evidence-bounded analysis/navigation values for semantic contract v1; separate from dependency /0.1.
+# Value records compose snapshots; identities are not persistent entities or
+# lifecycle declarations. Referential and cross-record invariants are admitted
+# by the future runtime, as specified in specifications/semantic-contract.md.
+types:
+  - {name: codegate_semantic.semantic.SnapshotId, kind: newtype, of: String}
+  - {name: codegate_semantic.semantic.ConfigurationId, kind: newtype, of: String}
+  - {name: codegate_semantic.semantic.FactId, kind: newtype, of: String}
+  - {name: codegate_semantic.semantic.UnitId, kind: newtype, of: String}
+  - {name: codegate_semantic.semantic.DeclarationId, kind: newtype, of: String}
+  - {name: codegate_semantic.semantic.Language, kind: enum, variants: [Go, Rust, Java]}
+  - {name: codegate_semantic.semantic.CollectionMode, kind: enum, variants: [SourceOnly, Semantic]}
+  - {name: codegate_semantic.semantic.SourceClass, kind: enum, variants: [Production, Test, Generated, GeneratedTest, BuildConfiguration]}
+  - {name: codegate_semantic.semantic.SourceOrigin, kind: enum, variants: [TrackedClean, TrackedDirty, Untracked, ExternalBuildEvidence]}
+  - {name: codegate_semantic.semantic.BuildSystem, kind: enum, variants: [GoModules, Cargo, Maven, Gradle]}
+  - {name: codegate_semantic.semantic.Resolution, kind: enum, variants: [SyntacticCandidate, Resolved, Unresolved]}
+  - {name: codegate_semantic.semantic.ResolutionBasis, kind: enum, variants: [SourceStructure, LanguageServer, DeclaredFramework, MatchedBuildEvidence]}
+  - {name: codegate_semantic.semantic.Completeness, kind: enum, variants: [Complete, Partial, Unsupported, Failed, NotApplicable]}
+  - {name: codegate_semantic.semantic.FactFamily, kind: enum, variants: [Sources, Declarations, Occurrences, Dependencies, References, Implementations, Calls, Decisions, Structure, Documentation, Effects, Tests, FrameworkDeclarations, FrameworkWiring, ExecutionCoverage]}
+  - {name: codegate_semantic.semantic.GapCode, kind: enum, variants: [InvalidFormat, InvalidFact, InvalidPolicy, IdentityMismatch, SourceChangedDuringCollection, MissingTool, ToolTimeout, ToolFailure, SyntaxError, MissingBuildSelection, UnknownUnit, UnresolvedSymbol, AmbiguousSymbol, DynamicDispatch, MacroExpansion, ConditionalCompilation, MissingClasspath, GeneratedSources, ProgrammaticLookup, AmbiguousInjection, AugmentationRequired, StaleEvidence, UnsupportedCapability, PartialCollection]}
+  - {name: codegate_semantic.semantic.DeclarationKind, kind: enum, variants: [Package, Module, Namespace, Function, Method, Constructor, Type, Interface, Trait, Field, Variable, Parameter, Constant]}
+  - {name: codegate_semantic.semantic.Visibility, kind: enum, variants: [Public, Protected, Package, Internal, Private, Unknown]}
+  - {name: codegate_semantic.semantic.OccurrenceRole, kind: enum, variants: [Definition, Read, Write, TypeUse, Import, Invocation, Annotation, DocumentationReference]}
+  - {name: codegate_semantic.semantic.LineClass, kind: enum, variants: [Code, Comment, Blank, Mixed]}
+  - {name: codegate_semantic.semantic.ApiEligibility, kind: enum, variants: [Eligible, Ineligible, Unknown]}
+  - {name: codegate_semantic.semantic.TestKind, kind: enum, variants: [Unit, Integration, TableDriven, Parameterized, Benchmark, Fuzz]}
+  - {name: codegate_semantic.semantic.DependencyKind, kind: enum, variants: [Runtime, Build, Test]}
+  - {name: codegate_semantic.semantic.DecisionKind, kind: enum, variants: [ConditionalBranch, Loop, CaseBranch, CatchBranch, ShortCircuitAnd, ShortCircuitOr, Ternary, GoSelectCase, RustTryPropagation]}
+  - {name: codegate_semantic.semantic.StructureKind, kind: enum, variants: [Body, Parameter, ReturnStatement, NestingRegion, Field, InterfaceMember, PublicApiMember, Documentation, DebtMarker, NamingSignal, Loop, Allocation, TestCase]}
+  - {name: codegate_semantic.semantic.EffectKind, kind: enum, variants: [DiscardedResult, AbruptExit, ProcessExecution, SqlConstruction, PathConstruction, UnsafeOperation, WeakCryptography, Reflection, Nondeterminism, GoDefer, GoUncheckedTypeAssertion, AllocationInLoop, StringConcatenationInLoop, MissingCapacity, LargeValueCopy]}
+  - {name: codegate_semantic.semantic.FrameworkKind, kind: enum, variants: [Bean, Qualifier, Producer, InjectionPoint, InjectionCandidate, InjectionBinding, RestResource, RestRoute, TransactionDeclaration, ConfigurationReference]}
+  - {name: codegate_semantic.semantic.MetricKind, kind: enum, variants: [FanIn, FanOut, FunctionLines, FileLines, CodeLines, Complexity, Nesting, Parameters, Returns, TypeMembers, InterfaceMembers, PublicApiSize, DocumentationRatio, DebtMarkers, NamingSignals, TestCount, TestSourceRatio, GeneratedSourceRatio, NondeterminismCount, EffectCount, ReferenceCount, CallFanIn, CallFanOut, ImplementationCount, FunctionCount, TypeCount, InterfaceCount, SymbolCount, FileCount, BranchDensity, ExecutionCoverage]}
+  - {name: codegate_semantic.semantic.MetricAggregation, kind: enum, variants: [PerSubject, Total, Maximum, Mean, CountAboveThreshold]}
+  - {name: codegate_semantic.semantic.Verdict, kind: enum, variants: [Pass, Fail, Incomplete, Unsupported, Error, NotApplicable]}
+  - {name: codegate_semantic.semantic.Severity, kind: enum, variants: [Info, Warning, Error]}
+  - {name: codegate_semantic.semantic.CheckKind, kind: enum, variants: [DependencyDirection, Layers, FanIn, FanOut, Cycles, TestBoundary, ForbiddenImport, ForbiddenCall, Effect, UnknownUnit, MetricThreshold, Framework]}
+  - {name: codegate_semantic.semantic.QueryKind, kind: enum, variants: [Definitions, References, Implementations, Callers, Callees, FrameworkRelationships]}
+  - {name: codegate_semantic.semantic.SelectorKind, kind: enum, variants: [Name, QualifiedName, SourcePosition]}
+  - name: codegate_semantic.semantic.SourceRange
+    kind: struct
+    fields:
+      - {name: path, type: String}
+      - {name: start_byte, type: Integer}
+      - {name: end_byte, type: Integer}
+      - {name: start_line, type: Integer}
+      - {name: start_column, type: Integer}
+      - {name: end_line, type: Integer}
+      - {name: end_column, type: Integer}
+  - name: codegate_semantic.semantic.SourceLine
+    kind: struct
+    fields:
+      - {name: number, type: Integer}
+      - {name: start_byte, type: Integer}
+      - {name: end_byte, type: Integer}
+      - {name: classification, type: codegate_semantic.semantic.LineClass}
+  - name: codegate_semantic.semantic.SourceFile
+    kind: struct
+    fields:
+      - {name: path, type: String}
+      - {name: content_sha256, type: String}
+      - {name: byte_length, type: Integer}
+      - {name: language, type: 'Optional<codegate_semantic.semantic.Language>'}
+      - {name: classification, type: codegate_semantic.semantic.SourceClass}
+      - {name: origin, type: codegate_semantic.semantic.SourceOrigin}
+      - {name: lines, type: 'List<codegate_semantic.semantic.SourceLine>'}
+  - name: codegate_semantic.semantic.Manifest
+    kind: struct
+    fields:
+      - {name: path, type: String}
+      - {name: content_sha256, type: String}
+      - {name: system, type: codegate_semantic.semantic.BuildSystem}
+      - {name: module, type: String}
+      - {name: parent_module, type: 'Optional<String>'}
+  - name: codegate_semantic.semantic.BuildSelection
+    kind: struct
+    fields:
+      - {name: id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: modules, type: 'List<String>'}
+      - {name: target, type: 'Optional<String>'}
+      - {name: go_build_tags, type: 'List<String>'}
+      - {name: rust_features, type: 'List<String>'}
+      - {name: rust_default_features, type: Boolean}
+      - {name: rust_cfg, type: 'List<String>'}
+      - {name: java_target_version, type: 'Optional<String>'}
+      - {name: java_classpath_sha256, type: 'Optional<String>'}
+      - {name: build_profiles, type: 'List<String>'}
+      - {name: configuration_files, type: 'List<codegate_semantic.semantic.SourceFile>'}
+  - name: codegate_semantic.semantic.SourceSelection
+    kind: struct
+    fields:
+      - {name: include_paths, type: 'List<String>'}
+      - {name: exclude_paths, type: 'List<String>'}
+      - {name: include_tests, type: Boolean}
+      - {name: include_generated, type: Boolean}
+      - {name: languages, type: 'List<codegate_semantic.semantic.Language>'}
+  - name: codegate_semantic.semantic.SourceSnapshot
+    kind: struct
+    fields:
+      - {name: id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: selection, type: codegate_semantic.semantic.SourceSelection}
+      - {name: configuration, type: codegate_semantic.semantic.BuildSelection}
+      - {name: files, type: 'List<codegate_semantic.semantic.SourceFile>'}
+      - {name: manifests, type: 'List<codegate_semantic.semantic.Manifest>'}
+  - name: codegate_semantic.semantic.ToolObservation
+    kind: struct
+    fields:
+      - {name: tool, type: String}
+      - {name: version, type: String}
+      - {name: host_runtime_version, type: 'Optional<String>'}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: snapshot_id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: elapsed_milliseconds, type: Integer}
+      - {name: exit_code, type: 'Optional<Integer>'}
+      - {name: timed_out, type: Boolean}
+      - {name: diagnostics, type: 'List<String>'}
+  - name: codegate_semantic.semantic.Gap
+    kind: struct
+    fields:
+      - {name: code, type: codegate_semantic.semantic.GapCode}
+      - {name: reason, type: String}
+      - {name: location, type: 'Optional<codegate_semantic.semantic.SourceRange>'}
+  - name: codegate_semantic.semantic.Coverage
+    kind: struct
+    fields:
+      - {name: family, type: codegate_semantic.semantic.FactFamily}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: unit_ids, type: 'List<codegate_semantic.semantic.UnitId>'}
+      - {name: status, type: codegate_semantic.semantic.Completeness}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+      - {name: applicability_reason, type: 'Optional<String>'}
+  - name: codegate_semantic.semantic.Evidence
+    kind: struct
+    fields:
+      - {name: id, type: codegate_semantic.semantic.FactId}
+      - {name: snapshot_id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: producer, type: String}
+      - {name: producer_version, type: String}
+      - {name: location, type: 'Optional<codegate_semantic.semantic.SourceRange>'}
+      - {name: resolution, type: codegate_semantic.semantic.Resolution}
+      - {name: basis, type: codegate_semantic.semantic.ResolutionBasis}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+  - name: codegate_semantic.semantic.Unit
+    kind: struct
+    fields:
+      - {name: id, type: codegate_semantic.semantic.UnitId}
+      - {name: name, type: String}
+      - {name: language, type: codegate_semantic.semantic.Language}
+      - {name: paths, type: 'List<String>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Declaration
+    kind: struct
+    fields:
+      - {name: id, type: codegate_semantic.semantic.DeclarationId}
+      - {name: unit_id, type: codegate_semantic.semantic.UnitId}
+      - {name: parent, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: name, type: String}
+      - {name: qualified_name, type: String}
+      - {name: signature, type: 'Optional<String>'}
+      - {name: kind, type: codegate_semantic.semantic.DeclarationKind}
+      - {name: visibility, type: codegate_semantic.semantic.Visibility}
+      - {name: api_eligibility, type: codegate_semantic.semantic.ApiEligibility}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Occurrence
+    kind: struct
+    fields:
+      - {name: owner, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: spelling, type: String}
+      - {name: role, type: codegate_semantic.semantic.OccurrenceRole}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Reference
+    kind: struct
+    fields:
+      - {name: occurrence_id, type: codegate_semantic.semantic.FactId}
+      - {name: target, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: candidates, type: 'List<codegate_semantic.semantic.DeclarationId>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Call
+    kind: struct
+    fields:
+      - {name: caller, type: codegate_semantic.semantic.DeclarationId}
+      - {name: callee, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: candidates, type: 'List<codegate_semantic.semantic.DeclarationId>'}
+      - {name: dynamic_dispatch, type: Boolean}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Implementation
+    kind: struct
+    fields:
+      - {name: declaration, type: codegate_semantic.semantic.DeclarationId}
+      - {name: implementation, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: candidates, type: 'List<codegate_semantic.semantic.DeclarationId>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Dependency
+    kind: struct
+    fields:
+      - {name: source, type: codegate_semantic.semantic.UnitId}
+      - {name: target, type: 'Optional<codegate_semantic.semantic.UnitId>'}
+      - {name: target_name, type: String}
+      - {name: kind, type: codegate_semantic.semantic.DependencyKind}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.DecisionPoint
+    kind: struct
+    fields:
+      - {name: owner, type: codegate_semantic.semantic.DeclarationId}
+      - {name: kind, type: codegate_semantic.semantic.DecisionKind}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.StructureObservation
+    kind: struct
+    fields:
+      - {name: owner, type: codegate_semantic.semantic.DeclarationId}
+      - {name: kind, type: codegate_semantic.semantic.StructureKind}
+      - {name: parent_observation, type: 'Optional<codegate_semantic.semantic.FactId>'}
+      - {name: test_kind, type: 'Optional<codegate_semantic.semantic.TestKind>'}
+      - {name: text, type: 'Optional<String>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Effect
+    kind: struct
+    fields:
+      - {name: owner, type: codegate_semantic.semantic.DeclarationId}
+      - {name: kind, type: codegate_semantic.semantic.EffectKind}
+      - {name: related_declaration, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.Qualifier
+    kind: struct
+    fields:
+      - {name: annotation_name, type: String}
+      - {name: member_name, type: String}
+      - {name: member_value, type: String}
+      - {name: nonbinding, type: Boolean}
+  - name: codegate_semantic.semantic.FrameworkFact
+    kind: struct
+    fields:
+      - {name: kind, type: codegate_semantic.semantic.FrameworkKind}
+      - {name: declaration, type: codegate_semantic.semantic.DeclarationId}
+      - {name: target, type: 'Optional<codegate_semantic.semantic.DeclarationId>'}
+      - {name: annotation_name, type: String}
+      - {name: qualifiers, type: 'List<codegate_semantic.semantic.Qualifier>'}
+      - {name: scope, type: 'Optional<String>'}
+      - {name: produced_type, type: 'Optional<String>'}
+      - {name: http_method, type: 'Optional<String>'}
+      - {name: resource_path, type: 'Optional<String>'}
+      - {name: method_path, type: 'Optional<String>'}
+      - {name: transaction_mode, type: 'Optional<String>'}
+      - {name: configuration_key, type: 'Optional<String>'}
+      - {name: configuration_profile, type: 'Optional<String>'}
+      - {name: evidence, type: codegate_semantic.semantic.Evidence}
+  - name: codegate_semantic.semantic.FactSnapshot
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: source, type: codegate_semantic.semantic.SourceSnapshot}
+      - {name: mode, type: codegate_semantic.semantic.CollectionMode}
+      - {name: tools, type: 'List<codegate_semantic.semantic.ToolObservation>'}
+      - {name: coverage, type: 'List<codegate_semantic.semantic.Coverage>'}
+      - {name: units, type: 'List<codegate_semantic.semantic.Unit>'}
+      - {name: declarations, type: 'List<codegate_semantic.semantic.Declaration>'}
+      - {name: occurrences, type: 'List<codegate_semantic.semantic.Occurrence>'}
+      - {name: dependencies, type: 'List<codegate_semantic.semantic.Dependency>'}
+      - {name: references, type: 'List<codegate_semantic.semantic.Reference>'}
+      - {name: calls, type: 'List<codegate_semantic.semantic.Call>'}
+      - {name: implementations, type: 'List<codegate_semantic.semantic.Implementation>'}
+      - {name: decisions, type: 'List<codegate_semantic.semantic.DecisionPoint>'}
+      - {name: structure, type: 'List<codegate_semantic.semantic.StructureObservation>'}
+      - {name: effects, type: 'List<codegate_semantic.semantic.Effect>'}
+      - {name: framework, type: 'List<codegate_semantic.semantic.FrameworkFact>'}
+  - name: codegate_semantic.semantic.MetricSelection
+    kind: struct
+    fields:
+      - {name: kind, type: codegate_semantic.semantic.MetricKind}
+      - {name: aggregation, type: codegate_semantic.semantic.MetricAggregation}
+      - {name: threshold, type: 'Optional<Decimal>'}
+      - {name: effect, type: 'Optional<codegate_semantic.semantic.EffectKind>'}
+      - {name: occurrence_role, type: 'Optional<codegate_semantic.semantic.OccurrenceRole>'}
+      - {name: counting_contract, type: String}
+      - {name: required_families, type: 'List<codegate_semantic.semantic.FactFamily>'}
+  - name: codegate_semantic.semantic.Measurement
+    kind: struct
+    fields:
+      - {name: subject, type: String}
+      - {name: metric, type: codegate_semantic.semantic.MetricSelection}
+      - {name: value, type: 'Optional<Decimal>'}
+      - {name: numerator, type: 'Optional<Integer>'}
+      - {name: denominator, type: 'Optional<Integer>'}
+      - {name: unit, type: String}
+      - {name: status, type: codegate_semantic.semantic.Completeness}
+      - {name: evidence_ids, type: 'List<codegate_semantic.semantic.FactId>'}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+  - name: codegate_semantic.semantic.PolicyException
+    kind: struct
+    fields:
+      - {name: rule_id, type: String}
+      - {name: subjects, type: 'List<String>'}
+      - {name: reason, type: String}
+      - {name: owner, type: String}
+      - {name: expires_at, type: Timestamp}
+  - name: codegate_semantic.semantic.PolicyRule
+    kind: struct
+    fields:
+      - {name: id, type: String}
+      - {name: kind, type: codegate_semantic.semantic.CheckKind}
+      - {name: subjects, type: 'List<String>'}
+      - {name: targets, type: 'List<String>'}
+      - {name: required_families, type: 'List<codegate_semantic.semantic.FactFamily>'}
+      - {name: metric, type: 'Optional<codegate_semantic.semantic.MetricSelection>'}
+      - {name: maximum, type: 'Optional<Decimal>'}
+      - {name: effect, type: 'Optional<codegate_semantic.semantic.EffectKind>'}
+      - {name: dependency_kind, type: 'Optional<codegate_semantic.semantic.DependencyKind>'}
+      - {name: severity, type: codegate_semantic.semantic.Severity}
+  - name: codegate_semantic.semantic.ScoreComponent
+    kind: struct
+    fields:
+      - {name: id, type: String}
+      - {name: rule_ids, type: 'List<String>'}
+      - {name: weight, type: Decimal}
+      - {name: required, type: Boolean}
+  - name: codegate_semantic.semantic.Policy
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: id, type: String}
+      - {name: version, type: String}
+      - {name: expected_snapshot_id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: expected_configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: evaluation_time, type: Timestamp}
+      - {name: metrics, type: 'List<codegate_semantic.semantic.MetricSelection>'}
+      - {name: rules, type: 'List<codegate_semantic.semantic.PolicyRule>'}
+      - {name: exceptions, type: 'List<codegate_semantic.semantic.PolicyException>'}
+      - {name: scoring_contract, type: String}
+      - {name: score_components, type: 'List<codegate_semantic.semantic.ScoreComponent>'}
+  - name: codegate_semantic.semantic.Finding
+    kind: struct
+    fields:
+      - {name: id, type: String}
+      - {name: rule_id, type: String}
+      - {name: subject, type: String}
+      - {name: severity, type: codegate_semantic.semantic.Severity}
+      - {name: message, type: String}
+      - {name: evidence_ids, type: 'List<codegate_semantic.semantic.FactId>'}
+      - {name: exception_reason, type: 'Optional<String>'}
+      - {name: pressure, type: 'Optional<Decimal>'}
+  - name: codegate_semantic.semantic.CheckResult
+    kind: struct
+    fields:
+      - {name: rule_id, type: String}
+      - {name: verdict, type: codegate_semantic.semantic.Verdict}
+      - {name: finding_ids, type: 'List<String>'}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+  - name: codegate_semantic.semantic.Score
+    kind: struct
+    fields:
+      - {name: component_id, type: String}
+      - {name: value, type: 'Optional<Decimal>'}
+      - {name: status, type: codegate_semantic.semantic.Completeness}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+  - name: codegate_semantic.semantic.Suggestion
+    kind: struct
+    fields:
+      - {name: finding_ids, type: 'List<String>'}
+      - {name: summary, type: String}
+      - {name: rationale, type: String}
+      - {name: rank, type: Integer}
+  - name: codegate_semantic.semantic.Assessment
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: snapshot_id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: policy, type: codegate_semantic.semantic.Policy}
+      - {name: coverage, type: 'List<codegate_semantic.semantic.Coverage>'}
+      - {name: measurements, type: 'List<codegate_semantic.semantic.Measurement>'}
+      - {name: findings, type: 'List<codegate_semantic.semantic.Finding>'}
+      - {name: checks, type: 'List<codegate_semantic.semantic.CheckResult>'}
+      - {name: scores, type: 'List<codegate_semantic.semantic.Score>'}
+      - {name: overall_score, type: 'Optional<Decimal>'}
+      - {name: verdict, type: codegate_semantic.semantic.Verdict}
+      - {name: suggestions, type: 'List<codegate_semantic.semantic.Suggestion>'}
+  - name: codegate_semantic.semantic.LookupSelector
+    kind: struct
+    fields:
+      - {name: kind, type: codegate_semantic.semantic.SelectorKind}
+      - {name: name, type: 'Optional<String>'}
+      - {name: position, type: 'Optional<codegate_semantic.semantic.SourceRange>'}
+      - {name: scope_units, type: 'List<codegate_semantic.semantic.UnitId>'}
+      - {name: limit, type: Integer}
+  - name: codegate_semantic.semantic.NavigationResult
+    kind: struct
+    fields:
+      - {name: format, type: String}
+      - {name: snapshot_id, type: codegate_semantic.semantic.SnapshotId}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: selector, type: codegate_semantic.semantic.LookupSelector}
+      - {name: query, type: codegate_semantic.semantic.QueryKind}
+      - {name: truncated, type: Boolean}
+      - {name: total_matches, type: 'Optional<Integer>'}
+      - {name: declarations, type: 'List<codegate_semantic.semantic.Declaration>'}
+      - {name: evidence, type: 'List<codegate_semantic.semantic.Evidence>'}
+      - {name: status, type: codegate_semantic.semantic.Completeness}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+  - name: codegate_semantic.semantic.Capability
+    kind: struct
+    fields:
+      - {name: id, type: String}
+      - {name: language, type: codegate_semantic.semantic.Language}
+      - {name: family, type: codegate_semantic.semantic.FactFamily}
+      - {name: mode, type: codegate_semantic.semantic.CollectionMode}
+      - {name: configuration_id, type: codegate_semantic.semantic.ConfigurationId}
+      - {name: status, type: codegate_semantic.semantic.Completeness}
+      - {name: required_tools, type: 'List<String>'}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+      - {name: applicability_reason, type: 'Optional<String>'}
+  - name: codegate_semantic.semantic.CollectionRequest
+    kind: struct
+    fields:
+      - {name: root, type: String}
+      - {name: selection, type: codegate_semantic.semantic.SourceSelection}
+      - {name: configuration, type: codegate_semantic.semantic.BuildSelection}
+      - {name: mode, type: codegate_semantic.semantic.CollectionMode}
+      - {name: timeout_milliseconds, type: Integer}
+commands:
+  - name: codegate_semantic.semantic.Collect
+    input:
+      - {name: request, type: codegate_semantic.semantic.CollectionRequest}
+    response:
+      - {name: snapshot, type: codegate_semantic.semantic.FactSnapshot}
+    outcomes:
+      - {name: collected, returns: true}
+  - name: codegate_semantic.semantic.Evaluate
+    input:
+      - {name: snapshot, type: codegate_semantic.semantic.FactSnapshot}
+      - {name: policy, type: codegate_semantic.semantic.Policy}
+    response:
+      - {name: report, type: codegate_semantic.semantic.Assessment}
+    outcomes:
+      - {name: evaluated, returns: true}
+  - name: codegate_semantic.semantic.Assess
+    input:
+      - {name: request, type: codegate_semantic.semantic.CollectionRequest}
+      - {name: policy, type: codegate_semantic.semantic.Policy}
+    response:
+      - {name: report, type: codegate_semantic.semantic.Assessment}
+    outcomes:
+      - {name: assessed, returns: true}
+  - name: codegate_semantic.semantic.Lookup
+    input:
+      - {name: snapshot, type: codegate_semantic.semantic.FactSnapshot}
+      - {name: selector, type: codegate_semantic.semantic.LookupSelector}
+      - {name: query, type: codegate_semantic.semantic.QueryKind}
+    response:
+      - {name: result, type: codegate_semantic.semantic.NavigationResult}
+    outcomes:
+      - {name: looked-up, returns: true}
+  - name: codegate_semantic.semantic.Suggest
+    input:
+      - {name: report, type: codegate_semantic.semantic.Assessment}
+    response:
+      - {name: suggestions, type: 'List<codegate_semantic.semantic.Suggestion>'}
+    outcomes:
+      - {name: suggested, returns: true}
+  - name: codegate_semantic.semantic.Capabilities
+    input:
+      - {name: configuration, type: codegate_semantic.semantic.BuildSelection}
+      - {name: mode, type: codegate_semantic.semantic.CollectionMode}
+    response:
+      - {name: capabilities, type: 'List<codegate_semantic.semantic.Capability>'}
+    outcomes:
+      - {name: listed, returns: true}

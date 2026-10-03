@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T23:56:21Z",
+  "actor": "human:timo",
+  "artifact": "executable-system-specification:semantic-analysis",
+  "kind": "executable-system-specification",
+  "revision": 1,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "ESS 0.50.0 specify validate and compile; behavior/types/conformance synthesis; zero refusals",
+    "reference": "specifications/semantic-contract.md"
+  }
+}

@@ -1,0 +1,5 @@
+format: ess/17
+system: codegate_semantic
+version: v1
+domains:
+  - codegate_semantic.semantic

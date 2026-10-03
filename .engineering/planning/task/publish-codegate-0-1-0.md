@@ -7,7 +7,7 @@ title: Publish Codegate documentation, Gates enrollment and first release
 relations:
 - serves: vision:language-neutral-code-quality
 - decomposes: story:public-delivery
-revision: 5
+revision: 6
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-02T13:12:49Z", actor: "human:timo", revision: 2, executor: "agent:codegate-delivery"}
 - {from: "proposed", to: "active", at: "2026-10-02T13:12:49Z", actor: "human:timo", revision: 3, executor: "agent:codegate-delivery"}
@@ -43,3 +43,15 @@ Public history projection will replace private filesystem prefixes in historical
 The bounded docs worker returned three files: website/index.html, website/styles.css and src/bin/codegate-docs.rs. Its targeted cargo test executed5passed/0failed; examples are decoded and evaluated through the real core, first Pass then forbidden-edge Fail. Targeted Clippy with-Dwarnings, formatter and diff checks exited0. Static validation only; no browser render claimed. Source was copied into the coordinator checkout unchanged. Full integration check remains pending.
 
 Only the worker's stopped528MiB target was removed. Its source and raw logs were archived under the managed id codegate-docs-20261002. Primary implementation evidence and unsanitized original Git history are already retained in the earlier codegate-wave1-plan-20261002 recovery archive. No new source-language binding is introduced by this delivery.
+
+## Verified public delivery
+
+Source is public at https://github.com/beyond10x/codegate, main f8fe6c13fe246f9708d3270fec690d763097838b. All six public commits have b10x-bot[bot] as author and committer. Historical private path prefixes were redacted in the authorized public-history projection; original commits and logs remain in local recovery archives. No force push to public history was necessary because the repository was empty.
+
+The complete Gate passed: https://github.com/beyond10x/codegate/actions/runs/37013274829. The native ESS report executed 27, passed 27, failed/error/unsupported/skipped 0. Root tests, generated crate checks, formatting, Clippy, planning and documentation checks passed. Local signed common Gates admission scanned all five nonempty commits successfully; receipt check https://github.com/beyond10x/codegate/runs/110857864626.
+
+Documentation validation run37013274937 and site publication run37013437007 both succeeded. https://beyond10x.github.io/codegate/ is live. Its HTML and CSS were fetched and matched source bytes. The live .well-known/b10x-site.json identifies source f8fe6c13fe246f9708d3270fec690d763097838b; .well-known/b10x-docs.json identifies the same control commit, runtime fb4024ef7846729e5456591b9070db3d48c87e64 and artifact SHA256 1ab1dc28a4e9ae705b13b034625d8a759f54ad3d1f3bb81b646d77c08543d99b. This is verified publication, not a queued deployment.
+
+Release 0.1.0 has NOT been tagged or published. The Actions shared-gates run37013275938 failed with "repository is not enrolled": CI still reads the old policy secret. Repository Secrets access returned HTTP403 for the bot. Required-check ruleset activation and tagged release remain pending the credential blocker; no alternate credentials or policy exemptions were used.
+
+Resume after an authorized owner updates Codegate's B10X_GATES_POLICY repository secret from the updated private policy, or grants the App Secrets read/write so the bot can provision it. Re-run the failed common check via the bot API, verify green, activate prepared required-check rules, then tag 0.1.0, build, publish via bot and verify archive plus SHA256SUMS. No source behavior change is needed to resolve the credential blocker.

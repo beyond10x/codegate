@@ -1,0 +1,1419 @@
+{
+  "format": "ess-types-report/3",
+  "source_digest": "78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2",
+  "input": {
+    "kind": "model",
+    "system": "codegate_semantic",
+    "specification_version": "v1",
+    "contract_digest": "slice-sha256/2:6edcb7e200a543656e31061e95a8e3dd5119b9ed4522f0f0727fb99bec2321e6",
+    "projection_digest": "a67c2a7c56f905549c85f8c635e28a5669d4bebbe5281acdfec1605ce68c1bd5"
+  },
+  "generator_version": "0.50.0",
+  "target": "rust",
+  "configuration": {
+    "language": "rust",
+    "package": "codegate-semantic-contract"
+  },
+  "roots": [
+    "codegate_semantic.semantic.ApiEligibility",
+    "codegate_semantic.semantic.Assessment",
+    "codegate_semantic.semantic.BuildSelection",
+    "codegate_semantic.semantic.BuildSystem",
+    "codegate_semantic.semantic.Call",
+    "codegate_semantic.semantic.Capability",
+    "codegate_semantic.semantic.CheckKind",
+    "codegate_semantic.semantic.CheckResult",
+    "codegate_semantic.semantic.CollectionMode",
+    "codegate_semantic.semantic.CollectionRequest",
+    "codegate_semantic.semantic.Completeness",
+    "codegate_semantic.semantic.ConfigurationId",
+    "codegate_semantic.semantic.Coverage",
+    "codegate_semantic.semantic.DecisionKind",
+    "codegate_semantic.semantic.DecisionPoint",
+    "codegate_semantic.semantic.Declaration",
+    "codegate_semantic.semantic.DeclarationId",
+    "codegate_semantic.semantic.DeclarationKind",
+    "codegate_semantic.semantic.Dependency",
+    "codegate_semantic.semantic.DependencyKind",
+    "codegate_semantic.semantic.Effect",
+    "codegate_semantic.semantic.EffectKind",
+    "codegate_semantic.semantic.Evidence",
+    "codegate_semantic.semantic.FactFamily",
+    "codegate_semantic.semantic.FactId",
+    "codegate_semantic.semantic.FactSnapshot",
+    "codegate_semantic.semantic.Finding",
+    "codegate_semantic.semantic.FrameworkFact",
+    "codegate_semantic.semantic.FrameworkKind",
+    "codegate_semantic.semantic.Gap",
+    "codegate_semantic.semantic.GapCode",
+    "codegate_semantic.semantic.Implementation",
+    "codegate_semantic.semantic.Language",
+    "codegate_semantic.semantic.LineClass",
+    "codegate_semantic.semantic.LookupSelector",
+    "codegate_semantic.semantic.Manifest",
+    "codegate_semantic.semantic.Measurement",
+    "codegate_semantic.semantic.MetricAggregation",
+    "codegate_semantic.semantic.MetricKind",
+    "codegate_semantic.semantic.MetricSelection",
+    "codegate_semantic.semantic.NavigationResult",
+    "codegate_semantic.semantic.Occurrence",
+    "codegate_semantic.semantic.OccurrenceRole",
+    "codegate_semantic.semantic.Policy",
+    "codegate_semantic.semantic.PolicyException",
+    "codegate_semantic.semantic.PolicyRule",
+    "codegate_semantic.semantic.Qualifier",
+    "codegate_semantic.semantic.QueryKind",
+    "codegate_semantic.semantic.Reference",
+    "codegate_semantic.semantic.Resolution",
+    "codegate_semantic.semantic.ResolutionBasis",
+    "codegate_semantic.semantic.Score",
+    "codegate_semantic.semantic.ScoreComponent",
+    "codegate_semantic.semantic.SelectorKind",
+    "codegate_semantic.semantic.Severity",
+    "codegate_semantic.semantic.SnapshotId",
+    "codegate_semantic.semantic.SourceClass",
+    "codegate_semantic.semantic.SourceFile",
+    "codegate_semantic.semantic.SourceLine",
+    "codegate_semantic.semantic.SourceOrigin",
+    "codegate_semantic.semantic.SourceRange",
+    "codegate_semantic.semantic.SourceSelection",
+    "codegate_semantic.semantic.SourceSnapshot",
+    "codegate_semantic.semantic.StructureKind",
+    "codegate_semantic.semantic.StructureObservation",
+    "codegate_semantic.semantic.Suggestion",
+    "codegate_semantic.semantic.TestKind",
+    "codegate_semantic.semantic.ToolObservation",
+    "codegate_semantic.semantic.Unit",
+    "codegate_semantic.semantic.UnitId",
+    "codegate_semantic.semantic.Verdict",
+    "codegate_semantic.semantic.Visibility"
+  ],
+  "declarations": {
+    "codegate_semantic.semantic.ApiEligibility": "CodegateSemanticSemanticApiEligibility",
+    "codegate_semantic.semantic.Assessment": "CodegateSemanticSemanticAssessment",
+    "codegate_semantic.semantic.BuildSelection": "CodegateSemanticSemanticBuildSelection",
+    "codegate_semantic.semantic.BuildSystem": "CodegateSemanticSemanticBuildSystem",
+    "codegate_semantic.semantic.Call": "CodegateSemanticSemanticCall",
+    "codegate_semantic.semantic.Capability": "CodegateSemanticSemanticCapability",
+    "codegate_semantic.semantic.CheckKind": "CodegateSemanticSemanticCheckKind",
+    "codegate_semantic.semantic.CheckResult": "CodegateSemanticSemanticCheckResult",
+    "codegate_semantic.semantic.CollectionMode": "CodegateSemanticSemanticCollectionMode",
+    "codegate_semantic.semantic.CollectionRequest": "CodegateSemanticSemanticCollectionRequest",
+    "codegate_semantic.semantic.Completeness": "CodegateSemanticSemanticCompleteness",
+    "codegate_semantic.semantic.ConfigurationId": "CodegateSemanticSemanticConfigurationId",
+    "codegate_semantic.semantic.Coverage": "CodegateSemanticSemanticCoverage",
+    "codegate_semantic.semantic.DecisionKind": "CodegateSemanticSemanticDecisionKind",
+    "codegate_semantic.semantic.DecisionPoint": "CodegateSemanticSemanticDecisionPoint",
+    "codegate_semantic.semantic.Declaration": "CodegateSemanticSemanticDeclaration",
+    "codegate_semantic.semantic.DeclarationId": "CodegateSemanticSemanticDeclarationId",
+    "codegate_semantic.semantic.DeclarationKind": "CodegateSemanticSemanticDeclarationKind",
+    "codegate_semantic.semantic.Dependency": "CodegateSemanticSemanticDependency",
+    "codegate_semantic.semantic.DependencyKind": "CodegateSemanticSemanticDependencyKind",
+    "codegate_semantic.semantic.Effect": "CodegateSemanticSemanticEffect",
+    "codegate_semantic.semantic.EffectKind": "CodegateSemanticSemanticEffectKind",
+    "codegate_semantic.semantic.Evidence": "CodegateSemanticSemanticEvidence",
+    "codegate_semantic.semantic.FactFamily": "CodegateSemanticSemanticFactFamily",
+    "codegate_semantic.semantic.FactId": "CodegateSemanticSemanticFactId",
+    "codegate_semantic.semantic.FactSnapshot": "CodegateSemanticSemanticFactSnapshot",
+    "codegate_semantic.semantic.Finding": "CodegateSemanticSemanticFinding",
+    "codegate_semantic.semantic.FrameworkFact": "CodegateSemanticSemanticFrameworkFact",
+    "codegate_semantic.semantic.FrameworkKind": "CodegateSemanticSemanticFrameworkKind",
+    "codegate_semantic.semantic.Gap": "CodegateSemanticSemanticGap",
+    "codegate_semantic.semantic.GapCode": "CodegateSemanticSemanticGapCode",
+    "codegate_semantic.semantic.Implementation": "CodegateSemanticSemanticImplementation",
+    "codegate_semantic.semantic.Language": "CodegateSemanticSemanticLanguage",
+    "codegate_semantic.semantic.LineClass": "CodegateSemanticSemanticLineClass",
+    "codegate_semantic.semantic.LookupSelector": "CodegateSemanticSemanticLookupSelector",
+    "codegate_semantic.semantic.Manifest": "CodegateSemanticSemanticManifest",
+    "codegate_semantic.semantic.Measurement": "CodegateSemanticSemanticMeasurement",
+    "codegate_semantic.semantic.MetricAggregation": "CodegateSemanticSemanticMetricAggregation",
+    "codegate_semantic.semantic.MetricKind": "CodegateSemanticSemanticMetricKind",
+    "codegate_semantic.semantic.MetricSelection": "CodegateSemanticSemanticMetricSelection",
+    "codegate_semantic.semantic.NavigationResult": "CodegateSemanticSemanticNavigationResult",
+    "codegate_semantic.semantic.Occurrence": "CodegateSemanticSemanticOccurrence",
+    "codegate_semantic.semantic.OccurrenceRole": "CodegateSemanticSemanticOccurrenceRole",
+    "codegate_semantic.semantic.Policy": "CodegateSemanticSemanticPolicy",
+    "codegate_semantic.semantic.PolicyException": "CodegateSemanticSemanticPolicyException",
+    "codegate_semantic.semantic.PolicyRule": "CodegateSemanticSemanticPolicyRule",
+    "codegate_semantic.semantic.Qualifier": "CodegateSemanticSemanticQualifier",
+    "codegate_semantic.semantic.QueryKind": "CodegateSemanticSemanticQueryKind",
+    "codegate_semantic.semantic.Reference": "CodegateSemanticSemanticReference",
+    "codegate_semantic.semantic.Resolution": "CodegateSemanticSemanticResolution",
+    "codegate_semantic.semantic.ResolutionBasis": "CodegateSemanticSemanticResolutionBasis",
+    "codegate_semantic.semantic.Score": "CodegateSemanticSemanticScore",
+    "codegate_semantic.semantic.ScoreComponent": "CodegateSemanticSemanticScoreComponent",
+    "codegate_semantic.semantic.SelectorKind": "CodegateSemanticSemanticSelectorKind",
+    "codegate_semantic.semantic.Severity": "CodegateSemanticSemanticSeverity",
+    "codegate_semantic.semantic.SnapshotId": "CodegateSemanticSemanticSnapshotId",
+    "codegate_semantic.semantic.SourceClass": "CodegateSemanticSemanticSourceClass",
+    "codegate_semantic.semantic.SourceFile": "CodegateSemanticSemanticSourceFile",
+    "codegate_semantic.semantic.SourceLine": "CodegateSemanticSemanticSourceLine",
+    "codegate_semantic.semantic.SourceOrigin": "CodegateSemanticSemanticSourceOrigin",
+    "codegate_semantic.semantic.SourceRange": "CodegateSemanticSemanticSourceRange",
+    "codegate_semantic.semantic.SourceSelection": "CodegateSemanticSemanticSourceSelection",
+    "codegate_semantic.semantic.SourceSnapshot": "CodegateSemanticSemanticSourceSnapshot",
+    "codegate_semantic.semantic.StructureKind": "CodegateSemanticSemanticStructureKind",
+    "codegate_semantic.semantic.StructureObservation": "CodegateSemanticSemanticStructureObservation",
+    "codegate_semantic.semantic.Suggestion": "CodegateSemanticSemanticSuggestion",
+    "codegate_semantic.semantic.TestKind": "CodegateSemanticSemanticTestKind",
+    "codegate_semantic.semantic.ToolObservation": "CodegateSemanticSemanticToolObservation",
+    "codegate_semantic.semantic.Unit": "CodegateSemanticSemanticUnit",
+    "codegate_semantic.semantic.UnitId": "CodegateSemanticSemanticUnitId",
+    "codegate_semantic.semantic.Verdict": "CodegateSemanticSemanticVerdict",
+    "codegate_semantic.semantic.Visibility": "CodegateSemanticSemanticVisibility"
+  },
+  "annotations": [
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ApiEligibility/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ApiEligibility/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ApiEligibility/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Assessment/properties/overall_score/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Assessment/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Assessment/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Assessment/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSelection/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSelection/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSelection/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSystem/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSystem/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.BuildSystem/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Call/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Call/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Call/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Capability/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Capability/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Capability/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckResult/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckResult/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CheckResult/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionMode/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionMode/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionMode/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Completeness/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Completeness/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Completeness/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ConfigurationId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ConfigurationId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ConfigurationId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Coverage/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Coverage/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Coverage/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionPoint/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionPoint/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DecisionPoint/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Declaration/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Declaration/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Declaration/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DeclarationKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Dependency/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Dependency/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Dependency/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DependencyKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DependencyKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.DependencyKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Effect/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Effect/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Effect/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.EffectKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.EffectKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.EffectKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Evidence/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Evidence/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Evidence/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactFamily/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactFamily/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactFamily/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactSnapshot/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactSnapshot/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FactSnapshot/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Finding/properties/pressure/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Finding/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Finding/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Finding/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkFact/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkFact/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkFact/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.FrameworkKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Gap/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Gap/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Gap/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.GapCode/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.GapCode/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.GapCode/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Implementation/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Implementation/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Implementation/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Language/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Language/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Language/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LineClass/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LineClass/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LineClass/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Manifest/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Manifest/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Manifest/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/value/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricAggregation/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricAggregation/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricAggregation/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricSelection/properties/threshold/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricSelection/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricSelection/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricSelection/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Occurrence/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Occurrence/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Occurrence/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.OccurrenceRole/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.OccurrenceRole/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.OccurrenceRole/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Policy/properties/evaluation_time/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Policy/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Policy/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Policy/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyException/properties/expires_at/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyException/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyException/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyException/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/properties/maximum/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Qualifier/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Qualifier/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Qualifier/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.QueryKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.QueryKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.QueryKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Reference/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Reference/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Reference/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Resolution/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Resolution/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Resolution/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ResolutionBasis/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ResolutionBasis/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ResolutionBasis/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Score/properties/value/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Score/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Score/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Score/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ScoreComponent/properties/weight/format",
+      "rule": "format",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ScoreComponent/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ScoreComponent/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ScoreComponent/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SelectorKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SelectorKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SelectorKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Severity/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Severity/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Severity/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SnapshotId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SnapshotId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SnapshotId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceClass/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceClass/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceClass/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceFile/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceFile/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceFile/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceOrigin/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceOrigin/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceOrigin/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSelection/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSelection/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSelection/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSnapshot/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSnapshot/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceSnapshot/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureObservation/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureObservation/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.StructureObservation/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Suggestion/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Suggestion/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Suggestion/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.TestKind/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.TestKind/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.TestKind/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Unit/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Unit/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Unit/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.UnitId/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.UnitId/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.UnitId/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Verdict/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Verdict/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Verdict/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Visibility/title",
+      "rule": "title",
+      "detail": "retained in source.schema.json; no decoder behavior inferred"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Visibility/x-ess-kind",
+      "rule": "x-ess-kind",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Visibility/x-ess-name",
+      "rule": "x-ess-name",
+      "detail": "model identity and wire mapping retained in source.schema.json"
+    }
+  ],
+  "obligations": [
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Assessment/properties/overall_score/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/properties/timeout_milliseconds",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Finding/properties/pressure/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/properties/limit",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/denominator",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/numerator",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/value/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.MetricSelection/properties/threshold/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/properties/total_matches",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/properties/maximum/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Score/properties/value/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ScoreComponent/properties/weight/pattern",
+      "rule": "pattern",
+      "detail": "validate this constraint against the source schema at runtime"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceFile/properties/byte_length",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/end_byte",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/number",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/start_byte",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_byte",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_column",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_line",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_byte",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_column",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_line",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Suggestion/properties/rank",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/elapsed_milliseconds",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/exit_code",
+      "rule": "integer",
+      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+    }
+  ]
+}

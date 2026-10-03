@@ -7,6 +7,11 @@ Codegate evaluates language-neutral dependency facts against shared quality rule
 Language bindings will produce facts; the current first slice reads normalized JSON
 offline. No Rust or Go source extractor is shipped yet.
 
+The [Go/Rust/Java semantic-parity program](docs/parity-baseline.md) now has a
+[separate ESS foundation](specifications/semantic-contract.md), generated Rust
+contracts and a reviewed AEP backlog. Collection, semantic adapters, navigation and
+broader assessment remain implementation work; generated traits are not those features.
+
 The implementation is Rust. Its domain and examples live in [ESS](ess/README.md);
 behavior and wire models are generated from that contract. The broader design and
 backlog live in `.engineering/planning/` and are managed with `aep plan artifact`.
@@ -45,7 +50,7 @@ Install Rust 1.98.1, ESS 0.50.0, AEP and Task, then run:
 task check
 ```
 
-The Rust gate checks the planning store and ESS, regenerates both contract crates,
+The Rust gate checks the planning store and both ESS roots, regenerates all four contract crates,
 normalizes generated Rust with the pinned rustfmt, checks byte drift, runs the real
 Rust ESS target across all 27 combined scenarios, runs boundary/CLI regressions,
 and checks formatting and Clippy including generated crates. Every step prints its

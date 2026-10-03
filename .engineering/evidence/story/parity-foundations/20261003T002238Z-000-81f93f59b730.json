@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T00:22:38Z",
+  "actor": "human:timo",
+  "artifact": "story:parity-foundations",
+  "kind": "story",
+  "revision": 6,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "Full task check exit 0: 27 executed and passed ESS cases; generated drift; Rust tests; format; Clippy; documentation",
+    "reference": "verification/semantic-foundations/integration/task-check.log"
+  }
+}
