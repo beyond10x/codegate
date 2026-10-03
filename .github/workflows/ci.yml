@@ -48,5 +48,6 @@ jobs:
           path: |
             target/codegate-check-*/conformance/*.json
             target/codegate-check-*/foundation-conformance/*.json
+            target/codegate-check-*/collection-conformance/*.json
           retention-days: 30
           if-no-files-found: error

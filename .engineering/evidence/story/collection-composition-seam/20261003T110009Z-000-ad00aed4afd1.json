@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T11:00:09Z",
+  "actor": "human:timo",
+  "artifact": "story:collection-composition-seam",
+  "kind": "story",
+  "revision": 18,
+  "change": {
+    "change": "evidence",
+    "kind": "ess_conformance_coverage_v1",
+    "source": "{\"completed_at\":\"1791025209647\",\"conformance_status\":\"passed\",\"counts\":{\"error\":0,\"failed\":0,\"passed\":4,\"skipped\":0,\"total\":4,\"unsupported\":0},\"coverage\":{\"counts\":{\"authored\":3,\"generated\":1,\"outside\":13,\"refused\":0},\"knowledge\":\"complete_inventory\",\"refused\":[],\"selection\":{\"filter\":{\"kind\":\"all\"},\"origins\":\"generated_and_authored\",\"scope\":{\"component\":\"collection\",\"kind\":\"component\"}}},\"execution_status\":\"passed\",\"format\":\"ess-conformance-report/2\",\"implementation\":\"codegate-source-collection 0.2.1\",\"input_transport\":\"wrapped_raw_suite\",\"policy\":\"complete-selection/1\",\"producer_profile\":\"rust-scenario-status/1\",\"report_input\":\"verification/collection-composition/final/collection/report.json\",\"selected_ids\":[\"codegate_semantic.semantic.Collect/outcome/collected\",\"codegate_semantic.semantic/authored/parity-collect-capture-failure\",\"codegate_semantic.semantic/authored/parity-collect-semantic-gap\",\"codegate_semantic.semantic/authored/parity-collect-source-only-foundation\"],\"selection\":{\"filter\":{\"kind\":\"all\"},\"origins\":\"generated_and_authored\",\"scope\":{\"component\":\"collection\",\"kind\":\"component\"}},\"spec_digest\":\"c64e8e2f5e1a2e791ed83c172875fb04a67c095ec27f188220b1d5644654c126\",\"specification\":\"codegate_semantic/v1\",\"suite\":{\"digest\":\"sha256:0d4eb161d607ab3062d0a2607b84d3362856c5570af800fc7eea32701d274de2\",\"digest_profile\":\"sha256-json-bytes/1\",\"version\":\"ess-conformance/29\"},\"suite_input\":\"verification/collection-composition/final/collection/suite.json\"}",
+    "reference": "verification/collection-composition/final/collection/report.json"
+  }
+}

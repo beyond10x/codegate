@@ -1,0 +1,206 @@
+[
+  {
+    "scenario": "codegate_semantic.semantic.CollectSource/outcome/source-observed",
+    "purpose": "`codegate_semantic.semantic.CollectSource` answers `source-observed` for an input no other branch's guard claims",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 3
+  },
+  {
+    "scenario": "codegate_semantic.semantic.ValidateSnapshot/outcome/validation-observed",
+    "purpose": "`codegate_semantic.semantic.ValidateSnapshot` answers `validation-observed` for an input no other branch's guard claims",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-coverage-not-zero",
+    "purpose": "Valid partial evidence stays inspectable; missing coverage cannot stand for zero.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 6
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-dangling-observation",
+    "purpose": "An occurrence cannot refer to an absent owner.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 2
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-manifest-identity",
+    "purpose": "Static build configuration bytes change configuration and snapshot identities.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 14
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-path-confinement",
+    "purpose": "Escaping selectors are refused before source collection.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-selected-content-identity",
+    "purpose": "Exact selected bytes determine identity independently of the root path.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.CollectSource/source-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.CollectSource",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 6
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-stale-evidence",
+    "purpose": "Matching source values are admitted; stale imported tool evidence is refused.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.ValidateSnapshot/validation-observed",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.ValidateSnapshot",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 3
+  }
+]

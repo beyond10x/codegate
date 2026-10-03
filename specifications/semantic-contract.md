@@ -1,9 +1,9 @@
 # Semantic contract v1 foundation
 
-Status: specified foundation, with generated Rust data and behavior contracts. No
-source binding, semantic adapter, semantic evaluator or semantic navigation runtime
-is implemented by this document. The six public behavior traits and two internal
-foundation traits retain typed refusals until implemented. Planned acceptance is
+Status: generated Rust data and behavior contracts, with source capture, admission
+and the public Collect composition implemented. Source-language bindings, semantic
+adapters, semantic evaluation and semantic navigation remain delivery gaps. Five
+public behavior traits remain runtime obligations. Planned acceptance is
 [semantic-scenarios.md](semantic-scenarios.md).
 ESS validation and synthesis are not evidence that these runtime requirements pass.
 
@@ -67,6 +67,26 @@ The observed outcomes name the operation completing, not collection completeness
 or admission success; response assertions must check the actual source, accepted
 flag and gap codes. Native ESS evidence scoped to this component establishes only
 the selected foundation behavior, never public handler or full semantic parity.
+
+## Public collection composition
+
+The `collection` component accepts only public `Collect`. Its Rust implementation
+captures source bytes, invokes registered source bindings and returns an admitted
+FactSnapshot. Before language bindings are registered, units and observation arrays
+are empty. Sources coverage reflects capture; the fourteen other fact families are
+Unsupported with explicit unavailable-capability and unknown-unit gaps. Empty
+coverage scopes describe the empty observed unit population, never a wildcard.
+
+A Semantic request retains that mode in its response. Source capture may succeed,
+but absent semantic adapters remain Unsupported and no tool observation is invented.
+Valid requests whose capture fails return a canonical empty observed source with
+Failed Sources coverage carrying the actual capture diagnostics. Unread files and
+configuration-file descriptors are not fabricated. Invalid selection/configuration
+that cannot form a valid snapshot is an invocation error, not a collected outcome.
+
+The component's three authored cases and structural Collect case establish this
+bounded behavior; they do not establish language extraction, complete assessments,
+navigation, reports or semantic-tool support.
 
 ## Collection and admission
 
@@ -291,7 +311,7 @@ Rust toolchain. The generated behavior defaults refuse work: generated != implem
 ESS stateless command declarations express typed input/output, not these graph,
 counting or evidence rules. Those rules require Rust handlers and authored ESS
 scenarios. The generated six structural command scenarios assert only outcome and
-response shape; they are not the named semantic acceptance suite, and have not
-been executed against a semantic runtime. Existing dependency conformance cannot
+response shape; they are not the named semantic acceptance suite. Only the selected
+Collect structural case runs with its authored composition cases. Existing dependency conformance cannot
 be reused as evidence for new semantic behavior. `semantic-scenarios.md` records
 planned obligations and expected witnesses, not fabricated passing results.

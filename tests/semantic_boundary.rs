@@ -349,6 +349,23 @@ fn violations(source: &str, role: Role) -> Vec<String> {
         }
     }
     for item in &file.items {
+        // These exact public exports wire the collection API. Aliases were
+        // registered above, so an algorithm using either export is still refused.
+        if role == Role::Root
+            && let Item::Use(export) = item
+            && matches!(export.vis, syn::Visibility::Public(_))
+        {
+            let mut paths = BTreeMap::new();
+            use_paths(&export.tree, vec![], &mut paths);
+            if !paths.is_empty()
+                && paths.values().all(|path| {
+                    path == &["collection", "compose", "Collector"]
+                        || path == &["collection", "compose", "collect"]
+                })
+            {
+                continue;
+            }
+        }
         // Explicit root orchestration is kept outside the pure algorithm check.
         if role == Role::Root
             && matches!(item,Item::Fn(function) if matches!(function.sig.ident.to_string().as_str(),"collect"|"collect_source"|"assess"))
@@ -522,6 +539,26 @@ fn scan_tree(root: &Path) -> Result<Vec<String>, String> {
         &mut errors,
     )?;
     Ok(errors)
+}
+#[test]
+fn public_collection_exports_are_wiring_but_core_calls_remain_forbidden() {
+    let exports = "pub use collection::compose::{Collector, collect};";
+    assert!(violations(exports, Role::Root).is_empty());
+    for algorithm in [
+        "fn evaluate() { collect(input); }",
+        "fn evaluate() { Collector::default(); }",
+    ] {
+        assert!(!violations(&format!("{exports}{algorithm}"), Role::Root).is_empty());
+    }
+    assert!(!violations(exports, Role::Algorithm).is_empty());
+    assert!(!violations("pub use collection::compose::*;", Role::Root).is_empty());
+    assert!(
+        !violations(
+            "pub use collection::compose::collect as adapter; fn evaluate() { adapter(input); }",
+            Role::Root,
+        )
+        .is_empty()
+    );
 }
 #[test]
 fn all_shared_modules_and_root_algorithms_obey_boundary() {

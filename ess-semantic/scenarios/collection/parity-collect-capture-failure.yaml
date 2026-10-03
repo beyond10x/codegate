@@ -1,0 +1,319 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate_semantic.semantic",
+  "scenario": "parity-collect-capture-failure",
+  "summary": "Actual Collect preserves captured identities, requested mode and explicit unavailable evidence.",
+  "timeline": [
+    {
+      "at": "2026-10-03T00:00:00Z",
+      "command": "codegate_semantic.semantic.Collect",
+      "input": {
+        "request": {
+          "root": "fixture:tri-language",
+          "selection": {
+            "exclude_paths": [],
+            "include_generated": true,
+            "include_paths": [
+              "absent.rs"
+            ],
+            "include_tests": true,
+            "languages": []
+          },
+          "configuration": {
+            "build_profiles": [],
+            "configuration_files": [],
+            "go_build_tags": [],
+            "id": "",
+            "modules": [],
+            "rust_cfg": [],
+            "rust_default_features": false,
+            "rust_features": []
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "collected",
+      "response": {
+        "snapshot": {
+          "format": "codegate.semantic-facts/1",
+          "source": {
+            "configuration": {
+              "build_profiles": [],
+              "configuration_files": [],
+              "go_build_tags": [],
+              "id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "modules": [],
+              "rust_cfg": [],
+              "rust_default_features": false,
+              "rust_features": []
+            },
+            "files": [],
+            "manifests": [],
+            "selection": {
+              "exclude_paths": [],
+              "include_generated": true,
+              "include_paths": [
+                "absent.rs"
+              ],
+              "include_tests": true,
+              "languages": []
+            },
+            "id": "d7471773866a9b2d65096de138b604ba8397831746bdc3cc9879512a693bc405"
+          },
+          "mode": "SourceOnly",
+          "tools": [],
+          "coverage": [
+            {
+              "family": "Sources",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Failed",
+              "gaps": [
+                {
+                  "code": "MissingBuildSelection",
+                  "reason": "selected input is missing: absent.rs"
+                }
+              ]
+            },
+            {
+              "family": "Declarations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Occurrences",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Dependencies",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "References",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Implementations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Calls",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Decisions",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Structure",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Documentation",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Effects",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "Tests",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "FrameworkDeclarations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "FrameworkWiring",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            },
+            {
+              "family": "ExecutionCoverage",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "source binding is not implemented for this fact family"
+                },
+                {
+                  "code": "UnknownUnit",
+                  "reason": "unit discovery is unavailable for selected sources"
+                }
+              ]
+            }
+          ],
+          "units": [],
+          "declarations": [],
+          "occurrences": [],
+          "dependencies": [],
+          "references": [],
+          "calls": [],
+          "implementations": [],
+          "decisions": [],
+          "structure": [],
+          "effects": [],
+          "framework": []
+        }
+      }
+    }
+  ]
+}

@@ -29,11 +29,14 @@ are under `target/conformance/`; the gate retains its private invocation evidenc
 under `target/codegate-check-<pid>/conformance/`. All 27 evaluator scenarios must
 execute and pass. Eight source-foundation cases run separately with fresh evidence
 under the same invocation's `foundation-conformance/` directory.
+Four collection cases (three authored and one structural) run against the public
+Collect Rust handler, with fresh evidence under `collection-conformance/`.
 
 `ess-semantic/` is the separately versioned semantic-parity foundation. Its generated
 `generated/semantic-behavior` and `generated/semantic-wire` crates also participate in
-drift, compilation, formatting and Clippy checks. The six public semantic behavior
-traits remain runtime obligations. The two internal source-foundation traits have
+drift, compilation, formatting and Clippy checks. Public Collect composes source
+capture and binding registration; five other public semantic behavior traits remain
+runtime obligations. The two internal source-foundation traits have
 six authored behavioral cases plus two structural cases; the latter alone cannot
 establish real semantic conformance. Never report semantic parity from either
 foundation or legacy results. The program

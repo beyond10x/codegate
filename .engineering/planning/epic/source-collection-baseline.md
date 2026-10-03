@@ -2,13 +2,16 @@
 format: aep.planning-md/3
 id: epic:source-collection-baseline
 kind: epic
-status: draft
+status: active
 title: Deliver the first usable Rust Go and Java source-only baseline
 relations:
 - decomposes: epic:semantic-parity
 - depends_on: epic:source-collection-foundation
 - informed_by: executable-system-specification:semantic-analysis
-revision: 4
+revision: 6
+transitions:
+- {from: "draft", to: "proposed", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}}
+- {from: "proposed", to: "active", at: "2026-10-03T10:35:27Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"review_outcome":2}}}
 ---
 ## Intent
 

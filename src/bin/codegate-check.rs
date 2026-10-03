@@ -210,9 +210,55 @@ fn validate_native_report(
 }
 
 fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
-    let expected = scratch.join("foundation-suite.json");
+    fresh_component(
+        root,
+        scratch,
+        ComponentConformance {
+            component: "source-foundation",
+            test: "foundation_conformance",
+            case: "real_foundation_conforms_to_selected_component",
+            output_variable: "CODEGATE_FOUNDATION_OUTPUT",
+            output_directory: "foundation-conformance",
+            implementation: "codegate-source-foundation",
+            count: 8,
+        },
+    )
+}
+
+struct ComponentConformance {
+    component: &'static str,
+    test: &'static str,
+    case: &'static str,
+    output_variable: &'static str,
+    output_directory: &'static str,
+    implementation: &'static str,
+    count: usize,
+}
+
+fn fresh_collection(root: &Path, scratch: &Path) -> Result<(), String> {
+    fresh_component(
+        root,
+        scratch,
+        ComponentConformance {
+            component: "collection",
+            test: "collection_conformance",
+            case: "real_collection_conforms_to_selected_component",
+            output_variable: "CODEGATE_COLLECTION_OUTPUT",
+            output_directory: "collection-conformance",
+            implementation: "codegate-source-collection",
+            count: 4,
+        },
+    )
+}
+
+fn fresh_component(
+    root: &Path,
+    scratch: &Path,
+    selected: ComponentConformance,
+) -> Result<(), String> {
+    let expected = scratch.join(format!("{}-suite.json", selected.component));
     step(
-        "foundation suite",
+        &format!("{} suite", selected.component),
         "ess",
         &[
             "verify",
@@ -223,7 +269,7 @@ fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
             "--scenarios",
             "ess-semantic",
             "--component",
-            "source-foundation",
+            selected.component,
             "--suite-format",
             "5",
             "--out",
@@ -231,8 +277,8 @@ fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
         ],
         root,
     )?;
-    let output = scratch.join("foundation-conformance");
-    fs::create_dir(&output).map_err(|e| format!("fresh foundation directory: {e}"))?;
+    let output = scratch.join(selected.output_directory);
+    fs::create_dir(&output).map_err(|e| format!("fresh {} directory: {e}", selected.component))?;
     let started = observed_millis()?;
     let status = Command::new("cargo")
         .args([
@@ -241,35 +287,42 @@ fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
             "-p",
             "codegate-cli",
             "--test",
-            "foundation_conformance",
-            "real_foundation_conforms_to_selected_component",
+            selected.test,
+            selected.case,
             "--",
             "--exact",
             "--nocapture",
         ])
         .current_dir(root)
         .env("CARGO_BUILD_JOBS", "2")
-        .env("CODEGATE_FOUNDATION_OUTPUT", &output)
+        .env(selected.output_variable, &output)
         .status()
         .map_err(|e| e.to_string())?;
     eprintln!(
-        "CHECK real foundation conformance: exit {:?}",
+        "CHECK real {} conformance: exit {:?}",
+        selected.component,
         status.code()
     );
     if !status.success() {
-        return Err("foundation conformance producer failed".into());
+        return Err(format!(
+            "{} conformance producer failed",
+            selected.component
+        ));
     }
     let ended = observed_millis()?;
     let expected = fs::read(expected).map_err(|e| e.to_string())?;
     let actual = fs::read(output.join("suite.json"))
-        .map_err(|e| format!("fresh foundation suite missing: {e}"))?;
+        .map_err(|e| format!("fresh {} suite missing: {e}", selected.component))?;
     if actual != expected {
-        return Err("foundation runner executed a different suite".into());
+        return Err(format!(
+            "{} runner executed a different suite",
+            selected.component
+        ));
     }
     let suite = serde_json::from_slice(&expected).map_err(|e| e.to_string())?;
     let report = serde_json::from_slice(
         &fs::read(output.join("report.json"))
-            .map_err(|e| format!("fresh foundation report missing: {e}"))?,
+            .map_err(|e| format!("fresh {} report missing: {e}", selected.component))?,
     )
     .map_err(|e| e.to_string())?;
     validate_native_report(
@@ -278,11 +331,12 @@ fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
         &expected,
         started,
         ended,
-        "codegate-source-foundation",
-        8,
+        selected.implementation,
+        selected.count,
     )?;
     eprintln!(
-        "CHECK native foundation ESS report: executed8 passed8 failed0 error0 unsupported0 skipped0, exit0; six public commands outside component"
+        "CHECK native {} ESS report: executed{} passed{} failed0 error0 unsupported0 skipped0, exit0",
+        selected.component, selected.count, selected.count
     );
     Ok(())
 }
@@ -431,7 +485,7 @@ fn check() -> Result<(), String> {
     }
     eprintln!("CHECK generated drift: exit 0");
     eprintln!(
-        "CHECK semantic foundation: six public runtime obligations remain; internal foundation verified separately"
+        "CHECK semantic scope: collection and internal foundation verified separately; five other public handlers remain"
     );
     step(
         "combined suite",
@@ -453,6 +507,7 @@ fn check() -> Result<(), String> {
     )?;
     fresh_conformance(&root, &scratch, &suite)?;
     fresh_foundation(&root, &scratch)?;
+    fresh_collection(&root, &scratch)?;
     step(
         "Rust tests",
         "cargo",
