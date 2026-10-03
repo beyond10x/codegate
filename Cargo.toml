@@ -18,11 +18,22 @@ path = "src/main.rs"
 [dependencies]
 codegate-behavior = { package = "codegate", path = "generated/behavior" }
 codegate-contract = { path = "generated/wire" }
+codegate-semantic-behavior = { package = "codegate_semantic", path = "generated/semantic-behavior" }
+codegate-semantic-contract = { path = "generated/semantic-wire" }
+tree-sitter = "=0.25.10"
+tree-sitter-go = "=0.25.0"
+tree-sitter-rust = "=0.24.2"
+tree-sitter-java = "=0.23.5"
+git2 = { version = "=0.20.4", default-features = false }
+toml = "=0.8.23"
+quick-xml = "=0.37.5"
+rustix = { version = "=1.1.5", features = ["fs"] }
 clap = { version = "4.5", features = ["derive"] }
 serde = { version = "=1.0.229", features = ["derive"] }
 serde_json = { version = "=1.0.151", features = ["arbitrary_precision"] }
 sha2 = "=0.11.0"
 
 [dev-dependencies]
+syn = { version = "2", features = ["full", "visit"] }
 ess-conformance = { git = "https://github.com/beyond10x/ess", rev = "8700d0808e8f3b19711629d8a17afc5281680f58" }
 ess-primitives = { git = "https://github.com/beyond10x/ess", rev = "8700d0808e8f3b19711629d8a17afc5281680f58" }

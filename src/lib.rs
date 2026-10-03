@@ -1,8 +1,10 @@
 //! Pure language-neutral dependency evaluation over admitted generated model values.
 pub use codegate_behavior::dependency as model;
+pub use codegate_semantic_behavior::semantic as semantic_model;
 mod admit;
 mod analysis;
 mod check;
+pub mod source_identity;
 pub mod wire;
 use model::*;
 
