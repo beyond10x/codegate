@@ -11,6 +11,8 @@ relations:
 - serves: vision:language-neutral-code-quality
 scope:
 - confidence: cited
+  path: .github/workflows/ci.yml
+- confidence: cited
   path: AGENTS.md
 - confidence: cited
   path: Cargo.lock
@@ -52,7 +54,7 @@ scope:
   path: tests/source_snapshot.rs
 - confidence: cited
   path: verification/source-foundation/**
-revision: 17
+revision: 18
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 8, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}
 - {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 9, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}

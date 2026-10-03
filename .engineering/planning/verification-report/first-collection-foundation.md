@@ -8,7 +8,7 @@ relations:
 - verifies: epic:source-collection-foundation
 - verifies: story:source-snapshot
 - verifies: story:capability-admission
-revision: 1
+revision: 2
 ---
 ## Result
 
@@ -68,3 +68,5 @@ CHECK test generated: exit 0
 CHECK format generated: exit 0
 CHECK Clippy generated: exit 0
 CHECK public documentation: exit 0
+
+CI retention now includes both fresh evaluator and foundation JSON suites/reports/runs, including seeded-mutation evidence. The workflow artifact path is additive; product code and locally verified tests are unchanged. Remote required checks validate the final candidate.
