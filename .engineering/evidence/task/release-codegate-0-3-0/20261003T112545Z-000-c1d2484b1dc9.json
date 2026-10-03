@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T11:25:45Z",
+  "actor": "human:timo",
+  "artifact": "task:release-codegate-0-3-0",
+  "kind": "task",
+  "revision": 3,
+  "change": {
+    "change": "evidence",
+    "kind": "ess_conformance_coverage_v1",
+    "source": "{\"completed_at\":\"1791026745754\",\"conformance_status\":\"passed\",\"counts\":{\"error\":0,\"failed\":0,\"passed\":8,\"skipped\":0,\"total\":8,\"unsupported\":0},\"coverage\":{\"counts\":{\"authored\":6,\"generated\":2,\"outside\":9,\"refused\":0},\"knowledge\":\"complete_inventory\",\"refused\":[],\"selection\":{\"filter\":{\"kind\":\"all\"},\"origins\":\"generated_and_authored\",\"scope\":{\"component\":\"source-foundation\",\"kind\":\"component\"}}},\"execution_status\":\"passed\",\"format\":\"ess-conformance-report/2\",\"implementation\":\"codegate-source-foundation 0.3.0\",\"input_transport\":\"wrapped_raw_suite\",\"policy\":\"complete-selection/1\",\"producer_profile\":\"rust-scenario-status/1\",\"report_input\":\"verification/releases/0.3.0/foundation/report.json\",\"selected_ids\":[\"codegate_semantic.semantic.CollectSource/outcome/source-observed\",\"codegate_semantic.semantic.ValidateSnapshot/outcome/validation-observed\",\"codegate_semantic.semantic/authored/parity-coverage-not-zero\",\"codegate_semantic.semantic/authored/parity-dangling-observation\",\"codegate_semantic.semantic/authored/parity-manifest-identity\",\"codegate_semantic.semantic/authored/parity-path-confinement\",\"codegate_semantic.semantic/authored/parity-selected-content-identity\",\"codegate_semantic.semantic/authored/parity-stale-evidence\"],\"selection\":{\"filter\":{\"kind\":\"all\"},\"origins\":\"generated_and_authored\",\"scope\":{\"component\":\"source-foundation\",\"kind\":\"component\"}},\"spec_digest\":\"c64e8e2f5e1a2e791ed83c172875fb04a67c095ec27f188220b1d5644654c126\",\"specification\":\"codegate_semantic/v1\",\"suite\":{\"digest\":\"sha256:82d131450a0492d361544e30bf3437379d725c9e43a288bbd30d36f8fd10bfd5\",\"digest_profile\":\"sha256-json-bytes/1\",\"version\":\"ess-conformance/29\"},\"suite_input\":\"verification/releases/0.3.0/foundation/suite.json\"}",
+    "reference": "verification/releases/0.3.0/foundation/report.json"
+  }
+}
