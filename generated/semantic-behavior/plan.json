@@ -2,8 +2,8 @@
   "provenance": {
     "system": "codegate_semantic",
     "specification_version": "v1",
-    "source_digest": "78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2",
-    "contract_digest": "8fc555319c73e1e5d01be705c8816b56b81d05a7961ff6581891488b9e59f426"
+    "source_digest": "6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd",
+    "contract_digest": "53b2681048db3937988b0fb64c9955287e4a7585230662d8b6db2d63142af9a9"
   },
   "scope": {
     "profile": "component-skeletons",
@@ -573,6 +573,25 @@
     },
     {
       "kind": "command_contract",
+      "source": "codegate_semantic.semantic.CollectSource",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "command_behavior",
+      "source": "codegate_semantic.semantic.CollectSource",
+      "disposition": {
+        "disposition": "obligation",
+        "reason": {
+          "class": "undetermined",
+          "construct": "a typed response (`response:`)"
+        },
+        "contract": "given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise"
+      }
+    },
+    {
+      "kind": "command_contract",
       "source": "codegate_semantic.semantic.Evaluate",
       "disposition": {
         "disposition": "generated"
@@ -626,6 +645,32 @@
           "construct": "a typed response (`response:`)"
         },
         "contract": "given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome — `suggested` otherwise"
+      }
+    },
+    {
+      "kind": "command_contract",
+      "source": "codegate_semantic.semantic.ValidateSnapshot",
+      "disposition": {
+        "disposition": "generated"
+      }
+    },
+    {
+      "kind": "command_behavior",
+      "source": "codegate_semantic.semantic.ValidateSnapshot",
+      "disposition": {
+        "disposition": "obligation",
+        "reason": {
+          "class": "undetermined",
+          "construct": "a typed response (`response:`)"
+        },
+        "contract": "given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise"
+      }
+    },
+    {
+      "kind": "component_port",
+      "source": "source-foundation",
+      "disposition": {
+        "disposition": "generated"
       }
     }
   ]

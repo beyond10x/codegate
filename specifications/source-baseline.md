@@ -1,6 +1,6 @@
 # First source collection round
 
-This document selects the first implementation profile of the unimplemented semantic v1 contract. It introduces no new wire types. Its typed home is `ess-semantic/domains/semantic.yaml`; `semantic-contract.md` remains normative. Capabilities outside this profile remain delivery gaps.
+This document selects the first implementation profile of the unimplemented semantic v1 contract. It adds two internal library command contracts using existing value types, without changing the public wire contracts. Its typed home is `ess-semantic/domains/semantic.yaml`; `semantic-contract.md` remains normative. Capabilities outside this profile remain delivery gaps.
 
 ## Selection and collection
 
@@ -30,4 +30,23 @@ Offline admission verifies nonnegative bounded ranges, file/line partitions and 
 
 Use the story's named `parity-*` IDs for foundation cases and the new `semantic-<language>-source-*` IDs for language cases. The older semantic-* manifest contains related detailed obligations, not duplicate executed cases. The coordinator maps these explicitly in the authored suite; no prose ID contributes to executed counts. Foundation admission exercises valid complete and partial snapshots plus stable refusals. Collection exercises actual filesystem fixtures, all three line classifiers, dirty/untracked identity, manifests and path confinement. Core-boundary verification includes `src/lib.rs`, all semantic algorithms and pure identity/bridge code, and contains negative dependency/IO/language-dispatch probes.
 
-Public full Collect/Assess behavior is integrated by story:first-slice after the language bindings; foundation helpers are intermediate Rust APIs and are not reported as completed generated command handlers. Missing semantic tools never silently downgrade a requested Semantic collection to SourceOnly.
+Public full Collect/Assess behavior is integrated by story:first-slice after the language bindings; foundation helpers are intermediate Rust APIs and are not reported as completed public generated command handlers. Missing semantic tools never silently downgrade a requested Semantic collection to SourceOnly.
+
+The intermediate helpers have their own generated CollectSource and
+ValidateSnapshot behavior traits, selected through the source-foundation
+component in ess-semantic/components.yaml. Implementing these traits does not
+satisfy any of the six public behavior obligations. CollectSource forwards the
+actual collection result; ValidateSnapshot forwards the actual admission result.
+The conformance target must never derive a response from expected fixture values
+or scenario names.
+
+The foundation ESS selection names parity-selected-content-identity,
+parity-manifest-identity, parity-path-confinement, parity-stale-evidence,
+parity-dangling-observation and parity-coverage-not-zero. Its authored cases assert
+actual source identities/content metadata and actual admission decisions/gap codes.
+Keep parity-core-boundary as a separate Rust architecture gate with negative
+dependency/IO/language-dispatch probes; do not count it as an ESS command scenario.
+The foundation completion witness combines that gate, the native foundation ESS
+report and all 27 legacy evaluator cases. An empty or generated-only foundation
+suite is not completion evidence. The semantic specification stays validated
+until evidence supports the separately declared scope of conformance.

@@ -3,6 +3,7 @@ requires: ess 0.50.0
 specification:
   - system.yaml
   - domains/semantic.yaml
+  - components.yaml
 # Planned acceptance is specifications/semantic-scenarios.md. No executable
 # semantic scenarios exist yet; do not interpret an empty suite as conformance.
 scenarios: []

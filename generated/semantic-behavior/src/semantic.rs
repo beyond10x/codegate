@@ -1,6 +1,6 @@
 // generated from codegate_semantic v1
-// model digest 78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2
-// contract digest 8fc555319c73e1e5d01be705c8816b56b81d05a7961ff6581891488b9e59f426
+// model digest 6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd
+// contract digest 53b2681048db3937988b0fb64c9955287e4a7585230662d8b6db2d63142af9a9
 // do not edit: regenerate with `ess synthesize --layout crate`
 
 //! semantic — `codegate_semantic.semantic`.
@@ -1425,6 +1425,35 @@ pub enum CollectOutcome {
     Collected,
 }
 
+/// CollectSource — the input of `codegate_semantic.semantic.CollectSource`.
+///
+/// Everything it can result in is [`CollectSourceOutcome`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct CollectSource {
+    /// `request` — `codegate_semantic.semantic.CollectionRequest`.
+    pub request: CollectionRequest,
+}
+
+/// Actual typed response of `codegate_semantic.semantic.CollectSource`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct CollectSourceResponse {
+    /// `source` — `Optional<codegate_semantic.semantic.SourceSnapshot>`.
+    pub source: Option<SourceSnapshot>,
+    /// `gaps` — `List<codegate_semantic.semantic.Gap>`.
+    pub gaps: Vec<Gap>,
+}
+
+/// Everything `codegate_semantic.semantic.CollectSource` can result in — one variant per declared outcome.
+///
+/// An infrastructure failure is deliberately not in here: a refusal is a fact about the domain,
+/// a transport fault is a fact about the run, and conflating the two is what the declared
+/// outcomes exist to prevent.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum CollectSourceOutcome {
+    /// `source-observed` — otherwise.
+    SourceObserved,
+}
+
 /// Evaluate — the input of `codegate_semantic.semantic.Evaluate`.
 ///
 /// Everything it can result in is [`EvaluateOutcome`].
@@ -1512,6 +1541,35 @@ pub enum SuggestOutcome {
     Suggested,
 }
 
+/// ValidateSnapshot — the input of `codegate_semantic.semantic.ValidateSnapshot`.
+///
+/// Everything it can result in is [`ValidateSnapshotOutcome`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ValidateSnapshot {
+    /// `snapshot` — `codegate_semantic.semantic.FactSnapshot`.
+    pub snapshot: FactSnapshot,
+}
+
+/// Actual typed response of `codegate_semantic.semantic.ValidateSnapshot`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ValidateSnapshotResponse {
+    /// `accepted` — `Boolean`.
+    pub accepted: bool,
+    /// `gaps` — `List<codegate_semantic.semantic.Gap>`.
+    pub gaps: Vec<Gap>,
+}
+
+/// Everything `codegate_semantic.semantic.ValidateSnapshot` can result in — one variant per declared outcome.
+///
+/// An infrastructure failure is deliberately not in here: a refusal is a fact about the domain,
+/// a transport fault is a fact about the run, and conflating the two is what the declared
+/// outcomes exist to prevent.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ValidateSnapshotOutcome {
+    /// `validation-observed` — otherwise.
+    ValidationObserved,
+}
+
 /// What this bounded context owes its implementor, as typed seams.
 ///
 /// One trait per obligation in the synthesis plan, each carrying the plan's own contract.
@@ -1566,6 +1624,22 @@ pub mod obligations {
         ) -> Result<super::CollectOutcome, crate::obligation::UnmetObligation>;
     }
 
+    /// The behaviour `codegate_semantic.semantic.CollectSource` — an implementation obligation.
+    ///
+    /// Why it is not generated: kept an obligation by a typed response (`response:`).
+    ///
+    /// Contract: given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise.
+    pub trait CollectSourceBehavior {
+        /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.CollectSource`.
+        ///
+        /// `Err` is the typed refusal of an obligation nothing has satisfied; a satisfying
+        /// implementation never returns it.
+        fn collect_source(
+            &mut self,
+            input: super::CollectSource,
+        ) -> Result<super::CollectSourceOutcome, crate::obligation::UnmetObligation>;
+    }
+
     /// The behaviour `codegate_semantic.semantic.Evaluate` — an implementation obligation.
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
@@ -1614,6 +1688,22 @@ pub mod obligations {
         ) -> Result<super::SuggestOutcome, crate::obligation::UnmetObligation>;
     }
 
+    /// The behaviour `codegate_semantic.semantic.ValidateSnapshot` — an implementation obligation.
+    ///
+    /// Why it is not generated: kept an obligation by a typed response (`response:`).
+    ///
+    /// Contract: given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise.
+    pub trait ValidateSnapshotBehavior {
+        /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.ValidateSnapshot`.
+        ///
+        /// `Err` is the typed refusal of an obligation nothing has satisfied; a satisfying
+        /// implementation never returns it.
+        fn validate_snapshot(
+            &mut self,
+            input: super::ValidateSnapshot,
+        ) -> Result<super::ValidateSnapshotOutcome, crate::obligation::UnmetObligation>;
+    }
+
     /// Every obligation of this bounded context, refused in the type system.
     ///
     /// Each method returns the typed refusal naming what is owed — never a panic, never a guessed
@@ -1656,6 +1746,18 @@ pub mod obligations {
         }
     }
 
+    impl CollectSourceBehavior for Unimplemented {
+        fn collect_source(
+            &mut self,
+            _input: super::CollectSource,
+        ) -> Result<super::CollectSourceOutcome, crate::obligation::UnmetObligation> {
+            Err(crate::obligation::UnmetObligation {
+                capability: "command behaviour",
+                source: "codegate_semantic.semantic.CollectSource",
+            })
+        }
+    }
+
     impl EvaluateBehavior for Unimplemented {
         fn evaluate(
             &mut self,
@@ -1688,6 +1790,18 @@ pub mod obligations {
             Err(crate::obligation::UnmetObligation {
                 capability: "command behaviour",
                 source: "codegate_semantic.semantic.Suggest",
+            })
+        }
+    }
+
+    impl ValidateSnapshotBehavior for Unimplemented {
+        fn validate_snapshot(
+            &mut self,
+            _input: super::ValidateSnapshot,
+        ) -> Result<super::ValidateSnapshotOutcome, crate::obligation::UnmetObligation> {
+            Err(crate::obligation::UnmetObligation {
+                capability: "command behaviour",
+                source: "codegate_semantic.semantic.ValidateSnapshot",
             })
         }
     }

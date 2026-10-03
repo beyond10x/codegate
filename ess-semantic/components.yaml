@@ -1,0 +1,8 @@
+# Internal library operations, independently observable before public collection.
+components:
+  - component: source-foundation
+    summary: Collects exact source inputs and validates imported fact snapshots.
+    accepts:
+      commands:
+        - codegate_semantic.semantic.CollectSource
+        - codegate_semantic.semantic.ValidateSnapshot

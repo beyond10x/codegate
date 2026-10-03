@@ -1,14 +1,14 @@
 <!--
   generated from codegate_semantic v1
-  model digest 78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2
-  contract digest 8fc555319c73e1e5d01be705c8816b56b81d05a7961ff6581891488b9e59f426
+  model digest 6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd
+  contract digest 53b2681048db3937988b0fb64c9955287e4a7585230662d8b6db2d63142af9a9
   do not edit: regenerate with `ess synthesize --layout crate`
 -->
 # Synthesis plan — codegate_semantic v1
 
 Scope: `component-skeletons`, laid out as `crate`, planned by `ess-synth`. Regenerate with `ess synthesize --layout crate`.
 
-84 capabilities: **78 generated**, **6 obligations**, **0 refused**. An obligation is yours to implement against its contract; a refusal is a fact about this synthesis scope, not about the specification.
+89 capabilities: **81 generated**, **8 obligations**, **0 refused**. An obligation is yours to implement against its contract; a refusal is a fact about this synthesis scope, not about the specification.
 
 ## Generated
 
@@ -89,9 +89,12 @@ Scope: `component-skeletons`, laid out as `crate`, planned by `ess-synth`. Regen
 | command contract | `codegate_semantic.semantic.Assess` |
 | command contract | `codegate_semantic.semantic.Capabilities` |
 | command contract | `codegate_semantic.semantic.Collect` |
+| command contract | `codegate_semantic.semantic.CollectSource` |
 | command contract | `codegate_semantic.semantic.Evaluate` |
 | command contract | `codegate_semantic.semantic.Lookup` |
 | command contract | `codegate_semantic.semantic.Suggest` |
+| command contract | `codegate_semantic.semantic.ValidateSnapshot` |
+| component port | `source-foundation` |
 
 ## Obligations — yours to implement
 
@@ -100,9 +103,11 @@ Scope: `component-skeletons`, laid out as `crate`, planned by `ess-synth`. Regen
 | command behaviour | `codegate_semantic.semantic.Assess` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome — `assessed` otherwise |
 | command behaviour | `codegate_semantic.semantic.Capabilities` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome — `listed` otherwise |
 | command behaviour | `codegate_semantic.semantic.Collect` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome — `collected` otherwise |
+| command behaviour | `codegate_semantic.semantic.CollectSource` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise |
 | command behaviour | `codegate_semantic.semantic.Evaluate` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise |
 | command behaviour | `codegate_semantic.semantic.Lookup` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome — `looked-up` otherwise |
 | command behaviour | `codegate_semantic.semantic.Suggest` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome — `suggested` otherwise |
+| command behaviour | `codegate_semantic.semantic.ValidateSnapshot` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise |
 
 ## Refused — not represented by this synthesis
 

@@ -1,6 +1,6 @@
 // generated from codegate_semantic v1
-// model digest 78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2
-// contract digest 8fc555319c73e1e5d01be705c8816b56b81d05a7961ff6581891488b9e59f426
+// model digest 6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd
+// contract digest 53b2681048db3937988b0fb64c9955287e4a7585230662d8b6db2d63142af9a9
 // do not edit: regenerate with `ess synthesize --layout crate`
 
 //! How the specification's primitives are spelled in this workspace.

@@ -2,8 +2,9 @@
 
 Status: specified foundation, with generated Rust data and behavior contracts. No
 source binding, semantic adapter, semantic evaluator or semantic navigation runtime
-is implemented by this document. The six generated behavior traits retain typed
-refusals until implemented. Planned acceptance is [semantic-scenarios.md](semantic-scenarios.md).
+is implemented by this document. The six public behavior traits and two internal
+foundation traits retain typed refusals until implemented. Planned acceptance is
+[semantic-scenarios.md](semantic-scenarios.md).
 ESS validation and synthesis are not evidence that these runtime requirements pass.
 
 ## Boundary and identities
@@ -34,6 +35,38 @@ Only admission creates the private admitted wrapper. Shared metrics and policies
 consume it and normalized facts. They cannot import bindings or IO, parse source,
 invoke tools, or branch on language, producer or annotation spelling. Applicability
 and language-specific observations are established before shared analysis.
+
+## Internal foundation library commands
+
+`CollectSource` and `ValidateSnapshot` are intermediate Rust library seams, not
+additional JSON CLI commands and not substitutes for the six public commands.
+The `source-foundation` component accepts only these two internal commands.
+Their response fields reuse the semantic value types; existing snapshot and
+public command contracts do not change.
+
+`CollectSource` consumes `CollectionRequest` and returns `source-observed` with
+`source: Optional<SourceSnapshot>` and `gaps: List<Gap>`. Only SourceOnly is
+supported. An explicit Semantic request returns no source and an
+UnsupportedCapability gap; it never silently downgrades. Successful bounded
+collection returns the actual source snapshot and all observed gaps. A refusal
+such as path escape, invalid selection, exceeded bounds or non-UTF-8 selected
+content returns no source and nonempty gaps. A source may carry partial evidence,
+but its gaps cannot be discarded or translated into complete semantic coverage.
+The response does not fabricate units, declarations or other FactSnapshot facts.
+
+`ValidateSnapshot` consumes `FactSnapshot` and returns `validation-observed` with
+`accepted: Boolean` and `gaps: List<Gap>`. Acceptance is true exactly when real
+admission validation succeeds; on success the response gaps are empty, while
+refusal returns false with the actual nonempty admission diagnostics in stable
+order. Valid partial snapshots may be accepted without becoming complete; their
+existing evidence gaps remain inside the input snapshot. This operation performs
+no filesystem, process, network, environment or clock access. It does not expose
+or allow callers to construct the private admitted wrapper.
+
+The observed outcomes name the operation completing, not collection completeness
+or admission success; response assertions must check the actual source, accepted
+flag and gap codes. Native ESS evidence scoped to this component establishes only
+the selected foundation behavior, never public handler or full semantic parity.
 
 ## Collection and admission
 
