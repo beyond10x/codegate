@@ -7,7 +7,7 @@ title: First source collection round and parallel wave record
 relations:
 - designs: epic:source-collection-foundation
 - designs: epic:source-collection-baseline
-revision: 3
+revision: 4
 ---
 ## Authority and procedure
 
@@ -91,3 +91,9 @@ Unit task:clean-external-target-gate, managed tree wt-bdb368b757ea, base 91dc33b
 ## Foundation conformance seam
 
 The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.
+
+## Foundation prerequisite workers
+
+The full clean-checkout gate passed at integration 69095e2, with 27 native evaluator cases, and task:clean-external-target-gate is implemented. Independent adversary found nothing in two attacks. Source-foundation contract was integrated at 80ba11b (worker 9526306); two internal obligations are specified, none claimed implemented yet.
+
+Shared setup runs in separate managed trees before runtime workers fork. Identity/dependency worker: wt-441dc9e84c18, base 9526306, target /tmp/codegate-identity-build.AaEcFJ, scratch .scratch/unit. Wire conversion worker: wt-36b37d910096, base 80ba11b, target /tmp/codegate-wire-worker.PQTRHV, scratch .scratch/unit. Code roles are coordinator-owned setup under source-snapshot; disjoint production files. The admission worker performs a read-only invariant review alongside them. Three worker budget observed. Full paths remain in manager/private dispatch records.

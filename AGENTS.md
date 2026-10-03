@@ -52,6 +52,12 @@ Known upstream style exception: the generated wire crate's Clippy invocation add
 manual `EssPresence<T>` Default implementation. No root/behavior exception applies;
 never hand-edit generated source to satisfy that style lint.
 
+The internal source-foundation component publishes no events. ESS 0.50.0 emits an
+unreachable push converting its uninhabited event enum; generated/semantic-behavior
+alone allows `unreachable_code` and `clippy::unneeded_struct_pattern` during Clippy
+(the generated component also matches unit outcomes with `{ .. }`). Root warnings remain denied and
+byte-for-byte regeneration remains required. Do not invent events to silence it.
+
 ## Public delivery
 
 Codegate is enrolled in common Gates. Use coordinated hooks, `b10x-gates bot`,

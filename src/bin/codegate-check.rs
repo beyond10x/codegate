@@ -332,7 +332,7 @@ fn check() -> Result<(), String> {
     }
     eprintln!("CHECK generated drift: exit 0");
     eprintln!(
-        "CHECK semantic foundation: generated contracts only; six runtime obligations remain; no semantic runtime conformance claimed"
+        "CHECK semantic foundation: generated contracts; six public and two internal runtime obligations remain; no semantic runtime conformance claimed"
     );
     step(
         "combined suite",
@@ -424,6 +424,17 @@ fn check() -> Result<(), String> {
             "generated/wire/Cargo.toml" | "generated/semantic-wire/Cargo.toml"
         ) {
             lint_args.extend(["-A", "clippy::derivable_impls"]);
+        }
+        // ESS 0.50.0 emits an unreachable push when a component publishes no
+        // events: both conversion enums are uninhabited. Preserve generated
+        // bytes; the exception applies only to that generated crate.
+        if manifest == "generated/semantic-behavior/Cargo.toml" {
+            lint_args.extend([
+                "-A",
+                "unreachable_code",
+                "-A",
+                "clippy::unneeded_struct_pattern",
+            ]);
         }
         step("Clippy generated", "cargo", &lint_args, &root)?;
     }

@@ -6,7 +6,7 @@ status: draft
 title: Gate scratch repair unit evidence
 relations:
 - reviews: task:clean-external-target-gate
-revision: 1
+revision: 2
 ---
 unit: task:clean-external-target-gate — clean checkout gate scratch allocation
 verdict: green
@@ -183,3 +183,7 @@ No recursive task-check invocation was added to cargo tests. Coordinator must ru
 ## Retained output and handoff
 
 All raw run logs are under $WORKTREE/.scratch/unit/: baseline.log, red.log, green-targeted.log, green-suite.log, fmt.log, clippy.log. Repository-local target output from the preexisting regression suite is retained for coordinator cleanup. External compiler output and the new fixture scratch directories are under $BUILD from the private brief; no other manual external file writes. Cargo and installed sccache manage their standard caches. No build directory or worktree was removed. Coordinator owns adversary, integration, publication and cleanup.
+
+## Full integration witness
+
+At integration 69095e2, verified repository-local target did not exist, then ran task check with external Cargo target. Exit 0. Native ESS report: executed27 passed27 failed0 error0 unsupported0 skipped0. AEP, both ESS roots, all four generated drift comparisons, package tests, formatting, Clippy and public documentation checks exited 0. Fresh suite/report/run are retained under the private gate invocation evidence; no conventional stale report was admitted. This closes task:clean-external-target-gate only.

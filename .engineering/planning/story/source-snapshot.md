@@ -2,19 +2,24 @@
 format: aep.planning-md/3
 id: story:source-snapshot
 kind: story
-status: draft
+status: active
 title: Collect selected source and build configuration identities
 relations:
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:parity-foundations
 - decomposes: epic:source-collection-foundation
+- serves: vision:language-neutral-code-quality
 scope:
 - confidence: inferred
   path: Cargo.lock
 - confidence: inferred
   path: Cargo.toml
 - confidence: inferred
+  path: ess-semantic/scenarios/**
+- confidence: inferred
   path: specifications/source-baseline.md
+- confidence: inferred
+  path: src/bin/codegate-check.rs
 - confidence: inferred
   path: src/bindings/lines.rs
 - confidence: inferred
@@ -22,12 +27,27 @@ scope:
 - confidence: inferred
   path: src/collection/**
 - confidence: inferred
+  path: src/foundation.rs
+- confidence: inferred
+  path: src/lib.rs
+- confidence: inferred
+  path: src/semantic_wire.rs
+- confidence: inferred
   path: src/source_identity.rs
 - confidence: inferred
   path: tests/fixtures/selection/**
 - confidence: inferred
+  path: tests/foundation_conformance.rs
+- confidence: inferred
+  path: tests/semantic_wire.rs
+- confidence: inferred
+  path: tests/source_identity.rs
+- confidence: inferred
   path: tests/source_snapshot.rs
-revision: 7
+revision: 13
+transitions:
+- {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 8, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}
+- {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 9, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}
 ---
 ## Intent
 
@@ -96,3 +116,11 @@ specifications/source-baseline.md pins literal selection semantics, bounds, Rust
 ## Foundation conformance seam
 
 The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.
+
+## Coordinator protocol seam
+
+The foundation ESS target requires strict generated-value JSON conversion. The coordinator's source-snapshot integration adds src/semantic_wire.rs and tests/semantic_wire.rs, translating existing generated behavior/wire values without redefining domain types. This is a pure serialization seam, not a binding or analysis algorithm. It shares no worker paths with collection/admission. Identity and serialization may map language enum values; shared metrics/check/query algorithms still may not select behavior by language or producer. Root module declarations may register collection, but the existing offline evaluator and all shared algorithms remain free of IO and binding calls.
+
+## Foundation API and conformance ownership
+
+The coordinator also owns src/foundation.rs, tests/foundation_conformance.rs, ess-semantic authored scenarios and src/bin/codegate-check.rs integration. Foundation implements the two generated internal obligation traits by retaining actual helper responses; generated outcome names alone are never evidence. The native ESS target forwards JSON through generated wire conversion and checks literal outputs against real filesystem fixtures. Source-only public Collect/Assess and language bindings remain subsequent stories.

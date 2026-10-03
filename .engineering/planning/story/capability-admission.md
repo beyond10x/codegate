@@ -2,12 +2,13 @@
 format: aep.planning-md/3
 id: story:capability-admission
 kind: story
-status: draft
+status: active
 title: Admit rich facts and expose precise capability gaps
 relations:
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:parity-foundations
 - decomposes: epic:source-collection-foundation
+- serves: vision:language-neutral-code-quality
 scope:
 - confidence: inferred
   path: src/semantic/admit.rs
@@ -17,7 +18,10 @@ scope:
   path: tests/semantic_admission.rs
 - confidence: inferred
   path: tests/semantic_boundary.rs
-revision: 5
+revision: 7
+transitions:
+- {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 6, executor: "agent:codegate-collection"}
+- {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 7, executor: "agent:codegate-collection"}
 ---
 ## Intent
 

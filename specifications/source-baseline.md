@@ -16,6 +16,10 @@ Discover and hash Go modules/workspaces, Cargo manifests/lockfiles, Maven POM hi
 
 ## Pure identity seam
 
+Configuration files use opaque physical line classification: Blank for whitespace-only lines, Code otherwise. This does not claim syntax-aware comment or documentation coverage for build languages. BuildConfiguration files are excluded from source-language line metrics. Manifest module identities are normalized root-relative parent directory paths, with `.` for the root; parent_module uses the same convention. Declared package/module names remain binding metadata, distinct from module selection identity.
+
+Canonical JSON omits absent optional fields, matching generated wire presence. A configuration file also appearing in source.files must have identical metadata; duplicates within either list are invalid. Offline EOF positions may use the final line's end column or `(lines.len(), 0)` at byte_length, because line metadata alone cannot distinguish a final newline. Collected positions use the actual bytes. Logical package/module parents may contain declarations in other files; same-file lexical containment is checked where ranges exist.
+
 The coordinator provides `source_identity::configuration_id(&BuildSelection)` and `source_identity::snapshot_id(&SourceSnapshot)` over generated behavior types. They implement semantic-contract canonical JSON, with explicit generated-type projection and normalized set ordering. Collection and offline admission use this same pure module. It reads no source bytes, filesystem, Git state, environment or clock. Collection establishes content digests; imported offline evidence only verifies internal identity consistency, not authenticity of unavailable bytes.
 
 ## Coverage and admission
