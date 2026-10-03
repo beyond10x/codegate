@@ -18,6 +18,8 @@ path = "src/main.rs"
 [dependencies]
 codegate-behavior = { package = "codegate", path = "generated/behavior" }
 codegate-contract = { path = "generated/wire" }
+codegate-semantic-behavior = { package = "codegate_semantic", path = "generated/semantic-behavior" }
+codegate-semantic-contract = { path = "generated/semantic-wire" }
 clap = { version = "4.5", features = ["derive"] }
 serde = { version = "=1.0.229", features = ["derive"] }
 serde_json = { version = "=1.0.151", features = ["arbitrary_precision"] }

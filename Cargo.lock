@@ -124,6 +124,8 @@ dependencies = [
  "clap",
  "codegate",
  "codegate-contract",
+ "codegate-semantic-contract",
+ "codegate_semantic",
  "ess-conformance",
  "ess-primitives",
  "serde",
@@ -138,6 +140,18 @@ dependencies = [
  "serde",
  "serde_json",
 ]
+
+[[package]]
+name = "codegate-semantic-contract"
+version = "0.0.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "codegate_semantic"
+version = "1.0.0"
 
 [[package]]
 name = "colorchoice"
