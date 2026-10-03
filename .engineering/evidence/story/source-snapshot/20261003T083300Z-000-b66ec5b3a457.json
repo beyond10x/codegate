@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T08:33:00Z",
+  "actor": "human:timo",
+  "artifact": "story:source-snapshot",
+  "kind": "story",
+  "revision": 14,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "VERIFIED: base cceca51 has no collector; real collection21 cases pass after two bounded adversary corrections",
+    "reference": "verification-report:source-snapshot-unit"
+  }
+}

@@ -21,7 +21,7 @@ scope:
   path: tests/first_slice.rs
 - confidence: inferred
   path: tests/fixtures/first_slice/**
-revision: 4
+revision: 6
 ---
 ## Intent
 
@@ -75,6 +75,6 @@ publication or release is included. An unsupported required capability remains a
 
 ## First-round declaration lookup
 
-This story additionally delivers initial Lookup Definitions by name, qualified name and source position over the collected declaration inventory, through the Rust API and JSON lookup command. Required authored cases: parity-source-declaration-lookup, parity-source-lookup-ambiguity, parity-source-lookup-unicode. Same-name declarations remain multiple; no call/reference resolution is inferred. Other query kinds return explicit unsupported/incomplete evidence until story:offline-navigation extends imported-fact graph navigation. This is a bounded first-round subset of the already declared Lookup command, not a new contract noun.
+This story delivers initial Lookup Definitions by name, qualified name and source position over the collected declaration inventory, through the Rust API and JSON lookup command. Required authored cases: parity-source-declaration-lookup, parity-source-lookup-ambiguity, parity-source-lookup-unicode. Same-name declarations remain multiple; no call/reference resolution is inferred. Other query kinds return explicit unsupported/incomplete evidence until story:offline-navigation extends imported-fact graph navigation.
 
-The common public collection integration is the first usable end-to-end witness for foundation helpers and binding results. Source-only mode runs no external processes; an explicit Semantic request without an implemented adapter refuses rather than downgrades. tests/first_slice.rs owns these additional checks; coordinator registers actual ESS cases and a real runner in the same story.
+The production Collect Rust handler and component-scoped native runner are supplied earlier by story:collection-composition-seam, allowing language stories to close independently. This story exposes that existing path through the JSON CLI, adds Assess/Capabilities and Lookup integration, and owns the cross-operation acceptance cases. Source-only mode runs no external processes; an explicit Semantic request without an implemented adapter refuses rather than downgrades. Coordinator registers actual ESS cases and the real runner extensions in this story.

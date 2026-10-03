@@ -9,6 +9,7 @@ relations:
 - depends_on: story:source-snapshot
 - depends_on: story:capability-admission
 - informed_by: executable-system-specification:semantic-analysis
+- depends_on: story:collection-composition-seam
 scope:
 - confidence: inferred
   path: src/bindings/java.rs
@@ -16,7 +17,7 @@ scope:
   path: tests/fixtures/structure/java/**
 - confidence: inferred
   path: tests/source_java.rs
-revision: 2
+revision: 4
 ---
 ## Intent and contract
 
@@ -37,3 +38,9 @@ Inferred: src/bindings/java.rs, tests/source_java.rs, tests/fixtures/structure/j
 ## Dependencies and completion
 
 Depends on story:source-snapshot and story:capability-admission. Unit tests and real authored ESS execution, followed by task check preserving 27 legacy cases. Static Maven/Gradle selection evidence does not establish an effective classpath.
+
+## Production conformance prerequisite
+
+## Production conformance prerequisite
+
+Depends additionally on story:collection-composition-seam. Its real public Collect Rust handler, shared registration and native ESS runner exist before this language unit forks. Coordinator registers this story's authored scenarios through that production path; the language story closes on those actual results, without waiting for downstream first-slice CLI work. Existing Foundation CollectSource returns only SourceSnapshot and cannot substitute for this FactSnapshot witness.

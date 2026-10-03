@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T08:42:20Z",
+  "actor": "human:timo",
+  "artifact": "story:source-snapshot",
+  "kind": "story",
+  "revision": 14,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "task check exit0 at 5d5192d: legacy27 foundation8 native ESS; root Rust81; all drift/fmt/clippy/docs steps exit0",
+    "reference": "verification/source-foundation/task-check.log"
+  }
+}

@@ -8,7 +8,7 @@ relations:
 - decomposes: epic:semantic-parity
 - depends_on: epic:source-collection-foundation
 - informed_by: executable-system-specification:semantic-analysis
-revision: 2
+revision: 4
 ---
 ## Intent
 
@@ -20,7 +20,7 @@ The first-collection-baseline verification report passes the full gate and the e
 
 ## Children and order
 
-Three disjoint implementation stories own language extraction: source-go-baseline, source-rust-baseline and source-java-baseline. All depend on the source-snapshot and capability-admission foundation. Existing story:source-structure owns shared parser registration and equivalence integration after all three; existing story:first-slice owns the public collect/assess/capabilities API and CLI plus initial name/qualified-name/source-position declaration lookup. Full graph navigation remains story:offline-navigation.
+First story:collection-composition-seam supplies the existing public Collect Rust obligation, production registration/helpers and component-scoped native runner over the completed foundation. Then three disjoint stories source-go-baseline, source-rust-baseline and source-java-baseline implement their language slots and close on real Collect conformance. source-structure integrates their equivalent observations. first-slice adds the JSON CLI and shared assessment/capabilities/declaration lookup API. Full imported graph navigation remains story:offline-navigation. This repairs the practical acceptance cycle without changing any existing domain value or claiming unsupported language bindings complete.
 
 ## Healthy baseline requirements
 

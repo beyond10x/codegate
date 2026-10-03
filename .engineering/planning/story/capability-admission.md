@@ -2,7 +2,7 @@
 format: aep.planning-md/3
 id: story:capability-admission
 kind: story
-status: active
+status: implemented
 title: Admit rich facts and expose precise capability gaps
 relations:
 - informed_by: executable-system-specification:semantic-analysis
@@ -10,18 +10,19 @@ relations:
 - decomposes: epic:source-collection-foundation
 - serves: vision:language-neutral-code-quality
 scope:
-- confidence: inferred
+- confidence: cited
   path: src/semantic/admit.rs
-- confidence: inferred
+- confidence: cited
   path: src/semantic/mod.rs
-- confidence: inferred
+- confidence: cited
   path: tests/semantic_admission.rs
-- confidence: inferred
+- confidence: cited
   path: tests/semantic_boundary.rs
-revision: 7
+revision: 10
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 6, executor: "agent:codegate-collection"}
 - {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 7, executor: "agent:codegate-collection"}
+- {from: "active", to: "implemented", at: "2026-10-03T08:42:20Z", actor: "human:timo", revision: 8, decided_on: {"recorded":{"test_result":1,"review_outcome":4,"verification":1,"ess_conformance_coverage_v1":1}}, executor: "agent:codegate-collection"}
 ---
 ## Intent
 
@@ -55,16 +56,12 @@ or mock-only external-tool test cannot satisfy acceptance. Preserve the legacy 2
 
 ## Scope
 
-- inferred: `src/semantic/admit.rs` — planned owned implementation/verification surface.
-- inferred: `src/semantic/mod.rs` — planned owned implementation/verification surface.
-- inferred: `tests/semantic_admission.rs` — planned owned implementation/verification surface.
-- inferred: `tests/semantic_boundary.rs` — planned owned implementation/verification surface.
+- cited: src/semantic/admit.rs — actual phased rich-fact admission and private wrapper construction (a68963c).
+- cited: src/semantic/mod.rs — actual offline validate_snapshot facade.
+- cited: tests/semantic_admission.rs —11 executed product admission tests.
+- cited: tests/semantic_boundary.rs —8 executed architectural guard tests with retained negative probes.
 
-These inferred surfaces reflect the accepted architecture, not existing code.
-Validate and revise them before implementation dispatch. Only the coordinator mutates
-AEP or shared integration manifests outside the story's scope; adapters register through
-the semantic-navigation seam. All authored runnable code/harnesses are Rust (clap
-for command lines); Go and Java source remain fixture data.
+All four original inferred surfaces were confirmed by verification-report:admission-unit. Shared lib.rs registration was reconciled by the coordinator and is recorded under source-snapshot integration scope; no concurrent worker owns that shared file.
 
 ## Completion evidence
 

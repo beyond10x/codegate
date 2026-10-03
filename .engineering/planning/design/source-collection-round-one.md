@@ -7,7 +7,7 @@ title: First source collection round and parallel wave record
 relations:
 - designs: epic:source-collection-foundation
 - designs: epic:source-collection-baseline
-revision: 4
+revision: 9
 ---
 ## Authority and procedure
 
@@ -97,3 +97,160 @@ The conformance review identified that the six public commands do not type the i
 The full clean-checkout gate passed at integration 69095e2, with 27 native evaluator cases, and task:clean-external-target-gate is implemented. Independent adversary found nothing in two attacks. Source-foundation contract was integrated at 80ba11b (worker 9526306); two internal obligations are specified, none claimed implemented yet.
 
 Shared setup runs in separate managed trees before runtime workers fork. Identity/dependency worker: wt-441dc9e84c18, base 9526306, target /tmp/codegate-identity-build.AaEcFJ, scratch .scratch/unit. Wire conversion worker: wt-36b37d910096, base 80ba11b, target /tmp/codegate-wire-worker.PQTRHV, scratch .scratch/unit. Code roles are coordinator-owned setup under source-snapshot; disjoint production files. The admission worker performs a read-only invariant review alongside them. Three worker budget observed. Full paths remain in manager/private dispatch records.
+
+## Runtime foundation dispatch
+
+Common base cceca5125ee726b34e44bc28f02aeeadb6274fe9 integrates canonical identities and strict wire conversion. All inherited release items were reconciled from exact tag/check/artifact/provenance evidence and marked implemented, removing their stale scheduling collision. Store result: wave 1 story:capability-admission and story:source-snapshot; 1 wave(s), 0 collision(s), 0 unassessed.
+
+Collection unit: wt-59fefee16e98, target /tmp/codegate-source-worker.AAF0ck, scratch .scratch/unit, worker scope_snapshot. Admission unit: wt-7d9dea940be5, target /tmp/codegate-admission.g37x8M, scratch .scratch/unit, worker scope_admission. Each owns separate source/test paths; only module declarations are reconciled centrally. Both independently observed more than20GiB free before build. Previous gate/identity/wire disposable targets were removed by exact recorded path after stopped agents/processes were verified; source/logs remain retained. The third worker reviews the next language wave's syntax mappings without edits.
+
+The harness exposes no per-agent token/tool/duration totals, so those costs are unavailable rather than estimated. Raw reports retain command counts and case/exit evidence. No semantic runtime completion is claimed at dispatch.
+
+## Authored foundation witness preparation
+
+Six authored ESS scenarios synthesize successfully with the two generated internal cases: 8 selected scenario(s), 6 authored source(s), 0 refusal occurrence(s). Six public outcomes are outside source-foundation. Multi-act fixture timestamps were corrected after ESS refused equal instants; expected behavior was unchanged. Expected source/configuration identities were computed independently with canonical JSON plus sha256sum, then verified against pure helpers by tests/identity_adversary.rs (1 passed, exit0). Runtime collection/admission conformance remains pending their integration. The native target forwards actual helper results and seeds empty-response, admit-everything and constant-identity faults to require observable failures.
+
+## Final bounded adversary trend
+
+Source collection findings fell from2 to1: carried0, new1, resolved2. Admission boundary findings stayed1 to1: carried0, new1, resolved1. Each second-pass finding was returned for correction with its regression retained. No third adversarial campaign is authorized or claimed. Coordinator verifies correction diffs and the same regressions before integration. Exact CLI comparisons follow; the two admission prose-only originals remain archived, with structured replacement records and an explicit correction withdrawing the unmeasured thread-context bypass inference.
+
+{
+  "artifact": "story:source-snapshot",
+  "reviews": 12,
+  "from": "review-result:source-collection-adversary-round-1",
+  "from_reviewer": "unattributed",
+  "to": "review-result:source-collection-adversary-round-2",
+  "to_reviewer": "unattributed",
+  "carried": [],
+  "new": [
+    {
+      "file": "src/collection/manifests.rs",
+      "line": 209,
+      "category": "boundary",
+      "severity": "blocker",
+      "verdict": "CONFIRMED",
+      "origin": "introduced",
+      "message": "An unclosed Maven project element reaches EOF without a build-selection gap, so malformed XML can appear fully collected."
+    }
+  ],
+  "resolved": [
+    {
+      "file": "src/collection/mod.rs",
+      "line": 346,
+      "category": "acceptance",
+      "severity": "blocker",
+      "verdict": "CONFIRMED",
+      "origin": "introduced",
+      "message": "Selecting a source subdirectory omits ancestor .cargo/config.toml, so changing its build configuration leaves the configuration identity unchanged."
+    },
+    {
+      "file": "src/collection/manifests.rs",
+      "line": 205,
+      "category": "contract-drift",
+      "severity": "blocker",
+      "verdict": "CONFIRMED",
+      "origin": "introduced",
+      "message": "Maven CDATA module and relativePath text is silently ignored, leaving the declared parent absent with no build-selection gap."
+    }
+  ]
+}
+{
+  "artifact": "story:capability-admission",
+  "reviews": 12,
+  "from": "review-result:admission-boundary-pass-one",
+  "from_reviewer": "unattributed",
+  "to": "review-result:admission-boundary-pass-two",
+  "to_reviewer": "unattributed",
+  "carried": [],
+  "new": [
+    {
+      "file": "tests/semantic_boundary.rs",
+      "line": 90,
+      "category": "acceptance",
+      "severity": "blocker",
+      "verdict": "CONFIRMED",
+      "origin": "introduced",
+      "message": "Architectural guard admits nested std::os platform IO."
+    }
+  ],
+  "resolved": [
+    {
+      "file": "tests/semantic_boundary.rs",
+      "line": 90,
+      "category": "acceptance",
+      "severity": "blocker",
+      "verdict": "CONFIRMED",
+      "origin": "introduced",
+      "message": "Architectural guard admits clap process-argument IO through a normal dependency."
+    }
+  ]
+}
+
+## Foundation wave closure
+
+Implementation5d5192d passed full integration gate: evaluator27/27 native ESS, foundation8/8 native ESS (six authored/two structural), root81/81 Rust tests, all generated drift/fmt/clippy/docs steps exit0. Source-snapshot, capability-admission and their foundation epic moved to implemented on this actual evidence. See verification-report:first-collection-foundation and verification/source-foundation for exact reports and per-step exits. The report's original raw private evidence is preserved in the still-retained integration tree until managed archive cleanup.
+
+Replanning found and repaired a practical acceptance cycle: source-language stories needed real Collect before downstream first-slice. Newly scoped story:collection-composition-seam now precedes all three language workers. Four critics reviewed this new prerequisite separately; round1 acceptance3/design2 findings were fixed, round2 all approve. No extra code-adversary campaign occurred. Next selection begins with composition, then up to3 disjoint Go/Rust/Java workers; no new language implementation is claimed in this foundation wave. Broader structural observations remain story:source-structural-observations.
+
+Publication through the already authorized bot PR route and exact managed cleanup are pending at this record. No new version/tag is selected; the prior0.1.0 release remains verified separately. Per-agent cost counters unavailable from this host.
+
+## Recomputed scheduling after closure
+
+The exact current scheduling output follows. The selected next prerequisite is collection-composition-seam; language workers follow it. Broader structural observations are not selected for this first baseline even if the full backlog permits them alongside first-slice.
+
+wave 1
+  story:collection-composition-seam (inferred)
+wave 2
+  story:source-go-baseline (inferred)
+  story:source-java-baseline (inferred)
+  story:source-rust-baseline (inferred)
+wave 3
+  story:source-structure (inferred)
+wave 4
+  story:first-slice (inferred)
+  story:source-structural-observations (inferred)
+wave 5
+  story:offline-navigation (inferred)
+  story:portable-metrics (inferred)
+wave 6
+  story:architecture-policies (inferred)
+  story:safety-observations (inferred)
+  story:semantic-navigation (inferred)
+  story:testability-signals (inferred)
+wave 7
+  story:go-semantics (inferred)
+  story:java-semantics (inferred)
+  story:rust-semantics (inferred)
+wave 8
+  story:quarkus-relationships (inferred)
+wave 9
+  story:scoring-suggestions (inferred)
+wave 10
+  story:reporting-parity (inferred)
+wave 11
+  story:parity-adoption (inferred)
+collision: story:collection-composition-seam story:first-slice src/lib.rs (inferred)
+collision: story:collection-composition-seam story:offline-navigation src/lib.rs (inferred)
+collision: story:collection-composition-seam story:reporting-parity src/bin/codegate-check.rs (inferred)
+collision: story:collection-composition-seam story:scoring-suggestions src/lib.rs (inferred)
+collision: story:collection-composition-seam story:semantic-navigation src/lib.rs (inferred)
+collision: story:first-slice story:offline-navigation src/lib.rs (inferred)
+collision: story:first-slice story:offline-navigation src/main.rs (inferred)
+collision: story:first-slice story:reporting-parity src/main.rs (inferred)
+collision: story:first-slice story:scoring-suggestions src/lib.rs (inferred)
+collision: story:first-slice story:scoring-suggestions src/main.rs (inferred)
+collision: story:first-slice story:semantic-navigation src/lib.rs (inferred)
+collision: story:first-slice story:semantic-navigation src/main.rs (inferred)
+collision: story:offline-navigation story:reporting-parity src/main.rs (inferred)
+collision: story:offline-navigation story:scoring-suggestions src/lib.rs (inferred)
+collision: story:offline-navigation story:scoring-suggestions src/main.rs (inferred)
+collision: story:offline-navigation story:semantic-navigation src/lib.rs (inferred)
+collision: story:offline-navigation story:semantic-navigation src/main.rs (inferred)
+collision: story:reporting-parity story:scoring-suggestions src/main.rs (inferred)
+collision: story:reporting-parity story:semantic-navigation src/main.rs (inferred)
+collision: story:scoring-suggestions story:semantic-navigation src/lib.rs (inferred)
+collision: story:scoring-suggestions story:semantic-navigation src/main.rs (inferred)
+collision: story:source-go-baseline story:source-structural-observations src/bindings/go.rs (inferred)
+collision: story:source-java-baseline story:source-structural-observations src/bindings/java.rs (inferred)
+collision: story:source-rust-baseline story:source-structural-observations src/bindings/rust.rs (inferred)
+11 wave(s), 24 collision(s), 0 unassessed

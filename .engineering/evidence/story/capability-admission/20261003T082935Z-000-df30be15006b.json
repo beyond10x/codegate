@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T08:29:35Z",
+  "actor": "human:timo",
+  "artifact": "story:capability-admission",
+  "kind": "story",
+  "revision": 7,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "VERIFIED: base cceca51 has no rich admission; unit a68963c rejects malformed/stale snapshots, actual admission11 and boundary8 pass",
+    "reference": "verification-report:admission-unit"
+  }
+}

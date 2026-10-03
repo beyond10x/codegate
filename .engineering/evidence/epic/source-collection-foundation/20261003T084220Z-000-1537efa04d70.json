@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T08:42:20Z",
+  "actor": "human:timo",
+  "artifact": "epic:source-collection-foundation",
+  "kind": "epic",
+  "revision": 5,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "Aggregate first-collection-foundation: both children implemented; task check exit0 native27+8, root81",
+    "reference": "verification-report:first-collection-foundation"
+  }
+}

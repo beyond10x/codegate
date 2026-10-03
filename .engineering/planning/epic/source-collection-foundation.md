@@ -2,17 +2,18 @@
 format: aep.planning-md/3
 id: epic:source-collection-foundation
 kind: epic
-status: active
+status: implemented
 title: Establish source identity and admission for the first collection round
 relations:
 - decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: task:clean-external-target-gate
 - serves: vision:language-neutral-code-quality
-revision: 5
+revision: 6
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T07:36:50Z", actor: "human:timo", revision: 4, decided_on: {"recorded":{"review_outcome":2}}, executor: "agent:codegate-collection"}
 - {from: "proposed", to: "active", at: "2026-10-03T07:36:50Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}, executor: "agent:codegate-collection"}
+- {from: "active", to: "implemented", at: "2026-10-03T08:42:20Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"test_result":1,"review_outcome":2}}, executor: "agent:codegate-collection"}
 ---
 ## Intent
 

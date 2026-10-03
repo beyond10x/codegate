@@ -2,7 +2,7 @@
 format: aep.planning-md/3
 id: story:source-snapshot
 kind: story
-status: active
+status: implemented
 title: Collect selected source and build configuration identities
 relations:
 - informed_by: executable-system-specification:semantic-analysis
@@ -10,44 +10,53 @@ relations:
 - decomposes: epic:source-collection-foundation
 - serves: vision:language-neutral-code-quality
 scope:
-- confidence: inferred
+- confidence: cited
+  path: AGENTS.md
+- confidence: cited
   path: Cargo.lock
-- confidence: inferred
+- confidence: cited
   path: Cargo.toml
-- confidence: inferred
+- confidence: cited
+  path: README.md
+- confidence: cited
+  path: ess-semantic/ess-inputs.yaml
+- confidence: cited
   path: ess-semantic/scenarios/**
-- confidence: inferred
+- confidence: cited
   path: specifications/source-baseline.md
-- confidence: inferred
+- confidence: cited
   path: src/bin/codegate-check.rs
-- confidence: inferred
+- confidence: cited
   path: src/bindings/lines.rs
-- confidence: inferred
+- confidence: cited
   path: src/bindings/mod.rs
-- confidence: inferred
+- confidence: cited
   path: src/collection/**
-- confidence: inferred
+- confidence: cited
   path: src/foundation.rs
-- confidence: inferred
+- confidence: cited
   path: src/lib.rs
-- confidence: inferred
+- confidence: cited
   path: src/semantic_wire.rs
-- confidence: inferred
+- confidence: cited
   path: src/source_identity.rs
-- confidence: inferred
-  path: tests/fixtures/selection/**
-- confidence: inferred
+- confidence: cited
   path: tests/foundation_conformance.rs
-- confidence: inferred
+- confidence: cited
+  path: tests/identity_adversary.rs
+- confidence: cited
   path: tests/semantic_wire.rs
-- confidence: inferred
+- confidence: cited
   path: tests/source_identity.rs
-- confidence: inferred
+- confidence: cited
   path: tests/source_snapshot.rs
-revision: 13
+- confidence: cited
+  path: verification/source-foundation/**
+revision: 17
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 8, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}
 - {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 9, decided_on: {"recorded":{"review_outcome":1}}, executor: "agent:codegate-collection"}
+- {from: "active", to: "implemented", at: "2026-10-03T08:42:20Z", actor: "human:timo", revision: 15, decided_on: {"recorded":{"test_result":1,"review_outcome":5,"verification":1,"ess_conformance_coverage_v1":1}}, executor: "agent:codegate-collection"}
 ---
 ## Intent
 
@@ -80,15 +89,14 @@ or mock-only external-tool test cannot satisfy acceptance. Preserve the legacy 2
 
 ## Scope
 
-- inferred: `src/collection/**` — planned owned implementation/verification surface.
-- inferred: `tests/source_snapshot.rs` — planned owned implementation/verification surface.
-- inferred: `tests/fixtures/selection/**` — planned owned implementation/verification surface.
+- cited: src/collection/{mod,manifests,secure_fs}.rs — actual bounded collection and static manifest implementation (4c99cdc).
+- cited: src/bindings/{mod,lines}.rs — actual shared Tree-sitter physical line parser (4c99cdc).
+- cited: tests/source_snapshot.rs —21 actual selection/configuration/confinement/manifest tests; fixtures are built by Rust tests, so the previously inferred tests/fixtures/selection tree was not created.
+- cited: src/source_identity.rs, src/semantic_wire.rs, their Rust tests and Cargo.toml/Cargo.lock — coordinator-supplied shared identity/projection/dependency setup.
+- cited: src/foundation.rs, src/lib.rs, tests/foundation_conformance.rs, tests/identity_adversary.rs, ess-semantic/scenarios/**, ess-semantic/ess-inputs.yaml and src/bin/codegate-check.rs — coordinator integration and real ESS witnesses (5d5192d).
+- cited: specifications/source-baseline.md, AGENTS.md, README.md and verification/source-foundation/** — counting/selection contracts, public limits and actual gate evidence.
 
-These inferred surfaces reflect the accepted architecture, not existing code.
-Validate and revise them before implementation dispatch. Only the coordinator mutates
-AEP or shared integration manifests outside the story's scope; adapters register through
-the semantic-navigation seam. All authored runnable code/harnesses are Rust (clap
-for command lines); Go and Java source remain fixture data.
+Earlier inferred paths were confirmed or corrected by unit report verification-report:source-snapshot-unit. No language declaration extractor or public collection CLI is included.
 
 ## Completion evidence
 
