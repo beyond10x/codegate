@@ -98,3 +98,4 @@ pub fn exit_code(report: &Evaluation) -> u8 {
         _ => 2,
     }
 }
+pub mod semantic;
