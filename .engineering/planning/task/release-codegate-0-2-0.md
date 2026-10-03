@@ -7,7 +7,7 @@ title: Release the source collection foundation as Codegate 0.2.0
 relations:
 - serves: vision:language-neutral-code-quality
 - delivers: epic:source-collection-foundation
-revision: 3
+revision: 4
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T09:53:17Z", actor: "human:timo", revision: 2, executor: "agent:codegate-release"}
 - {from: "proposed", to: "active", at: "2026-10-03T09:53:17Z", actor: "human:timo", revision: 3, executor: "agent:codegate-release"}
@@ -25,3 +25,5 @@ Fetch current remote main after merge, verify exact candidate tree and required 
 ## Completion
 
 One release task, not an implementation decomposition, so no four-critic panel is needed. Completion requires the exact remote-main tag, required checks, published bot-owned GitHub Release and verified Linux archive/checksums. Documentation observation is asynchronous and does not expand this source release into Atlas or Website work. Primary main stays clean; retire this task's managed tree with archive recovery for private evidence. Record evidence through AEP, never hand-edit its store.
+
+Release preparation also updates website/index.html install URLs to the correct bare 0.2.0 tag and distinguishes the delivered Rust collection/admission library from the existing offline evaluator CLI. The unchanged Rust docs builder produces source provenance in CI; remote docs publication remains asynchronous.
