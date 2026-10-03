@@ -1,0 +1,220 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate_semantic.semantic",
+  "scenario": "parity-manifest-identity",
+  "summary": "Static build configuration bytes change configuration and snapshot identities.",
+  "timeline": [
+    {
+      "at": "2026-10-03T00:00:00Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:manifest",
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "source": {
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [
+              {
+                "path": "Cargo.toml",
+                "content_sha256": "80d39377237a08d06b666ee47aed0f7701fedd5dd1c7a48adf998e7e25f1e90a",
+                "byte_length": 45,
+                "classification": "BuildConfiguration",
+                "origin": "Untracked",
+                "lines": [
+                  {
+                    "number": 0,
+                    "start_byte": 0,
+                    "end_byte": 10,
+                    "classification": "Code"
+                  },
+                  {
+                    "number": 1,
+                    "start_byte": 10,
+                    "end_byte": 27,
+                    "classification": "Code"
+                  },
+                  {
+                    "number": 2,
+                    "start_byte": 27,
+                    "end_byte": 45,
+                    "classification": "Code"
+                  }
+                ]
+              }
+            ],
+            "id": "01d32781db714cc6715c0a96b4288a8fe87a67368fb397e9016136db4983cc9f"
+          },
+          "files": [
+            {
+              "path": "main.rs",
+              "content_sha256": "7ed4a69a138a907b2e98ccac2dc8b325fa193ec25819ba409c9ea38b4ee4c4ac",
+              "byte_length": 10,
+              "language": "Rust",
+              "classification": "Production",
+              "origin": "Untracked",
+              "lines": [
+                {
+                  "number": 0,
+                  "start_byte": 0,
+                  "end_byte": 10,
+                  "classification": "Code"
+                }
+              ]
+            }
+          ],
+          "manifests": [
+            {
+              "path": "Cargo.toml",
+              "content_sha256": "80d39377237a08d06b666ee47aed0f7701fedd5dd1c7a48adf998e7e25f1e90a",
+              "system": "Cargo",
+              "module": "."
+            }
+          ],
+          "id": "1d6efef8240eafae5e02d0b4c1e35e3ba19ea56dceaea95ba0da88379934567f"
+        },
+        "gaps": []
+      }
+    },
+    {
+      "at": "2026-10-03T00:00:01Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:manifest-changed",
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "source": {
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [
+              {
+                "path": "Cargo.toml",
+                "content_sha256": "e8f78ef5bf8189a15d0d3a039998b1e355ae5eb90f5568a7f5b44c0d85c83725",
+                "byte_length": 45,
+                "classification": "BuildConfiguration",
+                "origin": "Untracked",
+                "lines": [
+                  {
+                    "number": 0,
+                    "start_byte": 0,
+                    "end_byte": 10,
+                    "classification": "Code"
+                  },
+                  {
+                    "number": 1,
+                    "start_byte": 10,
+                    "end_byte": 27,
+                    "classification": "Code"
+                  },
+                  {
+                    "number": 2,
+                    "start_byte": 27,
+                    "end_byte": 45,
+                    "classification": "Code"
+                  }
+                ]
+              }
+            ],
+            "id": "1e5ca3c34a8e004f88cf09ede5c9f817a1c76655c3e7a6384877644fbebe30bd"
+          },
+          "files": [
+            {
+              "path": "main.rs",
+              "content_sha256": "7ed4a69a138a907b2e98ccac2dc8b325fa193ec25819ba409c9ea38b4ee4c4ac",
+              "byte_length": 10,
+              "language": "Rust",
+              "classification": "Production",
+              "origin": "Untracked",
+              "lines": [
+                {
+                  "number": 0,
+                  "start_byte": 0,
+                  "end_byte": 10,
+                  "classification": "Code"
+                }
+              ]
+            }
+          ],
+          "manifests": [
+            {
+              "path": "Cargo.toml",
+              "content_sha256": "e8f78ef5bf8189a15d0d3a039998b1e355ae5eb90f5568a7f5b44c0d85c83725",
+              "system": "Cargo",
+              "module": "."
+            }
+          ],
+          "id": "eb97b8c7162a2e9f52c419cbe2e7d3ec060fab5e28442f199630867334250eb9"
+        },
+        "gaps": []
+      }
+    }
+  ]
+}

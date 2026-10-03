@@ -1,0 +1,221 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate_semantic.semantic",
+  "scenario": "parity-selected-content-identity",
+  "summary": "Exact selected bytes determine identity independently of the root path.",
+  "timeline": [
+    {
+      "at": "2026-10-03T00:00:00Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:original",
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "source": {
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692"
+          },
+          "files": [
+            {
+              "path": "main.rs",
+              "content_sha256": "7ed4a69a138a907b2e98ccac2dc8b325fa193ec25819ba409c9ea38b4ee4c4ac",
+              "byte_length": 10,
+              "language": "Rust",
+              "classification": "Production",
+              "origin": "Untracked",
+              "lines": [
+                {
+                  "number": 0,
+                  "start_byte": 0,
+                  "end_byte": 10,
+                  "classification": "Code"
+                }
+              ]
+            }
+          ],
+          "manifests": [],
+          "id": "5fe0a866ce3e54f4b1ae56a053a022f509df1f87ecb1ba5993cf45a9bd5b623f"
+        },
+        "gaps": []
+      }
+    },
+    {
+      "at": "2026-10-03T00:00:01Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:same",
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "source": {
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692"
+          },
+          "files": [
+            {
+              "path": "main.rs",
+              "content_sha256": "7ed4a69a138a907b2e98ccac2dc8b325fa193ec25819ba409c9ea38b4ee4c4ac",
+              "byte_length": 10,
+              "language": "Rust",
+              "classification": "Production",
+              "origin": "Untracked",
+              "lines": [
+                {
+                  "number": 0,
+                  "start_byte": 0,
+                  "end_byte": 10,
+                  "classification": "Code"
+                }
+              ]
+            }
+          ],
+          "manifests": [],
+          "id": "5fe0a866ce3e54f4b1ae56a053a022f509df1f87ecb1ba5993cf45a9bd5b623f"
+        },
+        "gaps": []
+      }
+    },
+    {
+      "at": "2026-10-03T00:00:02Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:changed",
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "source": {
+          "selection": {
+            "include_paths": [],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692"
+          },
+          "files": [
+            {
+              "path": "main.rs",
+              "content_sha256": "4167772b703972ef57b6a6b27d4b8ae1755e1820ad3560c595790191af23dd18",
+              "byte_length": 10,
+              "language": "Rust",
+              "classification": "Production",
+              "origin": "Untracked",
+              "lines": [
+                {
+                  "number": 0,
+                  "start_byte": 0,
+                  "end_byte": 10,
+                  "classification": "Code"
+                }
+              ]
+            }
+          ],
+          "manifests": [],
+          "id": "e99b08ce689eeeb6349f21b938fefa996eec367a4dd9cacb81f6a98f5140a9f9"
+        },
+        "gaps": []
+      }
+    }
+  ]
+}

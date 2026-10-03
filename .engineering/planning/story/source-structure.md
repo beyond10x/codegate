@@ -5,26 +5,23 @@ kind: story
 status: draft
 title: Extract Tree-sitter observations in all three languages
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:source-snapshot
 - depends_on: story:capability-admission
+- decomposes: epic:source-collection-baseline
+- depends_on: story:source-go-baseline
+- depends_on: story:source-rust-baseline
+- depends_on: story:source-java-baseline
 scope:
 - confidence: inferred
-  path: Cargo.lock
-- confidence: inferred
-  path: Cargo.toml
-- confidence: inferred
-  path: src/bindings/**
-- confidence: inferred
-  path: tests/fixtures/structure/**
+  path: tests/fixtures/structure/equivalence
 - confidence: inferred
   path: tests/structure.rs
-revision: 3
+revision: 9
 ---
 ## Intent
 
-Use Tree-sitter grammars with pinned Cargo dependencies; declarations/imports/control-flow/comments/annotations; source-only candidates never become resolved calls; Java annotations initial declared facts only; evidence positions byte-based with specified Unicode conversions.
+Integrate the three language baseline bindings over retained collected bytes: units, declarations, definition/import occurrences, declared dependency relationships and the initial Java framework catalogue. Reuse the already delivered syntax-aware line classification. Source-only candidates never become resolved calls; byte-based locations preserve Unicode offsets. Decision/control-flow, body structure, documentation and broader maintainability observations are explicitly delivered by story:source-structural-observations after this baseline and remain Unsupported here.
 
 ## Contract
 
@@ -54,17 +51,10 @@ or mock-only external-tool test cannot satisfy acceptance. Preserve the legacy 2
 
 ## Scope
 
-- inferred: `src/bindings/**` — planned owned implementation/verification surface.
-- inferred: `Cargo.toml` — planned owned implementation/verification surface.
-- inferred: `Cargo.lock` — planned owned implementation/verification surface.
-- inferred: `tests/structure.rs` — planned owned implementation/verification surface.
-- inferred: `tests/fixtures/structure/**` — planned owned implementation/verification surface.
+- inferred: tests/structure.rs — shared equivalence integration assertions.
+- inferred: tests/fixtures/structure/equivalence/** — equivalent Go/Rust/Java source fixtures.
 
-These inferred surfaces reflect the accepted architecture, not existing code.
-Validate and revise them before implementation dispatch. Only the coordinator mutates
-AEP or shared integration manifests outside the story's scope; adapters register through
-the semantic-navigation seam. All authored runnable code/harnesses are Rust (clap
-for command lines); Go and Java source remain fixture data.
+Production registration moved to story:collection-composition-seam; language implementation stays in its three disjoint children. Coordinator owns ESS scenario registration/runner updates. This supersedes earlier inferred parser ownership; no language worker edits AEP.
 
 ## Completion evidence
 
@@ -79,3 +69,7 @@ Reuse the Tree-sitter grammar setup and syntax-aware line classifier delivered b
 source-snapshot. This story adds declaration/relationship/annotation observations;
 it does not supply a classifier required by an earlier prerequisite. Source/configuration
 identities are already finalized over complete classified input before this stage.
+
+## First-round decomposition
+
+Language extraction is delegated to story:source-go-baseline, story:source-rust-baseline and story:source-java-baseline. story:collection-composition-seam already supplies production registration and its helpers before those workers. This story reuses that registration to verify cross-language equivalence and aggregate integration in tests/structure.rs and tests/fixtures/structure/equivalence; it does not create registration or reimplement parsers. Earlier broad scope describes the original unsplit design; these narrower entries supersede it. Dependencies include all three language children and the two foundation stories.

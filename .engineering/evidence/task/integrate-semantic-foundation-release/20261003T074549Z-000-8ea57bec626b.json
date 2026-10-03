@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T07:45:49Z",
+  "actor": "human:timo",
+  "artifact": "task:integrate-semantic-foundation-release",
+  "kind": "task",
+  "revision": 4,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "Verified exact tag checks, bot release artifacts and live source/publisher provenance",
+    "reference": "verification-report:release-0-1-0-completion"
+  }
+}

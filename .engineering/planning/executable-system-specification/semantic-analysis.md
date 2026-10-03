@@ -7,7 +7,7 @@ title: Source-bound semantic analysis and navigation contracts
 relations:
 - specifies: vision:language-neutral-code-quality
 model_digest: 78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2
-revision: 3
+revision: 4
 transitions:
 - {from: "draft", to: "validated", at: "2026-10-02T23:56:21Z", actor: "human:timo", revision: 2, decided_on: {"recorded":{"verification":1}}}
 ---
@@ -41,3 +41,7 @@ ESS validation, compile and deterministic regeneration prove the model and produ
 The synthesized structural command suite is not an authored real-runtime parity suite.
 Do not move this artifact to conforming until real target conformance evidence for the
 exact compiled model is recorded. The dependency domain retains its existing 27 cases.
+
+## Source foundation refinement
+
+The first collection round adds two internal library commands, CollectSource and ValidateSnapshot, over the existing source/fact/gap types, scoped by component source-foundation. ESS 0.50.0 validates 3 files at model 6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd. Six public behavior obligations remain distinct from the two foundation obligations. verification-report:source-foundation-contract records generation and limits; specification stays validated until actual full implementation evidence exists.

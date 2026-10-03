@@ -5,9 +5,9 @@ kind: story
 status: draft
 title: Expose collection and shared dependency assessment
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:source-structure
+- decomposes: epic:source-collection-baseline
 scope:
 - confidence: inferred
   path: src/lib.rs
@@ -21,7 +21,7 @@ scope:
   path: tests/first_slice.rs
 - confidence: inferred
   path: tests/fixtures/first_slice/**
-revision: 3
+revision: 6
 ---
 ## Intent
 
@@ -72,3 +72,9 @@ for command lines); Go and Java source remain fixture data.
 Run targeted cases and the required integration `task check`; retain named real ESS
 results, generated drift result and relevant reference comparison outputs. No GitHub
 publication or release is included. An unsupported required capability remains a gap.
+
+## First-round declaration lookup
+
+This story delivers initial Lookup Definitions by name, qualified name and source position over the collected declaration inventory, through the Rust API and JSON lookup command. Required authored cases: parity-source-declaration-lookup, parity-source-lookup-ambiguity, parity-source-lookup-unicode. Same-name declarations remain multiple; no call/reference resolution is inferred. Other query kinds return explicit unsupported/incomplete evidence until story:offline-navigation extends imported-fact graph navigation.
+
+The production Collect Rust handler and component-scoped native runner are supplied earlier by story:collection-composition-seam, allowing language stories to close independently. This story exposes that existing path through the JSON CLI, adds Assess/Capabilities and Lookup integration, and owns the cross-operation acceptance cases. Source-only mode runs no external processes; an explicit Semantic request without an implemented adapter refuses rather than downgrades. Coordinator registers actual ESS cases and the real runner extensions in this story.

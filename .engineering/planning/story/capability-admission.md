@@ -2,22 +2,27 @@
 format: aep.planning-md/3
 id: story:capability-admission
 kind: story
-status: draft
+status: implemented
 title: Admit rich facts and expose precise capability gaps
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:parity-foundations
+- decomposes: epic:source-collection-foundation
+- serves: vision:language-neutral-code-quality
 scope:
-- confidence: inferred
+- confidence: cited
   path: src/semantic/admit.rs
-- confidence: inferred
+- confidence: cited
   path: src/semantic/mod.rs
-- confidence: inferred
+- confidence: cited
   path: tests/semantic_admission.rs
-- confidence: inferred
+- confidence: cited
   path: tests/semantic_boundary.rs
-revision: 3
+revision: 10
+transitions:
+- {from: "draft", to: "proposed", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 6, executor: "agent:codegate-collection"}
+- {from: "proposed", to: "active", at: "2026-10-03T07:36:51Z", actor: "human:timo", revision: 7, executor: "agent:codegate-collection"}
+- {from: "active", to: "implemented", at: "2026-10-03T08:42:20Z", actor: "human:timo", revision: 8, decided_on: {"recorded":{"test_result":1,"review_outcome":4,"verification":1,"ess_conformance_coverage_v1":1}}, executor: "agent:codegate-collection"}
 ---
 ## Intent
 
@@ -51,19 +56,25 @@ or mock-only external-tool test cannot satisfy acceptance. Preserve the legacy 2
 
 ## Scope
 
-- inferred: `src/semantic/admit.rs` — planned owned implementation/verification surface.
-- inferred: `src/semantic/mod.rs` — planned owned implementation/verification surface.
-- inferred: `tests/semantic_admission.rs` — planned owned implementation/verification surface.
-- inferred: `tests/semantic_boundary.rs` — planned owned implementation/verification surface.
+- cited: src/semantic/admit.rs — actual phased rich-fact admission and private wrapper construction (a68963c).
+- cited: src/semantic/mod.rs — actual offline validate_snapshot facade.
+- cited: tests/semantic_admission.rs —11 executed product admission tests.
+- cited: tests/semantic_boundary.rs —8 executed architectural guard tests with retained negative probes.
 
-These inferred surfaces reflect the accepted architecture, not existing code.
-Validate and revise them before implementation dispatch. Only the coordinator mutates
-AEP or shared integration manifests outside the story's scope; adapters register through
-the semantic-navigation seam. All authored runnable code/harnesses are Rust (clap
-for command lines); Go and Java source remain fixture data.
+All four original inferred surfaces were confirmed by verification-report:admission-unit. Shared lib.rs registration was reconciled by the coordinator and is recorded under source-snapshot integration scope; no concurrent worker owns that shared file.
 
 ## Completion evidence
 
 Run targeted cases and the required integration `task check`; retain named real ESS
 results, generated drift result and relevant reference comparison outputs. No GitHub
 publication or release is included. An unsupported required capability remains a gap.
+
+## First-round profile and acceptance strengthening
+
+Apply specifications/source-baseline.md for empty coverage scope, complete family inventory, internally verifiable range guarantees and producer overlap. Use the coordinator's pure src/source_identity.rs seam without importing collection or bindings. Rust seam: semantic::validate_snapshot(&model::FactSnapshot) -> Result<(), Vec<model::Gap>>; only admission constructs its private admitted wrapper. Preserve semantic-contract refusal distinctions and deterministic order.
+
+The parity-core-boundary acceptance must cover root src/lib.rs and all shared semantic code, including newly added files; it must reject injected IO, binding dependencies and language/producer dispatch. The existing tests/semantics.rs:122 literal three-file test is insufficient and is not accepted as the new proof. The coordinator owns Cargo/module/ESS integration; the worker owns the four original inferred files. Capabilities describe supported operations separately from snapshot Coverage; no complete tools or facts are fabricated.
+
+## Foundation conformance seam
+
+The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.

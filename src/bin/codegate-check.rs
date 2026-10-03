@@ -132,6 +132,26 @@ fn validate_report(
     started: u64,
     ended: u64,
 ) -> Result<(), String> {
+    validate_native_report(
+        report,
+        suite,
+        suite_bytes,
+        started,
+        ended,
+        "codegate-offline",
+        27,
+    )
+}
+
+fn validate_native_report(
+    report: &serde_json::Value,
+    suite: &serde_json::Value,
+    suite_bytes: &[u8],
+    started: u64,
+    ended: u64,
+    implementation: &str,
+    count: usize,
+) -> Result<(), String> {
     let digest = format!(
         "sha256:{}",
         Sha256::digest(suite_bytes)
@@ -148,14 +168,15 @@ fn validate_report(
     let completed = report["completed_at"]
         .as_u64()
         .ok_or("report completion missing")?;
-    if report["counts"]
-        != serde_json::json!({"error":0,"failed":0,"passed":27,"skipped":0,"total":27,"unsupported":0})
+    if scenario_ids.len() != count
+        || report["counts"]
+            != serde_json::json!({"error":0,"failed":0,"passed":count,"skipped":0,"total":count,"unsupported":0})
         || report["execution_status"] != "passed"
         || report["conformance_status"] != "passed"
         || report["format"] != "ess-conformance-report/2"
         || report["producer_profile"] != "rust-scenario-status/1"
         || report["policy"] != "complete-selection/1"
-        || report["implementation"] != format!("codegate-offline {}", env!("CARGO_PKG_VERSION"))
+        || report["implementation"] != format!("{implementation} {}", env!("CARGO_PKG_VERSION"))
         || report["spec_digest"] != suite["provenance"]["spec_digest"]
         || report["specification"]
             != format!(
@@ -187,6 +208,92 @@ fn validate_report(
     }
     Ok(())
 }
+
+fn fresh_foundation(root: &Path, scratch: &Path) -> Result<(), String> {
+    let expected = scratch.join("foundation-suite.json");
+    step(
+        "foundation suite",
+        "ess",
+        &[
+            "verify",
+            "conform",
+            "synthesize",
+            "--path",
+            "ess-semantic",
+            "--scenarios",
+            "ess-semantic",
+            "--component",
+            "source-foundation",
+            "--suite-format",
+            "5",
+            "--out",
+            expected.to_str().ok_or("non-UTF8 suite path")?,
+        ],
+        root,
+    )?;
+    let output = scratch.join("foundation-conformance");
+    fs::create_dir(&output).map_err(|e| format!("fresh foundation directory: {e}"))?;
+    let started = observed_millis()?;
+    let status = Command::new("cargo")
+        .args([
+            "test",
+            "--locked",
+            "-p",
+            "codegate-cli",
+            "--test",
+            "foundation_conformance",
+            "real_foundation_conforms_to_selected_component",
+            "--",
+            "--exact",
+            "--nocapture",
+        ])
+        .current_dir(root)
+        .env("CARGO_BUILD_JOBS", "2")
+        .env("CODEGATE_FOUNDATION_OUTPUT", &output)
+        .status()
+        .map_err(|e| e.to_string())?;
+    eprintln!(
+        "CHECK real foundation conformance: exit {:?}",
+        status.code()
+    );
+    if !status.success() {
+        return Err("foundation conformance producer failed".into());
+    }
+    let ended = observed_millis()?;
+    let expected = fs::read(expected).map_err(|e| e.to_string())?;
+    let actual = fs::read(output.join("suite.json"))
+        .map_err(|e| format!("fresh foundation suite missing: {e}"))?;
+    if actual != expected {
+        return Err("foundation runner executed a different suite".into());
+    }
+    let suite = serde_json::from_slice(&expected).map_err(|e| e.to_string())?;
+    let report = serde_json::from_slice(
+        &fs::read(output.join("report.json"))
+            .map_err(|e| format!("fresh foundation report missing: {e}"))?,
+    )
+    .map_err(|e| e.to_string())?;
+    validate_native_report(
+        &report,
+        &suite,
+        &expected,
+        started,
+        ended,
+        "codegate-source-foundation",
+        8,
+    )?;
+    eprintln!(
+        "CHECK native foundation ESS report: executed8 passed8 failed0 error0 unsupported0 skipped0, exit0; six public commands outside component"
+    );
+    Ok(())
+}
+fn create_scratch(root: &Path) -> Result<PathBuf, String> {
+    let target = root.join("target");
+    fs::create_dir_all(&target).map_err(|e| e.to_string())?;
+    let scratch = target.join(format!("codegate-check-{}", std::process::id()));
+    fs::create_dir(&scratch).map_err(|e| e.to_string())?;
+    Ok(scratch)
+}
+
 fn check() -> Result<(), String> {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let version = Command::new("ess")
@@ -204,10 +311,7 @@ fn check() -> Result<(), String> {
         &["specify", "validate", "--path", "ess"],
         &root,
     )?;
-    let scratch = root
-        .join("target")
-        .join(format!("codegate-check-{}", std::process::id()));
-    fs::create_dir(&scratch).map_err(|e| e.to_string())?;
+    let scratch = create_scratch(&root)?;
     let behavior = scratch.join("behavior");
     let wire = scratch.join("wire");
     let semantic_behavior = scratch.join("semantic-behavior");
@@ -327,7 +431,7 @@ fn check() -> Result<(), String> {
     }
     eprintln!("CHECK generated drift: exit 0");
     eprintln!(
-        "CHECK semantic foundation: generated contracts only; six runtime obligations remain; no semantic runtime conformance claimed"
+        "CHECK semantic foundation: six public runtime obligations remain; internal foundation verified separately"
     );
     step(
         "combined suite",
@@ -348,6 +452,7 @@ fn check() -> Result<(), String> {
         &root,
     )?;
     fresh_conformance(&root, &scratch, &suite)?;
+    fresh_foundation(&root, &scratch)?;
     step(
         "Rust tests",
         "cargo",
@@ -420,6 +525,17 @@ fn check() -> Result<(), String> {
         ) {
             lint_args.extend(["-A", "clippy::derivable_impls"]);
         }
+        // ESS 0.50.0 emits an unreachable push when a component publishes no
+        // events: both conversion enums are uninhabited. Preserve generated
+        // bytes; the exception applies only to that generated crate.
+        if manifest == "generated/semantic-behavior/Cargo.toml" {
+            lint_args.extend([
+                "-A",
+                "unreachable_code",
+                "-A",
+                "clippy::unneeded_struct_pattern",
+            ]);
+        }
         step("Clippy generated", "cargo", &lint_args, &root)?;
     }
     step(
@@ -438,5 +554,41 @@ fn main() -> ExitCode {
             eprintln!("codegate-check: {e}");
             ExitCode::FAILURE
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn gate_clean_external_target() {
+        let base = std::env::current_exe()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join(format!("scratch-regression-{}", std::process::id()));
+        fs::create_dir(&base).unwrap();
+        for layout in ["external", "ordinary"] {
+            let root = base.join(layout);
+            fs::create_dir(&root).unwrap();
+            if layout == "ordinary" {
+                fs::create_dir(root.join("target")).unwrap();
+            } else {
+                assert!(!root.join("target").exists());
+            }
+            let scratch = create_scratch(&root).expect("gate must create missing target parent");
+            assert!(scratch.is_dir());
+            assert_eq!(scratch.parent(), Some(root.join("target").as_path()));
+            let evidence = scratch.join("report.json");
+            fs::write(&evidence, b"retained prior evidence").unwrap();
+            assert!(create_scratch(&root).is_err(), "must refuse scratch reuse");
+            assert_eq!(fs::read(&evidence).unwrap(), b"retained prior evidence");
+        }
+        let root = base.join("blocked-parent");
+        fs::create_dir(&root).unwrap();
+        fs::write(root.join("target"), b"not a directory").unwrap();
+        assert!(create_scratch(&root).is_err());
+        assert_eq!(fs::read(root.join("target")).unwrap(), b"not a directory");
     }
 }

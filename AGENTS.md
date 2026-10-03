@@ -2,7 +2,8 @@
 
 Codegate is a language-neutral fact IR and quality-analysis system. Language bindings
 produce facts; shared analyses and checkers consume validated IR. The first offline
-dependency evaluator is implemented. No source-language bindings ship yet.
+dependency evaluator, source collection and rich-fact admission are implemented.
+Declaration/dependency language bindings remain implementation work.
 
 ## Engineering rules
 
@@ -25,13 +26,17 @@ Run `task check`. This calls the Rust `codegate-check` binary, which validates A
 and ESS, checks generated drift, runs actual conformance and Rust tests, and checks
 formatting and Clippy. It never invokes itself recursively. Standalone ESS reports
 are under `target/conformance/`; the gate retains its private invocation evidence
-under `target/codegate-check-<pid>/conformance/`. All 27 scenarios must execute and pass.
+under `target/codegate-check-<pid>/conformance/`. All 27 evaluator scenarios must
+execute and pass. Eight source-foundation cases run separately with fresh evidence
+under the same invocation's `foundation-conformance/` directory.
 
 `ess-semantic/` is the separately versioned semantic-parity foundation. Its generated
 `generated/semantic-behavior` and `generated/semantic-wire` crates also participate in
-drift, compilation, formatting and Clippy checks. The six semantic behavior traits
-remain runtime obligations; their synthesized structural cases are not real semantic
-conformance. Never report semantic parity from the legacy 27-case result. The program
+drift, compilation, formatting and Clippy checks. The six public semantic behavior
+traits remain runtime obligations. The two internal source-foundation traits have
+six authored behavioral cases plus two structural cases; the latter alone cannot
+establish real semantic conformance. Never report semantic parity from either
+foundation or legacy results. The program
 and precise remaining work are in `epic:semantic-parity` and `docs/parity-baseline.md`.
 
 Pin ESS 0.50.0 and Rust 1.98.1. Generated source in `generated/behavior` and
@@ -51,6 +56,12 @@ Known upstream style exception: the generated wire crate's Clippy invocation add
 `-A clippy::derivable_impls` after `-D warnings`, because ESS 0.50.0 generates the
 manual `EssPresence<T>` Default implementation. No root/behavior exception applies;
 never hand-edit generated source to satisfy that style lint.
+
+The internal source-foundation component publishes no events. ESS 0.50.0 emits an
+unreachable push converting its uninhabited event enum; generated/semantic-behavior
+alone allows `unreachable_code` and `clippy::unneeded_struct_pattern` during Clippy
+(the generated component also matches unit outcomes with `{ .. }`). Root warnings remain denied and
+byte-for-byte regeneration remains required. Do not invent events to silence it.
 
 ## Public delivery
 

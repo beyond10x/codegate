@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T07:34:53Z",
+  "actor": "human:timo",
+  "artifact": "task:clean-external-target-gate",
+  "kind": "task",
+  "revision": 3,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "task check exit 0 with external Cargo target and absent local target; 27 native evaluator cases passed; integration 69095e2",
+    "reference": "verification-report:gate-scratch-unit"
+  }
+}

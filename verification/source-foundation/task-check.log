@@ -1,0 +1,876 @@
+task: [check] cargo run --locked --bin codegate-check
+   Compiling syn v3.0.6
+   Compiling serde_json v1.0.151
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+   Compiling synstructure v0.14.0
+   Compiling zerovec-derive v0.11.6
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerofrom v0.1.8
+   Compiling displaydoc v0.2.7
+   Compiling yoke v0.8.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling serde_derive v1.0.229
+   Compiling tinystr v0.8.4
+   Compiling icu_locale_core v2.3.0
+   Compiling potential_utf v0.1.6
+   Compiling serde v1.0.229
+   Compiling icu_collections v2.3.0
+   Compiling icu_provider v2.3.1
+   Compiling serde_spanned v0.6.9
+   Compiling toml_datetime v0.6.11
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling toml_edit v0.22.27
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling clap_derive v4.6.7
+   Compiling git2 v0.20.4
+   Compiling clap v4.6.7
+   Compiling toml v0.8.23
+   Compiling codegate-semantic-contract v0.0.0 ($WORKTREE/generated/semantic-wire)
+   Compiling codegate-contract v0.0.0 ($WORKTREE/generated/wire)
+   Compiling codegate-cli v0.1.0 ($WORKTREE)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.44s
+     Running `$BUILD/debug/codegate-check`
+CHECK AEP: aep plan artifact validate
+84 file(s) in $WORKTREE/.engineering/planning: 84 artifact(s)
+2 review(s) recorded no findings block:
+  - review-result:admission-boundary-adversary-round-1 states its findings as prose only — nothing can enumerate what it found, so the next review starts from nowhere
+  - review-result:admission-boundary-adversary-round-2 states its findings as prose only — nothing can enumerate what it found, so the next review starts from nowhere
+valid
+CHECK AEP: exit 0
+CHECK ESS: ess specify validate --path ess
+codegate v1 — 2 file(s), 26 scenario(s), valid
+CHECK ESS: exit 0
+CHECK generate behavior: ess generate synthesize --path ess --target rust --layout crate --out $WORKTREE/target/codegate-check-3713312/behavior
+18 capabilities: 17 generated, 1 obligation(s), 0 refused
+7 artifact(s), written to $WORKTREE/target/codegate-check-3713312/behavior
+CHECK generate behavior: exit 0
+CHECK generate wire: ess generate types --path ess --target rust --all-types --package codegate-contract --out $WORKTREE/target/codegate-check-3713312/wire
+16 model type(s), written to $WORKTREE/target/codegate-check-3713312/wire; runtime obligations in types-report.json
+CHECK generate wire: exit 0
+CHECK semantic ESS: ess specify validate --path ess-semantic
+codegate_semantic v1 — 3 file(s), 6 scenario(s), valid
+CHECK semantic ESS: exit 0
+CHECK generate semantic behavior: ess generate synthesize --path ess-semantic --target rust --layout crate --out $WORKTREE/target/codegate-check-3713312/semantic-behavior
+89 capabilities: 81 generated, 8 obligation(s), 0 refused
+10 artifact(s), written to $WORKTREE/target/codegate-check-3713312/semantic-behavior
+CHECK generate semantic behavior: exit 0
+CHECK generate semantic wire: ess generate types --path ess-semantic --target rust --all-types --package codegate-semantic-contract --out $WORKTREE/target/codegate-check-3713312/semantic-wire
+72 model type(s), written to $WORKTREE/target/codegate-check-3713312/semantic-wire; runtime obligations in types-report.json
+CHECK generate semantic wire: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $WORKTREE/target/codegate-check-3713312/behavior/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $WORKTREE/target/codegate-check-3713312/wire/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $WORKTREE/target/codegate-check-3713312/semantic-behavior/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $WORKTREE/target/codegate-check-3713312/semantic-wire/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK generated drift: exit 0
+CHECK semantic foundation: six public runtime obligations remain; internal foundation verified separately
+CHECK combined suite: ess verify conform synthesize --path ess --scenarios ess --suite-format 5 --out $WORKTREE/target/codegate-check-3713312/suite.json
+27 selected scenario(s), 26 authored source(s), 0 refusal occurrence(s)
+CHECK combined suite: exit 0
+CHECK real ESS conformance: cargo test --locked -p codegate-cli --test conformance real_evaluator_conforms_to_complete_combined_suite -- --exact --nocapture
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+   Compiling codegate-cli v0.1.0 ($WORKTREE)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.58s
+     Running tests/conformance.rs ($BUILD/debug/deps/conformance-d2c03fe9842dc916)
+
+running 1 test
+{
+  "completed_at": 1791016794891,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 27,
+    "skipped": 0,
+    "total": 27,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 26,
+      "generated": 1,
+      "outside": 0,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "kind": "system"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-offline 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate.dependency.Evaluate/outcome/evaluated",
+      "codegate.dependency/authored/canonical-order",
+      "codegate.dependency/authored/complete-empty-graph",
+      "codegate.dependency/authored/complete-isolated-units",
+      "codegate.dependency/authored/configuration-mismatch",
+      "codegate.dependency/authored/dangling-source",
+      "codegate.dependency/authored/dangling-target",
+      "codegate.dependency/authored/dependency-kind-selection",
+      "codegate.dependency/authored/duplicate-edge",
+      "codegate.dependency/authored/duplicate-unit",
+      "codegate.dependency/authored/empty-identity",
+      "codegate.dependency/authored/explicit-unresolved-target",
+      "codegate.dependency/authored/failed-collection",
+      "codegate.dependency/authored/forbidden-runtime-edge",
+      "codegate.dependency/authored/go-facts-same-checker",
+      "codegate.dependency/authored/invalid-policy-reference",
+      "codegate.dependency/authored/invalid-target",
+      "codegate.dependency/authored/one-runtime-edge",
+      "codegate.dependency/authored/parallel-imports-count-once",
+      "codegate.dependency/authored/partial-is-not-empty",
+      "codegate.dependency/authored/polyglot-no-inferred-edge",
+      "codegate.dependency/authored/source-mismatch",
+      "codegate.dependency/authored/unknown-ir-version",
+      "codegate.dependency/authored/unresolved-cannot-claim-complete",
+      "codegate.dependency/authored/unsupported-is-not-empty",
+      "codegate.dependency/authored/unsupported-with-observations",
+      "codegate.dependency/authored/witnessed-violation-with-gaps"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+  "specification": "codegate/v1",
+  "suite": {
+    "digest": "sha256:2a9dbfefefb93ab95151c290d37cdc270effb0541e2e2e384cae403205d66755",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_evaluator_conforms_to_complete_combined_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+CHECK real ESS conformance: exit Some(0)
+CHECK native ESS report: executed27 passed27 failed0 error0 unsupported0 skipped0, exit0; evidence $WORKTREE/target/codegate-check-3713312/conformance
+CHECK foundation suite: ess verify conform synthesize --path ess-semantic --scenarios ess-semantic --component source-foundation --suite-format 5 --out $WORKTREE/target/codegate-check-3713312/foundation-suite.json
+outside: codegate_semantic.semantic.Assess/outcome/assessed (OtherComponent)
+outside: codegate_semantic.semantic.Capabilities/outcome/listed (OtherComponent)
+outside: codegate_semantic.semantic.Collect/outcome/collected (OtherComponent)
+outside: codegate_semantic.semantic.Evaluate/outcome/evaluated (OtherComponent)
+outside: codegate_semantic.semantic.Lookup/outcome/looked-up (OtherComponent)
+outside: codegate_semantic.semantic.Suggest/outcome/suggested (OtherComponent)
+8 selected scenario(s), 6 authored source(s), 0 refusal occurrence(s)
+CHECK foundation suite: exit 0
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running tests/foundation_conformance.rs ($BUILD/debug/deps/foundation_conformance-f4aa74ae4a510c2c)
+
+running 1 test
+{
+  "completed_at": 1791016795166,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 8,
+    "skipped": 0,
+    "total": 8,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 6,
+      "generated": 2,
+      "outside": 6,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "component": "source-foundation",
+        "kind": "component"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-source-foundation 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate_semantic.semantic.CollectSource/outcome/source-observed",
+      "codegate_semantic.semantic.ValidateSnapshot/outcome/validation-observed",
+      "codegate_semantic.semantic/authored/parity-coverage-not-zero",
+      "codegate_semantic.semantic/authored/parity-dangling-observation",
+      "codegate_semantic.semantic/authored/parity-manifest-identity",
+      "codegate_semantic.semantic/authored/parity-path-confinement",
+      "codegate_semantic.semantic/authored/parity-selected-content-identity",
+      "codegate_semantic.semantic/authored/parity-stale-evidence"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd",
+  "specification": "codegate_semantic/v1",
+  "suite": {
+    "digest": "sha256:eb1e38c44619246802c53ef7e3817cec9ab3b3857906607117ea77bf6caf8594",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_foundation_conforms_to_selected_component ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+CHECK real foundation conformance: exit Some(0)
+CHECK native foundation ESS report: executed8 passed8 failed0 error0 unsupported0 skipped0, exit0; six public commands outside component
+CHECK Rust tests: cargo test --locked -p codegate-cli --all-targets -- --nocapture
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+   Compiling codegate-cli v0.1.0 ($WORKTREE)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.17s
+     Running unittests src/lib.rs ($BUILD/debug/deps/codegate-13f02747b00aad71)
+
+running 1 test
+test collection::tests::mutation_after_read_refuses_the_actual_collection_pipeline ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/main.rs ($BUILD/debug/deps/codegate-2f32bdfa27a53d34)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/codegate-check.rs ($BUILD/debug/deps/codegate_check-2f559fc5b688cc09)
+
+running 1 test
+test tests::gate_clean_external_target ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/codegate-docs.rs ($BUILD/debug/deps/codegate_docs-e6f1893802ce61c7)
+
+running 5 tests
+test tests::invalid_commits_are_refused ... ok
+test tests::authored_site_and_publication_identity_are_valid ... ok
+test tests::broken_or_duplicate_anchors_are_refused ... ok
+test tests::published_json_example_reaches_the_real_evaluator ... ok
+test tests::wrong_routes_assets_and_internal_source_links_are_refused ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/boundary.rs ($BUILD/debug/deps/boundary-71b8e0b4adea1e24)
+
+running 5 tests
+test generated_integer_obligation_is_checked ... ok
+test explicit_absence_bridge ... ok
+test strict_json_structure ... ok
+test all_generated_fields_roundtrip ... ok
+test decoder_limits ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running tests/cli.rs ($BUILD/debug/deps/cli-9d10002ea0f5bbfd)
+
+running 3 tests
+test cli_structural_refusal_emits_no_report_or_output_file ... ok
+test unsupported_policy_format_is_semantic_error ... ok
+test cli_reports_full_outcomes_and_coverage_aware_exits_without_tools ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/conformance.rs ($BUILD/debug/deps/conformance-d2c03fe9842dc916)
+
+running 1 test
+{
+  "completed_at": 1791016797730,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 27,
+    "skipped": 0,
+    "total": 27,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 26,
+      "generated": 1,
+      "outside": 0,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "kind": "system"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-offline 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate.dependency.Evaluate/outcome/evaluated",
+      "codegate.dependency/authored/canonical-order",
+      "codegate.dependency/authored/complete-empty-graph",
+      "codegate.dependency/authored/complete-isolated-units",
+      "codegate.dependency/authored/configuration-mismatch",
+      "codegate.dependency/authored/dangling-source",
+      "codegate.dependency/authored/dangling-target",
+      "codegate.dependency/authored/dependency-kind-selection",
+      "codegate.dependency/authored/duplicate-edge",
+      "codegate.dependency/authored/duplicate-unit",
+      "codegate.dependency/authored/empty-identity",
+      "codegate.dependency/authored/explicit-unresolved-target",
+      "codegate.dependency/authored/failed-collection",
+      "codegate.dependency/authored/forbidden-runtime-edge",
+      "codegate.dependency/authored/go-facts-same-checker",
+      "codegate.dependency/authored/invalid-policy-reference",
+      "codegate.dependency/authored/invalid-target",
+      "codegate.dependency/authored/one-runtime-edge",
+      "codegate.dependency/authored/parallel-imports-count-once",
+      "codegate.dependency/authored/partial-is-not-empty",
+      "codegate.dependency/authored/polyglot-no-inferred-edge",
+      "codegate.dependency/authored/source-mismatch",
+      "codegate.dependency/authored/unknown-ir-version",
+      "codegate.dependency/authored/unresolved-cannot-claim-complete",
+      "codegate.dependency/authored/unsupported-is-not-empty",
+      "codegate.dependency/authored/unsupported-with-observations",
+      "codegate.dependency/authored/witnessed-violation-with-gaps"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+  "specification": "codegate/v1",
+  "suite": {
+    "digest": "sha256:2a9dbfefefb93ab95151c290d37cdc270effb0541e2e2e384cae403205d66755",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_evaluator_conforms_to_complete_combined_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running tests/foundation_conformance.rs ($BUILD/debug/deps/foundation_conformance-f4aa74ae4a510c2c)
+
+running 1 test
+{
+  "completed_at": 1791016797880,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 8,
+    "skipped": 0,
+    "total": 8,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 6,
+      "generated": 2,
+      "outside": 6,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "component": "source-foundation",
+        "kind": "component"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-source-foundation 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate_semantic.semantic.CollectSource/outcome/source-observed",
+      "codegate_semantic.semantic.ValidateSnapshot/outcome/validation-observed",
+      "codegate_semantic.semantic/authored/parity-coverage-not-zero",
+      "codegate_semantic.semantic/authored/parity-dangling-observation",
+      "codegate_semantic.semantic/authored/parity-manifest-identity",
+      "codegate_semantic.semantic/authored/parity-path-confinement",
+      "codegate_semantic.semantic/authored/parity-selected-content-identity",
+      "codegate_semantic.semantic/authored/parity-stale-evidence"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd",
+  "specification": "codegate_semantic/v1",
+  "suite": {
+    "digest": "sha256:eb1e38c44619246802c53ef7e3817cec9ab3b3857906607117ea77bf6caf8594",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_foundation_conforms_to_selected_component ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running tests/freshness.rs ($BUILD/debug/deps/freshness-f5d37c077f3df08b)
+
+running 1 test
+test gate_requires_this_invocations_conformance_producer ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+
+     Running tests/gate_adversary.rs ($BUILD/debug/deps/gate_adversary-3717d0214c10e009)
+
+running 1 test
+test unchanged_generated_contract_ignores_local_ownership_state ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.93s
+
+     Running tests/identity_adversary.rs ($BUILD/debug/deps/identity_adversary-1fc872885146c012)
+
+running 1 test
+test independent_ess_identity_literals_bind_selected_content_and_manifests ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/obligation.rs ($BUILD/debug/deps/obligation-885b816d89ea5c89)
+
+running 2 tests
+test evaluate_obligation_is_fulfilled ... ok
+test trait_adapter_never_leaks_a_previous_response ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/provenance_adversary.rs ($BUILD/debug/deps/provenance_adversary-a79347a37b559ada)
+
+running 1 test
+test native_report_records_observed_completion_time ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+
+     Running tests/semantic_admission.rs ($BUILD/debug/deps/semantic_admission-3c7c4b39a57f6379)
+
+running 11 tests
+test typed_resources_are_bounded ... ok
+test stale_evidence_has_a_stable_typed_refusal ... ok
+test valid_complete_families_and_partial_evidence_are_admitted ... ok
+test resolution_and_kind_payloads_cannot_fabricate_facts ... ok
+test identities_and_configuration_views_are_checked ... ok
+test rich_relationship_families_and_framework_payloads_are_checked ... ok
+test failed_tools_and_out_of_selection_files_cannot_look_complete ... ok
+test dangling_duplicate_and_cycle_references_refuse ... ok
+test all_family_statuses_have_honest_coverage_semantics ... ok
+test invalid_locations_and_line_partitions_refuse_without_overflow ... ok
+test missing_overlap_and_outside_coverage_never_mean_zero ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/semantic_boundary.rs ($BUILD/debug/deps/semantic_boundary-e8ca43ef171983d5)
+
+running 8 tests
+test nested_platform_io_and_thread_context_are_rejected ... ok
+test new_and_inline_core_modules_cannot_escape_discovery ... ok
+test indirect_process_argument_io_is_rejected ... ok
+test wiring_projection_and_neutral_admission_are_distinct_from_algorithms ... ok
+test platform_and_thread_aliases_share_the_effect_guard ... ok
+test injected_io_binding_and_dispatch_are_rejected_by_ast ... ok
+test all_non_admitted_dependencies_and_alias_forms_are_rejected ... ok
+test all_shared_modules_and_root_algorithms_obey_boundary ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/semantic_wire.rs ($BUILD/debug/deps/semantic_wire-edcfcd6e1297f119)
+
+running 4 tests
+test requests_and_configuration_have_explicit_generated_bridges ... ok
+test every_snapshot_family_and_transitive_field_round_trips ... ok
+test optional_null_is_absence_but_required_or_unknown_null_is_refused ... ok
+test malformed_unknown_duplicate_enums_and_integer_overflow_are_refused ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/semantics.rs ($BUILD/debug/deps/semantics-efbce059cf065140)
+
+running 8 tests
+test core_module_boundary_has_no_io_or_language_dispatch ... ok
+test partial_is_never_complete ... ok
+test dangling_target_guard ... ok
+test parallel_imports_count_unique_destinations ... ok
+test diagnostic_phase_precedence_and_order ... ok
+test labels_and_input_order_do_not_choose_algorithms ... ok
+test semantic_invalid_classes ... ok
+test every_authored_literal_matches_real_evaluation ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/source_identity.rs ($BUILD/debug/deps/source_identity-cacab3891d5875b4)
+
+running 6 tests
+test explicit_canonical_wire_bytes_have_known_hash ... ok
+test root_module_identifiers_are_distinct_from_selected_paths ... ok
+test snapshot_projection_uses_contract_enums_and_omits_absent_optionals ... ok
+test reordering_and_origin_never_change_identity ... ok
+test duplicates_and_non_normalized_paths_are_refused ... ok
+test selected_bytes_and_configuration_change_identity ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/source_snapshot.rs ($BUILD/debug/deps/source_snapshot-5ddacd419907a488)
+
+running 21 tests
+test three_syntax_classifiers_preserve_physical_bytes_and_comment_lookalikes ... ok
+test generated_markers_inside_strings_do_not_exclude_source ... ok
+test root_and_nested_symlinks_never_escape ... ok
+test correction_discovered_configuration_directories_refuse_symlinks ... ok
+test correction_maven_mixed_text_cdata_and_whitespace_preserve_literal_hierarchy ... ok
+test corrupt_git_and_asserted_configuration_metadata_are_never_trusted ... ok
+test referenced_manifest_symlinks_are_refused_and_configuration_claims_cannot_panic ... ok
+test adversary_round2_unclosed_maven_xml_cannot_claim_complete_selection ... ok
+test static_manifests_preserve_hierarchy_and_report_dynamic_selection ... ok
+test literal_selection_tests_generated_languages_and_skipped_directories ... ok
+test adversary_maven_cdata_hierarchy_is_observed_or_explicitly_incomplete ... ok
+test manifest_references_cannot_select_repository_metadata ... ok
+test quoted_go_paths_and_conditional_gradle_includes_have_honest_selection ... ok
+test workspace_root_members_do_not_invent_self_parent_cycles ... ok
+test adversary_selected_source_preserves_ancestor_cargo_configuration ... ok
+test correction_round2_maven_eof_requires_all_open_elements_closed ... ok
+test confinement_bounds_and_invalid_input_refuse_instead_of_empty_success ... ok
+test git_origin_tracks_staged_and_dirty_bytes_without_affecting_identity ... ok
+test correction_ancestor_configuration_directories_share_discovery_and_excludes ... ok
+test selected_dirty_untracked_bytes_configuration_and_manifests_define_identity ... ok
+test aggregate_bytes_and_file_inventory_are_bounded ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.54s
+
+CHECK Rust tests: exit 0
+CHECK format root: cargo fmt --package codegate-cli --check
+CHECK format root: exit 0
+CHECK Clippy root: cargo clippy --locked -p codegate-cli --all-targets -- -D warnings
+   Compiling libc v0.2.189
+    Checking zerofrom v0.1.8
+    Checking stable_deref_trait v1.2.1
+    Checking yoke v0.8.3
+    Checking serde v1.0.229
+    Checking zerovec v0.11.8
+   Compiling jobserver v0.1.35
+   Compiling cc v1.6.0
+    Checking tinystr v0.8.4
+    Checking litemap v0.8.3
+    Checking writeable v0.6.4
+    Checking icu_locale_core v2.3.0
+    Checking zerotrie v0.2.5
+    Checking potential_utf v0.1.6
+    Checking utf8_iter v1.0.4
+    Checking icu_provider v2.3.1
+    Checking icu_collections v2.3.0
+   Compiling libz-sys v1.1.29
+    Checking icu_properties_data v2.3.0
+    Checking icu_normalizer_data v2.3.0
+    Checking bitflags v2.13.2
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+    Checking smallvec v1.16.2
+    Checking icu_normalizer v2.3.0
+   Compiling indexmap v2.14.2
+    Checking icu_properties v2.3.0
+    Checking tree-sitter-language v0.1.8
+   Compiling zmij v1.0.23
+   Compiling itoa v1.0.18
+    Checking idna_adapter v1.2.2
+   Compiling serde_json v1.0.151
+   Compiling libgit2-sys v0.18.8+1.9.7
+    Checking aho-corasick v1.1.5
+    Checking percent-encoding v2.3.2
+    Checking regex-syntax v0.8.11
+    Checking form_urlencoded v1.2.2
+   Compiling tree-sitter v0.25.10
+    Checking idna v1.1.0
+    Checking regex-automata v0.4.18
+   Compiling tree-sitter-rust v0.24.2
+   Compiling tree-sitter-go v0.25.0
+   Compiling tree-sitter-java v0.23.5
+    Checking serde_spanned v0.6.9
+    Checking toml_datetime v0.6.11
+   Compiling thiserror-impl v2.0.21
+    Checking toml_write v0.1.2
+    Checking winnow v0.7.15
+    Checking serde_yaml v0.9.34+deprecated
+    Checking schemars v0.8.22
+    Checking toml_edit v0.22.27
+    Checking regex v1.13.1
+    Checking thiserror v2.0.21
+    Checking url v2.5.8
+    Checking log v0.4.34
+    Checking linux-raw-sys v0.12.1
+    Checking streaming-iterator v0.1.9
+    Checking rustix v1.1.5
+    Checking git2 v0.20.4
+    Checking toml v0.8.23
+    Checking ess-primitives v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking clap v4.6.7
+    Checking codegate-semantic-contract v0.0.0 ($WORKTREE/generated/semantic-wire)
+    Checking codegate-contract v0.0.0 ($WORKTREE/generated/wire)
+    Checking quick-xml v0.37.5
+    Checking codegate_semantic v1.0.0 ($WORKTREE/generated/semantic-behavior)
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+    Checking ess-domain v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking unicode-ident v1.0.26
+    Checking proc-macro2 v1.0.107
+    Checking pulldown-cmark v0.13.4
+    Checking codegate-cli v0.1.0 ($WORKTREE)
+    Checking quote v1.0.47
+    Checking syn v2.0.119
+    Checking ess-compiler v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking ess-gen v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking ess-conformance v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 27.52s
+CHECK Clippy root: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/behavior/Cargo.toml
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests src/lib.rs ($BUILD/debug/deps/codegate-2065f573e1706301)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/behavior/Cargo.toml --all-targets -- -D warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/wire/Cargo.toml
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests types.rs ($BUILD/debug/deps/codegate_contract-6f8868801c54f4a4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_contract
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-behavior/Cargo.toml
+   Compiling codegate_semantic v1.0.0 ($WORKTREE/generated/semantic-behavior)
+warning: unreachable expression
+   --> src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib test) generated 1 warning
+warning: `codegate_semantic` (lib) generated 1 warning (1 duplicate)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running unittests src/lib.rs ($BUILD/debug/deps/codegate_semantic-080f7249ce9692e2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_semantic
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-behavior/Cargo.toml --all-targets -- -D warnings -A unreachable_code -A clippy::unneeded_struct_pattern
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-wire/Cargo.toml
+   Compiling codegate-semantic-contract v0.0.0 ($WORKTREE/generated/semantic-wire)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.09s
+     Running unittests types.rs ($BUILD/debug/deps/codegate_semantic_contract-7462ab4440df9d42)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_semantic_contract
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+    Checking codegate-semantic-contract v0.0.0 ($WORKTREE/generated/semantic-wire)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.62s
+CHECK Clippy generated: exit 0
+CHECK public documentation: cargo run --locked --bin codegate-docs -- check
+warning: unreachable expression
+   --> generated/semantic-behavior/src/system.rs:102:13
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |             ^^^^^^^^^^^^^^^^^^^^------------------------^
+    |             |                   |
+    |             |                   any code following this expression is unreachable
+    |             unreachable expression
+    |
+note: this expression has type `SystemEvent`, which is uninhabited
+   --> generated/semantic-behavior/src/system.rs:102:33
+    |
+102 |             self.published.push(SystemEvent::from(event));
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `codegate_semantic` (lib) generated 1 warning
+   Compiling codegate-cli v0.1.0 ($WORKTREE)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running `$BUILD/debug/codegate-docs check`
+Codegate documentation: anchors, routes and assets valid
+CHECK public documentation: exit 0

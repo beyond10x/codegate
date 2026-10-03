@@ -3,6 +3,12 @@ requires: ess 0.50.0
 specification:
   - system.yaml
   - domains/semantic.yaml
-# Planned acceptance is specifications/semantic-scenarios.md. No executable
-# semantic scenarios exist yet; do not interpret an empty suite as conformance.
-scenarios: []
+  - components.yaml
+# Foundation-only runtime acceptance; six public handlers remain separate work.
+scenarios:
+  - scenarios/parity-selected-content-identity.yaml
+  - scenarios/parity-manifest-identity.yaml
+  - scenarios/parity-path-confinement.yaml
+  - scenarios/parity-stale-evidence.yaml
+  - scenarios/parity-dangling-observation.yaml
+  - scenarios/parity-coverage-not-zero.yaml
