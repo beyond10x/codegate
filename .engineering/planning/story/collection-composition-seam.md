@@ -11,23 +11,41 @@ relations:
 - informed_by: executable-system-specification:semantic-analysis
 - serves: vision:language-neutral-code-quality
 scope:
+- confidence: cited
+  path: .github/workflows/ci.yml
 - confidence: inferred
+  path: AGENTS.md
+- confidence: inferred
+  path: README.md
+- confidence: cited
   path: ess-semantic/components.yaml
-- confidence: inferred
+- confidence: cited
+  path: ess-semantic/domains/semantic.yaml
+- confidence: cited
   path: ess-semantic/ess-inputs.yaml
-- confidence: inferred
+- confidence: cited
   path: ess-semantic/scenarios/collection/**
+- confidence: cited
+  path: generated/semantic-behavior
+- confidence: cited
+  path: generated/semantic-wire
 - confidence: inferred
+  path: specifications/semantic-contract.md
+- confidence: cited
   path: src/bin/codegate-check.rs
-- confidence: inferred
+- confidence: cited
   path: src/bindings/mod.rs
-- confidence: inferred
+- confidence: cited
   path: src/collection/compose.rs
 - confidence: inferred
+  path: src/collection/mod.rs
+- confidence: cited
   path: src/lib.rs
 - confidence: inferred
+  path: tests/collection_composition.rs
+- confidence: cited
   path: tests/collection_conformance.rs
-revision: 6
+revision: 15
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}}
 - {from: "proposed", to: "active", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"review_outcome":2}}}
@@ -52,8 +70,24 @@ The shared production binding registration and ID/range/evidence helpers operate
 
 ## Scope
 
-Inferred coordinator-owned surfaces: src/collection/compose.rs, src/bindings/mod.rs, src/lib.rs, tests/collection_conformance.rs, ess-semantic/components.yaml, ess-semantic/ess-inputs.yaml, ess-semantic/scenarios/collection/**, src/bin/codegate-check.rs. Regenerate contract projections if component changes affect them; preserve byte-drift checks. All implementation and harnesses Rust.
+Derived 2026-10-03 by independent aep:story-scoper. Cited production surfaces: src/collection/compose.rs, src/bindings/mod.rs, src/lib.rs. Inferred module declaration: src/collection/mod.rs. Cited conformance/gate surfaces: tests/collection_conformance.rs, ess-semantic/components.yaml, ess-semantic/ess-inputs.yaml, ess-semantic/scenarios/collection/**, src/bin/codegate-check.rs. Cited regeneration surfaces: generated/semantic-behavior and generated/semantic-wire. Inferred runtime regressions: tests/collection_composition.rs.
+
+Confidence high: the story names these seams; collect_source at src/collection/mod.rs:648 retains source content, semantic_wire.rs:511 serializes FactSnapshot, and semantic/admit.rs:735 validates coverage independently. Safety evidence level 2, not yet proven by execution. Collides with collection exports, binding registration, semantic projections, and gate/scenario registration.
+
+Corrections to earlier inferred wording: actual fields are Coverage.unit_ids and FactSnapshot.tools. A valid failed capture can return canonical empty observed content; invalid selection/configuration that cannot form a valid identity must produce an explicit invocation error, never normalized into a successful-looking admitted snapshot. No new business outcome is introduced.
 
 ## Boundary and order
 
 This prerequisite supplies the Collect Rust handler, common registration and native runner, not the CLI or later assessment/navigation handlers. source-structure owns cross-language equivalence and aggregate integration using existing registration; first-slice owns JSON command exposure, assessment/capabilities and declaration lookup. Coordinator owns scenario registration during language units. Freeze shared seams before forking the three disjoint language workers.
+
+## Documentation scope correction
+
+Coordinator adds AGENTS.md, README.md and specifications/semantic-contract.md to the implementation scope because current text still says all six public handlers are missing (README.md:108, AGENTS.md:35, specifications/semantic-contract.md:5). Their updates must describe only the verified public Collect seam and retain the five unimplemented public handlers and incomplete source-language extraction. This corrects the scoper's inferred no-documentation assumption.
+
+## CI evidence retention
+
+Cited .github/workflows/ci.yml uploads evaluator and foundation native JSON only. Add collection-conformance JSON to the same existing artifact so CI retains the newly required evidence; no new execution language or publication credentials are introduced.
+
+## Structural input witness
+
+ESS 0.50.0 synthesized Collect with placeholder strings for configuration identity/classpath and root (observed by conformance worker in red-suite.json). Those are invalid production inputs, so the runtime correctly refuses them. Add the existing command's fixture_inputs metadata and a Rust fixture provider supplying a valid collection request; retain production validation. No new value, command, outcome or fixture-name dispatch in production is introduced. The structural case remains a shape witness; authored cases provide the actual semantic assertions.

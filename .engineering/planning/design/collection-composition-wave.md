@@ -7,7 +7,7 @@ title: Production collection composition prerequisite wave
 relations:
 - designs: story:collection-composition-seam
 - serves: vision:language-neutral-code-quality
-revision: 1
+revision: 3
 ---
 ## Authority and selection
 
@@ -82,3 +82,13 @@ collision: story:source-go-baseline story:source-structural-observations src/bin
 collision: story:source-java-baseline story:source-structural-observations src/bindings/java.rs (inferred)
 collision: story:source-rust-baseline story:source-structural-observations src/bindings/rust.rs (inferred)
 11 wave(s), 24 collision(s), 0 unassessed
+
+## Runtime dispatch
+
+Runtime unit wt-0b07ece78f7b, branch unit/collection-runtime, base 5ab3854e16f97e5683a1dde9221eda98038bb561; target target/, scratch .scratch/unit. Worker compose_runtime owns collection composition, binding registration/helpers, library exports and tests/collection_composition.rs. Coordinator owns ESS registration/projections, native collection conformance and gate in wt-b26eeec7c8ff, target target/, scratch .scratch/composition (correcting the earlier inferred target location). Worktree registry retains exact absolute paths. No shared targets. Runtime worker uses aep:implementor; native runner is coordinator integration work. Stage implementing, with independent adversary required before merge.
+
+## Conformance dispatch and pinned tool
+
+Conformance unit wt-e44661281e9e, branch unit/collection-conformance, base 5ab3854e16f97e5683a1dde9221eda98038bb561, target target/, scratch .scratch/unit. Worker compose_conformance owns ESS component collection, three authored scenarios, native tests/collection_conformance.rs and regenerated semantic projections. Runtime and harness workers have disjoint files. Coordinator retains src/bin/codegate-check.rs and store writes. Gate expects 4 collection cases, 8 foundation cases and 27 evaluator cases with fresh report identities.
+
+Tool discovery observed global ESS 0.51.0; initial validation warned of the version mismatch and remains only discovery evidence. Running toolchain which inside ess-semantic confirmed cached pinned ESS 0.50.0. All actual generation/tests/gate use that cached binary first in PATH; no specification pin upgrade is selected.

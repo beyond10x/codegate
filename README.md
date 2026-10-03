@@ -105,5 +105,10 @@ The source-foundation report is retained beside that evaluator report under
 `foundation-conformance/`, with the same freshness checks. Its target invokes the
 real collection and admission functions. Seeded empty-response, admit-everything
 and constant-identity faults must fail the authored expectations. These eight cases
-cover the two internal library obligations; the six public semantic commands and
+cover the two internal library obligations. A separate `collection-conformance/`
+report covers the public Collect Rust handler: three authored cases and one
+structural case. It returns exact captured source identities and explicit coverage
+gaps; an unavailable semantic adapter never becomes source-only success. The
+default binding registry is empty until the language bindings land. The five other
+public semantic handlers, semantic CLI commands, source-language extraction and
 full three-language parity remain delivery gaps.
