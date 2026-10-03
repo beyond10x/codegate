@@ -418,6 +418,23 @@ types:
       - {name: mode, type: codegate_semantic.semantic.CollectionMode}
       - {name: timeout_milliseconds, type: Integer}
 commands:
+  # Internal library seams: these do not stand in for the six public commands.
+  - name: codegate_semantic.semantic.CollectSource
+    input:
+      - {name: request, type: codegate_semantic.semantic.CollectionRequest}
+    response:
+      - {name: source, type: 'Optional<codegate_semantic.semantic.SourceSnapshot>'}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+    outcomes:
+      - {name: source-observed, returns: true}
+  - name: codegate_semantic.semantic.ValidateSnapshot
+    input:
+      - {name: snapshot, type: codegate_semantic.semantic.FactSnapshot}
+    response:
+      - {name: accepted, type: Boolean}
+      - {name: gaps, type: 'List<codegate_semantic.semantic.Gap>'}
+    outcomes:
+      - {name: validation-observed, returns: true}
   - name: codegate_semantic.semantic.Collect
     input:
       - {name: request, type: codegate_semantic.semantic.CollectionRequest}
