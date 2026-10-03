@@ -187,6 +187,14 @@ fn validate_report(
     }
     Ok(())
 }
+fn create_scratch(root: &Path) -> Result<PathBuf, String> {
+    let target = root.join("target");
+    fs::create_dir_all(&target).map_err(|e| e.to_string())?;
+    let scratch = target.join(format!("codegate-check-{}", std::process::id()));
+    fs::create_dir(&scratch).map_err(|e| e.to_string())?;
+    Ok(scratch)
+}
+
 fn check() -> Result<(), String> {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let version = Command::new("ess")
@@ -204,10 +212,7 @@ fn check() -> Result<(), String> {
         &["specify", "validate", "--path", "ess"],
         &root,
     )?;
-    let scratch = root
-        .join("target")
-        .join(format!("codegate-check-{}", std::process::id()));
-    fs::create_dir(&scratch).map_err(|e| e.to_string())?;
+    let scratch = create_scratch(&root)?;
     let behavior = scratch.join("behavior");
     let wire = scratch.join("wire");
     let semantic_behavior = scratch.join("semantic-behavior");
@@ -438,5 +443,41 @@ fn main() -> ExitCode {
             eprintln!("codegate-check: {e}");
             ExitCode::FAILURE
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn gate_clean_external_target() {
+        let base = std::env::current_exe()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join(format!("scratch-regression-{}", std::process::id()));
+        fs::create_dir(&base).unwrap();
+        for layout in ["external", "ordinary"] {
+            let root = base.join(layout);
+            fs::create_dir(&root).unwrap();
+            if layout == "ordinary" {
+                fs::create_dir(root.join("target")).unwrap();
+            } else {
+                assert!(!root.join("target").exists());
+            }
+            let scratch = create_scratch(&root).expect("gate must create missing target parent");
+            assert!(scratch.is_dir());
+            assert_eq!(scratch.parent(), Some(root.join("target").as_path()));
+            let evidence = scratch.join("report.json");
+            fs::write(&evidence, b"retained prior evidence").unwrap();
+            assert!(create_scratch(&root).is_err(), "must refuse scratch reuse");
+            assert_eq!(fs::read(&evidence).unwrap(), b"retained prior evidence");
+        }
+        let root = base.join("blocked-parent");
+        fs::create_dir(&root).unwrap();
+        fs::write(root.join("target"), b"not a directory").unwrap();
+        assert!(create_scratch(&root).is_err());
+        assert_eq!(fs::read(root.join("target")).unwrap(), b"not a directory");
     }
 }
