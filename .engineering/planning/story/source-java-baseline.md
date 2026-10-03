@@ -12,12 +12,52 @@ relations:
 - depends_on: story:collection-composition-seam
 scope:
 - confidence: inferred
+  path: .github/workflows/ci.yml
+- confidence: inferred
+  path: AGENTS.md
+- confidence: inferred
+  path: README.md
+- confidence: inferred
+  path: ess-semantic/ess-inputs.yaml
+- confidence: inferred
+  path: ess-semantic/scenarios/collection/languages/semantic-java-source-*.yaml
+- confidence: inferred
+  path: generated/semantic-behavior
+- confidence: inferred
+  path: generated/semantic-wire
+- confidence: inferred
+  path: specifications/semantic-contract.md
+- confidence: inferred
+  path: specifications/semantic-scenarios.md
+- confidence: inferred
+  path: src/bin/codegate-check.rs
+- confidence: cited
   path: src/bindings/java.rs
 - confidence: inferred
+  path: src/bindings/mod.rs
+- confidence: inferred
+  path: src/collection/compose.rs
+- confidence: inferred
+  path: src/lib.rs
+- confidence: inferred
+  path: tests/collection_adversary.rs
+- confidence: inferred
+  path: tests/collection_composition.rs
+- confidence: inferred
+  path: tests/collection_conformance.rs
+- confidence: cited
   path: tests/fixtures/structure/java/**
 - confidence: inferred
+  path: tests/freshness.rs
+- confidence: inferred
+  path: tests/gate_adversary.rs
+- confidence: cited
   path: tests/source_java.rs
-revision: 5
+- confidence: inferred
+  path: tests/source_language_conformance.rs
+- confidence: inferred
+  path: tests/support/collection_conformance.rs
+revision: 9
 ---
 ## Intent and contract
 
@@ -33,7 +73,14 @@ semantic-java-source-baseline, semantic-java-source-syntax-error, semantic-java-
 
 ## Scope
 
-Inferred: src/bindings/java.rs, tests/source_java.rs, tests/fixtures/structure/java/**. Coordinator owns shared module registration, manifests, public API, ESS scenario registration and conformance runner. This story supplies inputs/expected observations and Rust tests; Java files are fixture data only; no AEP edits.
+Derived 2026-10-03 by read-only aep:story-scoper against 821de3626e019c5c8203ea7f8f026b981c7a0d09; corrected by coordinator after the typed design-scope refusal.
+
+- cited: src/bindings/java.rs, tests/source_java.rs, tests/fixtures/structure/java/** are the explicitly assigned unit-owned implementation, test and fixture surfaces. Their existence as future files is not an implementation claim.
+- cited: SourceBinding, BindingFacts, retained CollectedSource and shared parser/ID/range/evidence helpers already supply the language extraction seam. The worker consumes them without source IO or external tools.
+- inferred: this story also owns the shared coordinator integration paths recorded in its typed scope and design:source-baseline-wave: registration, collection defaults, native target/gate, ESS scenario registration, generated projections when changed and semantic/user documentation. Coordinator ownership does not erase these paths from scheduling.
+- inferred: would collide with other language stories at these shared surfaces. The final computed wave output serializes the complete language stories; only separately assigned files within one story may be worked in parallel.
+- cited: confidence high for the language unit paths and interface from the story and code; confidence inferred for the full shared edit set until the implementation diff establishes it. Earlier narrow scope was corrected visibly rather than treated as safe concurrency.
+- cited: safety fact, level 2 and unproven by execution: src/collection/compose.rs:182 enforces slot ownership and src/semantic/admit.rs validates composed identities, lexical containment and completeness. Read-only scope review ran no builds or tests. All authored running code is Rust; Go and Java are fixture data.
 
 ## Dependencies and completion
 
