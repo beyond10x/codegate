@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T11:30:15Z",
+  "actor": "human:timo",
+  "artifact": "task:release-codegate-0-3-0",
+  "kind": "task",
+  "revision": 4,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "Bot release, exact remote-main annotated tag, successful tag checks, scanned executable and independent public checksum/byte verification",
+    "reference": "https://github.com/beyond10x/codegate/releases/tag/0.3.0"
+  }
+}

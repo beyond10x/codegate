@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T11:30:15Z",
+  "actor": "human:timo",
+  "artifact": "task:release-codegate-0-3-0",
+  "kind": "task",
+  "revision": 4,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "task check and tagged repository gate: 39 native ESS cases and 97 root Rust tests passed",
+    "reference": "https://github.com/beyond10x/codegate/actions/runs/37119585981"
+  }
+}

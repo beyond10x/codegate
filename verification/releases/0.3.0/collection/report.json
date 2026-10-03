@@ -1,0 +1,56 @@
+{
+  "completed_at": 1791026747415,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 4,
+    "skipped": 0,
+    "total": 4,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 3,
+      "generated": 1,
+      "outside": 13,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "component": "collection",
+        "kind": "component"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-source-collection 0.3.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate_semantic.semantic.Collect/outcome/collected",
+      "codegate_semantic.semantic/authored/parity-collect-capture-failure",
+      "codegate_semantic.semantic/authored/parity-collect-semantic-gap",
+      "codegate_semantic.semantic/authored/parity-collect-source-only-foundation"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "c64e8e2f5e1a2e791ed83c172875fb04a67c095ec27f188220b1d5644654c126",
+  "specification": "codegate_semantic/v1",
+  "suite": {
+    "digest": "sha256:0d4eb161d607ab3062d0a2607b84d3362856c5570af800fc7eea32701d274de2",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
