@@ -2,7 +2,7 @@
 format: aep.planning-md/3
 id: story:collection-composition-seam
 kind: story
-status: active
+status: implemented
 title: Supply the production Collect seam before language acceptance
 relations:
 - decomposes: epic:source-collection-baseline
@@ -41,16 +41,19 @@ scope:
   path: src/collection/mod.rs
 - confidence: cited
   path: src/lib.rs
+- confidence: cited
+  path: tests/collection_adversary.rs
 - confidence: inferred
   path: tests/collection_composition.rs
 - confidence: cited
   path: tests/collection_conformance.rs
 - confidence: cited
   path: tests/semantic_boundary.rs
-revision: 17
+revision: 20
 transitions:
 - {from: "draft", to: "proposed", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}}
 - {from: "proposed", to: "active", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"review_outcome":2}}}
+- {from: "active", to: "implemented", at: "2026-10-03T11:01:35Z", actor: "human:timo", revision: 20, decided_on: {"recorded":{"test_result":2,"review_outcome":2,"verification":1,"ess_conformance_coverage_v1":2}}}
 ---
 ## Intent and existing contract
 
@@ -97,3 +100,11 @@ ESS 0.50.0 synthesized Collect with placeholder strings for configuration identi
 ## Public wiring boundary
 
 Runtime package tests observed two false boundary rejections for root public reexports collection::compose::{Collector, collect}. The new implementation lives outside the pure core; the root only exposes the operation. Authorize tests/semantic_boundary.rs to recognize those exact public wiring exports while retaining alias resolution and adding a regression proving an algorithm call through the same alias is still refused. This is a testable distinction, not blanket admission of collection calls. The worker owns this scoped correction and reports the original red package output.
+
+## Final integration and wave closure
+
+Final task check at e53a4d4 exited 0 after integrating all four adversarial tests. Native evaluator 27/27, foundation 8/8, collection 4/4 and root Rust 97/97 passed. Final suites, reports, runs and per-step exit outputs are retained under verification/collection-composition/final/. Review-result:collection-composition-adversary records the one bounded independent pass verbatim, including its author-normalized public log paths and empty findings block. There are no open adversary findings and no second attack was needed. Original private logs remain retained for archive cleanup.
+
+Confirmed implementation scope includes composition/runtime helpers, public exports, the narrow boundary regression, exact ESS fixture/component/scenario registration, generated semantic projections, native harness and gate, CI evidence upload paths, and current runtime-limit documentation. The scoper's inferred absence of documentation changes was corrected from actual stale text; collection module registration and regression tests were also confirmed. No shared analysis or admission policy was relaxed.
+
+This completes story:collection-composition-seam, not epic:source-collection-baseline or the repository-report goal. Replan next from the three language-source stories against this now-frozen API. PR integration is authorized; publish the reviewed candidate, merge required green checks, archive private evidence and clean exact managed trees. No new release is included. Cost counters remain unavailable in this host.

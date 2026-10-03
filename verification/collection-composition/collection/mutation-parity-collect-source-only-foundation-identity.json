@@ -1,0 +1,125 @@
+[
+  {
+    "scenario": "codegate_semantic.semantic.Collect/outcome/collected",
+    "purpose": "`codegate_semantic.semantic.Collect` answers `collected` for an input no other branch's guard claims",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.Collect/collected",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.Collect",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 7
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-collect-capture-failure",
+    "purpose": "Actual Collect preserves captured identities, requested mode and explicit unavailable evidence.",
+    "status": "failed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.Collect/collected",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.Collect",
+        "status": "failed",
+        "diagnostic": {
+          "code": "ESS-CF-PAYLOAD",
+          "scenario": "codegate_semantic.semantic/authored/parity-collect-capture-failure",
+          "source": [
+            {
+              "kind": "command",
+              "name": "codegate_semantic.semantic.Collect"
+            }
+          ],
+          "input": null,
+          "expected": [
+            "actual typed return satisfies its complete schema and authored literals"
+          ],
+          "observed": [
+            "response field snapshot differs from its declared literal"
+          ]
+        }
+      }
+    ],
+    "duration_ms": 6
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-collect-semantic-gap",
+    "purpose": "Actual Collect preserves captured identities, requested mode and explicit unavailable evidence.",
+    "status": "failed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.Collect/collected",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.Collect",
+        "status": "failed",
+        "diagnostic": {
+          "code": "ESS-CF-PAYLOAD",
+          "scenario": "codegate_semantic.semantic/authored/parity-collect-semantic-gap",
+          "source": [
+            {
+              "kind": "command",
+              "name": "codegate_semantic.semantic.Collect"
+            }
+          ],
+          "input": null,
+          "expected": [
+            "actual typed return satisfies its complete schema and authored literals"
+          ],
+          "observed": [
+            "response field snapshot differs from its declared literal"
+          ]
+        }
+      }
+    ],
+    "duration_ms": 7
+  },
+  {
+    "scenario": "codegate_semantic.semantic/authored/parity-collect-source-only-foundation",
+    "purpose": "Actual Collect preserves captured identities, requested mode and explicit unavailable evidence.",
+    "status": "failed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate_semantic.semantic.Collect/collected",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate_semantic.semantic.Collect",
+        "status": "failed",
+        "diagnostic": {
+          "code": "ESS-CF-PAYLOAD",
+          "scenario": "codegate_semantic.semantic/authored/parity-collect-source-only-foundation",
+          "source": [
+            {
+              "kind": "command",
+              "name": "codegate_semantic.semantic.Collect"
+            }
+          ],
+          "input": null,
+          "expected": [
+            "actual typed return satisfies its complete schema and authored literals"
+          ],
+          "observed": [
+            "response field snapshot differs from its declared literal"
+          ]
+        }
+      }
+    ],
+    "duration_ms": 8
+  }
+]

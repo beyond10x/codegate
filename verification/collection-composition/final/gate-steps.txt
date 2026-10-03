@@ -1,0 +1,69 @@
+CHECK AEP: aep plan artifact validate
+CHECK AEP: exit 0
+CHECK ESS: ess specify validate --path ess
+CHECK ESS: exit 0
+CHECK generate behavior: ess generate synthesize --path ess --target rust --layout crate --out <private-evidence>
+CHECK generate behavior: exit 0
+CHECK generate wire: ess generate types --path ess --target rust --all-types --package codegate-contract --out <private-evidence>
+CHECK generate wire: exit 0
+CHECK semantic ESS: ess specify validate --path ess-semantic
+CHECK semantic ESS: exit 0
+CHECK generate semantic behavior: ess generate synthesize --path ess-semantic --target rust --layout crate --out <private-evidence>
+CHECK generate semantic behavior: exit 0
+CHECK generate semantic wire: ess generate types --path ess-semantic --target rust --all-types --package codegate-semantic-contract --out <private-evidence>
+CHECK generate semantic wire: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path <private-evidence>
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path <private-evidence>
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path <private-evidence>
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path <private-evidence>
+CHECK normalize generated formatting: exit 0
+CHECK generated drift: exit 0
+CHECK semantic scope: collection and internal foundation verified separately; five other public handlers remain
+CHECK combined suite: ess verify conform synthesize --path ess --scenarios ess --suite-format 5 --out <private-evidence>
+CHECK combined suite: exit 0
+CHECK real ESS conformance: cargo test --locked -p codegate-cli --test conformance real_evaluator_conforms_to_complete_combined_suite -- --exact --nocapture
+CHECK real ESS conformance: exit Some(0)
+CHECK native ESS report: executed27 passed27 failed0 error0 unsupported0 skipped0, exit0; evidence <private-evidence>
+CHECK source-foundation suite: ess verify conform synthesize --path ess-semantic --scenarios ess-semantic --component source-foundation --suite-format 5 --out <private-evidence>
+CHECK source-foundation suite: exit 0
+CHECK real source-foundation conformance: exit Some(0)
+CHECK native source-foundation ESS report: executed8 passed8 failed0 error0 unsupported0 skipped0, exit0
+CHECK collection suite: ess verify conform synthesize --path ess-semantic --scenarios ess-semantic --component collection --suite-format 5 --out <private-evidence>
+CHECK collection suite: exit 0
+CHECK real collection conformance: exit Some(0)
+CHECK native collection ESS report: executed4 passed4 failed0 error0 unsupported0 skipped0, exit0
+CHECK Rust tests: cargo test --locked -p codegate-cli --all-targets -- --nocapture
+CHECK Rust tests: exit 0
+CHECK format root: cargo fmt --package codegate-cli --check
+CHECK format root: exit 0
+CHECK Clippy root: cargo clippy --locked -p codegate-cli --all-targets -- -D warnings
+CHECK Clippy root: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/behavior/Cargo.toml
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/behavior/Cargo.toml --all-targets -- -D warnings
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/wire/Cargo.toml
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-behavior/Cargo.toml
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-behavior/Cargo.toml --all-targets -- -D warnings -A unreachable_code -A clippy::unneeded_struct_pattern
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-wire/Cargo.toml
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+CHECK Clippy generated: exit 0
+CHECK public documentation: cargo run --locked --bin codegate-docs -- check
+CHECK public documentation: exit 0

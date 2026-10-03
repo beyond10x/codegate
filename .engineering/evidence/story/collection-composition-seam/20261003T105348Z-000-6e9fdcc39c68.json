@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T10:53:48Z",
+  "actor": "human:timo",
+  "artifact": "story:collection-composition-seam",
+  "kind": "story",
+  "revision": 17,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "VERIFIED: base lacks Collect API; actual treatment handler meets three authored ESS response contracts",
+    "reference": "2132b5b versus dc0f2a0; native collection suite sha256:0d4eb161d607ab3062d0a2607b84d3362856c5570af800fc7eea32701d274de2"
+  }
+}

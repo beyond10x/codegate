@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T10:56:26Z",
+  "actor": "human:timo",
+  "artifact": "story:collection-composition-seam",
+  "kind": "story",
+  "revision": 17,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "task check exit 0 at dc0f2a0: evaluator27 foundation8 collection4 native ESS; root93 Rust tests; generated drift/fmt/Clippy/docs passed",
+    "reference": "verification/collection-composition/gate-steps.txt"
+  }
+}

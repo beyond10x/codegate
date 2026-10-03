@@ -1,0 +1,488 @@
+[
+  {
+    "scenario": "codegate.dependency.Evaluate/outcome/evaluated",
+    "purpose": "`codegate.dependency.Evaluate` answers `evaluated` for an input no other branch's guard claims",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/canonical-order",
+    "purpose": "Input order cannot change sorted units, findings or metrics.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/complete-empty-graph",
+    "purpose": "A complete empty observation is valid.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/complete-isolated-units",
+    "purpose": "Complete isolated units have measured zero fan-out.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/configuration-mismatch",
+    "purpose": "Evidence for a different selected configuration is refused.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/dangling-source",
+    "purpose": "A nonexistent source unit refuses the snapshot.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/dangling-target",
+    "purpose": "A nonexistent resolved target refuses the snapshot.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/dependency-kind-selection",
+    "purpose": "Build policy does not treat a runtime edge as build evidence.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/duplicate-edge",
+    "purpose": "Duplicate edge identity refuses the snapshot.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/duplicate-unit",
+    "purpose": "Duplicate unit identity refuses the snapshot.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/empty-identity",
+    "purpose": "Empty unit identity refuses the snapshot.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/explicit-unresolved-target",
+    "purpose": "An unresolved destination remains partial rather than disappearing.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/failed-collection",
+    "purpose": "Failed collection yields an error rather than measurements.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/forbidden-runtime-edge",
+    "purpose": "A witnessed forbidden edge fails with its evidence ID.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/go-facts-same-checker",
+    "purpose": "Producer and source-language labels do not change semantics.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/invalid-policy-reference",
+    "purpose": "Forbidden rules must refer to the selected inventory.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/invalid-target",
+    "purpose": "Resolved and unresolved destinations are mutually exclusive.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/one-runtime-edge",
+    "purpose": "The shared metric counts a resolved runtime destination.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/parallel-imports-count-once",
+    "purpose": "Two edge occurrences to one destination count once.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/partial-is-not-empty",
+    "purpose": "No observed edges under partial coverage is not measured zero.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/polyglot-no-inferred-edge",
+    "purpose": "Mixed language inventories do not invent interop relations.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/source-mismatch",
+    "purpose": "Evidence for a different expected source is refused.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/unknown-ir-version",
+    "purpose": "Unknown mandatory fact semantics are refused.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/unresolved-cannot-claim-complete",
+    "purpose": "An unresolved destination contradicts complete dependency coverage.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/unsupported-is-not-empty",
+    "purpose": "Unsupported coverage cannot masquerade as successful empty analysis.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 0
+  },
+  {
+    "scenario": "codegate.dependency/authored/unsupported-with-observations",
+    "purpose": "Unsupported coverage cannot carry contradictory dependency observations.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  },
+  {
+    "scenario": "codegate.dependency/authored/witnessed-violation-with-gaps",
+    "purpose": "A witnessed violation fails while metric completeness remains unavailable.",
+    "status": "passed",
+    "checks": [
+      {
+        "code": "ESS-CF-OUTCOME",
+        "about": "outcome codegate.dependency.Evaluate/evaluated",
+        "status": "passed"
+      },
+      {
+        "code": "ESS-CF-PAYLOAD",
+        "about": "direct response codegate.dependency.Evaluate",
+        "status": "passed"
+      }
+    ],
+    "duration_ms": 1
+  }
+]
