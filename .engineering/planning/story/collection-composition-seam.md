@@ -2,13 +2,14 @@
 format: aep.planning-md/3
 id: story:collection-composition-seam
 kind: story
-status: draft
+status: active
 title: Supply the production Collect seam before language acceptance
 relations:
 - decomposes: epic:source-collection-baseline
 - depends_on: story:source-snapshot
 - depends_on: story:capability-admission
 - informed_by: executable-system-specification:semantic-analysis
+- serves: vision:language-neutral-code-quality
 scope:
 - confidence: inferred
   path: ess-semantic/components.yaml
@@ -26,7 +27,10 @@ scope:
   path: src/lib.rs
 - confidence: inferred
   path: tests/collection_conformance.rs
-revision: 4
+revision: 6
+transitions:
+- {from: "draft", to: "proposed", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 5, decided_on: {"recorded":{"review_outcome":2}}}
+- {from: "proposed", to: "active", at: "2026-10-03T10:35:26Z", actor: "human:timo", revision: 6, decided_on: {"recorded":{"review_outcome":2}}}
 ---
 ## Intent and existing contract
 
