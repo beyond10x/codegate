@@ -4,7 +4,7 @@ specification:
   - system.yaml
   - domains/semantic.yaml
   - components.yaml
-# Foundation-only runtime acceptance; six public handlers remain separate work.
+# Internal foundation and public Collect acceptance; five public handlers remain separate.
 scenarios:
   - scenarios/parity-selected-content-identity.yaml
   - scenarios/parity-manifest-identity.yaml
@@ -12,3 +12,6 @@ scenarios:
   - scenarios/parity-stale-evidence.yaml
   - scenarios/parity-dangling-observation.yaml
   - scenarios/parity-coverage-not-zero.yaml
+  - scenarios/collection/parity-collect-source-only-foundation.yaml
+  - scenarios/collection/parity-collect-semantic-gap.yaml
+  - scenarios/collection/parity-collect-capture-failure.yaml
