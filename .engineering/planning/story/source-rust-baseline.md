@@ -17,7 +17,7 @@ scope:
   path: tests/fixtures/structure/rust/**
 - confidence: inferred
   path: tests/source_rust.rs
-revision: 4
+revision: 5
 ---
 ## Intent and contract
 
@@ -41,6 +41,5 @@ Depends on story:source-snapshot and story:capability-admission. Unit tests and 
 
 ## Production conformance prerequisite
 
-## Production conformance prerequisite
 
 Depends additionally on story:collection-composition-seam. Its real public Collect Rust handler, shared registration and native ESS runner exist before this language unit forks. Coordinator registers this story's authored scenarios through that production path; the language story closes on those actual results, without waiting for downstream first-slice CLI work. Existing Foundation CollectSource returns only SourceSnapshot and cannot substitute for this FactSnapshot witness.
