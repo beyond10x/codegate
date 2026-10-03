@@ -5,9 +5,9 @@ kind: story
 status: draft
 title: Expose collection and shared dependency assessment
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:source-structure
+- decomposes: epic:source-collection-baseline
 scope:
 - confidence: inferred
   path: src/lib.rs
@@ -21,7 +21,7 @@ scope:
   path: tests/first_slice.rs
 - confidence: inferred
   path: tests/fixtures/first_slice/**
-revision: 3
+revision: 4
 ---
 ## Intent
 
@@ -72,3 +72,9 @@ for command lines); Go and Java source remain fixture data.
 Run targeted cases and the required integration `task check`; retain named real ESS
 results, generated drift result and relevant reference comparison outputs. No GitHub
 publication or release is included. An unsupported required capability remains a gap.
+
+## First-round declaration lookup
+
+This story additionally delivers initial Lookup Definitions by name, qualified name and source position over the collected declaration inventory, through the Rust API and JSON lookup command. Required authored cases: parity-source-declaration-lookup, parity-source-lookup-ambiguity, parity-source-lookup-unicode. Same-name declarations remain multiple; no call/reference resolution is inferred. Other query kinds return explicit unsupported/incomplete evidence until story:offline-navigation extends imported-fact graph navigation. This is a bounded first-round subset of the already declared Lookup command, not a new contract noun.
+
+The common public collection integration is the first usable end-to-end witness for foundation helpers and binding results. Source-only mode runs no external processes; an explicit Semantic request without an implemented adapter refuses rather than downgrades. tests/first_slice.rs owns these additional checks; coordinator registers actual ESS cases and a real runner in the same story.

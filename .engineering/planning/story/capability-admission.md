@@ -5,9 +5,9 @@ kind: story
 status: draft
 title: Admit rich facts and expose precise capability gaps
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:parity-foundations
+- decomposes: epic:source-collection-foundation
 scope:
 - confidence: inferred
   path: src/semantic/admit.rs
@@ -17,7 +17,7 @@ scope:
   path: tests/semantic_admission.rs
 - confidence: inferred
   path: tests/semantic_boundary.rs
-revision: 3
+revision: 4
 ---
 ## Intent
 
@@ -67,3 +67,9 @@ for command lines); Go and Java source remain fixture data.
 Run targeted cases and the required integration `task check`; retain named real ESS
 results, generated drift result and relevant reference comparison outputs. No GitHub
 publication or release is included. An unsupported required capability remains a gap.
+
+## First-round profile and acceptance strengthening
+
+Apply specifications/source-baseline.md for empty coverage scope, complete family inventory, internally verifiable range guarantees and producer overlap. Use the coordinator's pure src/source_identity.rs seam without importing collection or bindings. Rust seam: semantic::validate_snapshot(&model::FactSnapshot) -> Result<(), Vec<model::Gap>>; only admission constructs its private admitted wrapper. Preserve semantic-contract refusal distinctions and deterministic order.
+
+The parity-core-boundary acceptance must cover root src/lib.rs and all shared semantic code, including newly added files; it must reject injected IO, binding dependencies and language/producer dispatch. The existing tests/semantics.rs:122 literal three-file test is insufficient and is not accepted as the new proof. The coordinator owns Cargo/module/ESS integration; the worker owns the four original inferred files. Capabilities describe supported operations separately from snapshot Coverage; no complete tools or facts are fabricated.

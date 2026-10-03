@@ -5,23 +5,29 @@ kind: story
 status: draft
 title: Collect selected source and build configuration identities
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:parity-foundations
+- decomposes: epic:source-collection-foundation
 scope:
 - confidence: inferred
   path: Cargo.lock
 - confidence: inferred
   path: Cargo.toml
 - confidence: inferred
+  path: specifications/source-baseline.md
+- confidence: inferred
   path: src/bindings/lines.rs
 - confidence: inferred
+  path: src/bindings/mod.rs
+- confidence: inferred
   path: src/collection/**
+- confidence: inferred
+  path: src/source_identity.rs
 - confidence: inferred
   path: tests/fixtures/selection/**
 - confidence: inferred
   path: tests/source_snapshot.rs
-revision: 4
+revision: 6
 ---
 ## Intent
 
@@ -82,3 +88,7 @@ fixtures cover comments, multiline literals and parse-error gaps in all three la
 Git origin is provenance and is omitted from snapshot/configuration identity as the
 normative contract specifies; committing unchanged content cannot change identity.
 These additional paths are inferred implementation scope, owned by this story.
+
+## First-round profile and ownership
+
+specifications/source-baseline.md pins literal selection semantics, bounds, Rust-library Git provenance, static manifest interpretation, coverage scope, offline range guarantees and scenario IDs. Existing generated value types remain unchanged. Coordinator owns src/source_identity.rs, Cargo.toml/Cargo.lock, src/lib.rs and authored ESS suite registration. The source worker owns src/collection/**, src/bindings/lines.rs and src/bindings/mod.rs plus selection tests. Identity helpers are supplied before worker dispatch, so admission and collection do not depend on each other's unfinished code. Root dependencies and the pure identity seam are the coordinator's part of this story, not a parallel worker surface.

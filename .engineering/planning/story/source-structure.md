@@ -5,22 +5,21 @@ kind: story
 status: draft
 title: Extract Tree-sitter observations in all three languages
 relations:
-- decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: story:source-snapshot
 - depends_on: story:capability-admission
+- decomposes: epic:source-collection-baseline
+- depends_on: story:source-go-baseline
+- depends_on: story:source-rust-baseline
+- depends_on: story:source-java-baseline
 scope:
 - confidence: inferred
-  path: Cargo.lock
+  path: src/bindings/mod.rs
 - confidence: inferred
-  path: Cargo.toml
-- confidence: inferred
-  path: src/bindings/**
-- confidence: inferred
-  path: tests/fixtures/structure/**
+  path: tests/fixtures/structure/equivalence
 - confidence: inferred
   path: tests/structure.rs
-revision: 3
+revision: 5
 ---
 ## Intent
 
@@ -79,3 +78,7 @@ Reuse the Tree-sitter grammar setup and syntax-aware line classifier delivered b
 source-snapshot. This story adds declaration/relationship/annotation observations;
 it does not supply a classifier required by an earlier prerequisite. Source/configuration
 identities are already finalized over complete classified input before this stage.
+
+## First-round decomposition
+
+Language extraction is delegated to story:source-go-baseline, story:source-rust-baseline and story:source-java-baseline. This story now owns shared registration and cross-language equivalence integration in src/bindings/mod.rs, tests/structure.rs and tests/fixtures/structure/equivalence. Earlier broad scope describes the original unsplit design; these narrower typed entries supersede that ownership. It does not reimplement the three workers' parsers. Its dependencies include all three language children and the two foundation stories.
