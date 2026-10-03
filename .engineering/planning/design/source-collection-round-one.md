@@ -7,7 +7,7 @@ title: First source collection round and parallel wave record
 relations:
 - designs: epic:source-collection-foundation
 - designs: epic:source-collection-baseline
-revision: 1
+revision: 3
 ---
 ## Authority and procedure
 
@@ -83,3 +83,11 @@ collision: story:scoring-suggestions story:semantic-navigation src/lib.rs (infer
 collision: story:scoring-suggestions story:semantic-navigation src/main.rs (inferred)
 collision: story:source-snapshot story:source-structure src/bindings/mod.rs (inferred)
 11 wave(s), 17 collision(s), 0 unassessed
+
+## Gate prerequisite dispatch
+
+Unit task:clean-external-target-gate, managed tree wt-bdb368b757ea, base 91dc33be346f6b3b5984743456833f1a875f7c61, target /tmp/codegate-gate-worker.oisTVz, scratch .scratch/unit, private brief .scratch/unit/brief.md. Implementor role runs through collaboration agent scope_snapshot. Stage implementing. Coordinator will commit the unit after independent attack; no worker Git/store writes. Full absolute triples are in the private brief and registry. The whole-round source selection and three-worker limit remain unchanged.
+
+## Foundation conformance seam
+
+The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.

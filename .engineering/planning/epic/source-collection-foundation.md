@@ -8,7 +8,7 @@ relations:
 - decomposes: epic:semantic-parity
 - informed_by: executable-system-specification:semantic-analysis
 - depends_on: task:clean-external-target-gate
-revision: 2
+revision: 3
 ---
 ## Intent
 
@@ -16,7 +16,7 @@ Deliver the common source identity and admission foundation required by the firs
 
 ## Acceptance
 
-The first-collection-foundation verification report passes the full gate with all 27 legacy scenarios and every required foundation case (parity-selected-content-identity, parity-manifest-identity, parity-path-confinement, parity-stale-evidence, parity-dangling-observation, parity-coverage-not-zero and parity-core-boundary) executed against real collection/admission behavior, with zero failed, errored, unsupported or skipped selected cases and exact suite/model identities retained.
+The first-collection-foundation verification report passes the full gate with all 27 legacy evaluator scenarios and six native ESS foundation cases: parity-selected-content-identity, parity-manifest-identity, parity-path-confinement, parity-stale-evidence, parity-dangling-observation and parity-coverage-not-zero. The separate parity-core-boundary architectural check must also pass its real Rust negative probes. Selected ESS cases have zero failures, errors, unsupported or skipped results and retain exact suite/model identities. The foundation component witnesses only CollectSource and ValidateSnapshot library operations; it does not claim the six public semantic commands or complete semantic parity.
 
 ## Children and order
 

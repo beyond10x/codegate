@@ -27,7 +27,7 @@ scope:
   path: tests/fixtures/selection/**
 - confidence: inferred
   path: tests/source_snapshot.rs
-revision: 6
+revision: 7
 ---
 ## Intent
 
@@ -92,3 +92,7 @@ These additional paths are inferred implementation scope, owned by this story.
 ## First-round profile and ownership
 
 specifications/source-baseline.md pins literal selection semantics, bounds, Rust-library Git provenance, static manifest interpretation, coverage scope, offline range guarantees and scenario IDs. Existing generated value types remain unchanged. Coordinator owns src/source_identity.rs, Cargo.toml/Cargo.lock, src/lib.rs and authored ESS suite registration. The source worker owns src/collection/**, src/bindings/lines.rs and src/bindings/mod.rs plus selection tests. Identity helpers are supplied before worker dispatch, so admission and collection do not depend on each other's unfinished code. Root dependencies and the pure identity seam are the coordinator's part of this story, not a parallel worker surface.
+
+## Foundation conformance seam
+
+The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.

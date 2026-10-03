@@ -17,7 +17,7 @@ scope:
   path: tests/semantic_admission.rs
 - confidence: inferred
   path: tests/semantic_boundary.rs
-revision: 4
+revision: 5
 ---
 ## Intent
 
@@ -73,3 +73,7 @@ publication or release is included. An unsupported required capability remains a
 Apply specifications/source-baseline.md for empty coverage scope, complete family inventory, internally verifiable range guarantees and producer overlap. Use the coordinator's pure src/source_identity.rs seam without importing collection or bindings. Rust seam: semantic::validate_snapshot(&model::FactSnapshot) -> Result<(), Vec<model::Gap>>; only admission constructs its private admitted wrapper. Preserve semantic-contract refusal distinctions and deterministic order.
 
 The parity-core-boundary acceptance must cover root src/lib.rs and all shared semantic code, including newly added files; it must reject injected IO, binding dependencies and language/producer dispatch. The existing tests/semantics.rs:122 literal three-file test is insufficient and is not accepted as the new proof. The coordinator owns Cargo/module/ESS integration; the worker owns the four original inferred files. Capabilities describe supported operations separately from snapshot Coverage; no complete tools or facts are fabricated.
+
+## Foundation conformance seam
+
+The conformance review identified that the six public commands do not type the intermediate helpers: Collect returns FactSnapshot and Evaluate returns Assessment. Before implementation dispatch, extend ESS with internal CollectSource and ValidateSnapshot operations, using existing source/fact/gap value types, and a source-foundation component. Native ESS targets call actual helpers. Six foundation behavioral cases execute in that component; parity-core-boundary is a separate architectural Rust test with injected violations, not a fabricated semantic command outcome. The six public runtime obligations and specification lifecycle remain incomplete. Coordinator owns the ESS/generated integration; implementation workers own their previously scoped runtime files.
