@@ -4,6 +4,7 @@ pub use codegate_semantic_behavior::semantic as semantic_model;
 mod admit;
 mod analysis;
 mod check;
+pub mod semantic_wire;
 pub mod source_identity;
 pub mod wire;
 use model::*;
