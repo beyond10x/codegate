@@ -24,6 +24,8 @@ The coordinator provides `source_identity::configuration_id(&BuildSelection)` an
 
 ## Coverage and admission
 
+Typed offline admission bounds the combined unit/declaration/observation population to 100,000 records and total coverage memberships to 100,000, with checked arithmetic and iterative containment checks. Identity, path, producer and name strings are bounded to 4096 UTF-8 bytes each. Exceeding a bound is InvalidFact, never truncation. The JSON boundary additionally retains its 4 MiB document limit.
+
 Coverage unit IDs denote exactly the listed units; an empty list denotes the empty population and never means all units. For a nonempty snapshot every selected unit must have one unambiguous coverage record for each FactFamily. A snapshot with no units retains one empty-scope record per family. Per-family records may combine disjoint units; duplicates and overlaps are refused. NotApplicable requires a reason. Explicit Unsupported/Partial/Failed with gaps is required wherever this baseline cannot supply a family; missing records never imply zero.
 
 The frozen families are Sources, Declarations, Occurrences, Dependencies, References, Implementations, Calls, Decisions, Structure, Documentation, Effects, Tests, FrameworkDeclarations, FrameworkWiring and ExecutionCoverage. Source-only mode cannot claim semantic call/reference completeness or effective framework wiring. A supported capability describes what an operation can collect; it is distinct from observed coverage for a particular snapshot.
@@ -34,7 +36,7 @@ Offline admission verifies nonnegative bounded ranges, file/line partitions and 
 
 Use the story's named `parity-*` IDs for foundation cases and the new `semantic-<language>-source-*` IDs for language cases. The older semantic-* manifest contains related detailed obligations, not duplicate executed cases. The coordinator maps these explicitly in the authored suite; no prose ID contributes to executed counts. Foundation admission exercises valid complete and partial snapshots plus stable refusals. Collection exercises actual filesystem fixtures, all three line classifiers, dirty/untracked identity, manifests and path confinement. Core-boundary verification includes `src/lib.rs`, all semantic algorithms and pure identity/bridge code, and contains negative dependency/IO/language-dispatch probes.
 
-Public full Collect/Assess behavior is integrated by story:first-slice after the language bindings; foundation helpers are intermediate Rust APIs and are not reported as completed public generated command handlers. Missing semantic tools never silently downgrade a requested Semantic collection to SourceOnly.
+The public Collect Rust handler and native runner are supplied by story:collection-composition-seam before language acceptance; missing bindings remain unsupported. story:first-slice later exposes the JSON CLI and integrates Assess/Capabilities/Lookup. Foundation helpers are intermediate Rust APIs and are not reported as completed public generated command handlers. Missing semantic tools never silently downgrade a requested Semantic collection to SourceOnly.
 
 The intermediate helpers have their own generated CollectSource and
 ValidateSnapshot behavior traits, selected through the source-foundation

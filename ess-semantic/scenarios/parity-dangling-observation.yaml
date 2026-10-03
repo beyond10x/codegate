@@ -1,0 +1,255 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate_semantic.semantic",
+  "scenario": "parity-dangling-observation",
+  "summary": "An occurrence cannot refer to an absent owner.",
+  "timeline": [
+    {
+      "at": "2026-10-03T00:00:00Z",
+      "command": "codegate_semantic.semantic.ValidateSnapshot",
+      "input": {
+        "snapshot": {
+          "format": "codegate.semantic-facts/1",
+          "source": {
+            "selection": {
+              "include_paths": [],
+              "exclude_paths": [],
+              "include_tests": true,
+              "include_generated": true,
+              "languages": []
+            },
+            "configuration": {
+              "modules": [],
+              "go_build_tags": [],
+              "rust_features": [],
+              "rust_default_features": false,
+              "rust_cfg": [],
+              "build_profiles": [],
+              "configuration_files": [],
+              "id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692"
+            },
+            "files": [],
+            "manifests": [],
+            "id": "96901d8be85c16c17d93fc1960b05ddcb13607de09757d2204837079862824b6"
+          },
+          "mode": "SourceOnly",
+          "tools": [],
+          "coverage": [
+            {
+              "family": "Sources",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Complete",
+              "gaps": []
+            },
+            {
+              "family": "Declarations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Declarations collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Occurrences",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Occurrences collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Dependencies",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Dependencies collector selected"
+                }
+              ]
+            },
+            {
+              "family": "References",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No References collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Implementations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Implementations collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Calls",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Calls collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Decisions",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Decisions collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Structure",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Structure collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Documentation",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Documentation collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Effects",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Effects collector selected"
+                }
+              ]
+            },
+            {
+              "family": "Tests",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No Tests collector selected"
+                }
+              ]
+            },
+            {
+              "family": "FrameworkDeclarations",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No FrameworkDeclarations collector selected"
+                }
+              ]
+            },
+            {
+              "family": "FrameworkWiring",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No FrameworkWiring collector selected"
+                }
+              ]
+            },
+            {
+              "family": "ExecutionCoverage",
+              "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+              "unit_ids": [],
+              "status": "Unsupported",
+              "gaps": [
+                {
+                  "code": "UnsupportedCapability",
+                  "reason": "No ExecutionCoverage collector selected"
+                }
+              ]
+            }
+          ],
+          "units": [],
+          "declarations": [],
+          "occurrences": [
+            {
+              "owner": "missing-owner",
+              "spelling": "f",
+              "role": "Read",
+              "evidence": {
+                "id": "orphan",
+                "snapshot_id": "96901d8be85c16c17d93fc1960b05ddcb13607de09757d2204837079862824b6",
+                "configuration_id": "973875754fd4382046711444d02c4fcc9d08af9538e04532b1f66849bd2ee692",
+                "producer": "fixture",
+                "producer_version": "1",
+                "resolution": "Resolved",
+                "basis": "SourceStructure",
+                "gaps": []
+              }
+            }
+          ],
+          "dependencies": [],
+          "references": [],
+          "calls": [],
+          "implementations": [],
+          "decisions": [],
+          "structure": [],
+          "effects": [],
+          "framework": []
+        }
+      },
+      "outcome": "validation-observed",
+      "response": {
+        "accepted": false,
+        "gaps": [
+          {
+            "code": "InvalidFact",
+            "reason": "unknown occurrence owner: missing-owner"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ mod analysis;
 pub mod bindings;
 mod check;
 pub mod collection;
+pub mod foundation;
 pub mod semantic_wire;
 pub mod source_identity;
 pub mod wire;

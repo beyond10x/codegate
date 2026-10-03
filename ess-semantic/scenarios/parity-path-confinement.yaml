@@ -1,0 +1,47 @@
+{
+  "type": "ess-scenario/4",
+  "domain": "codegate_semantic.semantic",
+  "scenario": "parity-path-confinement",
+  "summary": "Escaping selectors are refused before source collection.",
+  "timeline": [
+    {
+      "at": "2026-10-03T00:00:00Z",
+      "command": "codegate_semantic.semantic.CollectSource",
+      "input": {
+        "request": {
+          "root": "fixture:original",
+          "selection": {
+            "include_paths": [
+              "../outside"
+            ],
+            "exclude_paths": [],
+            "include_tests": true,
+            "include_generated": true,
+            "languages": []
+          },
+          "configuration": {
+            "modules": [],
+            "go_build_tags": [],
+            "rust_features": [],
+            "rust_default_features": false,
+            "rust_cfg": [],
+            "build_profiles": [],
+            "configuration_files": [],
+            "id": ""
+          },
+          "mode": "SourceOnly",
+          "timeout_milliseconds": 10000
+        }
+      },
+      "outcome": "source-observed",
+      "response": {
+        "gaps": [
+          {
+            "code": "InvalidFact",
+            "reason": "invalid selection path: ../outside"
+          }
+        ]
+      }
+    }
+  ]
+}
