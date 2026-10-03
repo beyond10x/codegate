@@ -27,6 +27,13 @@ formatting and Clippy. It never invokes itself recursively. Standalone ESS repor
 are under `target/conformance/`; the gate retains its private invocation evidence
 under `target/codegate-check-<pid>/conformance/`. All 27 scenarios must execute and pass.
 
+`ess-semantic/` is the separately versioned semantic-parity foundation. Its generated
+`generated/semantic-behavior` and `generated/semantic-wire` crates also participate in
+drift, compilation, formatting and Clippy checks. The six semantic behavior traits
+remain runtime obligations; their synthesized structural cases are not real semantic
+conformance. Never report semantic parity from the legacy 27-case result. The program
+and precise remaining work are in `epic:semantic-parity` and `docs/parity-baseline.md`.
+
 Pin ESS 0.50.0 and Rust 1.98.1. Generated source in `generated/behavior` and
 `generated/wire` is produced by ESS and deterministically formatted by pinned
 rustfmt. Never hand-edit it. Reproduce the commands in `src/bin/codegate-check.rs`

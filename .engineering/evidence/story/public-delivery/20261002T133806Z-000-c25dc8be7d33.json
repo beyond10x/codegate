@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T13:38:06Z",
+  "actor": "human:timo",
+  "artifact": "story:public-delivery",
+  "kind": "story",
+  "revision": 7,
+  "change": {
+    "change": "evidence",
+    "kind": "test_result",
+    "source": "Prior full repository gate on f8fe6c1: 27/27 conformance and all checks passed; recovered retained delivery evidence",
+    "reference": "https://github.com/beyond10x/codegate/actions/runs/37013274829"
+  }
+}

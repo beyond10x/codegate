@@ -210,6 +210,8 @@ fn check() -> Result<(), String> {
     fs::create_dir(&scratch).map_err(|e| e.to_string())?;
     let behavior = scratch.join("behavior");
     let wire = scratch.join("wire");
+    let semantic_behavior = scratch.join("semantic-behavior");
+    let semantic_wire = scratch.join("semantic-wire");
     let suite = scratch.join("suite.json");
     let b = behavior.to_str().ok_or("non-UTF8 build path")?;
     let w = wire.to_str().ok_or("non-UTF8 build path")?;
@@ -248,7 +250,52 @@ fn check() -> Result<(), String> {
         ],
         &root,
     )?;
-    for path in [&behavior, &wire] {
+    step(
+        "semantic ESS",
+        "ess",
+        &["specify", "validate", "--path", "ess-semantic"],
+        &root,
+    )?;
+    step(
+        "generate semantic behavior",
+        "ess",
+        &[
+            "generate",
+            "synthesize",
+            "--path",
+            "ess-semantic",
+            "--target",
+            "rust",
+            "--layout",
+            "crate",
+            "--out",
+            semantic_behavior
+                .to_str()
+                .ok_or("non-UTF8 semantic behavior path")?,
+        ],
+        &root,
+    )?;
+    step(
+        "generate semantic wire",
+        "ess",
+        &[
+            "generate",
+            "types",
+            "--path",
+            "ess-semantic",
+            "--target",
+            "rust",
+            "--all-types",
+            "--package",
+            "codegate-semantic-contract",
+            "--out",
+            semantic_wire
+                .to_str()
+                .ok_or("non-UTF8 semantic wire path")?,
+        ],
+        &root,
+    )?;
+    for path in [&behavior, &wire, &semantic_behavior, &semantic_wire] {
         let manifest = path.join("Cargo.toml");
         step(
             "normalize generated formatting",
@@ -261,7 +308,12 @@ fn check() -> Result<(), String> {
             &root,
         )?;
     }
-    for (actual, expected) in [("generated/behavior", behavior), ("generated/wire", wire)] {
+    for (actual, expected) in [
+        ("generated/behavior", behavior),
+        ("generated/wire", wire),
+        ("generated/semantic-behavior", semantic_behavior),
+        ("generated/semantic-wire", semantic_wire),
+    ] {
         let actual = tree(&root.join(actual))?;
         let expected = tree(&expected)?;
         if actual != expected {
@@ -274,6 +326,9 @@ fn check() -> Result<(), String> {
         }
     }
     eprintln!("CHECK generated drift: exit 0");
+    eprintln!(
+        "CHECK semantic foundation: generated contracts only; six runtime obligations remain; no semantic runtime conformance claimed"
+    );
     step(
         "combined suite",
         "ess",
@@ -328,7 +383,12 @@ fn check() -> Result<(), String> {
         ],
         &root,
     )?;
-    for manifest in ["generated/behavior/Cargo.toml", "generated/wire/Cargo.toml"] {
+    for manifest in [
+        "generated/behavior/Cargo.toml",
+        "generated/wire/Cargo.toml",
+        "generated/semantic-behavior/Cargo.toml",
+        "generated/semantic-wire/Cargo.toml",
+    ] {
         step(
             "test generated",
             "cargo",
@@ -354,7 +414,10 @@ fn check() -> Result<(), String> {
         // ESS 0.50.0 emits a manual, equivalent Default impl for EssPresence<T>.
         // This upstream style lint is scoped to that generated package; all
         // behavior/root warnings and byte-identical regeneration remain enforced.
-        if manifest == "generated/wire/Cargo.toml" {
+        if matches!(
+            manifest,
+            "generated/wire/Cargo.toml" | "generated/semantic-wire/Cargo.toml"
+        ) {
             lint_args.extend(["-A", "clippy::derivable_impls"]);
         }
         step("Clippy generated", "cargo", &lint_args, &root)?;

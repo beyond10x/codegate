@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T13:38:06Z",
+  "actor": "human:timo",
+  "artifact": "story:public-delivery",
+  "kind": "story",
+  "revision": 7,
+  "change": {
+    "change": "evidence",
+    "kind": "deployment_result",
+    "source": "Prior verified live source and publisher documentation provenance for f8fe6c1; recovered retained evidence, release remains blocked",
+    "reference": "https://github.com/beyond10x/codegate/actions/runs/37013437007"
+  }
+}

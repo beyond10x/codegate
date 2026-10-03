@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T00:08:13Z",
+  "actor": "human:timo",
+  "artifact": "story:parity-foundations",
+  "kind": "story",
+  "revision": 5,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "ESS validate/compile/generation and exact drift; bounded cargo check and binary Clippy",
+    "reference": "verification-report:semantic-foundations"
+  }
+}

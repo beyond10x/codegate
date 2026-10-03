@@ -1,0 +1,4178 @@
+{
+  "coverage": {
+    "authored": [],
+    "authored_sources": {},
+    "counts": {
+      "authored": 0,
+      "generated": 6,
+      "outside": 0,
+      "refused": 0
+    },
+    "generated": [
+      "codegate_semantic.semantic.Assess/outcome/assessed",
+      "codegate_semantic.semantic.Capabilities/outcome/listed",
+      "codegate_semantic.semantic.Collect/outcome/collected",
+      "codegate_semantic.semantic.Evaluate/outcome/evaluated",
+      "codegate_semantic.semantic.Lookup/outcome/looked-up",
+      "codegate_semantic.semantic.Suggest/outcome/suggested"
+    ],
+    "knowledge": "complete_inventory",
+    "outside": [],
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated",
+      "scope": {
+        "kind": "system"
+      }
+    }
+  },
+  "provenance": {
+    "contract_digest": "8fc555319c73e1e5d01be705c8816b56b81d05a7961ff6581891488b9e59f426",
+    "spec_digest": "78424588ff9f681ee0fb4662ee035a99c049cca6429cc1636f12d70420a138b2",
+    "specification_version": "v1",
+    "suite_version": "ess-conformance/29",
+    "system": "codegate_semantic"
+  },
+  "scenarios": {
+    "codegate_semantic.semantic.Assess/outcome/assessed": {
+      "purpose": "`codegate_semantic.semantic.Assess` answers `assessed` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CheckKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionMode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionRequest"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DependencyKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.EffectKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactFamily"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Language"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LineClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricAggregation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.OccurrenceRole"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Policy"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyException"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyRule"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ScoreComponent"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Severity"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SnapshotId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceFile"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceLine"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceOrigin"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSelection"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Assess"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Assess",
+            "outcome": "assessed"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Assess",
+          "input": {
+            "policy": {
+              "kind": "literal",
+              "value": {
+                "evaluation_time": "2020-01-01T00:00:00Z",
+                "exceptions": [],
+                "expected_configuration_id": "policy.expected_configuration_id",
+                "expected_snapshot_id": "policy.expected_snapshot_id",
+                "format": "policy.format",
+                "id": "policy.id",
+                "metrics": [],
+                "rules": [],
+                "score_components": [],
+                "scoring_contract": "policy.scoring_contract",
+                "version": "policy.version"
+              }
+            },
+            "request": {
+              "kind": "literal",
+              "value": {
+                "configuration": {
+                  "build_profiles": [],
+                  "configuration_files": [],
+                  "go_build_tags": [],
+                  "id": "request.configuration.id",
+                  "java_classpath_sha256": "request.configuration.java_classpath_sha256",
+                  "java_target_version": "request.configuration.java_target_version",
+                  "modules": [],
+                  "rust_cfg": [],
+                  "rust_default_features": true,
+                  "rust_features": [],
+                  "target": "request.configuration.target"
+                },
+                "mode": "SourceOnly",
+                "root": "request.root",
+                "selection": {
+                  "exclude_paths": [],
+                  "include_generated": true,
+                  "include_paths": [],
+                  "include_tests": true,
+                  "languages": []
+                },
+                "timeout_milliseconds": 1.0
+              }
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Assess",
+            "outcome": "assessed"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Assess",
+            "declarations": {
+              "codegate_semantic.semantic.Assessment": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "policy",
+                    "type": "codegate_semantic.semantic.Policy"
+                  },
+                  {
+                    "name": "coverage",
+                    "type": "List<codegate_semantic.semantic.Coverage>"
+                  },
+                  {
+                    "name": "measurements",
+                    "type": "List<codegate_semantic.semantic.Measurement>"
+                  },
+                  {
+                    "name": "findings",
+                    "type": "List<codegate_semantic.semantic.Finding>"
+                  },
+                  {
+                    "name": "checks",
+                    "type": "List<codegate_semantic.semantic.CheckResult>"
+                  },
+                  {
+                    "name": "scores",
+                    "type": "List<codegate_semantic.semantic.Score>"
+                  },
+                  {
+                    "name": "overall_score",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "verdict",
+                    "type": "codegate_semantic.semantic.Verdict"
+                  },
+                  {
+                    "name": "suggestions",
+                    "type": "List<codegate_semantic.semantic.Suggestion>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.CheckKind": {
+                "kind": "enum",
+                "variants": [
+                  "DependencyDirection",
+                  "Layers",
+                  "FanIn",
+                  "FanOut",
+                  "Cycles",
+                  "TestBoundary",
+                  "ForbiddenImport",
+                  "ForbiddenCall",
+                  "Effect",
+                  "UnknownUnit",
+                  "MetricThreshold",
+                  "Framework"
+                ]
+              },
+              "codegate_semantic.semantic.CheckResult": {
+                "fields": [
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "verdict",
+                    "type": "codegate_semantic.semantic.Verdict"
+                  },
+                  {
+                    "name": "finding_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Completeness": {
+                "kind": "enum",
+                "variants": [
+                  "Complete",
+                  "Partial",
+                  "Unsupported",
+                  "Failed",
+                  "NotApplicable"
+                ]
+              },
+              "codegate_semantic.semantic.ConfigurationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Coverage": {
+                "fields": [
+                  {
+                    "name": "family",
+                    "type": "codegate_semantic.semantic.FactFamily"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "unit_ids",
+                    "type": "List<codegate_semantic.semantic.UnitId>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  },
+                  {
+                    "name": "applicability_reason",
+                    "type": "Optional<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DependencyKind": {
+                "kind": "enum",
+                "variants": [
+                  "Runtime",
+                  "Build",
+                  "Test"
+                ]
+              },
+              "codegate_semantic.semantic.EffectKind": {
+                "kind": "enum",
+                "variants": [
+                  "DiscardedResult",
+                  "AbruptExit",
+                  "ProcessExecution",
+                  "SqlConstruction",
+                  "PathConstruction",
+                  "UnsafeOperation",
+                  "WeakCryptography",
+                  "Reflection",
+                  "Nondeterminism",
+                  "GoDefer",
+                  "GoUncheckedTypeAssertion",
+                  "AllocationInLoop",
+                  "StringConcatenationInLoop",
+                  "MissingCapacity",
+                  "LargeValueCopy"
+                ]
+              },
+              "codegate_semantic.semantic.FactFamily": {
+                "kind": "enum",
+                "variants": [
+                  "Sources",
+                  "Declarations",
+                  "Occurrences",
+                  "Dependencies",
+                  "References",
+                  "Implementations",
+                  "Calls",
+                  "Decisions",
+                  "Structure",
+                  "Documentation",
+                  "Effects",
+                  "Tests",
+                  "FrameworkDeclarations",
+                  "FrameworkWiring",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.FactId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Finding": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "subject",
+                    "type": "String"
+                  },
+                  {
+                    "name": "severity",
+                    "type": "codegate_semantic.semantic.Severity"
+                  },
+                  {
+                    "name": "message",
+                    "type": "String"
+                  },
+                  {
+                    "name": "evidence_ids",
+                    "type": "List<codegate_semantic.semantic.FactId>"
+                  },
+                  {
+                    "name": "exception_reason",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "pressure",
+                    "type": "Optional<Decimal>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Gap": {
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "codegate_semantic.semantic.GapCode"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.GapCode": {
+                "kind": "enum",
+                "variants": [
+                  "InvalidFormat",
+                  "InvalidFact",
+                  "InvalidPolicy",
+                  "IdentityMismatch",
+                  "SourceChangedDuringCollection",
+                  "MissingTool",
+                  "ToolTimeout",
+                  "ToolFailure",
+                  "SyntaxError",
+                  "MissingBuildSelection",
+                  "UnknownUnit",
+                  "UnresolvedSymbol",
+                  "AmbiguousSymbol",
+                  "DynamicDispatch",
+                  "MacroExpansion",
+                  "ConditionalCompilation",
+                  "MissingClasspath",
+                  "GeneratedSources",
+                  "ProgrammaticLookup",
+                  "AmbiguousInjection",
+                  "AugmentationRequired",
+                  "StaleEvidence",
+                  "UnsupportedCapability",
+                  "PartialCollection"
+                ]
+              },
+              "codegate_semantic.semantic.Measurement": {
+                "fields": [
+                  {
+                    "name": "subject",
+                    "type": "String"
+                  },
+                  {
+                    "name": "metric",
+                    "type": "codegate_semantic.semantic.MetricSelection"
+                  },
+                  {
+                    "name": "value",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "numerator",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "denominator",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "unit",
+                    "type": "String"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "evidence_ids",
+                    "type": "List<codegate_semantic.semantic.FactId>"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.MetricAggregation": {
+                "kind": "enum",
+                "variants": [
+                  "PerSubject",
+                  "Total",
+                  "Maximum",
+                  "Mean",
+                  "CountAboveThreshold"
+                ]
+              },
+              "codegate_semantic.semantic.MetricKind": {
+                "kind": "enum",
+                "variants": [
+                  "FanIn",
+                  "FanOut",
+                  "FunctionLines",
+                  "FileLines",
+                  "CodeLines",
+                  "Complexity",
+                  "Nesting",
+                  "Parameters",
+                  "Returns",
+                  "TypeMembers",
+                  "InterfaceMembers",
+                  "PublicApiSize",
+                  "DocumentationRatio",
+                  "DebtMarkers",
+                  "NamingSignals",
+                  "TestCount",
+                  "TestSourceRatio",
+                  "GeneratedSourceRatio",
+                  "NondeterminismCount",
+                  "EffectCount",
+                  "ReferenceCount",
+                  "CallFanIn",
+                  "CallFanOut",
+                  "ImplementationCount",
+                  "FunctionCount",
+                  "TypeCount",
+                  "InterfaceCount",
+                  "SymbolCount",
+                  "FileCount",
+                  "BranchDensity",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.MetricSelection": {
+                "fields": [
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.MetricKind"
+                  },
+                  {
+                    "name": "aggregation",
+                    "type": "codegate_semantic.semantic.MetricAggregation"
+                  },
+                  {
+                    "name": "threshold",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "effect",
+                    "type": "Optional<codegate_semantic.semantic.EffectKind>"
+                  },
+                  {
+                    "name": "occurrence_role",
+                    "type": "Optional<codegate_semantic.semantic.OccurrenceRole>"
+                  },
+                  {
+                    "name": "counting_contract",
+                    "type": "String"
+                  },
+                  {
+                    "name": "required_families",
+                    "type": "List<codegate_semantic.semantic.FactFamily>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.OccurrenceRole": {
+                "kind": "enum",
+                "variants": [
+                  "Definition",
+                  "Read",
+                  "Write",
+                  "TypeUse",
+                  "Import",
+                  "Invocation",
+                  "Annotation",
+                  "DocumentationReference"
+                ]
+              },
+              "codegate_semantic.semantic.Policy": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "version",
+                    "type": "String"
+                  },
+                  {
+                    "name": "expected_snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "expected_configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "evaluation_time",
+                    "type": "Timestamp"
+                  },
+                  {
+                    "name": "metrics",
+                    "type": "List<codegate_semantic.semantic.MetricSelection>"
+                  },
+                  {
+                    "name": "rules",
+                    "type": "List<codegate_semantic.semantic.PolicyRule>"
+                  },
+                  {
+                    "name": "exceptions",
+                    "type": "List<codegate_semantic.semantic.PolicyException>"
+                  },
+                  {
+                    "name": "scoring_contract",
+                    "type": "String"
+                  },
+                  {
+                    "name": "score_components",
+                    "type": "List<codegate_semantic.semantic.ScoreComponent>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.PolicyException": {
+                "fields": [
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "subjects",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "owner",
+                    "type": "String"
+                  },
+                  {
+                    "name": "expires_at",
+                    "type": "Timestamp"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.PolicyRule": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.CheckKind"
+                  },
+                  {
+                    "name": "subjects",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "targets",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "required_families",
+                    "type": "List<codegate_semantic.semantic.FactFamily>"
+                  },
+                  {
+                    "name": "metric",
+                    "type": "Optional<codegate_semantic.semantic.MetricSelection>"
+                  },
+                  {
+                    "name": "maximum",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "effect",
+                    "type": "Optional<codegate_semantic.semantic.EffectKind>"
+                  },
+                  {
+                    "name": "dependency_kind",
+                    "type": "Optional<codegate_semantic.semantic.DependencyKind>"
+                  },
+                  {
+                    "name": "severity",
+                    "type": "codegate_semantic.semantic.Severity"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Score": {
+                "fields": [
+                  {
+                    "name": "component_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "value",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.ScoreComponent": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rule_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "weight",
+                    "type": "Decimal"
+                  },
+                  {
+                    "name": "required",
+                    "type": "Boolean"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Severity": {
+                "kind": "enum",
+                "variants": [
+                  "Info",
+                  "Warning",
+                  "Error"
+                ]
+              },
+              "codegate_semantic.semantic.SnapshotId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.SourceRange": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_column",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_column",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Suggestion": {
+                "fields": [
+                  {
+                    "name": "finding_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "summary",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rationale",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rank",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.UnitId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Verdict": {
+                "kind": "enum",
+                "variants": [
+                  "Pass",
+                  "Fail",
+                  "Incomplete",
+                  "Unsupported",
+                  "Error",
+                  "NotApplicable"
+                ]
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "report",
+                "type": "codegate_semantic.semantic.Assessment"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Assess",
+              "outcome": "assessed"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    },
+    "codegate_semantic.semantic.Capabilities/outcome/listed": {
+      "purpose": "`codegate_semantic.semantic.Capabilities` answers `listed` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionMode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Language"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LineClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceFile"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceLine"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceOrigin"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Capabilities"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Capabilities",
+            "outcome": "listed"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Capabilities",
+          "input": {
+            "configuration": {
+              "kind": "literal",
+              "value": {
+                "build_profiles": [],
+                "configuration_files": [],
+                "go_build_tags": [],
+                "id": "configuration.id",
+                "java_classpath_sha256": "configuration.java_classpath_sha256",
+                "java_target_version": "configuration.java_target_version",
+                "modules": [],
+                "rust_cfg": [],
+                "rust_default_features": true,
+                "rust_features": [],
+                "target": "configuration.target"
+              }
+            },
+            "mode": {
+              "kind": "literal",
+              "value": "SourceOnly"
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Capabilities",
+            "outcome": "listed"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Capabilities",
+            "declarations": {
+              "codegate_semantic.semantic.Capability": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "language",
+                    "type": "codegate_semantic.semantic.Language"
+                  },
+                  {
+                    "name": "family",
+                    "type": "codegate_semantic.semantic.FactFamily"
+                  },
+                  {
+                    "name": "mode",
+                    "type": "codegate_semantic.semantic.CollectionMode"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "required_tools",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  },
+                  {
+                    "name": "applicability_reason",
+                    "type": "Optional<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.CollectionMode": {
+                "kind": "enum",
+                "variants": [
+                  "SourceOnly",
+                  "Semantic"
+                ]
+              },
+              "codegate_semantic.semantic.Completeness": {
+                "kind": "enum",
+                "variants": [
+                  "Complete",
+                  "Partial",
+                  "Unsupported",
+                  "Failed",
+                  "NotApplicable"
+                ]
+              },
+              "codegate_semantic.semantic.ConfigurationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.FactFamily": {
+                "kind": "enum",
+                "variants": [
+                  "Sources",
+                  "Declarations",
+                  "Occurrences",
+                  "Dependencies",
+                  "References",
+                  "Implementations",
+                  "Calls",
+                  "Decisions",
+                  "Structure",
+                  "Documentation",
+                  "Effects",
+                  "Tests",
+                  "FrameworkDeclarations",
+                  "FrameworkWiring",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.Gap": {
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "codegate_semantic.semantic.GapCode"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.GapCode": {
+                "kind": "enum",
+                "variants": [
+                  "InvalidFormat",
+                  "InvalidFact",
+                  "InvalidPolicy",
+                  "IdentityMismatch",
+                  "SourceChangedDuringCollection",
+                  "MissingTool",
+                  "ToolTimeout",
+                  "ToolFailure",
+                  "SyntaxError",
+                  "MissingBuildSelection",
+                  "UnknownUnit",
+                  "UnresolvedSymbol",
+                  "AmbiguousSymbol",
+                  "DynamicDispatch",
+                  "MacroExpansion",
+                  "ConditionalCompilation",
+                  "MissingClasspath",
+                  "GeneratedSources",
+                  "ProgrammaticLookup",
+                  "AmbiguousInjection",
+                  "AugmentationRequired",
+                  "StaleEvidence",
+                  "UnsupportedCapability",
+                  "PartialCollection"
+                ]
+              },
+              "codegate_semantic.semantic.Language": {
+                "kind": "enum",
+                "variants": [
+                  "Go",
+                  "Rust",
+                  "Java"
+                ]
+              },
+              "codegate_semantic.semantic.SourceRange": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_column",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_column",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "capabilities",
+                "type": "List<codegate_semantic.semantic.Capability>"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Capabilities",
+              "outcome": "listed"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    },
+    "codegate_semantic.semantic.Collect/outcome/collected": {
+      "purpose": "`codegate_semantic.semantic.Collect` answers `collected` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionMode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionRequest"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Language"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LineClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceFile"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceLine"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceOrigin"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSelection"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Collect"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Collect",
+            "outcome": "collected"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Collect",
+          "input": {
+            "request": {
+              "kind": "literal",
+              "value": {
+                "configuration": {
+                  "build_profiles": [],
+                  "configuration_files": [],
+                  "go_build_tags": [],
+                  "id": "request.configuration.id",
+                  "java_classpath_sha256": "request.configuration.java_classpath_sha256",
+                  "java_target_version": "request.configuration.java_target_version",
+                  "modules": [],
+                  "rust_cfg": [],
+                  "rust_default_features": true,
+                  "rust_features": [],
+                  "target": "request.configuration.target"
+                },
+                "mode": "SourceOnly",
+                "root": "request.root",
+                "selection": {
+                  "exclude_paths": [],
+                  "include_generated": true,
+                  "include_paths": [],
+                  "include_tests": true,
+                  "languages": []
+                },
+                "timeout_milliseconds": 1.0
+              }
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Collect",
+            "outcome": "collected"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Collect",
+            "declarations": {
+              "codegate_semantic.semantic.ApiEligibility": {
+                "kind": "enum",
+                "variants": [
+                  "Eligible",
+                  "Ineligible",
+                  "Unknown"
+                ]
+              },
+              "codegate_semantic.semantic.BuildSelection": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "modules",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "target",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "go_build_tags",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "rust_features",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "rust_default_features",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "rust_cfg",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "java_target_version",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "java_classpath_sha256",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "build_profiles",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "configuration_files",
+                    "type": "List<codegate_semantic.semantic.SourceFile>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.BuildSystem": {
+                "kind": "enum",
+                "variants": [
+                  "GoModules",
+                  "Cargo",
+                  "Maven",
+                  "Gradle"
+                ]
+              },
+              "codegate_semantic.semantic.Call": {
+                "fields": [
+                  {
+                    "name": "caller",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "callee",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "candidates",
+                    "type": "List<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "dynamic_dispatch",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.CollectionMode": {
+                "kind": "enum",
+                "variants": [
+                  "SourceOnly",
+                  "Semantic"
+                ]
+              },
+              "codegate_semantic.semantic.Completeness": {
+                "kind": "enum",
+                "variants": [
+                  "Complete",
+                  "Partial",
+                  "Unsupported",
+                  "Failed",
+                  "NotApplicable"
+                ]
+              },
+              "codegate_semantic.semantic.ConfigurationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Coverage": {
+                "fields": [
+                  {
+                    "name": "family",
+                    "type": "codegate_semantic.semantic.FactFamily"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "unit_ids",
+                    "type": "List<codegate_semantic.semantic.UnitId>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  },
+                  {
+                    "name": "applicability_reason",
+                    "type": "Optional<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DecisionKind": {
+                "kind": "enum",
+                "variants": [
+                  "ConditionalBranch",
+                  "Loop",
+                  "CaseBranch",
+                  "CatchBranch",
+                  "ShortCircuitAnd",
+                  "ShortCircuitOr",
+                  "Ternary",
+                  "GoSelectCase",
+                  "RustTryPropagation"
+                ]
+              },
+              "codegate_semantic.semantic.DecisionPoint": {
+                "fields": [
+                  {
+                    "name": "owner",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.DecisionKind"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Declaration": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "unit_id",
+                    "type": "codegate_semantic.semantic.UnitId"
+                  },
+                  {
+                    "name": "parent",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "qualified_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "signature",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.DeclarationKind"
+                  },
+                  {
+                    "name": "visibility",
+                    "type": "codegate_semantic.semantic.Visibility"
+                  },
+                  {
+                    "name": "api_eligibility",
+                    "type": "codegate_semantic.semantic.ApiEligibility"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DeclarationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.DeclarationKind": {
+                "kind": "enum",
+                "variants": [
+                  "Package",
+                  "Module",
+                  "Namespace",
+                  "Function",
+                  "Method",
+                  "Constructor",
+                  "Type",
+                  "Interface",
+                  "Trait",
+                  "Field",
+                  "Variable",
+                  "Parameter",
+                  "Constant"
+                ]
+              },
+              "codegate_semantic.semantic.Dependency": {
+                "fields": [
+                  {
+                    "name": "source",
+                    "type": "codegate_semantic.semantic.UnitId"
+                  },
+                  {
+                    "name": "target",
+                    "type": "Optional<codegate_semantic.semantic.UnitId>"
+                  },
+                  {
+                    "name": "target_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.DependencyKind"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DependencyKind": {
+                "kind": "enum",
+                "variants": [
+                  "Runtime",
+                  "Build",
+                  "Test"
+                ]
+              },
+              "codegate_semantic.semantic.Effect": {
+                "fields": [
+                  {
+                    "name": "owner",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.EffectKind"
+                  },
+                  {
+                    "name": "related_declaration",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.EffectKind": {
+                "kind": "enum",
+                "variants": [
+                  "DiscardedResult",
+                  "AbruptExit",
+                  "ProcessExecution",
+                  "SqlConstruction",
+                  "PathConstruction",
+                  "UnsafeOperation",
+                  "WeakCryptography",
+                  "Reflection",
+                  "Nondeterminism",
+                  "GoDefer",
+                  "GoUncheckedTypeAssertion",
+                  "AllocationInLoop",
+                  "StringConcatenationInLoop",
+                  "MissingCapacity",
+                  "LargeValueCopy"
+                ]
+              },
+              "codegate_semantic.semantic.Evidence": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.FactId"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "producer",
+                    "type": "String"
+                  },
+                  {
+                    "name": "producer_version",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  },
+                  {
+                    "name": "resolution",
+                    "type": "codegate_semantic.semantic.Resolution"
+                  },
+                  {
+                    "name": "basis",
+                    "type": "codegate_semantic.semantic.ResolutionBasis"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.FactFamily": {
+                "kind": "enum",
+                "variants": [
+                  "Sources",
+                  "Declarations",
+                  "Occurrences",
+                  "Dependencies",
+                  "References",
+                  "Implementations",
+                  "Calls",
+                  "Decisions",
+                  "Structure",
+                  "Documentation",
+                  "Effects",
+                  "Tests",
+                  "FrameworkDeclarations",
+                  "FrameworkWiring",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.FactId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.FactSnapshot": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "source",
+                    "type": "codegate_semantic.semantic.SourceSnapshot"
+                  },
+                  {
+                    "name": "mode",
+                    "type": "codegate_semantic.semantic.CollectionMode"
+                  },
+                  {
+                    "name": "tools",
+                    "type": "List<codegate_semantic.semantic.ToolObservation>"
+                  },
+                  {
+                    "name": "coverage",
+                    "type": "List<codegate_semantic.semantic.Coverage>"
+                  },
+                  {
+                    "name": "units",
+                    "type": "List<codegate_semantic.semantic.Unit>"
+                  },
+                  {
+                    "name": "declarations",
+                    "type": "List<codegate_semantic.semantic.Declaration>"
+                  },
+                  {
+                    "name": "occurrences",
+                    "type": "List<codegate_semantic.semantic.Occurrence>"
+                  },
+                  {
+                    "name": "dependencies",
+                    "type": "List<codegate_semantic.semantic.Dependency>"
+                  },
+                  {
+                    "name": "references",
+                    "type": "List<codegate_semantic.semantic.Reference>"
+                  },
+                  {
+                    "name": "calls",
+                    "type": "List<codegate_semantic.semantic.Call>"
+                  },
+                  {
+                    "name": "implementations",
+                    "type": "List<codegate_semantic.semantic.Implementation>"
+                  },
+                  {
+                    "name": "decisions",
+                    "type": "List<codegate_semantic.semantic.DecisionPoint>"
+                  },
+                  {
+                    "name": "structure",
+                    "type": "List<codegate_semantic.semantic.StructureObservation>"
+                  },
+                  {
+                    "name": "effects",
+                    "type": "List<codegate_semantic.semantic.Effect>"
+                  },
+                  {
+                    "name": "framework",
+                    "type": "List<codegate_semantic.semantic.FrameworkFact>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.FrameworkFact": {
+                "fields": [
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.FrameworkKind"
+                  },
+                  {
+                    "name": "declaration",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "target",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "annotation_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "qualifiers",
+                    "type": "List<codegate_semantic.semantic.Qualifier>"
+                  },
+                  {
+                    "name": "scope",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "produced_type",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "http_method",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "resource_path",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "method_path",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "transaction_mode",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "configuration_key",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "configuration_profile",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.FrameworkKind": {
+                "kind": "enum",
+                "variants": [
+                  "Bean",
+                  "Qualifier",
+                  "Producer",
+                  "InjectionPoint",
+                  "InjectionCandidate",
+                  "InjectionBinding",
+                  "RestResource",
+                  "RestRoute",
+                  "TransactionDeclaration",
+                  "ConfigurationReference"
+                ]
+              },
+              "codegate_semantic.semantic.Gap": {
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "codegate_semantic.semantic.GapCode"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.GapCode": {
+                "kind": "enum",
+                "variants": [
+                  "InvalidFormat",
+                  "InvalidFact",
+                  "InvalidPolicy",
+                  "IdentityMismatch",
+                  "SourceChangedDuringCollection",
+                  "MissingTool",
+                  "ToolTimeout",
+                  "ToolFailure",
+                  "SyntaxError",
+                  "MissingBuildSelection",
+                  "UnknownUnit",
+                  "UnresolvedSymbol",
+                  "AmbiguousSymbol",
+                  "DynamicDispatch",
+                  "MacroExpansion",
+                  "ConditionalCompilation",
+                  "MissingClasspath",
+                  "GeneratedSources",
+                  "ProgrammaticLookup",
+                  "AmbiguousInjection",
+                  "AugmentationRequired",
+                  "StaleEvidence",
+                  "UnsupportedCapability",
+                  "PartialCollection"
+                ]
+              },
+              "codegate_semantic.semantic.Implementation": {
+                "fields": [
+                  {
+                    "name": "declaration",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "implementation",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "candidates",
+                    "type": "List<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Language": {
+                "kind": "enum",
+                "variants": [
+                  "Go",
+                  "Rust",
+                  "Java"
+                ]
+              },
+              "codegate_semantic.semantic.LineClass": {
+                "kind": "enum",
+                "variants": [
+                  "Code",
+                  "Comment",
+                  "Blank",
+                  "Mixed"
+                ]
+              },
+              "codegate_semantic.semantic.Manifest": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "content_sha256",
+                    "type": "String"
+                  },
+                  {
+                    "name": "system",
+                    "type": "codegate_semantic.semantic.BuildSystem"
+                  },
+                  {
+                    "name": "module",
+                    "type": "String"
+                  },
+                  {
+                    "name": "parent_module",
+                    "type": "Optional<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Occurrence": {
+                "fields": [
+                  {
+                    "name": "owner",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "spelling",
+                    "type": "String"
+                  },
+                  {
+                    "name": "role",
+                    "type": "codegate_semantic.semantic.OccurrenceRole"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.OccurrenceRole": {
+                "kind": "enum",
+                "variants": [
+                  "Definition",
+                  "Read",
+                  "Write",
+                  "TypeUse",
+                  "Import",
+                  "Invocation",
+                  "Annotation",
+                  "DocumentationReference"
+                ]
+              },
+              "codegate_semantic.semantic.Qualifier": {
+                "fields": [
+                  {
+                    "name": "annotation_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "member_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "member_value",
+                    "type": "String"
+                  },
+                  {
+                    "name": "nonbinding",
+                    "type": "Boolean"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Reference": {
+                "fields": [
+                  {
+                    "name": "occurrence_id",
+                    "type": "codegate_semantic.semantic.FactId"
+                  },
+                  {
+                    "name": "target",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "candidates",
+                    "type": "List<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Resolution": {
+                "kind": "enum",
+                "variants": [
+                  "SyntacticCandidate",
+                  "Resolved",
+                  "Unresolved"
+                ]
+              },
+              "codegate_semantic.semantic.ResolutionBasis": {
+                "kind": "enum",
+                "variants": [
+                  "SourceStructure",
+                  "LanguageServer",
+                  "DeclaredFramework",
+                  "MatchedBuildEvidence"
+                ]
+              },
+              "codegate_semantic.semantic.SnapshotId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.SourceClass": {
+                "kind": "enum",
+                "variants": [
+                  "Production",
+                  "Test",
+                  "Generated",
+                  "GeneratedTest",
+                  "BuildConfiguration"
+                ]
+              },
+              "codegate_semantic.semantic.SourceFile": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "content_sha256",
+                    "type": "String"
+                  },
+                  {
+                    "name": "byte_length",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "language",
+                    "type": "Optional<codegate_semantic.semantic.Language>"
+                  },
+                  {
+                    "name": "classification",
+                    "type": "codegate_semantic.semantic.SourceClass"
+                  },
+                  {
+                    "name": "origin",
+                    "type": "codegate_semantic.semantic.SourceOrigin"
+                  },
+                  {
+                    "name": "lines",
+                    "type": "List<codegate_semantic.semantic.SourceLine>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.SourceLine": {
+                "fields": [
+                  {
+                    "name": "number",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "classification",
+                    "type": "codegate_semantic.semantic.LineClass"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.SourceOrigin": {
+                "kind": "enum",
+                "variants": [
+                  "TrackedClean",
+                  "TrackedDirty",
+                  "Untracked",
+                  "ExternalBuildEvidence"
+                ]
+              },
+              "codegate_semantic.semantic.SourceRange": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_column",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_column",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.SourceSelection": {
+                "fields": [
+                  {
+                    "name": "include_paths",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "exclude_paths",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "include_tests",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "include_generated",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "languages",
+                    "type": "List<codegate_semantic.semantic.Language>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.SourceSnapshot": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "selection",
+                    "type": "codegate_semantic.semantic.SourceSelection"
+                  },
+                  {
+                    "name": "configuration",
+                    "type": "codegate_semantic.semantic.BuildSelection"
+                  },
+                  {
+                    "name": "files",
+                    "type": "List<codegate_semantic.semantic.SourceFile>"
+                  },
+                  {
+                    "name": "manifests",
+                    "type": "List<codegate_semantic.semantic.Manifest>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.StructureKind": {
+                "kind": "enum",
+                "variants": [
+                  "Body",
+                  "Parameter",
+                  "ReturnStatement",
+                  "NestingRegion",
+                  "Field",
+                  "InterfaceMember",
+                  "PublicApiMember",
+                  "Documentation",
+                  "DebtMarker",
+                  "NamingSignal",
+                  "Loop",
+                  "Allocation",
+                  "TestCase"
+                ]
+              },
+              "codegate_semantic.semantic.StructureObservation": {
+                "fields": [
+                  {
+                    "name": "owner",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.StructureKind"
+                  },
+                  {
+                    "name": "parent_observation",
+                    "type": "Optional<codegate_semantic.semantic.FactId>"
+                  },
+                  {
+                    "name": "test_kind",
+                    "type": "Optional<codegate_semantic.semantic.TestKind>"
+                  },
+                  {
+                    "name": "text",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.TestKind": {
+                "kind": "enum",
+                "variants": [
+                  "Unit",
+                  "Integration",
+                  "TableDriven",
+                  "Parameterized",
+                  "Benchmark",
+                  "Fuzz"
+                ]
+              },
+              "codegate_semantic.semantic.ToolObservation": {
+                "fields": [
+                  {
+                    "name": "tool",
+                    "type": "String"
+                  },
+                  {
+                    "name": "version",
+                    "type": "String"
+                  },
+                  {
+                    "name": "host_runtime_version",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "elapsed_milliseconds",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "exit_code",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "timed_out",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "diagnostics",
+                    "type": "List<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Unit": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.UnitId"
+                  },
+                  {
+                    "name": "name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "language",
+                    "type": "codegate_semantic.semantic.Language"
+                  },
+                  {
+                    "name": "paths",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.UnitId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Visibility": {
+                "kind": "enum",
+                "variants": [
+                  "Public",
+                  "Protected",
+                  "Package",
+                  "Internal",
+                  "Private",
+                  "Unknown"
+                ]
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "snapshot",
+                "type": "codegate_semantic.semantic.FactSnapshot"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Collect",
+              "outcome": "collected"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    },
+    "codegate_semantic.semantic.Evaluate/outcome/evaluated": {
+      "purpose": "`codegate_semantic.semantic.Evaluate` answers `evaluated` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ApiEligibility"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSystem"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Call"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CheckKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionMode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Completeness"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Coverage"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DecisionKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DecisionPoint"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Declaration"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DeclarationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DeclarationKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Dependency"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DependencyKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Effect"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.EffectKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Evidence"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactFamily"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactSnapshot"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FrameworkFact"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FrameworkKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Gap"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.GapCode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Implementation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Language"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LineClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Manifest"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricAggregation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Occurrence"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.OccurrenceRole"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Policy"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyException"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyRule"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Qualifier"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Reference"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Resolution"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ResolutionBasis"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ScoreComponent"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Severity"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SnapshotId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceFile"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceLine"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceOrigin"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceRange"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSnapshot"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.StructureKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.StructureObservation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.TestKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ToolObservation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Unit"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.UnitId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Visibility"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Evaluate"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Evaluate",
+            "outcome": "evaluated"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Evaluate",
+          "input": {
+            "policy": {
+              "kind": "literal",
+              "value": {
+                "evaluation_time": "2020-01-01T00:00:00Z",
+                "exceptions": [],
+                "expected_configuration_id": "policy.expected_configuration_id",
+                "expected_snapshot_id": "policy.expected_snapshot_id",
+                "format": "policy.format",
+                "id": "policy.id",
+                "metrics": [],
+                "rules": [],
+                "score_components": [],
+                "scoring_contract": "policy.scoring_contract",
+                "version": "policy.version"
+              }
+            },
+            "snapshot": {
+              "kind": "literal",
+              "value": {
+                "calls": [],
+                "coverage": [],
+                "decisions": [],
+                "declarations": [],
+                "dependencies": [],
+                "effects": [],
+                "format": "snapshot.format",
+                "framework": [],
+                "implementations": [],
+                "mode": "SourceOnly",
+                "occurrences": [],
+                "references": [],
+                "source": {
+                  "configuration": {
+                    "build_profiles": [],
+                    "configuration_files": [],
+                    "go_build_tags": [],
+                    "id": "snapshot.source.configuration.id",
+                    "java_classpath_sha256": "snapshot.source.configuration.java_classpath_sha256",
+                    "java_target_version": "snapshot.source.configuration.java_target_version",
+                    "modules": [],
+                    "rust_cfg": [],
+                    "rust_default_features": true,
+                    "rust_features": [],
+                    "target": "snapshot.source.configuration.target"
+                  },
+                  "files": [],
+                  "id": "snapshot.source.id",
+                  "manifests": [],
+                  "selection": {
+                    "exclude_paths": [],
+                    "include_generated": true,
+                    "include_paths": [],
+                    "include_tests": true,
+                    "languages": []
+                  }
+                },
+                "structure": [],
+                "tools": [],
+                "units": []
+              }
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Evaluate",
+            "outcome": "evaluated"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Evaluate",
+            "declarations": {
+              "codegate_semantic.semantic.Assessment": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "policy",
+                    "type": "codegate_semantic.semantic.Policy"
+                  },
+                  {
+                    "name": "coverage",
+                    "type": "List<codegate_semantic.semantic.Coverage>"
+                  },
+                  {
+                    "name": "measurements",
+                    "type": "List<codegate_semantic.semantic.Measurement>"
+                  },
+                  {
+                    "name": "findings",
+                    "type": "List<codegate_semantic.semantic.Finding>"
+                  },
+                  {
+                    "name": "checks",
+                    "type": "List<codegate_semantic.semantic.CheckResult>"
+                  },
+                  {
+                    "name": "scores",
+                    "type": "List<codegate_semantic.semantic.Score>"
+                  },
+                  {
+                    "name": "overall_score",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "verdict",
+                    "type": "codegate_semantic.semantic.Verdict"
+                  },
+                  {
+                    "name": "suggestions",
+                    "type": "List<codegate_semantic.semantic.Suggestion>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.CheckKind": {
+                "kind": "enum",
+                "variants": [
+                  "DependencyDirection",
+                  "Layers",
+                  "FanIn",
+                  "FanOut",
+                  "Cycles",
+                  "TestBoundary",
+                  "ForbiddenImport",
+                  "ForbiddenCall",
+                  "Effect",
+                  "UnknownUnit",
+                  "MetricThreshold",
+                  "Framework"
+                ]
+              },
+              "codegate_semantic.semantic.CheckResult": {
+                "fields": [
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "verdict",
+                    "type": "codegate_semantic.semantic.Verdict"
+                  },
+                  {
+                    "name": "finding_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Completeness": {
+                "kind": "enum",
+                "variants": [
+                  "Complete",
+                  "Partial",
+                  "Unsupported",
+                  "Failed",
+                  "NotApplicable"
+                ]
+              },
+              "codegate_semantic.semantic.ConfigurationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Coverage": {
+                "fields": [
+                  {
+                    "name": "family",
+                    "type": "codegate_semantic.semantic.FactFamily"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "unit_ids",
+                    "type": "List<codegate_semantic.semantic.UnitId>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  },
+                  {
+                    "name": "applicability_reason",
+                    "type": "Optional<String>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DependencyKind": {
+                "kind": "enum",
+                "variants": [
+                  "Runtime",
+                  "Build",
+                  "Test"
+                ]
+              },
+              "codegate_semantic.semantic.EffectKind": {
+                "kind": "enum",
+                "variants": [
+                  "DiscardedResult",
+                  "AbruptExit",
+                  "ProcessExecution",
+                  "SqlConstruction",
+                  "PathConstruction",
+                  "UnsafeOperation",
+                  "WeakCryptography",
+                  "Reflection",
+                  "Nondeterminism",
+                  "GoDefer",
+                  "GoUncheckedTypeAssertion",
+                  "AllocationInLoop",
+                  "StringConcatenationInLoop",
+                  "MissingCapacity",
+                  "LargeValueCopy"
+                ]
+              },
+              "codegate_semantic.semantic.FactFamily": {
+                "kind": "enum",
+                "variants": [
+                  "Sources",
+                  "Declarations",
+                  "Occurrences",
+                  "Dependencies",
+                  "References",
+                  "Implementations",
+                  "Calls",
+                  "Decisions",
+                  "Structure",
+                  "Documentation",
+                  "Effects",
+                  "Tests",
+                  "FrameworkDeclarations",
+                  "FrameworkWiring",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.FactId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Finding": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "subject",
+                    "type": "String"
+                  },
+                  {
+                    "name": "severity",
+                    "type": "codegate_semantic.semantic.Severity"
+                  },
+                  {
+                    "name": "message",
+                    "type": "String"
+                  },
+                  {
+                    "name": "evidence_ids",
+                    "type": "List<codegate_semantic.semantic.FactId>"
+                  },
+                  {
+                    "name": "exception_reason",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "pressure",
+                    "type": "Optional<Decimal>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Gap": {
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "codegate_semantic.semantic.GapCode"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.GapCode": {
+                "kind": "enum",
+                "variants": [
+                  "InvalidFormat",
+                  "InvalidFact",
+                  "InvalidPolicy",
+                  "IdentityMismatch",
+                  "SourceChangedDuringCollection",
+                  "MissingTool",
+                  "ToolTimeout",
+                  "ToolFailure",
+                  "SyntaxError",
+                  "MissingBuildSelection",
+                  "UnknownUnit",
+                  "UnresolvedSymbol",
+                  "AmbiguousSymbol",
+                  "DynamicDispatch",
+                  "MacroExpansion",
+                  "ConditionalCompilation",
+                  "MissingClasspath",
+                  "GeneratedSources",
+                  "ProgrammaticLookup",
+                  "AmbiguousInjection",
+                  "AugmentationRequired",
+                  "StaleEvidence",
+                  "UnsupportedCapability",
+                  "PartialCollection"
+                ]
+              },
+              "codegate_semantic.semantic.Measurement": {
+                "fields": [
+                  {
+                    "name": "subject",
+                    "type": "String"
+                  },
+                  {
+                    "name": "metric",
+                    "type": "codegate_semantic.semantic.MetricSelection"
+                  },
+                  {
+                    "name": "value",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "numerator",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "denominator",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "unit",
+                    "type": "String"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "evidence_ids",
+                    "type": "List<codegate_semantic.semantic.FactId>"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.MetricAggregation": {
+                "kind": "enum",
+                "variants": [
+                  "PerSubject",
+                  "Total",
+                  "Maximum",
+                  "Mean",
+                  "CountAboveThreshold"
+                ]
+              },
+              "codegate_semantic.semantic.MetricKind": {
+                "kind": "enum",
+                "variants": [
+                  "FanIn",
+                  "FanOut",
+                  "FunctionLines",
+                  "FileLines",
+                  "CodeLines",
+                  "Complexity",
+                  "Nesting",
+                  "Parameters",
+                  "Returns",
+                  "TypeMembers",
+                  "InterfaceMembers",
+                  "PublicApiSize",
+                  "DocumentationRatio",
+                  "DebtMarkers",
+                  "NamingSignals",
+                  "TestCount",
+                  "TestSourceRatio",
+                  "GeneratedSourceRatio",
+                  "NondeterminismCount",
+                  "EffectCount",
+                  "ReferenceCount",
+                  "CallFanIn",
+                  "CallFanOut",
+                  "ImplementationCount",
+                  "FunctionCount",
+                  "TypeCount",
+                  "InterfaceCount",
+                  "SymbolCount",
+                  "FileCount",
+                  "BranchDensity",
+                  "ExecutionCoverage"
+                ]
+              },
+              "codegate_semantic.semantic.MetricSelection": {
+                "fields": [
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.MetricKind"
+                  },
+                  {
+                    "name": "aggregation",
+                    "type": "codegate_semantic.semantic.MetricAggregation"
+                  },
+                  {
+                    "name": "threshold",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "effect",
+                    "type": "Optional<codegate_semantic.semantic.EffectKind>"
+                  },
+                  {
+                    "name": "occurrence_role",
+                    "type": "Optional<codegate_semantic.semantic.OccurrenceRole>"
+                  },
+                  {
+                    "name": "counting_contract",
+                    "type": "String"
+                  },
+                  {
+                    "name": "required_families",
+                    "type": "List<codegate_semantic.semantic.FactFamily>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.OccurrenceRole": {
+                "kind": "enum",
+                "variants": [
+                  "Definition",
+                  "Read",
+                  "Write",
+                  "TypeUse",
+                  "Import",
+                  "Invocation",
+                  "Annotation",
+                  "DocumentationReference"
+                ]
+              },
+              "codegate_semantic.semantic.Policy": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "version",
+                    "type": "String"
+                  },
+                  {
+                    "name": "expected_snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "expected_configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "evaluation_time",
+                    "type": "Timestamp"
+                  },
+                  {
+                    "name": "metrics",
+                    "type": "List<codegate_semantic.semantic.MetricSelection>"
+                  },
+                  {
+                    "name": "rules",
+                    "type": "List<codegate_semantic.semantic.PolicyRule>"
+                  },
+                  {
+                    "name": "exceptions",
+                    "type": "List<codegate_semantic.semantic.PolicyException>"
+                  },
+                  {
+                    "name": "scoring_contract",
+                    "type": "String"
+                  },
+                  {
+                    "name": "score_components",
+                    "type": "List<codegate_semantic.semantic.ScoreComponent>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.PolicyException": {
+                "fields": [
+                  {
+                    "name": "rule_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "subjects",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "owner",
+                    "type": "String"
+                  },
+                  {
+                    "name": "expires_at",
+                    "type": "Timestamp"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.PolicyRule": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.CheckKind"
+                  },
+                  {
+                    "name": "subjects",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "targets",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "required_families",
+                    "type": "List<codegate_semantic.semantic.FactFamily>"
+                  },
+                  {
+                    "name": "metric",
+                    "type": "Optional<codegate_semantic.semantic.MetricSelection>"
+                  },
+                  {
+                    "name": "maximum",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "effect",
+                    "type": "Optional<codegate_semantic.semantic.EffectKind>"
+                  },
+                  {
+                    "name": "dependency_kind",
+                    "type": "Optional<codegate_semantic.semantic.DependencyKind>"
+                  },
+                  {
+                    "name": "severity",
+                    "type": "codegate_semantic.semantic.Severity"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Score": {
+                "fields": [
+                  {
+                    "name": "component_id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "value",
+                    "type": "Optional<Decimal>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.ScoreComponent": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rule_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "weight",
+                    "type": "Decimal"
+                  },
+                  {
+                    "name": "required",
+                    "type": "Boolean"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Severity": {
+                "kind": "enum",
+                "variants": [
+                  "Info",
+                  "Warning",
+                  "Error"
+                ]
+              },
+              "codegate_semantic.semantic.SnapshotId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.SourceRange": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_column",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_column",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.Suggestion": {
+                "fields": [
+                  {
+                    "name": "finding_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "summary",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rationale",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rank",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.UnitId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Verdict": {
+                "kind": "enum",
+                "variants": [
+                  "Pass",
+                  "Fail",
+                  "Incomplete",
+                  "Unsupported",
+                  "Error",
+                  "NotApplicable"
+                ]
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "report",
+                "type": "codegate_semantic.semantic.Assessment"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Evaluate",
+              "outcome": "evaluated"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    },
+    "codegate_semantic.semantic.Lookup/outcome/looked-up": {
+      "purpose": "`codegate_semantic.semantic.Lookup` answers `looked-up` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ApiEligibility"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.BuildSystem"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Call"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CollectionMode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Completeness"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Coverage"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DecisionKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DecisionPoint"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Declaration"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DeclarationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DeclarationKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Dependency"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DependencyKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Effect"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.EffectKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Evidence"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactFamily"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactSnapshot"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FrameworkFact"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FrameworkKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Gap"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.GapCode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Implementation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Language"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LineClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.LookupSelector"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Manifest"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Occurrence"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.OccurrenceRole"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Qualifier"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.QueryKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Reference"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Resolution"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ResolutionBasis"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SelectorKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SnapshotId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceClass"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceFile"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceLine"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceOrigin"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceRange"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceSnapshot"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.StructureKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.StructureObservation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.TestKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ToolObservation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Unit"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.UnitId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Visibility"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Lookup"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Lookup",
+            "outcome": "looked-up"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Lookup",
+          "input": {
+            "query": {
+              "kind": "literal",
+              "value": "Definitions"
+            },
+            "selector": {
+              "kind": "literal",
+              "value": {
+                "kind": "Name",
+                "limit": 1.0,
+                "name": "selector.name",
+                "position": {
+                  "end_byte": 1.0,
+                  "end_column": 1.0,
+                  "end_line": 1.0,
+                  "path": "selector.position.path",
+                  "start_byte": 1.0,
+                  "start_column": 1.0,
+                  "start_line": 1.0
+                },
+                "scope_units": []
+              }
+            },
+            "snapshot": {
+              "kind": "literal",
+              "value": {
+                "calls": [],
+                "coverage": [],
+                "decisions": [],
+                "declarations": [],
+                "dependencies": [],
+                "effects": [],
+                "format": "snapshot.format",
+                "framework": [],
+                "implementations": [],
+                "mode": "SourceOnly",
+                "occurrences": [],
+                "references": [],
+                "source": {
+                  "configuration": {
+                    "build_profiles": [],
+                    "configuration_files": [],
+                    "go_build_tags": [],
+                    "id": "snapshot.source.configuration.id",
+                    "java_classpath_sha256": "snapshot.source.configuration.java_classpath_sha256",
+                    "java_target_version": "snapshot.source.configuration.java_target_version",
+                    "modules": [],
+                    "rust_cfg": [],
+                    "rust_default_features": true,
+                    "rust_features": [],
+                    "target": "snapshot.source.configuration.target"
+                  },
+                  "files": [],
+                  "id": "snapshot.source.id",
+                  "manifests": [],
+                  "selection": {
+                    "exclude_paths": [],
+                    "include_generated": true,
+                    "include_paths": [],
+                    "include_tests": true,
+                    "languages": []
+                  }
+                },
+                "structure": [],
+                "tools": [],
+                "units": []
+              }
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Lookup",
+            "outcome": "looked-up"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Lookup",
+            "declarations": {
+              "codegate_semantic.semantic.ApiEligibility": {
+                "kind": "enum",
+                "variants": [
+                  "Eligible",
+                  "Ineligible",
+                  "Unknown"
+                ]
+              },
+              "codegate_semantic.semantic.Completeness": {
+                "kind": "enum",
+                "variants": [
+                  "Complete",
+                  "Partial",
+                  "Unsupported",
+                  "Failed",
+                  "NotApplicable"
+                ]
+              },
+              "codegate_semantic.semantic.ConfigurationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Declaration": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.DeclarationId"
+                  },
+                  {
+                    "name": "unit_id",
+                    "type": "codegate_semantic.semantic.UnitId"
+                  },
+                  {
+                    "name": "parent",
+                    "type": "Optional<codegate_semantic.semantic.DeclarationId>"
+                  },
+                  {
+                    "name": "name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "qualified_name",
+                    "type": "String"
+                  },
+                  {
+                    "name": "signature",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.DeclarationKind"
+                  },
+                  {
+                    "name": "visibility",
+                    "type": "codegate_semantic.semantic.Visibility"
+                  },
+                  {
+                    "name": "api_eligibility",
+                    "type": "codegate_semantic.semantic.ApiEligibility"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "codegate_semantic.semantic.Evidence"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.DeclarationId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.DeclarationKind": {
+                "kind": "enum",
+                "variants": [
+                  "Package",
+                  "Module",
+                  "Namespace",
+                  "Function",
+                  "Method",
+                  "Constructor",
+                  "Type",
+                  "Interface",
+                  "Trait",
+                  "Field",
+                  "Variable",
+                  "Parameter",
+                  "Constant"
+                ]
+              },
+              "codegate_semantic.semantic.Evidence": {
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "codegate_semantic.semantic.FactId"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "producer",
+                    "type": "String"
+                  },
+                  {
+                    "name": "producer_version",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  },
+                  {
+                    "name": "resolution",
+                    "type": "codegate_semantic.semantic.Resolution"
+                  },
+                  {
+                    "name": "basis",
+                    "type": "codegate_semantic.semantic.ResolutionBasis"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.FactId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Gap": {
+                "fields": [
+                  {
+                    "name": "code",
+                    "type": "codegate_semantic.semantic.GapCode"
+                  },
+                  {
+                    "name": "reason",
+                    "type": "String"
+                  },
+                  {
+                    "name": "location",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.GapCode": {
+                "kind": "enum",
+                "variants": [
+                  "InvalidFormat",
+                  "InvalidFact",
+                  "InvalidPolicy",
+                  "IdentityMismatch",
+                  "SourceChangedDuringCollection",
+                  "MissingTool",
+                  "ToolTimeout",
+                  "ToolFailure",
+                  "SyntaxError",
+                  "MissingBuildSelection",
+                  "UnknownUnit",
+                  "UnresolvedSymbol",
+                  "AmbiguousSymbol",
+                  "DynamicDispatch",
+                  "MacroExpansion",
+                  "ConditionalCompilation",
+                  "MissingClasspath",
+                  "GeneratedSources",
+                  "ProgrammaticLookup",
+                  "AmbiguousInjection",
+                  "AugmentationRequired",
+                  "StaleEvidence",
+                  "UnsupportedCapability",
+                  "PartialCollection"
+                ]
+              },
+              "codegate_semantic.semantic.LookupSelector": {
+                "fields": [
+                  {
+                    "name": "kind",
+                    "type": "codegate_semantic.semantic.SelectorKind"
+                  },
+                  {
+                    "name": "name",
+                    "type": "Optional<String>"
+                  },
+                  {
+                    "name": "position",
+                    "type": "Optional<codegate_semantic.semantic.SourceRange>"
+                  },
+                  {
+                    "name": "scope_units",
+                    "type": "List<codegate_semantic.semantic.UnitId>"
+                  },
+                  {
+                    "name": "limit",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.NavigationResult": {
+                "fields": [
+                  {
+                    "name": "format",
+                    "type": "String"
+                  },
+                  {
+                    "name": "snapshot_id",
+                    "type": "codegate_semantic.semantic.SnapshotId"
+                  },
+                  {
+                    "name": "configuration_id",
+                    "type": "codegate_semantic.semantic.ConfigurationId"
+                  },
+                  {
+                    "name": "selector",
+                    "type": "codegate_semantic.semantic.LookupSelector"
+                  },
+                  {
+                    "name": "query",
+                    "type": "codegate_semantic.semantic.QueryKind"
+                  },
+                  {
+                    "name": "truncated",
+                    "type": "Boolean"
+                  },
+                  {
+                    "name": "total_matches",
+                    "type": "Optional<Integer>"
+                  },
+                  {
+                    "name": "declarations",
+                    "type": "List<codegate_semantic.semantic.Declaration>"
+                  },
+                  {
+                    "name": "evidence",
+                    "type": "List<codegate_semantic.semantic.Evidence>"
+                  },
+                  {
+                    "name": "status",
+                    "type": "codegate_semantic.semantic.Completeness"
+                  },
+                  {
+                    "name": "gaps",
+                    "type": "List<codegate_semantic.semantic.Gap>"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.QueryKind": {
+                "kind": "enum",
+                "variants": [
+                  "Definitions",
+                  "References",
+                  "Implementations",
+                  "Callers",
+                  "Callees",
+                  "FrameworkRelationships"
+                ]
+              },
+              "codegate_semantic.semantic.Resolution": {
+                "kind": "enum",
+                "variants": [
+                  "SyntacticCandidate",
+                  "Resolved",
+                  "Unresolved"
+                ]
+              },
+              "codegate_semantic.semantic.ResolutionBasis": {
+                "kind": "enum",
+                "variants": [
+                  "SourceStructure",
+                  "LanguageServer",
+                  "DeclaredFramework",
+                  "MatchedBuildEvidence"
+                ]
+              },
+              "codegate_semantic.semantic.SelectorKind": {
+                "kind": "enum",
+                "variants": [
+                  "Name",
+                  "QualifiedName",
+                  "SourcePosition"
+                ]
+              },
+              "codegate_semantic.semantic.SnapshotId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.SourceRange": {
+                "fields": [
+                  {
+                    "name": "path",
+                    "type": "String"
+                  },
+                  {
+                    "name": "start_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_byte",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "start_column",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_line",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "end_column",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              },
+              "codegate_semantic.semantic.UnitId": {
+                "kind": "newtype",
+                "of": "String"
+              },
+              "codegate_semantic.semantic.Visibility": {
+                "kind": "enum",
+                "variants": [
+                  "Public",
+                  "Protected",
+                  "Package",
+                  "Internal",
+                  "Private",
+                  "Unknown"
+                ]
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "result",
+                "type": "codegate_semantic.semantic.NavigationResult"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Lookup",
+              "outcome": "looked-up"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    },
+    "codegate_semantic.semantic.Suggest/outcome/suggested": {
+      "purpose": "`codegate_semantic.semantic.Suggest` answers `suggested` for an input no other branch's guard claims",
+      "source": [
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Assessment"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CheckKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.CheckResult"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Completeness"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ConfigurationId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Coverage"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.DependencyKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.EffectKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactFamily"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.FactId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Finding"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Gap"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.GapCode"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Measurement"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricAggregation"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricKind"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.MetricSelection"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.OccurrenceRole"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Policy"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyException"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.PolicyRule"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Score"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.ScoreComponent"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Severity"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SnapshotId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.SourceRange"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Suggestion"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.UnitId"
+        },
+        {
+          "kind": "type",
+          "name": "codegate_semantic.semantic.Verdict"
+        },
+        {
+          "kind": "command",
+          "name": "codegate_semantic.semantic.Suggest"
+        },
+        {
+          "kind": "outcome",
+          "name": {
+            "command": "codegate_semantic.semantic.Suggest",
+            "outcome": "suggested"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "command": "codegate_semantic.semantic.Suggest",
+          "input": {
+            "report": {
+              "kind": "literal",
+              "value": {
+                "checks": [],
+                "configuration_id": "report.configuration_id",
+                "coverage": [],
+                "findings": [],
+                "format": "report.format",
+                "measurements": [],
+                "overall_score": 1.0,
+                "policy": {
+                  "evaluation_time": "2020-01-01T00:00:00Z",
+                  "exceptions": [],
+                  "expected_configuration_id": "report.policy.expected_configuration_id",
+                  "expected_snapshot_id": "report.policy.expected_snapshot_id",
+                  "format": "report.policy.format",
+                  "id": "report.policy.id",
+                  "metrics": [],
+                  "rules": [],
+                  "score_components": [],
+                  "scoring_contract": "report.policy.scoring_contract",
+                  "version": "report.policy.version"
+                },
+                "scores": [],
+                "snapshot_id": "report.snapshot_id",
+                "suggestions": [],
+                "verdict": "Pass"
+              }
+            }
+          },
+          "step": "execute_command"
+        },
+        {
+          "outcome": {
+            "command": "codegate_semantic.semantic.Suggest",
+            "outcome": "suggested"
+          },
+          "step": "expect_outcome"
+        },
+        {
+          "response": {
+            "command": "codegate_semantic.semantic.Suggest",
+            "declarations": {
+              "codegate_semantic.semantic.Suggestion": {
+                "fields": [
+                  {
+                    "name": "finding_ids",
+                    "type": "List<String>"
+                  },
+                  {
+                    "name": "summary",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rationale",
+                    "type": "String"
+                  },
+                  {
+                    "name": "rank",
+                    "type": "Integer"
+                  }
+                ],
+                "kind": "struct"
+              }
+            },
+            "expected": {},
+            "fields": [
+              {
+                "name": "suggestions",
+                "type": "List<codegate_semantic.semantic.Suggestion>"
+              }
+            ],
+            "outcome": {
+              "command": "codegate_semantic.semantic.Suggest",
+              "outcome": "suggested"
+            }
+          },
+          "step": "expect_direct_response"
+        }
+      ]
+    }
+  }
+}

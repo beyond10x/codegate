@@ -1,0 +1,529 @@
+task: [check] cargo run --locked --bin codegate-check
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling serde_core v1.0.229
+   Compiling typenum v1.20.1
+   Compiling hybrid-array v0.4.15
+   Compiling syn v3.0.6
+   Compiling utf8parse v0.2.2
+   Compiling zmij v1.0.23
+   Compiling anstyle-parse v1.0.0
+   Compiling anstyle v1.0.14
+   Compiling colorchoice v1.0.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling serde v1.0.229
+   Compiling anstyle-query v1.1.5
+   Compiling serde_json v1.0.151
+   Compiling serde_derive v1.0.229
+   Compiling anstream v1.0.0
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling strsim v0.11.1
+   Compiling clap_lex v1.1.1
+   Compiling memchr v2.8.3
+   Compiling heck v0.5.0
+   Compiling itoa v1.0.18
+   Compiling const-oid v0.10.2
+   Compiling digest v0.11.3
+   Compiling clap_derive v4.6.7
+   Compiling clap_builder v4.6.7
+   Compiling cfg-if v1.0.5
+   Compiling cpufeatures v0.3.1
+   Compiling sha2 v0.11.0
+   Compiling codegate-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/wire)
+   Compiling clap v4.6.7
+   Compiling codegate v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/behavior)
+   Compiling codegate-cli v0.1.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 25.13s
+     Running `$CARGO_TARGET_DIR/debug/codegate-check`
+CHECK AEP: aep plan artifact validate
+43 file(s) in $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/.engineering/planning: 43 artifact(s)
+valid
+CHECK AEP: exit 0
+CHECK ESS: ess specify validate --path ess
+codegate v1 — 2 file(s), 26 scenario(s), valid
+CHECK ESS: exit 0
+CHECK generate behavior: ess generate synthesize --path ess --target rust --layout crate --out $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/behavior
+18 capabilities: 17 generated, 1 obligation(s), 0 refused
+7 artifact(s), written to $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/behavior
+CHECK generate behavior: exit 0
+CHECK generate wire: ess generate types --path ess --target rust --all-types --package codegate-contract --out $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/wire
+16 model type(s), written to $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/wire; runtime obligations in types-report.json
+CHECK generate wire: exit 0
+CHECK semantic ESS: ess specify validate --path ess-semantic
+codegate_semantic v1 — 2 file(s), valid
+CHECK semantic ESS: exit 0
+CHECK generate semantic behavior: ess generate synthesize --path ess-semantic --target rust --layout crate --out $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-behavior
+84 capabilities: 78 generated, 6 obligation(s), 0 refused
+7 artifact(s), written to $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-behavior
+CHECK generate semantic behavior: exit 0
+CHECK generate semantic wire: ess generate types --path ess-semantic --target rust --all-types --package codegate-semantic-contract --out $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-wire
+72 model type(s), written to $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-wire; runtime obligations in types-report.json
+CHECK generate semantic wire: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/behavior/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/wire/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-behavior/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK normalize generated formatting: cargo fmt --manifest-path $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/semantic-wire/Cargo.toml
+CHECK normalize generated formatting: exit 0
+CHECK generated drift: exit 0
+CHECK semantic foundation: generated contracts only; six runtime obligations remain; no semantic runtime conformance claimed
+CHECK combined suite: ess verify conform synthesize --path ess --scenarios ess --suite-format 5 --out $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/suite.json
+27 selected scenario(s), 26 authored source(s), 0 refusal occurrence(s)
+CHECK combined suite: exit 0
+CHECK real ESS conformance: cargo test --locked -p codegate-cli --test conformance real_evaluator_conforms_to_complete_combined_suite -- --exact --nocapture
+   Compiling memchr v2.8.3
+   Compiling serde_json v1.0.151
+   Compiling syn v2.0.119
+   Compiling equivalent v1.0.2
+   Compiling serde_derive_internals v0.29.1
+   Compiling hashbrown v0.17.1
+   Compiling schemars v0.8.22
+   Compiling thiserror v2.0.21
+   Compiling indexmap v2.14.2
+   Compiling schemars_derive v0.8.22
+   Compiling thiserror-impl v2.0.21
+   Compiling dyn-clone v1.0.20
+   Compiling ryu v1.0.23
+   Compiling unsafe-libyaml v0.2.11
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling codegate-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/wire)
+   Compiling ess-primitives v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+   Compiling pulldown-cmark v0.13.4
+   Compiling codegate-cli v0.1.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db)
+   Compiling unicase v2.9.0
+   Compiling ess-domain v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+   Compiling pulldown-cmark-escape v0.11.0
+   Compiling bitflags v2.13.2
+   Compiling ess-compiler v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+   Compiling ess-gen v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+   Compiling ess-conformance v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 21s
+     Running tests/conformance.rs ($CARGO_TARGET_DIR/debug/deps/conformance-4997597ea84f1696)
+
+running 1 test
+{
+  "completed_at": 1790986784680,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 27,
+    "skipped": 0,
+    "total": 27,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 26,
+      "generated": 1,
+      "outside": 0,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "kind": "system"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-offline 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate.dependency.Evaluate/outcome/evaluated",
+      "codegate.dependency/authored/canonical-order",
+      "codegate.dependency/authored/complete-empty-graph",
+      "codegate.dependency/authored/complete-isolated-units",
+      "codegate.dependency/authored/configuration-mismatch",
+      "codegate.dependency/authored/dangling-source",
+      "codegate.dependency/authored/dangling-target",
+      "codegate.dependency/authored/dependency-kind-selection",
+      "codegate.dependency/authored/duplicate-edge",
+      "codegate.dependency/authored/duplicate-unit",
+      "codegate.dependency/authored/empty-identity",
+      "codegate.dependency/authored/explicit-unresolved-target",
+      "codegate.dependency/authored/failed-collection",
+      "codegate.dependency/authored/forbidden-runtime-edge",
+      "codegate.dependency/authored/go-facts-same-checker",
+      "codegate.dependency/authored/invalid-policy-reference",
+      "codegate.dependency/authored/invalid-target",
+      "codegate.dependency/authored/one-runtime-edge",
+      "codegate.dependency/authored/parallel-imports-count-once",
+      "codegate.dependency/authored/partial-is-not-empty",
+      "codegate.dependency/authored/polyglot-no-inferred-edge",
+      "codegate.dependency/authored/source-mismatch",
+      "codegate.dependency/authored/unknown-ir-version",
+      "codegate.dependency/authored/unresolved-cannot-claim-complete",
+      "codegate.dependency/authored/unsupported-is-not-empty",
+      "codegate.dependency/authored/unsupported-with-observations",
+      "codegate.dependency/authored/witnessed-violation-with-gaps"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+  "specification": "codegate/v1",
+  "suite": {
+    "digest": "sha256:2a9dbfefefb93ab95151c290d37cdc270effb0541e2e2e384cae403205d66755",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_evaluator_conforms_to_complete_combined_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+CHECK real ESS conformance: exit Some(0)
+CHECK native ESS report: executed27 passed27 failed0 error0 unsupported0 skipped0, exit0; evidence $HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/target/codegate-check-1531118/conformance
+CHECK Rust tests: cargo test --locked -p codegate-cli --all-targets -- --nocapture
+   Compiling codegate-cli v0.1.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.20s
+     Running unittests src/lib.rs ($CARGO_TARGET_DIR/debug/deps/codegate-bc5058d0cafcdb3f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs ($CARGO_TARGET_DIR/debug/deps/codegate-75714fe6a54523da)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/codegate-check.rs ($CARGO_TARGET_DIR/debug/deps/codegate_check-1672523ddec981ba)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/codegate-docs.rs ($CARGO_TARGET_DIR/debug/deps/codegate_docs-a2d5187a56b274a2)
+
+running 5 tests
+test tests::invalid_commits_are_refused ... ok
+test tests::broken_or_duplicate_anchors_are_refused ... ok
+test tests::authored_site_and_publication_identity_are_valid ... ok
+test tests::published_json_example_reaches_the_real_evaluator ... ok
+test tests::wrong_routes_assets_and_internal_source_links_are_refused ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/boundary.rs ($CARGO_TARGET_DIR/debug/deps/boundary-0aa2f2c6f25cf5af)
+
+running 5 tests
+test generated_integer_obligation_is_checked ... ok
+test explicit_absence_bridge ... ok
+test strict_json_structure ... ok
+test all_generated_fields_roundtrip ... ok
+test decoder_limits ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/cli.rs ($CARGO_TARGET_DIR/debug/deps/cli-32c0cb8e9b324d68)
+
+running 3 tests
+test cli_structural_refusal_emits_no_report_or_output_file ... ok
+test unsupported_policy_format_is_semantic_error ... ok
+test cli_reports_full_outcomes_and_coverage_aware_exits_without_tools ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/conformance.rs ($CARGO_TARGET_DIR/debug/deps/conformance-4997597ea84f1696)
+
+running 1 test
+{
+  "completed_at": 1790986786314,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 27,
+    "skipped": 0,
+    "total": 27,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 26,
+      "generated": 1,
+      "outside": 0,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "kind": "system"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-offline 0.1.0",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate.dependency.Evaluate/outcome/evaluated",
+      "codegate.dependency/authored/canonical-order",
+      "codegate.dependency/authored/complete-empty-graph",
+      "codegate.dependency/authored/complete-isolated-units",
+      "codegate.dependency/authored/configuration-mismatch",
+      "codegate.dependency/authored/dangling-source",
+      "codegate.dependency/authored/dangling-target",
+      "codegate.dependency/authored/dependency-kind-selection",
+      "codegate.dependency/authored/duplicate-edge",
+      "codegate.dependency/authored/duplicate-unit",
+      "codegate.dependency/authored/empty-identity",
+      "codegate.dependency/authored/explicit-unresolved-target",
+      "codegate.dependency/authored/failed-collection",
+      "codegate.dependency/authored/forbidden-runtime-edge",
+      "codegate.dependency/authored/go-facts-same-checker",
+      "codegate.dependency/authored/invalid-policy-reference",
+      "codegate.dependency/authored/invalid-target",
+      "codegate.dependency/authored/one-runtime-edge",
+      "codegate.dependency/authored/parallel-imports-count-once",
+      "codegate.dependency/authored/partial-is-not-empty",
+      "codegate.dependency/authored/polyglot-no-inferred-edge",
+      "codegate.dependency/authored/source-mismatch",
+      "codegate.dependency/authored/unknown-ir-version",
+      "codegate.dependency/authored/unresolved-cannot-claim-complete",
+      "codegate.dependency/authored/unsupported-is-not-empty",
+      "codegate.dependency/authored/unsupported-with-observations",
+      "codegate.dependency/authored/witnessed-violation-with-gaps"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "e27ccc45957cf4fe2ef83d9362e81d867eb46bff9a72f1fd28e43b69bf53ec93",
+  "specification": "codegate/v1",
+  "suite": {
+    "digest": "sha256:2a9dbfefefb93ab95151c290d37cdc270effb0541e2e2e384cae403205d66755",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
+
+test real_evaluator_conforms_to_complete_combined_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests/freshness.rs ($CARGO_TARGET_DIR/debug/deps/freshness-66c44dada4ac6cb0)
+
+running 1 test
+test gate_requires_this_invocations_conformance_producer ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.77s
+
+     Running tests/gate_adversary.rs ($CARGO_TARGET_DIR/debug/deps/gate_adversary-68a31bf8ee7c1005)
+
+running 1 test
+test unchanged_generated_contract_ignores_local_ownership_state ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.57s
+
+     Running tests/obligation.rs ($CARGO_TARGET_DIR/debug/deps/obligation-1610ec9160fff947)
+
+running 2 tests
+test evaluate_obligation_is_fulfilled ... ok
+test trait_adapter_never_leaks_a_previous_response ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/provenance_adversary.rs ($CARGO_TARGET_DIR/debug/deps/provenance_adversary-2a0c181e972cead0)
+
+running 1 test
+test native_report_records_observed_completion_time ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+
+     Running tests/semantics.rs ($CARGO_TARGET_DIR/debug/deps/semantics-e95901fafadef02e)
+
+running 8 tests
+test core_module_boundary_has_no_io_or_language_dispatch ... ok
+test dangling_target_guard ... ok
+test diagnostic_phase_precedence_and_order ... ok
+test labels_and_input_order_do_not_choose_algorithms ... ok
+test partial_is_never_complete ... ok
+test parallel_imports_count_unique_destinations ... ok
+test semantic_invalid_classes ... ok
+test every_authored_literal_matches_real_evaluation ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+CHECK Rust tests: exit 0
+CHECK format root: cargo fmt --package codegate-cli --check
+CHECK format root: exit 0
+CHECK Clippy root: cargo clippy --locked -p codegate-cli --all-targets -- -D warnings
+    Checking serde_core v1.0.229
+    Checking itoa v1.0.18
+    Checking memchr v2.8.3
+    Checking zmij v1.0.23
+    Checking typenum v1.20.1
+    Checking serde v1.0.229
+    Checking serde_json v1.0.151
+    Checking hybrid-array v0.4.15
+    Checking const-oid v0.10.2
+    Checking crypto-common v0.2.2
+    Checking block-buffer v0.12.1
+    Checking utf8parse v0.2.2
+    Checking cfg-if v1.0.5
+    Checking digest v0.11.3
+    Checking cpufeatures v0.3.1
+    Checking anstyle-parse v1.0.0
+    Checking sha2 v0.11.0
+    Checking anstyle v1.0.14
+    Checking is_terminal_polyfill v1.70.2
+    Checking colorchoice v1.0.5
+    Checking hashbrown v0.17.1
+    Checking equivalent v1.0.2
+    Checking anstyle-query v1.1.5
+    Checking anstream v1.0.0
+    Checking indexmap v2.14.2
+    Checking strsim v0.11.1
+    Checking unsafe-libyaml v0.2.11
+    Checking ryu v1.0.23
+    Checking dyn-clone v1.0.20
+    Checking clap_lex v1.1.1
+    Checking schemars v0.8.22
+    Checking clap_builder v4.6.7
+    Checking serde_yaml v0.9.34+deprecated
+    Checking thiserror v2.0.21
+    Checking clap v4.6.7
+    Checking ess-primitives v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking codegate-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/wire)
+    Checking codegate v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/behavior)
+    Checking bitflags v2.13.2
+    Checking ess-domain v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking unicase v2.9.0
+    Checking pulldown-cmark-escape v0.11.0
+    Checking pulldown-cmark v0.13.4
+    Checking codegate-cli v0.1.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db)
+    Checking ess-compiler v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking ess-gen v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Checking ess-conformance v0.50.0 (https://github.com/beyond10x/ess?rev=8700d0808e8f3b19711629d8a17afc5281680f58#8700d080)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 42.81s
+CHECK Clippy root: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/behavior/Cargo.toml
+   Compiling codegate v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/behavior)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.73s
+     Running unittests src/lib.rs ($CARGO_TARGET_DIR/debug/deps/codegate-2065f573e1706301)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/behavior/Cargo.toml --all-targets -- -D warnings
+    Checking codegate v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/behavior)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.14s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/wire/Cargo.toml
+     Locking 11 packages to latest compatible versions
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling syn v3.0.6
+   Compiling serde_derive v1.0.229
+   Compiling serde v1.0.229
+   Compiling codegate-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/wire)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.17s
+     Running unittests types.rs ($CARGO_TARGET_DIR/debug/deps/codegate_contract-6f8868801c54f4a4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_contract
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+    Checking memchr v2.8.3
+    Checking serde v1.0.229
+    Checking serde_json v1.0.151
+    Checking codegate-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/wire)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.59s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-behavior/Cargo.toml
+   Compiling codegate_semantic v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/semantic-behavior)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.69s
+     Running unittests src/lib.rs ($CARGO_TARGET_DIR/debug/deps/codegate_semantic-080f7249ce9692e2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_semantic
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-behavior/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-behavior/Cargo.toml --all-targets -- -D warnings
+    Checking codegate_semantic v1.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/semantic-behavior)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.41s
+CHECK Clippy generated: exit 0
+CHECK test generated: cargo test --offline --manifest-path generated/semantic-wire/Cargo.toml
+   Compiling codegate-semantic-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/semantic-wire)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.41s
+     Running unittests types.rs ($CARGO_TARGET_DIR/debug/deps/codegate_semantic_contract-7462ab4440df9d42)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests codegate_semantic_contract
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+CHECK test generated: exit 0
+CHECK format generated: cargo fmt --manifest-path generated/semantic-wire/Cargo.toml --check
+CHECK format generated: exit 0
+CHECK Clippy generated: cargo clippy --offline --manifest-path generated/semantic-wire/Cargo.toml --all-targets -- -D warnings -A clippy::derivable_impls
+    Checking codegate-semantic-contract v0.0.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db/generated/semantic-wire)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.72s
+CHECK Clippy generated: exit 0
+CHECK public documentation: cargo run --locked --bin codegate-docs -- check
+   Compiling codegate-cli v0.1.0 ($HOME/.local/state/worktree/trees/b10x/codegate/wt-7561d4c018db)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.37s
+     Running `$CARGO_TARGET_DIR/debug/codegate-docs check`
+Codegate documentation: anchors, routes and assets valid
+CHECK public documentation: exit 0

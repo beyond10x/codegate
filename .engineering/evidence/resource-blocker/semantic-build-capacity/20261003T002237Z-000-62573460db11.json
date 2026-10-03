@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T00:22:37Z",
+  "actor": "human:timo",
+  "artifact": "resource-blocker:semantic-build-capacity",
+  "kind": "resource-blocker",
+  "revision": 1,
+  "change": {
+    "change": "evidence",
+    "kind": "verification",
+    "source": "Full task check exited 0 using private Cargo target on executable tmpfs with 22631510016 bytes free before build; original disk constraint preserved",
+    "reference": "verification/semantic-foundations/integration/task-check.log"
+  }
+}
