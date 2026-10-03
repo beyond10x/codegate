@@ -1,0 +1,60 @@
+{
+  "completed_at": 1791022670482,
+  "conformance_status": "passed",
+  "counts": {
+    "error": 0,
+    "failed": 0,
+    "passed": 8,
+    "skipped": 0,
+    "total": 8,
+    "unsupported": 0
+  },
+  "coverage": {
+    "counts": {
+      "authored": 6,
+      "generated": 2,
+      "outside": 6,
+      "refused": 0
+    },
+    "knowledge": "complete_inventory",
+    "refused": [],
+    "selection": {
+      "filter": {
+        "kind": "all"
+      },
+      "origins": "generated_and_authored",
+      "scope": {
+        "component": "source-foundation",
+        "kind": "component"
+      }
+    }
+  },
+  "execution_status": "passed",
+  "format": "ess-conformance-report/2",
+  "implementation": "codegate-source-foundation 0.2.1",
+  "outcomes": {
+    "error": [],
+    "failed": [],
+    "passed": [
+      "codegate_semantic.semantic.CollectSource/outcome/source-observed",
+      "codegate_semantic.semantic.ValidateSnapshot/outcome/validation-observed",
+      "codegate_semantic.semantic/authored/parity-coverage-not-zero",
+      "codegate_semantic.semantic/authored/parity-dangling-observation",
+      "codegate_semantic.semantic/authored/parity-manifest-identity",
+      "codegate_semantic.semantic/authored/parity-path-confinement",
+      "codegate_semantic.semantic/authored/parity-selected-content-identity",
+      "codegate_semantic.semantic/authored/parity-stale-evidence"
+    ],
+    "skipped": [],
+    "unsupported": []
+  },
+  "policy": "complete-selection/1",
+  "producer_profile": "rust-scenario-status/1",
+  "spec_digest": "6429b77034506255e96ca6abd75079983e5e0ca68ef4a30f19a0baf8875612dd",
+  "specification": "codegate_semantic/v1",
+  "suite": {
+    "digest": "sha256:eb1e38c44619246802c53ef7e3817cec9ab3b3857906607117ea77bf6caf8594",
+    "digest_profile": "sha256-json-bytes/1",
+    "version": "ess-conformance/29"
+  }
+}
