@@ -54,7 +54,7 @@ selection produces explicit gaps. `semantic::validate_snapshot` checks imported
 facts offline; accepting a partial snapshot does not make its evidence complete.
 See the [collection counting and selection contract](specifications/source-baseline.md).
 
-Install Rust 1.98.1, ESS 0.50.0, AEP and Task, then run:
+Install Rust 1.98.1, ESS 0.56.0, AEP and Task, then run:
 
 ```console
 task check
@@ -86,7 +86,7 @@ retains that invocation's generated typed response, which the CLI and conformanc
 target consume. The underlying evaluator is a pure function; admission constructs
 an inaccessible validated graph before analysis/checking.
 
-ESS 0.50.0 emits an equivalent manual `Default` implementation for `EssPresence<T>`.
+ESS 0.56.0 emits an equivalent manual `Default` implementation for `EssPresence<T>`.
 The generated wire crates' Clippy lanes allow `clippy::derivable_impls`.
 The semantic behavior crate also needs scoped allowances for generated unreachable
 event conversion and unit-variant patterns; see `AGENTS.md`. Root warnings remain

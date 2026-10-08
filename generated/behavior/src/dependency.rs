@@ -266,7 +266,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise.
+    /// Contract: given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise.
     pub trait EvaluateBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate.dependency.Evaluate`.
         ///

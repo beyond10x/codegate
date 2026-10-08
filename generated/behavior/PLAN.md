@@ -36,7 +36,7 @@ Scope: `component-skeletons`, laid out as `crate`, planned by `ess-synth`. Regen
 
 | capability | source | why not generated | contract |
 | --- | --- | --- | --- |
-| command behaviour | `codegate.dependency.Evaluate` | kept an obligation by a typed response (`response:`) | given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise |
+| command behaviour | `codegate.dependency.Evaluate` | kept an obligation by a typed response (`response:`) | given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise |
 
 ## Refused — not represented by this synthesis
 

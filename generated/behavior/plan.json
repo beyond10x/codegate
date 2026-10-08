@@ -138,7 +138,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise"
+        "contract": "given `codegate.dependency.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise"
       }
     }
   ]

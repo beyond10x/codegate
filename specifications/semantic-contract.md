@@ -303,7 +303,7 @@ identical evidence/gaps; neither may replace an absent score with zero or a gree
 
 ## Generation and current limits
 
-ESS 0.50.0 synthesizes `generated/semantic-behavior` and
+ESS 0.56.0 synthesizes `generated/semantic-behavior` and
 `generated/semantic-wire`; generated plans and types-report retain obligations.
 Generated code is never edited except deterministic `cargo fmt` under the pinned
 Rust toolchain. The generated behavior defaults refuse work: generated != implemented.
