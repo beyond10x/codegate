@@ -8,7 +8,7 @@
     "contract_digest": "slice-sha256/2:1e3f4cd57598207a2d4610b395dc99ce14f247901f10b343c219e79f95e2ac64",
     "projection_digest": "ef757a246da6e12ed0bb424e624d6f6ede01de7f698db84081ca6df467d94351"
   },
-  "generator_version": "0.50.0",
+  "generator_version": "0.56.0",
   "target": "rust",
   "configuration": {
     "language": "rust",
@@ -1298,7 +1298,12 @@
     {
       "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/properties/timeout_milliseconds",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.CollectionRequest/properties/timeout_milliseconds",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.Finding/properties/pressure/pattern",
@@ -1308,17 +1313,32 @@
     {
       "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/properties/limit",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.LookupSelector/properties/limit",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/denominator",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/denominator",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/numerator",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/numerator",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.Measurement/properties/value/pattern",
@@ -1333,7 +1353,12 @@
     {
       "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/properties/total_matches",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.NavigationResult/properties/total_matches",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.PolicyRule/properties/maximum/pattern",
@@ -1353,67 +1378,132 @@
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceFile/properties/byte_length",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceFile/properties/byte_length",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/end_byte",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/end_byte",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/number",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/number",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/start_byte",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceLine/properties/start_byte",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_byte",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_byte",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_column",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_column",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_line",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/end_line",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_byte",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_byte",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_column",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_column",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_line",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.SourceRange/properties/start_line",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.Suggestion/properties/rank",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.Suggestion/properties/rank",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/elapsed_milliseconds",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/elapsed_milliseconds",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     },
     {
       "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/exit_code",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate_semantic.semantic.ToolObservation/properties/exit_code",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     }
   ]
 }

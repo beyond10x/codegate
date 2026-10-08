@@ -8,7 +8,7 @@
     "contract_digest": "slice-sha256/2:880b21f86f1130f9a88745cd40f759f7b0f7957d1c15bd9b44ce3be2e12de1d2",
     "projection_digest": "418ac84564e5046e7daa322056fe34db96824fe2b31ff0555ddb708fe84400d9"
   },
-  "generator_version": "0.50.0",
+  "generator_version": "0.56.0",
   "target": "rust",
   "configuration": {
     "language": "rust",
@@ -296,7 +296,12 @@
     {
       "pointer": "/$defs/codegate.dependency.FanOut/properties/value",
       "rule": "integer",
-      "detail": "serde_json::Number retains exact JSON numbers but does not enforce integrality; validate the source constraint"
+      "detail": "serde_json::Number holds exact JSON numbers with the default `exact-numbers` feature and binary64 without it, and does not enforce integrality; validate the source constraint"
+    },
+    {
+      "pointer": "/$defs/codegate.dependency.FanOut/properties/value",
+      "rule": "rust_exact_numbers",
+      "detail": "this value holds JSON numbers in serde_json; the generated crate's default-on `exact-numbers` feature enables serde_json/arbitrary_precision, and a consumer that turns default features off gets these numbers as binary64"
     }
   ]
 }

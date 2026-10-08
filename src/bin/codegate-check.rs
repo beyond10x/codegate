@@ -354,9 +354,9 @@ fn check() -> Result<(), String> {
         .arg("--version")
         .output()
         .map_err(|e| e.to_string())?;
-    if !version.status.success() || String::from_utf8_lossy(&version.stdout).trim() != "ess 0.50.0"
+    if !version.status.success() || String::from_utf8_lossy(&version.stdout).trim() != "ess 0.56.0"
     {
-        return Err("ESS 0.50.0 required for reproducible generation".into());
+        return Err("ESS 0.56.0 required for reproducible generation".into());
     }
     step("AEP", "aep", &["plan", "artifact", "validate"], &root)?;
     step(
@@ -571,7 +571,7 @@ fn check() -> Result<(), String> {
             "-D",
             "warnings",
         ];
-        // ESS 0.50.0 emits a manual, equivalent Default impl for EssPresence<T>.
+        // ESS 0.56.0 emits a manual, equivalent Default impl for EssPresence<T>.
         // This upstream style lint is scoped to that generated package; all
         // behavior/root warnings and byte-identical regeneration remain enforced.
         if matches!(
@@ -580,7 +580,7 @@ fn check() -> Result<(), String> {
         ) {
             lint_args.extend(["-A", "clippy::derivable_impls"]);
         }
-        // ESS 0.50.0 emits an unreachable push when a component publishes no
+        // ESS 0.56.0 emits an unreachable push when a component publishes no
         // events: both conversion enums are uninhabited. Preserve generated
         // bytes; the exception applies only to that generated crate.
         if manifest == "generated/semantic-behavior/Cargo.toml" {

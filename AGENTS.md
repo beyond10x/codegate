@@ -42,7 +42,7 @@ establish real semantic conformance. Never report semantic parity from either
 foundation or legacy results. The program
 and precise remaining work are in `epic:semantic-parity` and `docs/parity-baseline.md`.
 
-Pin ESS 0.50.0 and Rust 1.98.1. Generated source in `generated/behavior` and
+Pin ESS 0.56.0 and Rust 1.98.1. Generated source in `generated/behavior` and
 `generated/wire` is produced by ESS and deterministically formatted by pinned
 rustfmt. Never hand-edit it. Reproduce the commands in `src/bin/codegate-check.rs`
 when deliberately updating projections. Keep synthesis plans and runtime-obligation
@@ -56,11 +56,11 @@ coordinator runs the complete integration gate once. Do not change expected ESS
 scenario responses to make an implementation pass.
 
 Known upstream style exception: the generated wire crate's Clippy invocation adds
-`-A clippy::derivable_impls` after `-D warnings`, because ESS 0.50.0 generates the
+`-A clippy::derivable_impls` after `-D warnings`, because ESS 0.56.0 generates the
 manual `EssPresence<T>` Default implementation. No root/behavior exception applies;
 never hand-edit generated source to satisfy that style lint.
 
-The internal source-foundation component publishes no events. ESS 0.50.0 emits an
+The internal source-foundation component publishes no events. ESS 0.56.0 emits an
 unreachable push converting its uninhabited event enum; generated/semantic-behavior
 alone allows `unreachable_code` and `clippy::unneeded_struct_pattern` during Clippy
 (the generated component also matches unit outcomes with `{ .. }`). Root warnings remain denied and

@@ -101,14 +101,14 @@ Scope: `component-skeletons`, laid out as `crate`, planned by `ess-synth`. Regen
 
 | capability | source | why not generated | contract |
 | --- | --- | --- | --- |
-| command behaviour | `codegate_semantic.semantic.Assess` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome — `assessed` otherwise |
-| command behaviour | `codegate_semantic.semantic.Capabilities` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome — `listed` otherwise |
-| command behaviour | `codegate_semantic.semantic.Collect` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome — `collected` otherwise |
-| command behaviour | `codegate_semantic.semantic.CollectSource` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise |
-| command behaviour | `codegate_semantic.semantic.Evaluate` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise |
-| command behaviour | `codegate_semantic.semantic.Lookup` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome — `looked-up` otherwise |
-| command behaviour | `codegate_semantic.semantic.Suggest` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome — `suggested` otherwise |
-| command behaviour | `codegate_semantic.semantic.ValidateSnapshot` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise |
+| command behaviour | `codegate_semantic.semantic.Assess` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `assessed` otherwise |
+| command behaviour | `codegate_semantic.semantic.Capabilities` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `listed` otherwise |
+| command behaviour | `codegate_semantic.semantic.Collect` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `collected` otherwise |
+| command behaviour | `codegate_semantic.semantic.CollectSource` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `source-observed` otherwise |
+| command behaviour | `codegate_semantic.semantic.Evaluate` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise |
+| command behaviour | `codegate_semantic.semantic.Lookup` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `looked-up` otherwise |
+| command behaviour | `codegate_semantic.semantic.Suggest` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `suggested` otherwise |
+| command behaviour | `codegate_semantic.semantic.ValidateSnapshot` | kept an obligation by a typed response (`response:`) | given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `validation-observed` otherwise |
 
 ## Refused — not represented by this synthesis
 

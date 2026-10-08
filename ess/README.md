@@ -1,7 +1,7 @@
 # Dependency evaluation contract
 
 This is a draft ESS contract for Codegate's first offline dependency-analysis slice.
-It uses ESS 0.50.0, `ess/17` direct command responses and `ess-scenario/4` examples.
+It uses ESS 0.56.0, `ess/17` direct command responses and `ess-scenario/4` examples.
 The ESS system version is `v1`; the application wire formats remain experimental
 `codegate-dependency-facts/0.1`, `codegate-dependency-policy/0.1` and
 `codegate-dependency-report/0.1`. This does not stabilize the broader fact IR.

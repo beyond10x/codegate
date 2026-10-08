@@ -530,7 +530,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome — `assessed` otherwise"
+        "contract": "given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `assessed` otherwise"
       }
     },
     {
@@ -549,7 +549,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome — `listed` otherwise"
+        "contract": "given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `listed` otherwise"
       }
     },
     {
@@ -568,7 +568,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome — `collected` otherwise"
+        "contract": "given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `collected` otherwise"
       }
     },
     {
@@ -587,7 +587,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise"
+        "contract": "given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `source-observed` otherwise"
       }
     },
     {
@@ -606,7 +606,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise"
+        "contract": "given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise"
       }
     },
     {
@@ -625,7 +625,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome — `looked-up` otherwise"
+        "contract": "given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `looked-up` otherwise"
       }
     },
     {
@@ -644,7 +644,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome — `suggested` otherwise"
+        "contract": "given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `suggested` otherwise"
       }
     },
     {
@@ -663,7 +663,7 @@
           "class": "undetermined",
           "construct": "a typed response (`response:`)"
         },
-        "contract": "given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise"
+        "contract": "given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `validation-observed` otherwise"
       }
     },
     {

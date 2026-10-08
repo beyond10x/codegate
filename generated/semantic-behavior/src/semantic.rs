@@ -1580,7 +1580,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome — `assessed` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Assess` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `assessed` otherwise.
     pub trait AssessBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Assess`.
         ///
@@ -1596,7 +1596,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome — `listed` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Capabilities` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `listed` otherwise.
     pub trait CapabilitiesBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Capabilities`.
         ///
@@ -1612,7 +1612,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome — `collected` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Collect` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `collected` otherwise.
     pub trait CollectBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Collect`.
         ///
@@ -1628,7 +1628,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome — `source-observed` otherwise.
+    /// Contract: given `codegate_semantic.semantic.CollectSource` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `source-observed` otherwise.
     pub trait CollectSourceBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.CollectSource`.
         ///
@@ -1644,7 +1644,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome — `evaluated` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Evaluate` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `evaluated` otherwise.
     pub trait EvaluateBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Evaluate`.
         ///
@@ -1660,7 +1660,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome — `looked-up` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Lookup` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `looked-up` otherwise.
     pub trait LookupBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Lookup`.
         ///
@@ -1676,7 +1676,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome — `suggested` otherwise.
+    /// Contract: given `codegate_semantic.semantic.Suggest` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `suggested` otherwise.
     pub trait SuggestBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.Suggest`.
         ///
@@ -1692,7 +1692,7 @@ pub mod obligations {
     ///
     /// Why it is not generated: kept an obligation by a typed response (`response:`).
     ///
-    /// Contract: given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome — `validation-observed` otherwise.
+    /// Contract: given `codegate_semantic.semantic.ValidateSnapshot` input, decide and enact exactly one outcome. Declared outcomes (declaration order, not selection precedence): `validation-observed` otherwise.
     pub trait ValidateSnapshotBehavior {
         /// Decides and enacts exactly one declared outcome of `codegate_semantic.semantic.ValidateSnapshot`.
         ///
