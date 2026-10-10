@@ -5,6 +5,13 @@ produce facts; shared analyses and checkers consume validated IR. The first offl
 dependency evaluator, source collection and rich-fact admission are implemented.
 Declaration/dependency language bindings remain implementation work.
 
+## Serves
+
+This repository advances these objectives from `atlas/ROADMAP.md`:
+
+- O2: code-quality checks are declared in ESS and evaluated as data over validated facts, and each verdict carries its conformance evidence; a missing fact is never a passing check.
+- O6: the fact IR and checkers measure the code the fleet changes, giving improvements a before and after to be re-measured against.
+
 ## Engineering rules
 
 - Use managed worktrees. Keep the primary checkout clean.
