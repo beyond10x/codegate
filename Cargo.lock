@@ -269,8 +269,8 @@ dependencies = [
 
 [[package]]
 name = "ess-compiler"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
  "ess-domain",
  "ess-primitives",
@@ -281,70 +281,94 @@ dependencies = [
 
 [[package]]
 name = "ess-conformance"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
  "ess-compiler",
  "ess-domain",
  "ess-gen",
  "ess-primitives",
+ "ess-yaml",
  "serde",
  "serde_json",
- "serde_yaml",
  "sha2",
 ]
 
 [[package]]
 name = "ess-domain"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
  "ess-primitives",
+ "ess-yaml",
  "schemars",
  "serde",
  "serde_json",
- "serde_yaml",
  "thiserror",
 ]
 
 [[package]]
 name = "ess-gen"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
+dependencies = [
+ "ess-compiler",
+ "ess-domain",
+ "ess-http",
+ "ess-primitives",
+ "ess-transport",
+ "ess-yaml",
+ "pulldown-cmark",
+ "serde",
+ "serde_json",
+ "sha2",
+]
+
+[[package]]
+name = "ess-http"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
  "ess-compiler",
  "ess-domain",
  "ess-primitives",
- "ess-transport",
- "pulldown-cmark",
+ "ess-yaml",
  "serde",
  "serde_json",
- "serde_yaml",
  "sha2",
 ]
 
 [[package]]
 name = "ess-primitives"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
+ "ess-yaml",
  "schemars",
  "serde",
  "serde_json",
- "serde_yaml",
  "thiserror",
 ]
 
 [[package]]
 name = "ess-transport"
-version = "0.56.0"
-source = "git+https://github.com/beyond10x/ess?rev=84ee8d38eb69e3a4507de801fdcb248232ed6e6e#84ee8d38eb69e3a4507de801fdcb248232ed6e6e"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
 dependencies = [
  "ess-compiler",
  "ess-domain",
+ "ess-yaml",
  "serde",
  "serde_json",
- "serde_yaml",
+]
+
+[[package]]
+name = "ess-yaml"
+version = "0.72.0"
+source = "git+https://github.com/beyond10x/ess?rev=5556839c4bed92f6693b75966cd2727583432539#5556839c4bed92f6693b75966cd2727583432539"
+dependencies = [
+ "serde",
+ "serde_norway",
 ]
 
 [[package]]
@@ -815,25 +839,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_norway"
+version = "0.9.42"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e408f29489b5fd500fab51ff1484fc859bb655f32c671f307dcd733b72e8168c"
+dependencies = [
+ "indexmap",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml-norway",
+]
+
+[[package]]
 name = "serde_spanned"
 version = "0.6.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bf41e0cfaf7226dca15e8197172c295a782857fcb97fad1808a166870dee75a3"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "serde_yaml"
-version = "0.9.34+deprecated"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
-dependencies = [
- "indexmap",
- "itoa",
- "ryu",
- "serde",
- "unsafe-libyaml",
 ]
 
 [[package]]
@@ -1081,10 +1105,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d245f478577f809a851594d02313b640fb437e0bb33866753cff937863096954"
 
 [[package]]
-name = "unsafe-libyaml"
-version = "0.2.11"
+name = "unsafe-libyaml-norway"
+version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
+checksum = "b39abd59bf32521c7f2301b52d05a6a2c975b6003521cbd0c6dc1582f0a22104"
 
 [[package]]
 name = "url"

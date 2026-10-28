@@ -94,10 +94,10 @@ macro_rules! identity {
 }
 identity!(CodegateDependencyUnitId, UnitId);
 identity!(CodegateDependencyEdgeId, EdgeId);
-enumeration!(CodegateDependencyCoverageStatus, CoverageStatus, V0=>Complete, V1=>Failed, V2=>Partial, V3=>Unsupported);
-enumeration!(CodegateDependencyDependencyKind, DependencyKind, V0=>Build, V1=>Runtime, V2=>Test);
-enumeration!(CodegateDependencyVerdict, Verdict, V0=>Error, V1=>Fail, V2=>Incomplete, V3=>Pass, V4=>Unsupported);
-enumeration!(CodegateDependencyDiagnosticCode, DiagnosticCode, V0=>ConfigurationMismatch,V1=>DanglingSource,V2=>DanglingTarget,V3=>DuplicateEdge,V4=>DuplicateUnit,V5=>EmptyIdentity,V6=>FailedCoverage,V7=>InvalidCoverage,V8=>InvalidFormat,V9=>InvalidPolicy,V10=>InvalidTarget,V11=>PartialCoverage,V12=>SourceMismatch,V13=>UnsupportedCoverage);
+enumeration!(CodegateDependencyCoverageStatus, CoverageStatus, Complete=>Complete, Failed=>Failed, Partial=>Partial, Unsupported=>Unsupported);
+enumeration!(CodegateDependencyDependencyKind, DependencyKind, Build=>Build, Runtime=>Runtime, Test=>Test);
+enumeration!(CodegateDependencyVerdict, Verdict, Error=>Error, Fail=>Fail, Incomplete=>Incomplete, Pass=>Pass, Unsupported=>Unsupported);
+enumeration!(CodegateDependencyDiagnosticCode, DiagnosticCode, ConfigurationMismatch=>ConfigurationMismatch,DanglingSource=>DanglingSource,DanglingTarget=>DanglingTarget,DuplicateEdge=>DuplicateEdge,DuplicateUnit=>DuplicateUnit,EmptyIdentity=>EmptyIdentity,FailedCoverage=>FailedCoverage,InvalidCoverage=>InvalidCoverage,InvalidFormat=>InvalidFormat,InvalidPolicy=>InvalidPolicy,InvalidTarget=>InvalidTarget,PartialCoverage=>PartialCoverage,SourceMismatch=>SourceMismatch,UnsupportedCoverage=>UnsupportedCoverage);
 record!(CodegateDependencyCoverage, Coverage, status, gaps);
 record!(CodegateDependencyUnit, Unit, id, language);
 record!(
