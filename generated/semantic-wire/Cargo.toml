@@ -8,9 +8,9 @@ publish = false
 path = "types.rs"
 
 [dependencies]
-serde = { version = "=1.0.229", features = ["derive"] }
-serde_json = { version = "=1.0.151" }
-time = { version = "=0.3.45", features = ["formatting", "parsing"] }
+serde = { version = "^1.0.229", features = ["derive"] }
+serde_json = { version = "^1.0.151" }
+time = { version = "^0.3.45", features = ["formatting", "parsing"] }
 
 [features]
 default = ["exact-numbers"]

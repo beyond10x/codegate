@@ -91,7 +91,7 @@ macro_rules! identity {
         }
     };
 }
-enumeration!(CodegateSemanticSemanticApiEligibility, ApiEligibility, V0 => Eligible, V1 => Ineligible, V2 => Unknown);
+enumeration!(CodegateSemanticSemanticApiEligibility, ApiEligibility, Eligible => Eligible, Ineligible => Ineligible, Unknown => Unknown);
 record!(
     CodegateSemanticSemanticBuildSelection,
     BuildSelection,
@@ -107,7 +107,7 @@ record!(
     build_profiles,
     configuration_files
 );
-enumeration!(CodegateSemanticSemanticBuildSystem, BuildSystem, V0 => Cargo, V1 => GoModules, V2 => Gradle, V3 => Maven);
+enumeration!(CodegateSemanticSemanticBuildSystem, BuildSystem, Cargo => Cargo, GoModules => GoModules, Gradle => Gradle, Maven => Maven);
 record!(
     CodegateSemanticSemanticCall,
     Call,
@@ -117,7 +117,7 @@ record!(
     dynamic_dispatch,
     evidence
 );
-enumeration!(CodegateSemanticSemanticCollectionMode, CollectionMode, V0 => Semantic, V1 => SourceOnly);
+enumeration!(CodegateSemanticSemanticCollectionMode, CollectionMode, Semantic => Semantic, SourceOnly => SourceOnly);
 record!(
     CodegateSemanticSemanticCollectionRequest,
     CollectionRequest,
@@ -127,7 +127,7 @@ record!(
     mode,
     timeout_milliseconds
 );
-enumeration!(CodegateSemanticSemanticCompleteness, Completeness, V0 => Complete, V1 => Failed, V2 => NotApplicable, V3 => Partial, V4 => Unsupported);
+enumeration!(CodegateSemanticSemanticCompleteness, Completeness, Complete => Complete, Failed => Failed, NotApplicable => NotApplicable, Partial => Partial, Unsupported => Unsupported);
 identity!(CodegateSemanticSemanticConfigurationId, ConfigurationId);
 record!(
     CodegateSemanticSemanticCoverage,
@@ -139,7 +139,7 @@ record!(
     gaps,
     applicability_reason
 );
-enumeration!(CodegateSemanticSemanticDecisionKind, DecisionKind, V0 => CaseBranch, V1 => CatchBranch, V2 => ConditionalBranch, V3 => GoSelectCase, V4 => Loop, V5 => RustTryPropagation, V6 => ShortCircuitAnd, V7 => ShortCircuitOr, V8 => Ternary);
+enumeration!(CodegateSemanticSemanticDecisionKind, DecisionKind, CaseBranch => CaseBranch, CatchBranch => CatchBranch, ConditionalBranch => ConditionalBranch, GoSelectCase => GoSelectCase, Loop => Loop, RustTryPropagation => RustTryPropagation, ShortCircuitAnd => ShortCircuitAnd, ShortCircuitOr => ShortCircuitOr, Ternary => Ternary);
 record!(
     CodegateSemanticSemanticDecisionPoint,
     DecisionPoint,
@@ -162,7 +162,7 @@ record!(
     evidence
 );
 identity!(CodegateSemanticSemanticDeclarationId, DeclarationId);
-enumeration!(CodegateSemanticSemanticDeclarationKind, DeclarationKind, V0 => Constant, V1 => Constructor, V2 => Field, V3 => Function, V4 => Interface, V5 => Method, V6 => Module, V7 => Namespace, V8 => Package, V9 => Parameter, V10 => Trait, V11 => Type, V12 => Variable);
+enumeration!(CodegateSemanticSemanticDeclarationKind, DeclarationKind, Constant => Constant, Constructor => Constructor, Field => Field, Function => Function, Interface => Interface, Method => Method, Module => Module, Namespace => Namespace, Package => Package, Parameter => Parameter, Trait => Trait, Type => Type, Variable => Variable);
 record!(
     CodegateSemanticSemanticDependency,
     Dependency,
@@ -172,7 +172,7 @@ record!(
     kind,
     evidence
 );
-enumeration!(CodegateSemanticSemanticDependencyKind, DependencyKind, V0 => Build, V1 => Runtime, V2 => Test);
+enumeration!(CodegateSemanticSemanticDependencyKind, DependencyKind, Build => Build, Runtime => Runtime, Test => Test);
 record!(
     CodegateSemanticSemanticEffect,
     Effect,
@@ -181,7 +181,7 @@ record!(
     related_declaration,
     evidence
 );
-enumeration!(CodegateSemanticSemanticEffectKind, EffectKind, V0 => AbruptExit, V1 => AllocationInLoop, V2 => DiscardedResult, V3 => GoDefer, V4 => GoUncheckedTypeAssertion, V5 => LargeValueCopy, V6 => MissingCapacity, V7 => Nondeterminism, V8 => PathConstruction, V9 => ProcessExecution, V10 => Reflection, V11 => SqlConstruction, V12 => StringConcatenationInLoop, V13 => UnsafeOperation, V14 => WeakCryptography);
+enumeration!(CodegateSemanticSemanticEffectKind, EffectKind, AbruptExit => AbruptExit, AllocationInLoop => AllocationInLoop, DiscardedResult => DiscardedResult, GoDefer => GoDefer, GoUncheckedTypeAssertion => GoUncheckedTypeAssertion, LargeValueCopy => LargeValueCopy, MissingCapacity => MissingCapacity, Nondeterminism => Nondeterminism, PathConstruction => PathConstruction, ProcessExecution => ProcessExecution, Reflection => Reflection, SqlConstruction => SqlConstruction, StringConcatenationInLoop => StringConcatenationInLoop, UnsafeOperation => UnsafeOperation, WeakCryptography => WeakCryptography);
 record!(
     CodegateSemanticSemanticEvidence,
     Evidence,
@@ -195,7 +195,7 @@ record!(
     basis,
     gaps
 );
-enumeration!(CodegateSemanticSemanticFactFamily, FactFamily, V0 => Calls, V1 => Decisions, V2 => Declarations, V3 => Dependencies, V4 => Documentation, V5 => Effects, V6 => ExecutionCoverage, V7 => FrameworkDeclarations, V8 => FrameworkWiring, V9 => Implementations, V10 => Occurrences, V11 => References, V12 => Sources, V13 => Structure, V14 => Tests);
+enumeration!(CodegateSemanticSemanticFactFamily, FactFamily, Calls => Calls, Decisions => Decisions, Declarations => Declarations, Dependencies => Dependencies, Documentation => Documentation, Effects => Effects, ExecutionCoverage => ExecutionCoverage, FrameworkDeclarations => FrameworkDeclarations, FrameworkWiring => FrameworkWiring, Implementations => Implementations, Occurrences => Occurrences, References => References, Sources => Sources, Structure => Structure, Tests => Tests);
 identity!(CodegateSemanticSemanticFactId, FactId);
 record!(
     CodegateSemanticSemanticFactSnapshot,
@@ -235,9 +235,9 @@ record!(
     configuration_profile,
     evidence
 );
-enumeration!(CodegateSemanticSemanticFrameworkKind, FrameworkKind, V0 => Bean, V1 => ConfigurationReference, V2 => InjectionBinding, V3 => InjectionCandidate, V4 => InjectionPoint, V5 => Producer, V6 => Qualifier, V7 => RestResource, V8 => RestRoute, V9 => TransactionDeclaration);
+enumeration!(CodegateSemanticSemanticFrameworkKind, FrameworkKind, Bean => Bean, ConfigurationReference => ConfigurationReference, InjectionBinding => InjectionBinding, InjectionCandidate => InjectionCandidate, InjectionPoint => InjectionPoint, Producer => Producer, Qualifier => Qualifier, RestResource => RestResource, RestRoute => RestRoute, TransactionDeclaration => TransactionDeclaration);
 record!(CodegateSemanticSemanticGap, Gap, code, reason, location);
-enumeration!(CodegateSemanticSemanticGapCode, GapCode, V0 => AmbiguousInjection, V1 => AmbiguousSymbol, V2 => AugmentationRequired, V3 => ConditionalCompilation, V4 => DynamicDispatch, V5 => GeneratedSources, V6 => IdentityMismatch, V7 => InvalidFact, V8 => InvalidFormat, V9 => InvalidPolicy, V10 => MacroExpansion, V11 => MissingBuildSelection, V12 => MissingClasspath, V13 => MissingTool, V14 => PartialCollection, V15 => ProgrammaticLookup, V16 => SourceChangedDuringCollection, V17 => StaleEvidence, V18 => SyntaxError, V19 => ToolFailure, V20 => ToolTimeout, V21 => UnknownUnit, V22 => UnresolvedSymbol, V23 => UnsupportedCapability);
+enumeration!(CodegateSemanticSemanticGapCode, GapCode, AmbiguousInjection => AmbiguousInjection, AmbiguousSymbol => AmbiguousSymbol, AugmentationRequired => AugmentationRequired, ConditionalCompilation => ConditionalCompilation, DynamicDispatch => DynamicDispatch, GeneratedSources => GeneratedSources, IdentityMismatch => IdentityMismatch, InvalidFact => InvalidFact, InvalidFormat => InvalidFormat, InvalidPolicy => InvalidPolicy, MacroExpansion => MacroExpansion, MissingBuildSelection => MissingBuildSelection, MissingClasspath => MissingClasspath, MissingTool => MissingTool, PartialCollection => PartialCollection, ProgrammaticLookup => ProgrammaticLookup, SourceChangedDuringCollection => SourceChangedDuringCollection, StaleEvidence => StaleEvidence, SyntaxError => SyntaxError, ToolFailure => ToolFailure, ToolTimeout => ToolTimeout, UnknownUnit => UnknownUnit, UnresolvedSymbol => UnresolvedSymbol, UnsupportedCapability => UnsupportedCapability);
 record!(
     CodegateSemanticSemanticImplementation,
     Implementation,
@@ -246,8 +246,8 @@ record!(
     candidates,
     evidence
 );
-enumeration!(CodegateSemanticSemanticLanguage, Language, V0 => Go, V1 => Java, V2 => Rust);
-enumeration!(CodegateSemanticSemanticLineClass, LineClass, V0 => Blank, V1 => Code, V2 => Comment, V3 => Mixed);
+enumeration!(CodegateSemanticSemanticLanguage, Language, Go => Go, Java => Java, Rust => Rust);
+enumeration!(CodegateSemanticSemanticLineClass, LineClass, Blank => Blank, Code => Code, Comment => Comment, Mixed => Mixed);
 record!(
     CodegateSemanticSemanticManifest,
     Manifest,
@@ -265,7 +265,7 @@ record!(
     role,
     evidence
 );
-enumeration!(CodegateSemanticSemanticOccurrenceRole, OccurrenceRole, V0 => Annotation, V1 => Definition, V2 => DocumentationReference, V3 => Import, V4 => Invocation, V5 => Read, V6 => TypeUse, V7 => Write);
+enumeration!(CodegateSemanticSemanticOccurrenceRole, OccurrenceRole, Annotation => Annotation, Definition => Definition, DocumentationReference => DocumentationReference, Import => Import, Invocation => Invocation, Read => Read, TypeUse => TypeUse, Write => Write);
 record!(
     CodegateSemanticSemanticQualifier,
     Qualifier,
@@ -282,10 +282,10 @@ record!(
     candidates,
     evidence
 );
-enumeration!(CodegateSemanticSemanticResolution, Resolution, V0 => Resolved, V1 => SyntacticCandidate, V2 => Unresolved);
-enumeration!(CodegateSemanticSemanticResolutionBasis, ResolutionBasis, V0 => DeclaredFramework, V1 => LanguageServer, V2 => MatchedBuildEvidence, V3 => SourceStructure);
+enumeration!(CodegateSemanticSemanticResolution, Resolution, Resolved => Resolved, SyntacticCandidate => SyntacticCandidate, Unresolved => Unresolved);
+enumeration!(CodegateSemanticSemanticResolutionBasis, ResolutionBasis, DeclaredFramework => DeclaredFramework, LanguageServer => LanguageServer, MatchedBuildEvidence => MatchedBuildEvidence, SourceStructure => SourceStructure);
 identity!(CodegateSemanticSemanticSnapshotId, SnapshotId);
-enumeration!(CodegateSemanticSemanticSourceClass, SourceClass, V0 => BuildConfiguration, V1 => Generated, V2 => GeneratedTest, V3 => Production, V4 => Test);
+enumeration!(CodegateSemanticSemanticSourceClass, SourceClass, BuildConfiguration => BuildConfiguration, Generated => Generated, GeneratedTest => GeneratedTest, Production => Production, Test => Test);
 record!(
     CodegateSemanticSemanticSourceFile,
     SourceFile,
@@ -305,7 +305,7 @@ record!(
     end_byte,
     classification
 );
-enumeration!(CodegateSemanticSemanticSourceOrigin, SourceOrigin, V0 => ExternalBuildEvidence, V1 => TrackedClean, V2 => TrackedDirty, V3 => Untracked);
+enumeration!(CodegateSemanticSemanticSourceOrigin, SourceOrigin, ExternalBuildEvidence => ExternalBuildEvidence, TrackedClean => TrackedClean, TrackedDirty => TrackedDirty, Untracked => Untracked);
 record!(
     CodegateSemanticSemanticSourceRange,
     SourceRange,
@@ -335,7 +335,7 @@ record!(
     files,
     manifests
 );
-enumeration!(CodegateSemanticSemanticStructureKind, StructureKind, V0 => Allocation, V1 => Body, V2 => DebtMarker, V3 => Documentation, V4 => Field, V5 => InterfaceMember, V6 => Loop, V7 => NamingSignal, V8 => NestingRegion, V9 => Parameter, V10 => PublicApiMember, V11 => ReturnStatement, V12 => TestCase);
+enumeration!(CodegateSemanticSemanticStructureKind, StructureKind, Allocation => Allocation, Body => Body, DebtMarker => DebtMarker, Documentation => Documentation, Field => Field, InterfaceMember => InterfaceMember, Loop => Loop, NamingSignal => NamingSignal, NestingRegion => NestingRegion, Parameter => Parameter, PublicApiMember => PublicApiMember, ReturnStatement => ReturnStatement, TestCase => TestCase);
 record!(
     CodegateSemanticSemanticStructureObservation,
     StructureObservation,
@@ -346,7 +346,7 @@ record!(
     text,
     evidence
 );
-enumeration!(CodegateSemanticSemanticTestKind, TestKind, V0 => Benchmark, V1 => Fuzz, V2 => Integration, V3 => Parameterized, V4 => TableDriven, V5 => Unit);
+enumeration!(CodegateSemanticSemanticTestKind, TestKind, Benchmark => Benchmark, Fuzz => Fuzz, Integration => Integration, Parameterized => Parameterized, TableDriven => TableDriven, Unit => Unit);
 record!(
     CodegateSemanticSemanticToolObservation,
     ToolObservation,
@@ -370,7 +370,7 @@ record!(
     evidence
 );
 identity!(CodegateSemanticSemanticUnitId, UnitId);
-enumeration!(CodegateSemanticSemanticVisibility, Visibility, V0 => Internal, V1 => Package, V2 => Private, V3 => Protected, V4 => Public, V5 => Unknown);
+enumeration!(CodegateSemanticSemanticVisibility, Visibility, Internal => Internal, Package => Package, Private => Private, Protected => Protected, Public => Public, Unknown => Unknown);
 
 // This visitor runs before Value can collapse duplicate keys. Serde's default
 // recursion limit also bounds nested JSON, including values later refused by schema.
