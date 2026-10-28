@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Move the ESS pin to 0.72.0 (was 0.56.0): CI, gate, `ess-inputs.yaml` and the
+- Move the ESS pin to 0.74.0 (was 0.56.0): CI, gate, `ess-inputs.yaml` and the
   test-only `ess-conformance`/`ess-primitives` rev; wire contracts regenerated.
 
 ## 0.3.1
