@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.3.2
 
 - Move the ESS pin to 0.75.0 (was 0.56.0): CI, gate, `ess-inputs.yaml` and the
   test-only `ess-conformance`/`ess-primitives` rev; wire contracts regenerated.
+- No change to CLI or library behavior.
 
 ## 0.3.1
 
